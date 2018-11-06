@@ -8,11 +8,13 @@
 
 /* Begin PBXBuildFile section */
 		6BB2EBF321920DBA00BCDA34 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BB2EBF221920DBA00BCDA34 /* AppDelegate.swift */; };
-		6BB2EBF521920DBA00BCDA34 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BB2EBF421920DBA00BCDA34 /* ViewController.swift */; };
+		6BB2EBF521920DBA00BCDA34 /* ImagePreviewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BB2EBF421920DBA00BCDA34 /* ImagePreviewController.swift */; };
 		6BB2EBF821920DBA00BCDA34 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6BB2EBF621920DBA00BCDA34 /* Main.storyboard */; };
 		6BB2EBFA21920DBB00BCDA34 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6BB2EBF921920DBB00BCDA34 /* Assets.xcassets */; };
 		6BB2EBFD21920DBB00BCDA34 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6BB2EBFB21920DBB00BCDA34 /* LaunchScreen.storyboard */; };
 		6BB2EC0821920DBC00BCDA34 /* Lock_MessageTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BB2EC0721920DBC00BCDA34 /* Lock_MessageTests.swift */; };
+		6BB2EC1521921B8D00BCDA34 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6BB2EC1421921B8D00BCDA34 /* Localizable.strings */; };
+		6BB2EC17219220E400BCDA34 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6BB2EC16219220E400BCDA34 /* InfoPlist.strings */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -28,7 +30,7 @@
 /* Begin PBXFileReference section */
 		6BB2EBEF21920DBA00BCDA34 /* Lock Message.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Lock Message.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6BB2EBF221920DBA00BCDA34 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		6BB2EBF421920DBA00BCDA34 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		6BB2EBF421920DBA00BCDA34 /* ImagePreviewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePreviewController.swift; sourceTree = "<group>"; };
 		6BB2EBF721920DBA00BCDA34 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		6BB2EBF921920DBB00BCDA34 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		6BB2EBFC21920DBB00BCDA34 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -36,6 +38,8 @@
 		6BB2EC0321920DBC00BCDA34 /* Lock MessageTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Lock MessageTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6BB2EC0721920DBC00BCDA34 /* Lock_MessageTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Lock_MessageTests.swift; sourceTree = "<group>"; };
 		6BB2EC0921920DBC00BCDA34 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6BB2EC1421921B8D00BCDA34 /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
+		6BB2EC16219220E400BCDA34 /* InfoPlist.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = InfoPlist.strings; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,11 +82,10 @@
 			isa = PBXGroup;
 			children = (
 				6BB2EBF221920DBA00BCDA34 /* AppDelegate.swift */,
-				6BB2EBF421920DBA00BCDA34 /* ViewController.swift */,
-				6BB2EBF621920DBA00BCDA34 /* Main.storyboard */,
-				6BB2EBF921920DBB00BCDA34 /* Assets.xcassets */,
-				6BB2EBFB21920DBB00BCDA34 /* LaunchScreen.storyboard */,
+				6BB2EBF421920DBA00BCDA34 /* ImagePreviewController.swift */,
+				6BB2EC1321921B4E00BCDA34 /* Resources */,
 				6BB2EBFE21920DBB00BCDA34 /* Info.plist */,
+				6BB2EC16219220E400BCDA34 /* InfoPlist.strings */,
 			);
 			path = "Lock Message";
 			sourceTree = "<group>";
@@ -94,6 +97,17 @@
 				6BB2EC0921920DBC00BCDA34 /* Info.plist */,
 			);
 			path = "Lock MessageTests";
+			sourceTree = "<group>";
+		};
+		6BB2EC1321921B4E00BCDA34 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				6BB2EBF921920DBB00BCDA34 /* Assets.xcassets */,
+				6BB2EBFB21920DBB00BCDA34 /* LaunchScreen.storyboard */,
+				6BB2EC1421921B8D00BCDA34 /* Localizable.strings */,
+				6BB2EBF621920DBA00BCDA34 /* Main.storyboard */,
+			);
+			path = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -178,8 +192,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				6BB2EBFD21920DBB00BCDA34 /* LaunchScreen.storyboard in Resources */,
+				6BB2EC1521921B8D00BCDA34 /* Localizable.strings in Resources */,
 				6BB2EBFA21920DBB00BCDA34 /* Assets.xcassets in Resources */,
 				6BB2EBF821920DBA00BCDA34 /* Main.storyboard in Resources */,
+				6BB2EC17219220E400BCDA34 /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -197,7 +213,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6BB2EBF521920DBA00BCDA34 /* ViewController.swift in Sources */,
+				6BB2EBF521920DBA00BCDA34 /* ImagePreviewController.swift in Sources */,
 				6BB2EBF321920DBA00BCDA34 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -360,7 +376,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = "Lock Message/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -368,6 +385,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.staveleytaylor.ben.Lock-Message";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -377,7 +395,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = "Lock Message/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -385,6 +404,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.staveleytaylor.ben.Lock-Message";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
