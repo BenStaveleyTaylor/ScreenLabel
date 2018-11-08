@@ -170,7 +170,7 @@ class ImagePreviewController: UIViewController {
             bleed = 25
         }
 
-        let duration: TimeInterval = animated ? 0.3 : 0
+        let duration: TimeInterval = animated ? Constants.defaultAnimationDuration : 0
         UIView.animate(withDuration: duration) {
             self.renderableViewHeightConstraint.constant = 2 * bleed
             self.renderableViewWidthConstraint.constant = 2 * bleed
