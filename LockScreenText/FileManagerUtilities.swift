@@ -23,13 +23,15 @@ enum FileManagerUtilities {
         let url = URL(fileURLWithPath: documents).appendingPathComponent(directory.rawValue, isDirectory: true)
         
         if alwaysCreate {
-            do {
-                if try !url.checkResourceIsReachable() {
-                    let fileManager = FileManager.default
+            let exists: Bool = (try? url.checkResourceIsReachable()) ?? false
+
+            if !exists {
+                let fileManager = FileManager.default
+                do {
                     try fileManager.createDirectory(at: url, withIntermediateDirectories: true, attributes: nil)
+                } catch {
+                    os_log("Error creating directory %@ (%@)", directory.rawValue, "\(error)")
                 }
-            } catch {
-                os_log("Error creating directory %@ (%@)", directory.rawValue, "\(error)")
             }
         }
         

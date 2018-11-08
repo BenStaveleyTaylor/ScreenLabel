@@ -37,6 +37,7 @@ class ImagePreviewController: UIViewController {
     @IBOutlet private weak var renderableViewWidthConstraint: NSLayoutConstraint!
     
     // Local properties
+    private var settings: Settings!
     private var viewStyle: ViewStyle = .still
 
     // true if the controls are all hidden to show the whole view
@@ -45,6 +46,13 @@ class ImagePreviewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+
+        // Read the saved data
+        self.settings = Settings.readFromUserDefaults()
+        if self.settings == nil {
+            // Nothing saved; start new defaults
+            self.settings = Settings()
+        }
 
         self.title = NSLocalizedString("ProductTitle", comment: "")
         self.helpButton.title = NSLocalizedString("HelpButtonText", comment: "")
@@ -60,7 +68,7 @@ class ImagePreviewController: UIViewController {
         // TODO: read from settings
         self.viewStyleSegmentControl.selectedSegmentIndex = ViewStyle.still.rawValue
 
-        self.formatText()
+        self.applySettings()
     }
 
     @IBAction private func onHelpTapped(_ sender: Any) {
@@ -136,8 +144,8 @@ class ImagePreviewController: UIViewController {
 
     // MARK: Private methods
 
-    // Apply formatting to the label
-    private func formatText() {
+    // Apply saved settings
+    private func applySettings() {
         self.textLabel.textColor = UIColor.white
 
         self.textBoxView.layer.backgroundColor = UIColor(white: 0, alpha: 0.5).cgColor
@@ -200,7 +208,9 @@ extension ImagePreviewController: UIImagePickerControllerDelegate {
         self.imageView.image = originalImage
 
         // Save image so we can reload it on next app start
-        ImageUtilities.saveAsJpeg(image: originalImage, nameWithoutExtension: "LastPickedImage")
+        let savedUrl = ImageUtilities.saveAsJpeg(image: originalImage, nameWithoutExtension: "LastPickedImage")
+        self.settings.imageName = savedUrl?.lastPathComponent
+        try? self.settings.writeToUserDefaults()
 
         self.dismiss(animated: true)
     }

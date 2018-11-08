@@ -140,7 +140,7 @@ opt_in_rules:
   - force_unwrapping
   - function_default_parameter_at_end
   - implicit_return
-  - implicitly_unwrapped_optional
+#  - implicitly_unwrapped_optional
   - joined_default_parameter
   - let_var_whitespace
   - literal_expression_end_indentation
@@ -155,7 +155,7 @@ opt_in_rules:
 #  - no_grouping_extension
 #  - number_separator
 #  - object_literal
-  - operator_usage_whitespace
+#  - operator_usage_whitespace
   - overridden_super_call
   - override_in_extension
   - pattern_matching_keywords
