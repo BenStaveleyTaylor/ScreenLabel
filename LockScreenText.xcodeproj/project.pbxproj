@@ -34,6 +34,7 @@
 		6B7059232194470300CD3178 /* ImageUtilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageUtilities.swift; sourceTree = "<group>"; };
 		6B7059252194499500CD3178 /* FileManagerUtilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileManagerUtilities.swift; sourceTree = "<group>"; };
 		6B70592721947FC800CD3178 /* AlertUtilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertUtilities.swift; sourceTree = "<group>"; };
+		6B70592A219495F700CD3178 /* swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text; path = swiftlint.yml; sourceTree = "<group>"; };
 		6BB2EBEF21920DBA00BCDA34 /* LockScreenText.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LockScreenText.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6BB2EBF221920DBA00BCDA34 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		6BB2EBF421920DBA00BCDA34 /* ImagePreviewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePreviewController.swift; sourceTree = "<group>"; };
@@ -69,6 +70,7 @@
 		6BB2EBE621920DBA00BCDA34 = {
 			isa = PBXGroup;
 			children = (
+				6B70592A219495F700CD3178 /* swiftlint.yml */,
 				6BB2EBF121920DBA00BCDA34 /* LockScreenText */,
 				6BB2EC0621920DBC00BCDA34 /* LockScreenTextTests */,
 				6BB2EBF021920DBA00BCDA34 /* Products */,
@@ -235,7 +237,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "swiftlint lint\n";
+			shellScript = "swiftlint lint --config swiftlint.yml\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 

@@ -10,7 +10,7 @@ import UIKit
 
 enum AlertUtilities {
 
-    static func showMessage(title: String?, body: String?, fromViewController vc: UIViewController? = nil) {
+    static func showMessage(title: String?, body: String?, fromViewController presentingVC: UIViewController? = nil) {
 
         let alertController = UIAlertController(title: title, message: body, preferredStyle: .alert)
 
@@ -20,7 +20,7 @@ enum AlertUtilities {
         alertController.addAction(okAction)
 
         // Use root VC if none specified
-        let presentingVC = vc ?? UIApplication.shared.windows.first?.rootViewController
+        let presentingVC = presentingVC ?? UIApplication.shared.windows.first?.rootViewController
         presentingVC?.present(alertController, animated: true, completion: nil)
     }
 

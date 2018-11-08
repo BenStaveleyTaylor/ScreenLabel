@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  ImagePreviewController.swift
 //  LockScreenText
 //
 //  Created by Ben Staveley-Taylor on 06/11/2018.
@@ -20,21 +20,21 @@ class ImagePreviewController: UIViewController {
 
     // Nib properties
 
-    @IBOutlet weak var imageView: UIImageView!
-    @IBOutlet weak var textLabel: UILabel!
-    @IBOutlet weak var textBoxView: UIView!
-    @IBOutlet weak var helpButton: UIBarButtonItem!
-    @IBOutlet weak var choosePhotoButton: UIBarButtonItem!
-    @IBOutlet weak var plainColourButton: UIBarButtonItem!
-    @IBOutlet weak var saveButton: UIBarButtonItem!
-    @IBOutlet weak var viewStyleSegmentControl: UISegmentedControl!
-    @IBOutlet var imageTapRecognizer: UITapGestureRecognizer!
-    @IBOutlet var textTapRecognizer: UITapGestureRecognizer!
+    @IBOutlet private weak var imageView: UIImageView!
+    @IBOutlet private weak var textLabel: UILabel!
+    @IBOutlet private weak var textBoxView: UIView!
+    @IBOutlet private weak var helpButton: UIBarButtonItem!
+    @IBOutlet private weak var choosePhotoButton: UIBarButtonItem!
+    @IBOutlet private weak var plainColourButton: UIBarButtonItem!
+    @IBOutlet private weak var saveButton: UIBarButtonItem!
+    @IBOutlet private weak var viewStyleSegmentControl: UISegmentedControl!
+    @IBOutlet private var imageTapRecognizer: UITapGestureRecognizer!
+    @IBOutlet private var textTapRecognizer: UITapGestureRecognizer!
 
     // Render this view to get the lock screen image
-    @IBOutlet weak var renderableView: UIView!
-    @IBOutlet weak var renderableViewHeightConstraint: NSLayoutConstraint!
-    @IBOutlet weak var renderableViewWidthConstraint: NSLayoutConstraint!
+    @IBOutlet private weak var renderableView: UIView!
+    @IBOutlet private weak var renderableViewHeightConstraint: NSLayoutConstraint!
+    @IBOutlet private weak var renderableViewWidthConstraint: NSLayoutConstraint!
     
     // Local properties
     private var viewStyle: ViewStyle = .still
@@ -63,10 +63,10 @@ class ImagePreviewController: UIViewController {
         self.formatText()
     }
 
-    @IBAction func onHelpTapped(_ sender: Any) {
+    @IBAction private func onHelpTapped(_ sender: Any) {
     }
 
-    @IBAction func onChoosePhotoTapped(_ sender: Any) {
+    @IBAction private func onChoosePhotoTapped(_ sender: Any) {
 
         let picker = UIImagePickerController()
         picker.sourceType = .photoLibrary
@@ -80,10 +80,10 @@ class ImagePreviewController: UIViewController {
         self.present(picker, animated: true)
     }
 
-    @IBAction func onPlainColourTapped(_ sender: Any) {
+    @IBAction private func onPlainColourTapped(_ sender: Any) {
     }
 
-    @IBAction func onSaveTapped(_ sender: Any) {
+    @IBAction private func onSaveTapped(_ sender: Any) {
 
         // Save the renderable view into the photo album then tell the user what to do
 
@@ -116,20 +116,18 @@ class ImagePreviewController: UIViewController {
 
     // When the image area is tapped, toggle the chrome off so the whole thing can be seen
     // Another tap toggles it back on again
-    @objc
-    @IBAction func onImageTapped(_ sender: Any) {
+    @IBAction private func onImageTapped(_ sender: Any) {
         self.togglePreviewMode()
         return
     }
 
     // Open the text attributes controller
-    @objc
-    @IBAction func onTextTapped(_ sender: Any) {
+    @IBAction private func onTextTapped(_ sender: Any) {
         return
     }
 
     // Segmented control changed from still to perspective
-    @IBAction func onViewStyleChanged(_ sender: Any) {
+    @IBAction private func onViewStyleChanged(_ sender: Any) {
 
         if let viewStyle = ViewStyle(rawValue: self.viewStyleSegmentControl.selectedSegmentIndex) {
             self.setViewStyle(viewStyle, animated: true)
@@ -174,8 +172,8 @@ class ImagePreviewController: UIViewController {
 
         let duration: TimeInterval = animated ? 0.3 : 0
         UIView.animate(withDuration: duration) {
-            self.renderableViewHeightConstraint.constant = 2*bleed
-            self.renderableViewWidthConstraint.constant = 2*bleed
+            self.renderableViewHeightConstraint.constant = 2 * bleed
+            self.renderableViewWidthConstraint.constant = 2 * bleed
             self.view.layoutIfNeeded()
         }
     }
