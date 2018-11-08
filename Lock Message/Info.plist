@@ -42,6 +42,8 @@
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
 	<key>NSPhotoLibraryUsageDescription</key>
-	<string>PhotoLibraryAccessDescription</string>
+	<string>Select photos to edit to make a Lock Screen</string>
+	<key>NSPhotoLibraryAddUsageDescription</key>
+	<string>Save edited Lock Screen images back to Photos</string>
 </dict>
 </plist>

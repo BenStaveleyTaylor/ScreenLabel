@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6B7059222192FB2600CD3178 /* ExportActivityItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B7059212192FB2600CD3178 /* ExportActivityItem.swift */; };
+		6B7059242194470300CD3178 /* ImageUtilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B7059232194470300CD3178 /* ImageUtilities.swift */; };
+		6B7059262194499500CD3178 /* FileManagerUtilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B7059252194499500CD3178 /* FileManagerUtilities.swift */; };
+		6B70592821947FC800CD3178 /* AlertUtilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B70592721947FC800CD3178 /* AlertUtilities.swift */; };
 		6BB2EBF321920DBA00BCDA34 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BB2EBF221920DBA00BCDA34 /* AppDelegate.swift */; };
 		6BB2EBF521920DBA00BCDA34 /* ImagePreviewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BB2EBF421920DBA00BCDA34 /* ImagePreviewController.swift */; };
 		6BB2EBF821920DBA00BCDA34 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6BB2EBF621920DBA00BCDA34 /* Main.storyboard */; };
@@ -28,6 +32,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		6B7059212192FB2600CD3178 /* ExportActivityItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExportActivityItem.swift; sourceTree = "<group>"; };
+		6B7059232194470300CD3178 /* ImageUtilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageUtilities.swift; sourceTree = "<group>"; };
+		6B7059252194499500CD3178 /* FileManagerUtilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileManagerUtilities.swift; sourceTree = "<group>"; };
+		6B70592721947FC800CD3178 /* AlertUtilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertUtilities.swift; sourceTree = "<group>"; };
 		6BB2EBEF21920DBA00BCDA34 /* Lock Message.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Lock Message.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6BB2EBF221920DBA00BCDA34 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		6BB2EBF421920DBA00BCDA34 /* ImagePreviewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePreviewController.swift; sourceTree = "<group>"; };
@@ -86,6 +94,10 @@
 				6BB2EC1321921B4E00BCDA34 /* Resources */,
 				6BB2EBFE21920DBB00BCDA34 /* Info.plist */,
 				6BB2EC16219220E400BCDA34 /* InfoPlist.strings */,
+				6B7059212192FB2600CD3178 /* ExportActivityItem.swift */,
+				6B7059232194470300CD3178 /* ImageUtilities.swift */,
+				6B7059252194499500CD3178 /* FileManagerUtilities.swift */,
+				6B70592721947FC800CD3178 /* AlertUtilities.swift */,
 			);
 			path = "Lock Message";
 			sourceTree = "<group>";
@@ -213,8 +225,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6B7059222192FB2600CD3178 /* ExportActivityItem.swift in Sources */,
 				6BB2EBF521920DBA00BCDA34 /* ImagePreviewController.swift in Sources */,
+				6B7059242194470300CD3178 /* ImageUtilities.swift in Sources */,
+				6B7059262194499500CD3178 /* FileManagerUtilities.swift in Sources */,
 				6BB2EBF321920DBA00BCDA34 /* AppDelegate.swift in Sources */,
+				6B70592821947FC800CD3178 /* AlertUtilities.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -11,3 +11,17 @@
 "HelpButtonText" = "Help";
 
 "MessagePromptText" = "Tap here to create your message";
+
+"ActivitySubjectDescription" = "Image prepared by the %@ app";
+
+"StillViewStyle" = "Still";
+
+"PerspectiveViewStyle" = "Perspective";
+
+"FailedAlertTitle" = "Failed";
+
+"SavedAlertTitle" = "Saved";
+
+"HowToSetWallpaperBody" = "Switch to Photos, tap the footer Share button and choose the \"Use as Wallpaper\" action";
+
+"OK" = "OK";

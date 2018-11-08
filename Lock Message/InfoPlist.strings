@@ -6,4 +6,6 @@
   Copyright © 2018 Ben Staveley-Taylor. All rights reserved.
 */
 
-"PhotoLibraryAccessDescription" = "Select photos to use as wallpapers";
+"NSPhotoLibraryUsageDescription" = "Select photos to edit to make a Lock Screen";
+
+"NSPhotoLibraryAddUsageDescription" = "Save edited Lock Screen images back to Photos";
