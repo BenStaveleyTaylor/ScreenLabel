@@ -1,6 +1,6 @@
 //
 //  FileManagerUtilities.swift
-//  Lock Message
+//  LockScreenText
 //
 //  Created by Ben Staveley-Taylor on 08/11/2018.
 //  Copyright © 2018 Ben Staveley-Taylor. All rights reserved.
@@ -10,8 +10,8 @@ import Foundation
 import os.log
 
 enum KnownDirectory: String {
-    case Debug
-    case Images
+    case debug = "Debug"
+    case images = "Images"
 }
 
 enum FileManagerUtilities {
@@ -28,8 +28,7 @@ enum FileManagerUtilities {
                     let fileManager = FileManager.default
                     try fileManager.createDirectory(at: url, withIntermediateDirectories: true, attributes: nil)
                 }
-            }
-            catch {
+            } catch {
                 os_log("Error creating directory %@ (%@)", directory.rawValue, "\(error)")
             }
         }

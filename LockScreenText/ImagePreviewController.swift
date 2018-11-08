@@ -1,6 +1,6 @@
 //
 //  ViewController.swift
-//  Lock Message
+//  LockScreenText
 //
 //  Created by Ben Staveley-Taylor on 06/11/2018.
 //  Copyright © 2018 Ben Staveley-Taylor. All rights reserved.
@@ -73,7 +73,8 @@ class ImagePreviewController: UIViewController {
         picker.mediaTypes = [kUTTypeImage as String]        // Still images only
         picker.delegate = self
 
-        // We'll have to do our own cropping -- what you get back from UIImagePickerController is relatively low resolution
+        // We'll have to do our own cropping -- what you get back from
+        // UIImagePickerController is relatively low resolution
         picker.allowsEditing = false
 
         self.present(picker, animated: true)
@@ -105,8 +106,7 @@ class ImagePreviewController: UIViewController {
 
             title = NSLocalizedString("FailedAlertTitle", comment: "")
             body = error.localizedDescription
-        }
-        else {
+        } else {
             title = NSLocalizedString("SavedAlertTitle", comment: "")
             body = NSLocalizedString("HowToSetWallpaperBody", comment: "")
         }
@@ -184,10 +184,11 @@ class ImagePreviewController: UIViewController {
 
 extension ImagePreviewController: UIImagePickerControllerDelegate {
 
-
-    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+    func imagePickerController(_ picker: UIImagePickerController,
+                               didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey: Any]) {
 
         // info[.editedImage] should be what we want, but it is very low quality
+        // I'll have to implement scale and crop at some point
 
         guard let originalImage = info[.originalImage] as? UIImage else {
             return
@@ -197,20 +198,14 @@ extension ImagePreviewController: UIImagePickerControllerDelegate {
         //            // TODO: Perform the crop
         //        }
 
-        // TODO: Save image to file store
-        // https://www.hackingwithswift.com/read/10/4/importing-photos-with-uiimagepickercontroller
-
-        let data = originalImage.pngData()
-        let documents = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0]
-        let url = URL(fileURLWithPath: documents).appendingPathComponent("pickedImage.png")
-        try? data?.write(to: url)
-
-        // Assign the image into the UI
+        // Display the image in the UI
         self.imageView.image = originalImage
+
+        // Save image so we can reload it on next app start
+        ImageUtilities.saveAsJpeg(image: originalImage, nameWithoutExtension: "LastPickedImage")
 
         self.dismiss(animated: true)
     }
-
 }
 
 // Required by UIImagePickerController

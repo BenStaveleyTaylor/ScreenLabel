@@ -2,6 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "self:Lock Message.xcodeproj">
+      location = "self:/Volumes/Development_12c/Personal/Lock Message/LockScreenText.xcodeproj">
    </FileRef>
 </Workspace>

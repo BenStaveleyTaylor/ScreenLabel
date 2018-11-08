@@ -1,6 +1,6 @@
 //
 //  ImageUtilities.swift
-//  Lock Message
+//  LockScreenText
 //
 //  Created by Ben Staveley-Taylor on 08/11/2018.
 //  Copyright © 2018 Ben Staveley-Taylor. All rights reserved.
@@ -17,7 +17,7 @@ enum ImageUtilities {
 
         let renderer = UIGraphicsImageRenderer(size: view.bounds.size)
 
-        let image = renderer.image { ctx in
+        let image = renderer.image { _ in
             view.drawHierarchy(in: view.bounds, afterScreenUpdates: true)
         }
 
@@ -33,6 +33,7 @@ enum ImageUtilities {
     ///     but they may see it if they export the image to a Mac.
     ///   - quality: 0 to 1. The default is 0.85 (85%) which is fairly good
     /// - Returns: The URL that was written; nil if error
+    @discardableResult
     static func saveAsJpeg(image: UIImage, nameWithoutExtension: String, quality: CGFloat = 0.85) -> URL? {
 
         // Constrain to legal bounds
@@ -41,13 +42,12 @@ enum ImageUtilities {
 
         let data = image.jpegData(compressionQuality: validatedQuality)
 
-        let directory = FileManagerUtilities.urlForKnownDirectory(KnownDirectory.Images)
+        let directory = FileManagerUtilities.urlForKnownDirectory(KnownDirectory.images)
         let file = directory.appendingPathComponent(nameWithExtension, isDirectory: false)
 
         do {
             try data?.write(to: file)
-        }
-        catch {
+        } catch {
             os_log("Error writing to %@ (%@)", "\(file)", "\(error)")
             return nil
         }

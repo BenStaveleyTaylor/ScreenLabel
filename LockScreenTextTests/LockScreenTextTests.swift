@@ -1,15 +1,15 @@
 //
-//  Lock_MessageTests.swift
-//  Lock MessageTests
+//  LockScreenTextTests.swift
+//  LockScreenTextTests
 //
 //  Created by Ben Staveley-Taylor on 06/11/2018.
 //  Copyright © 2018 Ben Staveley-Taylor. All rights reserved.
 //
 
 import XCTest
-@testable import Lock_Message
+@testable import LockScreenText
 
-class Lock_MessageTests: XCTestCase {
+class LockScreenTextTests: XCTestCase {
 
     override func setUp() {
         // Put setup code here. This method is called before the invocation of each test method in the class.
