@@ -9,6 +9,7 @@
 import UIKit
 import MobileCoreServices
 import os.log
+import EFColorPicker
 
 @objc
 class ImagePreviewController: UIViewController {
@@ -97,7 +98,6 @@ class ImagePreviewController: UIViewController {
     @IBAction private func onBleedStyleChanged(_ sender: Any) {
 
         if let bleedStyle = BleedStyle(rawValue: self.bleedStyleSegmentControl.selectedSegmentIndex) {
-
             self.settingsCoordinator.imageBleedStyle = bleedStyle
         }
     }
@@ -180,6 +180,5 @@ extension ImagePreviewController: SettingsCoordinatorViewDelegate {
         self.textBoxView.layer.backgroundColor = coordinator.boxColour.cgColor
         self.textBoxView.layer.borderWidth = coordinator.boxBorderWidth
         self.textBoxView.layer.cornerRadius = coordinator.boxCornerRadius
-
     }
 }

@@ -8,9 +8,8 @@
 # Download swiftlint from https://github.com/realm/SwiftLint/releases/latest > SwiftLint.pkg
 # and run the installer package.
 # In Terminal:
-#   cd to the workspace directory (where OracleContent.xcworkspace is)
+#   cd to the workspace directory
 #   swiftlint lint --config dev/swiftlint.yml
-
 
 # ----------------------------------------------------------------------------
 # What gets scanned:
@@ -28,12 +27,6 @@ excluded:
 # ----------------------------------------------------------------------------
 # For a list of available rules, run 'swiftlint rules'
 # Also see https://github.com/realm/SwiftLint/blob/master/Rules.md
-
-# The ExpectedSwiftLintVersion line is parsed by the build phase script to figure
-# out what version of SwiftLint was used during development. Do not reformat other
-# than editing the number between the single quotes:
-# ExpectedSwiftLintVersion: '0.27.0'
-# Run 'swiftlint version' to check the version installed, and make it match.
 # ----------------------------------------------------------------------------
 
 # Normally enabled rules not to apply:

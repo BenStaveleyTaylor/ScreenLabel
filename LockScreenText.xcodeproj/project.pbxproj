@@ -10,6 +10,7 @@
 		6B11DA102194A1D5001FAD4C /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B11DA0F2194A1D5001FAD4C /* Settings.swift */; };
 		6B11DA122194DF9F001FAD4C /* SettingsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B11DA112194DF9F001FAD4C /* SettingsTests.swift */; };
 		6B11DA1421960C6D001FAD4C /* SettingsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B11DA1321960C6D001FAD4C /* SettingsCoordinator.swift */; };
+		6B41489821979DA700BE9E59 /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = 6B41489721979DA700BE9E59 /* Podfile */; };
 		6B7059242194470300CD3178 /* ImageUtilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B7059232194470300CD3178 /* ImageUtilities.swift */; };
 		6B7059262194499500CD3178 /* FileManagerUtilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B7059252194499500CD3178 /* FileManagerUtilities.swift */; };
 		6B70592821947FC800CD3178 /* AlertUtilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B70592721947FC800CD3178 /* AlertUtilities.swift */; };
@@ -21,6 +22,7 @@
 		6BB2EBFD21920DBB00BCDA34 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6BB2EBFB21920DBB00BCDA34 /* LaunchScreen.storyboard */; };
 		6BB2EC1521921B8D00BCDA34 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6BB2EC1421921B8D00BCDA34 /* Localizable.strings */; };
 		6BB2EC17219220E400BCDA34 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6BB2EC16219220E400BCDA34 /* InfoPlist.strings */; };
+		FC71560C74D8C50F0E91087E /* Pods_LockScreenText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 503457CF7F58C2A068B606C6 /* Pods_LockScreenText.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -34,9 +36,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		503457CF7F58C2A068B606C6 /* Pods_LockScreenText.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LockScreenText.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		54D0023314460655A8376C26 /* Pods-LockScreenText.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LockScreenText.release.xcconfig"; path = "Pods/Target Support Files/Pods-LockScreenText/Pods-LockScreenText.release.xcconfig"; sourceTree = "<group>"; };
 		6B11DA0F2194A1D5001FAD4C /* Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
 		6B11DA112194DF9F001FAD4C /* SettingsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTests.swift; sourceTree = "<group>"; };
 		6B11DA1321960C6D001FAD4C /* SettingsCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsCoordinator.swift; sourceTree = "<group>"; };
+		6B41489721979DA700BE9E59 /* Podfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		6B7059232194470300CD3178 /* ImageUtilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageUtilities.swift; sourceTree = "<group>"; };
 		6B7059252194499500CD3178 /* FileManagerUtilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileManagerUtilities.swift; sourceTree = "<group>"; };
 		6B70592721947FC800CD3178 /* AlertUtilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertUtilities.swift; sourceTree = "<group>"; };
@@ -53,6 +58,7 @@
 		6BB2EC0921920DBC00BCDA34 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6BB2EC1421921B8D00BCDA34 /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
 		6BB2EC16219220E400BCDA34 /* InfoPlist.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = InfoPlist.strings; sourceTree = "<group>"; };
+		6D1BFDFAB5DE9951D543D9C1 /* Pods-LockScreenText.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LockScreenText.debug.xcconfig"; path = "Pods/Target Support Files/Pods-LockScreenText/Pods-LockScreenText.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +66,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FC71560C74D8C50F0E91087E /* Pods_LockScreenText.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -76,10 +83,13 @@
 		6BB2EBE621920DBA00BCDA34 = {
 			isa = PBXGroup;
 			children = (
+				6B41489721979DA700BE9E59 /* Podfile */,
 				6B70592A219495F700CD3178 /* swiftlint.yml */,
 				6BB2EBF121920DBA00BCDA34 /* LockScreenText */,
 				6BB2EC0621920DBC00BCDA34 /* LockScreenTextTests */,
 				6BB2EBF021920DBA00BCDA34 /* Products */,
+				BC21F30E59178E4577F91CF9 /* Pods */,
+				F382AB663EAFCBC8E7AB212F /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -130,6 +140,23 @@
 			path = Resources;
 			sourceTree = "<group>";
 		};
+		BC21F30E59178E4577F91CF9 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				6D1BFDFAB5DE9951D543D9C1 /* Pods-LockScreenText.debug.xcconfig */,
+				54D0023314460655A8376C26 /* Pods-LockScreenText.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		F382AB663EAFCBC8E7AB212F /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				503457CF7F58C2A068B606C6 /* Pods_LockScreenText.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -137,10 +164,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 6BB2EC0C21920DBC00BCDA34 /* Build configuration list for PBXNativeTarget "LockScreenText" */;
 			buildPhases = (
+				60E10A862C735A5E9D47DE44 /* [CP] Check Pods Manifest.lock */,
 				6BB2EBEB21920DBA00BCDA34 /* Sources */,
 				6BB2EBEC21920DBA00BCDA34 /* Frameworks */,
 				6B70592921948C5300CD3178 /* Run SwiftLint */,
 				6BB2EBED21920DBA00BCDA34 /* Resources */,
+				56FA73D807E9A63E33520260 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -212,6 +241,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6B41489821979DA700BE9E59 /* Podfile in Resources */,
 				6BB2EBFD21920DBB00BCDA34 /* LaunchScreen.storyboard in Resources */,
 				6BB2EC1521921B8D00BCDA34 /* Localizable.strings in Resources */,
 				6BB2EBFA21920DBB00BCDA34 /* Assets.xcassets in Resources */,
@@ -230,6 +260,50 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		56FA73D807E9A63E33520260 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-LockScreenText/Pods-LockScreenText-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/EFColorPicker/EFColorPicker.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/EFColorPicker.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-LockScreenText/Pods-LockScreenText-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		60E10A862C735A5E9D47DE44 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-LockScreenText-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
 		6B70592921948C5300CD3178 /* Run SwiftLint */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -246,7 +320,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "swiftlint lint --config swiftlint.yml\n";
+			shellScript = "SWIFTLINT=$PODS_ROOT/SwiftLint/swiftlint\n[[ -x $SWIFTLINT ]] || { echo \"error: SwiftLint not found\" ; exit 1 ; }\n$SWIFTLINT lint --config swiftlint.yml\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -422,6 +496,7 @@
 		};
 		6BB2EC0D21920DBC00BCDA34 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6D1BFDFAB5DE9951D543D9C1 /* Pods-LockScreenText.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Manual;
@@ -441,6 +516,7 @@
 		};
 		6BB2EC0E21920DBC00BCDA34 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 54D0023314460655A8376C26 /* Pods-LockScreenText.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Manual;
