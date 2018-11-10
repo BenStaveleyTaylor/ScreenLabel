@@ -55,4 +55,17 @@ enum ImageUtilities {
         return file
     }
 
+    /// Restore a saved JPEG image
+    ///
+    /// - Parameter name: nameWithoutExtension
+    /// - Returns: image
+    static func readSavedJpegImage(nameWithoutExtension: String) -> UIImage? {
+
+        let directory = FileManagerUtilities.urlForKnownDirectory(KnownDirectory.images)
+        let nameWithExtension = nameWithoutExtension.appending(".jpg")
+        let file = directory.appendingPathComponent(nameWithExtension, isDirectory: false)
+
+        return UIImage(contentsOfFile: file.path)
+    }
+
 }

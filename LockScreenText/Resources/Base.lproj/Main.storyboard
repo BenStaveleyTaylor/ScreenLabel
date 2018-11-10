@@ -64,7 +64,7 @@
                                     <segment title="Second"/>
                                 </segments>
                                 <connections>
-                                    <action selector="onViewStyleChanged:" destination="BYZ-38-t0r" eventType="valueChanged" id="tQI-vx-LCP"/>
+                                    <action selector="onBleedStyleChanged:" destination="BYZ-38-t0r" eventType="valueChanged" id="QRp-v3-Zkd"/>
                                 </connections>
                             </segmentedControl>
                         </subviews>
@@ -107,6 +107,7 @@
                     </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
+                        <outlet property="bleedStyleSegmentControl" destination="CCK-k8-LQI" id="znE-GJ-D7b"/>
                         <outlet property="choosePhotoButton" destination="uRv-fb-dld" id="m2x-Ti-Wif"/>
                         <outlet property="helpButton" destination="aq7-Gs-wsB" id="MB5-0Q-iem"/>
                         <outlet property="imageTapRecognizer" destination="kIP-8p-Bz2" id="fTr-j1-zzb"/>
@@ -119,7 +120,6 @@
                         <outlet property="textBoxView" destination="GBZ-oQ-mnU" id="5mk-vJ-EGX"/>
                         <outlet property="textLabel" destination="Zco-QO-wj2" id="TBk-gk-T5I"/>
                         <outlet property="textTapRecognizer" destination="P1A-zI-KD9" id="fi0-Cd-yjE"/>
-                        <outlet property="viewStyleSegmentControl" destination="CCK-k8-LQI" id="Suw-rl-R2p"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

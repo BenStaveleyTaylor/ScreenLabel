@@ -10,11 +10,6 @@ import UIKit
 import MobileCoreServices
 import os.log
 
-// Values of the viewStyleSegmentControl
-enum ViewStyle: Int {
-    case still, perspective
-}
-
 @objc
 class ImagePreviewController: UIViewController {
 
@@ -27,7 +22,7 @@ class ImagePreviewController: UIViewController {
     @IBOutlet private weak var choosePhotoButton: UIBarButtonItem!
     @IBOutlet private weak var plainColourButton: UIBarButtonItem!
     @IBOutlet private weak var saveButton: UIBarButtonItem!
-    @IBOutlet private weak var viewStyleSegmentControl: UISegmentedControl!
+    @IBOutlet private weak var bleedStyleSegmentControl: UISegmentedControl!
     @IBOutlet private var imageTapRecognizer: UITapGestureRecognizer!
     @IBOutlet private var textTapRecognizer: UITapGestureRecognizer!
 
@@ -37,38 +32,26 @@ class ImagePreviewController: UIViewController {
     @IBOutlet private weak var renderableViewWidthConstraint: NSLayoutConstraint!
     
     // Local properties
-    private var settings: Settings!
-    private var viewStyle: ViewStyle = .still
+    private var settingsCoordinator: SettingsCoordinatorProtocol!
 
     // true if the controls are all hidden to show the whole view
     var isInPreviewMode = false
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
-
-        // Read the saved data
-        self.settings = Settings.readFromUserDefaults()
-        if self.settings == nil {
-            // Nothing saved; start new defaults
-            self.settings = Settings()
-        }
 
         self.title = NSLocalizedString("ProductTitle", comment: "")
         self.helpButton.title = NSLocalizedString("HelpButtonText", comment: "")
-        self.imageView.backgroundColor = UIColor.clear
-        self.textLabel.text = NSLocalizedString("MessagePromptText", comment: "")
 
-        self.viewStyleSegmentControl.setTitle(NSLocalizedString("StillViewStyle", comment: ""), forSegmentAt: 0)
-        self.viewStyleSegmentControl.setTitle(NSLocalizedString("PerspectiveViewStyle", comment: ""), forSegmentAt: 1)
+        self.bleedStyleSegmentControl.setTitle(NSLocalizedString("StillBleedStyle", comment: ""),
+                                               forSegmentAt: BleedStyle.still.rawValue)
+        self.bleedStyleSegmentControl.setTitle(NSLocalizedString("PerspectiveBleedStyle", comment: ""),
+                                               forSegmentAt: BleedStyle.perspective.rawValue)
+        self.bleedStyleSegmentControl.layer.cornerRadius = 4
+        self.bleedStyleSegmentControl.layer.masksToBounds = true
 
-        self.viewStyleSegmentControl.layer.cornerRadius = 4
-        self.viewStyleSegmentControl.layer.masksToBounds = true
-
-        // TODO: read from settings
-        self.viewStyleSegmentControl.selectedSegmentIndex = ViewStyle.still.rawValue
-
-        self.applySettings()
+        self.settingsCoordinator = SettingsCoordinator(withDelegate: self)
+        self.settingsDidChange(coordinator: self.settingsCoordinator, animated: false)
     }
 
     @IBAction private func onHelpTapped(_ sender: Any) {
@@ -93,33 +76,9 @@ class ImagePreviewController: UIViewController {
 
     @IBAction private func onSaveTapped(_ sender: Any) {
 
-        // Save the renderable view into the photo album then tell the user what to do
-
+        // Save the renderable view into the photo album
         let image = ImageUtilities.imageFromView(self.renderableView)
-
-        UIImageWriteToSavedPhotosAlbum(image,
-                                       self,
-                                       #selector(image(_:didFinishSavingWithError:contextInfo:)),
-                                       nil)
-    }
-
-    @objc
-    func image(_ image: UIImage, didFinishSavingWithError error: NSError?, contextInfo: Any?) {
-
-        let title: String
-        let body: String
-
-        if let error = error {
-            os_log("Error saving image to Photos (%@)", "\(error)")
-
-            title = NSLocalizedString("FailedAlertTitle", comment: "")
-            body = error.localizedDescription
-        } else {
-            title = NSLocalizedString("SavedAlertTitle", comment: "")
-            body = NSLocalizedString("HowToSetWallpaperBody", comment: "")
-        }
-
-        AlertUtilities.showMessage(title: title, body: body)
+        self.settingsCoordinator.saveToPhotos(image: image)
     }
 
     // When the image area is tapped, toggle the chrome off so the whole thing can be seen
@@ -135,28 +94,21 @@ class ImagePreviewController: UIViewController {
     }
 
     // Segmented control changed from still to perspective
-    @IBAction private func onViewStyleChanged(_ sender: Any) {
+    @IBAction private func onBleedStyleChanged(_ sender: Any) {
 
-        if let viewStyle = ViewStyle(rawValue: self.viewStyleSegmentControl.selectedSegmentIndex) {
-            self.setViewStyle(viewStyle, animated: true)
+        if let bleedStyle = BleedStyle(rawValue: self.bleedStyleSegmentControl.selectedSegmentIndex) {
+
+            self.settingsCoordinator.imageBleedStyle = bleedStyle
         }
     }
 
     // MARK: Private methods
 
-    // Apply saved settings
-    private func applySettings() {
-        self.textLabel.textColor = UIColor.white
-
-        self.textBoxView.layer.backgroundColor = UIColor(white: 0, alpha: 0.5).cgColor
-        self.textBoxView.layer.cornerRadius = 6
-    }
-
     private func togglePreviewMode() {
 
         self.isInPreviewMode.toggle()
 
-        self.viewStyleSegmentControl.isHidden = self.isInPreviewMode
+        self.bleedStyleSegmentControl.isHidden = self.isInPreviewMode
 
         self.navigationController?.setNavigationBarHidden(self.isInPreviewMode, animated: true)
         self.navigationController?.setToolbarHidden(self.isInPreviewMode, animated: true)
@@ -165,12 +117,12 @@ class ImagePreviewController: UIViewController {
         self.textTapRecognizer.isEnabled = !self.isInPreviewMode
     }
 
-    private func setViewStyle(_ viewStyle: ViewStyle, animated: Bool) {
+    private func setBleedStyle(_ bleedStyle: BleedStyle, animated: Bool) {
         // When in perspective mode the image needs to bleed off the visible
         // area by 25 points all round to have material to work with when tilting
 
         let bleed: CGFloat
-        switch viewStyle {
+        switch bleedStyle {
         case .still:
             bleed = 0
 
@@ -200,17 +152,7 @@ extension ImagePreviewController: UIImagePickerControllerDelegate {
             return
         }
 
-        //        if let cropRect = info[.cropRect] as? CGRect {
-        //            // TODO: Perform the crop
-        //        }
-
-        // Display the image in the UI
-        self.imageView.image = originalImage
-
-        // Save image so we can reload it on next app start
-        let savedUrl = ImageUtilities.saveAsJpeg(image: originalImage, nameWithoutExtension: "LastPickedImage")
-        self.settings.imageName = savedUrl?.lastPathComponent
-        try? self.settings.writeToUserDefaults()
+        self.settingsCoordinator.image = originalImage
 
         self.dismiss(animated: true)
     }
@@ -218,3 +160,26 @@ extension ImagePreviewController: UIImagePickerControllerDelegate {
 
 // Required by UIImagePickerController
 extension ImagePreviewController: UINavigationControllerDelegate {}
+
+extension ImagePreviewController: SettingsCoordinatorViewDelegate {
+
+    func settingsDidChange(coordinator: SettingsCoordinatorProtocol, animated: Bool) {
+
+        // Update the UI to show the new settings
+
+        // image will be nil if this is a plain colour
+        self.imageView.image = coordinator.image
+        self.imageView.backgroundColor = coordinator.imageBackgroundColour
+
+        self.bleedStyleSegmentControl.selectedSegmentIndex = coordinator.imageBleedStyle.rawValue
+        self.setBleedStyle(coordinator.imageBleedStyle, animated: animated)
+
+        self.textLabel.text = coordinator.message
+        self.textLabel.textColor = coordinator.textColour
+
+        self.textBoxView.layer.backgroundColor = coordinator.boxColour.cgColor
+        self.textBoxView.layer.borderWidth = coordinator.boxBorderWidth
+        self.textBoxView.layer.cornerRadius = coordinator.boxCornerRadius
+
+    }
+}

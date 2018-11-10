@@ -29,16 +29,16 @@ class SettingsTests: XCTestCase {
         // Create a settings object
         let settings = Settings(version: 2,
                                 imageName: "Total Perspective Vortex",
-                                imageBackground: UIColor.red,
+                                imageBackgroundColour: UIColor.red,
+                                imageBleedStyle: BleedStyle.perspective,
                                 message: "Expect the unexpected",
                                 textFont: testFont,
                                 textAlignment: .right,
                                 textColour: UIColor.green,
                                 boxColour: UIColor.blue,
-                                boxBorderThickness: 0.5,
+                                boxBorderWidth: 0.5,
                                 boxCornerRadius: 10,
-                                boxHorizontalPadding: 15,
-                                boxVerticalPadding: 20,
+                                boxInsets: UIEdgeInsets(top: 1, left: 2, bottom: 3, right: 4),
                                 boxYCentre: 0.75)
 
         // Encode it
@@ -54,16 +54,16 @@ class SettingsTests: XCTestCase {
         // Verify it is the same as the original
         XCTAssertEqual(settings.version, checkSettings!.version)
         XCTAssertEqual(settings.imageName, checkSettings!.imageName)
-        XCTAssertEqual(settings.imageBackground, checkSettings!.imageBackground)
+        XCTAssertEqual(settings.imageBackgroundColour, checkSettings!.imageBackgroundColour)
+        XCTAssertEqual(settings.imageBleedStyle, checkSettings!.imageBleedStyle)
         XCTAssertEqual(settings.message, checkSettings!.message)
         XCTAssertEqual(settings.textFont, checkSettings!.textFont)
         XCTAssertEqual(settings.textAlignment, checkSettings!.textAlignment)
         XCTAssertEqual(settings.textColour, checkSettings!.textColour)
         XCTAssertEqual(settings.boxColour, checkSettings!.boxColour)
-        XCTAssertEqual(settings.boxBorderThickness, checkSettings!.boxBorderThickness)
+        XCTAssertEqual(settings.boxBorderWidth, checkSettings!.boxBorderWidth)
         XCTAssertEqual(settings.boxCornerRadius, checkSettings!.boxCornerRadius)
-        XCTAssertEqual(settings.boxHorizontalPadding, checkSettings!.boxHorizontalPadding)
-        XCTAssertEqual(settings.boxVerticalPadding, checkSettings!.boxVerticalPadding)
+        XCTAssertEqual(settings.boxInsets, checkSettings!.boxInsets)
         XCTAssertEqual(settings.boxYCentre, checkSettings!.boxYCentre)
     }
 }

@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		6B11DA102194A1D5001FAD4C /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B11DA0F2194A1D5001FAD4C /* Settings.swift */; };
 		6B11DA122194DF9F001FAD4C /* SettingsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B11DA112194DF9F001FAD4C /* SettingsTests.swift */; };
+		6B11DA1421960C6D001FAD4C /* SettingsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B11DA1321960C6D001FAD4C /* SettingsCoordinator.swift */; };
 		6B7059242194470300CD3178 /* ImageUtilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B7059232194470300CD3178 /* ImageUtilities.swift */; };
 		6B7059262194499500CD3178 /* FileManagerUtilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B7059252194499500CD3178 /* FileManagerUtilities.swift */; };
 		6B70592821947FC800CD3178 /* AlertUtilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B70592721947FC800CD3178 /* AlertUtilities.swift */; };
@@ -35,6 +36,7 @@
 /* Begin PBXFileReference section */
 		6B11DA0F2194A1D5001FAD4C /* Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
 		6B11DA112194DF9F001FAD4C /* SettingsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTests.swift; sourceTree = "<group>"; };
+		6B11DA1321960C6D001FAD4C /* SettingsCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsCoordinator.swift; sourceTree = "<group>"; };
 		6B7059232194470300CD3178 /* ImageUtilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageUtilities.swift; sourceTree = "<group>"; };
 		6B7059252194499500CD3178 /* FileManagerUtilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileManagerUtilities.swift; sourceTree = "<group>"; };
 		6B70592721947FC800CD3178 /* AlertUtilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertUtilities.swift; sourceTree = "<group>"; };
@@ -101,6 +103,7 @@
 				6B7059232194470300CD3178 /* ImageUtilities.swift */,
 				6BB2EC1321921B4E00BCDA34 /* Resources */,
 				6B11DA0F2194A1D5001FAD4C /* Settings.swift */,
+				6B11DA1321960C6D001FAD4C /* SettingsCoordinator.swift */,
 			);
 			path = LockScreenText;
 			sourceTree = "<group>";
@@ -253,6 +256,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6BB2EBF521920DBA00BCDA34 /* ImagePreviewController.swift in Sources */,
+				6B11DA1421960C6D001FAD4C /* SettingsCoordinator.swift in Sources */,
 				6B7059242194470300CD3178 /* ImageUtilities.swift in Sources */,
 				6B7059262194499500CD3178 /* FileManagerUtilities.swift in Sources */,
 				6BB2EBF321920DBA00BCDA34 /* AppDelegate.swift in Sources */,

@@ -14,9 +14,9 @@
 
 "ActivitySubjectDescription" = "Image prepared by the %@ app";
 
-"StillViewStyle" = "Still";
+"StillBleedStyle" = "Still";
 
-"PerspectiveViewStyle" = "Perspective";
+"PerspectiveBleedStyle" = "Perspective";
 
 "FailedAlertTitle" = "Failed";
 
