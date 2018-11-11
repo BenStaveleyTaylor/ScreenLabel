@@ -41,12 +41,12 @@ public class ImagePreviewController: UIViewController {
     public override func viewDidLoad() {
         super.viewDidLoad()
 
-        self.title = NSLocalizedString("ProductTitle", comment: "")
-        self.helpButton.title = NSLocalizedString("HelpButtonText", comment: "")
+        self.title = Resources.localizedString("ProductTitle")
+        self.helpButton.title = Resources.localizedString("HelpButtonText")
 
-        self.bleedStyleSegmentControl.setTitle(NSLocalizedString("StillBleedStyle", comment: ""),
+        self.bleedStyleSegmentControl.setTitle(Resources.localizedString("StillBleedStyle"),
                                                forSegmentAt: BleedStyle.still.rawValue)
-        self.bleedStyleSegmentControl.setTitle(NSLocalizedString("PerspectiveBleedStyle", comment: ""),
+        self.bleedStyleSegmentControl.setTitle(Resources.localizedString("PerspectiveBleedStyle"),
                                                forSegmentAt: BleedStyle.perspective.rawValue)
         self.bleedStyleSegmentControl.layer.cornerRadius = 4
         self.bleedStyleSegmentControl.layer.masksToBounds = true
@@ -142,8 +142,9 @@ public class ImagePreviewController: UIViewController {
 
 extension ImagePreviewController: UIImagePickerControllerDelegate {
 
-    private func imagePickerController(_ picker: UIImagePickerController,
-                                       didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey: Any]) {
+    @objc
+    public func imagePickerController(_ picker: UIImagePickerController,
+                                      didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey: Any]) {
 
         // info[.editedImage] should be what we want, but it is very low quality
         // I'll have to implement scale and crop at some point

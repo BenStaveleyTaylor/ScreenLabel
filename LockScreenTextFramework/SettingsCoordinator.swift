@@ -34,7 +34,7 @@ protocol SettingsCoordinatorProtocol {
     func saveToPhotos(image: UIImage)
 }
 
-class SettingsCoordinator {
+class SettingsCoordinator: NSObject {
 
     private weak var delegate: SettingsCoordinatorViewDelegate?
     private var settings: Settings
@@ -70,11 +70,11 @@ class SettingsCoordinator {
         if let error = error {
             os_log("Error saving image to Photos (%@)", "\(error)")
 
-            title = NSLocalizedString("FailedAlertTitle", comment: "")
+            title = Resources.localizedString("FailedAlertTitle")
             body = error.localizedDescription
         } else {
-            title = NSLocalizedString("SavedAlertTitle", comment: "")
-            body = NSLocalizedString("HowToSetWallpaperBody", comment: "")
+            title = Resources.localizedString("SavedAlertTitle")
+            body = Resources.localizedString("HowToSetWallpaperBody")
         }
 
         AlertUtilities.showMessage(title: title, body: body)

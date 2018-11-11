@@ -19,7 +19,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mAn-8c-p3c">
-                                <rect key="frame" x="0.0" y="10" width="375" height="667"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <subviews>
                                     <imageView contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="wvr-oY-b6M">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
@@ -70,12 +70,12 @@
                         </subviews>
                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="mAn-8c-p3c" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="6bQ-My-usE"/>
+                            <constraint firstItem="mAn-8c-p3c" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="6bQ-My-usE"/>
                             <constraint firstItem="CCK-k8-LQI" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="20" id="aS6-Xr-pDp"/>
                             <constraint firstItem="mAn-8c-p3c" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" id="hsO-Ug-wxa"/>
                             <constraint firstItem="CCK-k8-LQI" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="nhU-Av-DX0"/>
                             <constraint firstItem="mAn-8c-p3c" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" id="u2V-vE-aUA"/>
-                            <constraint firstItem="mAn-8c-p3c" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="zak-td-SbV"/>
+                            <constraint firstItem="mAn-8c-p3c" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="zak-td-SbV"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>

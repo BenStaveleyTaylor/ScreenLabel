@@ -32,16 +32,6 @@
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "6BB2EC0221920DBC00BCDA34"
-               BuildableName = "LockScreenTextTests.xctest"
-               BlueprintName = "LockScreenTextTests"
-               ReferencedContainer = "container:LockScreenText.xcodeproj">
-            </BuildableReference>
-         </TestableReference>
-         <TestableReference
-            skipped = "NO">
-            <BuildableReference
-               BuildableIdentifier = "primary"
                BlueprintIdentifier = "6B047A012198898800B79CFA"
                BuildableName = "LockScreenTextFrameworkTests.xctest"
                BlueprintName = "LockScreenTextFrameworkTests"

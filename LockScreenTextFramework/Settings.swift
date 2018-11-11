@@ -72,7 +72,7 @@ struct Settings: Codable {
                   imageName: nil,           // Nil imageName means it's a plain colour lock screen (background colour only)
                   imageBackgroundColour: UIColor.white,
                   imageBleedStyle: .still,
-                  message: NSLocalizedString("MessagePromptText", comment: ""),
+                  message: Resources.localizedString("MessagePromptText"),
                   textFont: UIFont.systemFont(ofSize: UIFont.smallSystemFontSize),
                   textAlignment: .center,
                   textColour: UIColor.white,
@@ -98,19 +98,19 @@ struct Settings: Codable {
          boxInsets: UIEdgeInsets,
          boxYCentre: CGFloat) {
 
-        self.version =              version
-        self.imageName =            imageName
-        self.imageBackgroundColour =      imageBackgroundColour
-        self.imageBleedStyle =      imageBleedStyle
-        self.message =              message
-        self.textFont =             textFont
-        self.textAlignment =        textAlignment
-        self.textColour =           textColour
-        self.boxColour =            boxColour
-        self.boxBorderWidth =   boxBorderWidth
-        self.boxCornerRadius =      boxCornerRadius
-        self.boxInsets =            boxInsets
-        self.boxYCentre =           boxYCentre
+        self.version =                  version
+        self.imageName =                imageName
+        self.imageBackgroundColour =    imageBackgroundColour
+        self.imageBleedStyle =          imageBleedStyle
+        self.message =                  message
+        self.textFont =                 textFont
+        self.textAlignment =            textAlignment
+        self.textColour =               textColour
+        self.boxColour =                boxColour
+        self.boxBorderWidth =           boxBorderWidth
+        self.boxCornerRadius =          boxCornerRadius
+        self.boxInsets =                boxInsets
+        self.boxYCentre =               boxYCentre
     }
 
     // We have to implement encode and decode because we have some non-codable properties
@@ -121,7 +121,7 @@ struct Settings: Codable {
 
         let version =               try? container.decode(Int.self, forKey: .version)
         let imageName =             try? container.decode(String.self, forKey: .imageName)
-        let imageBackgroundColour =       try? container.decode(CodableColor.self, forKey: .imageBackgroundColour).toUIColor()
+        let imageBackgroundColour = try? container.decode(CodableColor.self, forKey: .imageBackgroundColour).toUIColor()
         let imageBleedStyle =       try? container.decode(BleedStyle.self, forKey: .imageBleedStyle)
         let message =               try? container.decode(String.self, forKey: .message)
 
@@ -135,25 +135,25 @@ struct Settings: Codable {
 
         let textColour =            try? container.decode(CodableColor.self, forKey: .textColour).toUIColor()
         let boxColour =             try? container.decode(CodableColor.self, forKey: .boxColour).toUIColor()
-        let boxBorderWidth =    try? container.decode(CGFloat.self, forKey: .boxBorderWidth)
+        let boxBorderWidth =        try? container.decode(CGFloat.self, forKey: .boxBorderWidth)
         let boxCornerRadius =       try? container.decode(CGFloat.self, forKey: .boxCornerRadius)
         let boxInsets =             try? container.decode(CodableEdgeInsets.self, forKey: .boxInsets).toUIEdgeInsets()
         let boxYCentre =            try? container.decode(CGFloat.self, forKey: .boxYCentre)
 
         // If any individual setting was missing, use the default value
-        self.init(version: version                          ?? Settings.defaults.version,
-                  imageName: imageName,                     // nil is ok
-                  imageBackgroundColour: imageBackgroundColour          ?? Settings.defaults.imageBackgroundColour,
-                  imageBleedStyle: imageBleedStyle          ?? Settings.defaults.imageBleedStyle,
-                  message: message                          ?? Settings.defaults.message,
-                  textFont: textFont                        ?? Settings.defaults.textFont,
-                  textAlignment: textAlignment              ?? Settings.defaults.textAlignment,
-                  textColour: textColour                    ?? Settings.defaults.textColour,
-                  boxColour: boxColour                      ?? Settings.defaults.boxColour,
-                  boxBorderWidth: boxBorderWidth    ?? Settings.defaults.boxBorderWidth,
-                  boxCornerRadius: boxCornerRadius          ?? Settings.defaults.boxCornerRadius,
-                  boxInsets: boxInsets                      ?? Settings.defaults.boxInsets,
-                  boxYCentre: boxYCentre                    ?? Settings.defaults.boxYCentre)
+        self.init(version: version                              ?? Settings.defaults.version,
+                  imageName: imageName,                         // nil is ok
+                  imageBackgroundColour: imageBackgroundColour  ?? Settings.defaults.imageBackgroundColour,
+                  imageBleedStyle: imageBleedStyle              ?? Settings.defaults.imageBleedStyle,
+                  message: message                              ?? Settings.defaults.message,
+                  textFont: textFont                            ?? Settings.defaults.textFont,
+                  textAlignment: textAlignment                  ?? Settings.defaults.textAlignment,
+                  textColour: textColour                        ?? Settings.defaults.textColour,
+                  boxColour: boxColour                          ?? Settings.defaults.boxColour,
+                  boxBorderWidth: boxBorderWidth                ?? Settings.defaults.boxBorderWidth,
+                  boxCornerRadius: boxCornerRadius              ?? Settings.defaults.boxCornerRadius,
+                  boxInsets: boxInsets                          ?? Settings.defaults.boxInsets,
+                  boxYCentre: boxYCentre                        ?? Settings.defaults.boxYCentre)
     }
 
     func encode(to encoder: Encoder) throws {

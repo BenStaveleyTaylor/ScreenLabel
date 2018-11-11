@@ -14,7 +14,7 @@ enum AlertUtilities {
 
         let alertController = UIAlertController(title: title, message: body, preferredStyle: .alert)
 
-        let okAction = UIAlertAction(title: NSLocalizedString("OK", comment: ""),
+        let okAction = UIAlertAction(title: Resources.localizedString("OK"),
                                      style: .default,
                                      handler: nil)
         alertController.addAction(okAction)
