@@ -22,7 +22,9 @@
 
 excluded:
   - LockScreenTextTests/
+  - LockScreenTextFrameworkTests/
   - Pods/
+  - MyPlayground.playground/
 
 # ----------------------------------------------------------------------------
 # For a list of available rules, run 'swiftlint rules'

@@ -9,7 +9,10 @@
 /* Begin PBXBuildFile section */
 		0AB80848AD46D3C4086BB103D8A338B3 /* EFHSBView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1540599647724D525F432ED14BEF5510 /* EFHSBView.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
 		0BAAEF42CB1F941F0E6660D853DDAA8C /* EFColorSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFA571231CC5F4E4A171D6CF65C03572 /* EFColorSelectionView.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		0D4CC49ED108EFA258D68D5667D89E5D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D6DFF15000AFE2A371BF499E7AFDA808 /* Foundation.framework */; };
 		0E6CD290528F7E3B9EDB2024873B851F /* EFColorWheelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A57D2041B1E4B176A3BFBBFA5648DD9F /* EFColorWheelView.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		65AC7DB6AE9A725E2D753FA11ED174B6 /* Pods-LockScreenTextFramework-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 24CBD59CCA02B0FCA7AAFA56F5FB7B00 /* Pods-LockScreenTextFramework-dummy.m */; };
+		89CBE669B613C3E2967DCA2ABBB149E5 /* Pods-LockScreenTextFramework-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 138DDA9132A86CC596B35A93F3981896 /* Pods-LockScreenTextFramework-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		8C860FB3CA76AA4F4513F79116C24F5B /* EFColorSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C26EF0F405F33649FFCEF2524341FF3C /* EFColorSelectionViewController.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
 		976DFBD59112B484DC234B9C1D6966E3 /* EFColorPicker-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 28F479191F0DDB3319ED833D78340B43 /* EFColorPicker-dummy.m */; };
 		97DAF8BE4FA9C8D942A2189CE1BBD026 /* EFColorUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74A73666B9ACC44A2E2EB035BF68DDA2 /* EFColorUtils.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
@@ -19,14 +22,21 @@
 		B3FC3A1C1CDB3EC1088F8636D6F23254 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D6DFF15000AFE2A371BF499E7AFDA808 /* Foundation.framework */; };
 		BC6B066463A10473CCA2E3DDB00D099E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D6DFF15000AFE2A371BF499E7AFDA808 /* Foundation.framework */; };
 		C8A0CEA3E329C8923E6E7AD65E82C43C /* EFColorPicker-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = ED5B9BD9F59401985D3E6B05A2C1756F /* EFColorPicker-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		CA9C8CB4A8B58E8D7750A843B5A6CEF0 /* Pods-LockScreenText-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 175D44AB803354CF10D7C4A084FFA4E2 /* Pods-LockScreenText-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		CA9C8CB4A8B58E8D7750A843B5A6CEF0 /* Pods-LockScreenText-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 59F57B1784534977A02572748299B9A0 /* Pods-LockScreenText-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		D18EB88E16EDEE679DF808BD1B794BBF /* EFSliderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3F8C4FEE8D359ACFE0166C83F0F9A02 /* EFSliderView.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		E401375A10284E5AAEB31F3A619B87A0 /* Pods-LockScreenText-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = F473884B5601C999C17C050D8C276EEC /* Pods-LockScreenText-dummy.m */; };
+		E401375A10284E5AAEB31F3A619B87A0 /* Pods-LockScreenText-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = E25FE01F477E79AEE680729EB17A54BB /* Pods-LockScreenText-dummy.m */; };
 		F54E48D135F49DE67EC7D76A4889401E /* EFControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C81B1D3DDF8731F98E9C04A2FDE9BB7 /* EFControl.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
 		F571E6A92E4C0323839D465FE630DF75 /* EFColorComponentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEC5D85617197878E2B2DBC73C7500D6 /* EFColorComponentView.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		04D4D7F4338AE450172A1069078428AA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C1B4FA8EB9FCA20954ADB63553812672;
+			remoteInfo = EFColorPicker;
+		};
 		ADFD71BD9767A7CA8E8D85DD7A14D555 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
@@ -37,37 +47,47 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		06014BDF1E94AA598A328490A6C4783C /* Pods-LockScreenText-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-LockScreenText-acknowledgements.plist"; sourceTree = "<group>"; };
+		080B8EA47B931D26A490E5F349C04179 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		138DDA9132A86CC596B35A93F3981896 /* Pods-LockScreenTextFramework-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-LockScreenTextFramework-umbrella.h"; sourceTree = "<group>"; };
 		1540599647724D525F432ED14BEF5510 /* EFHSBView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = EFHSBView.swift; path = EFColorPicker/Classes/EFHSBView.swift; sourceTree = "<group>"; };
-		175D44AB803354CF10D7C4A084FFA4E2 /* Pods-LockScreenText-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-LockScreenText-umbrella.h"; sourceTree = "<group>"; };
+		24CBD59CCA02B0FCA7AAFA56F5FB7B00 /* Pods-LockScreenTextFramework-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-LockScreenTextFramework-dummy.m"; sourceTree = "<group>"; };
+		27EB69515403294D5624E531C2186893 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		28F479191F0DDB3319ED833D78340B43 /* EFColorPicker-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "EFColorPicker-dummy.m"; sourceTree = "<group>"; };
-		2A2E834D8CA93A6FB2ED8857FC657F5C /* Pods-LockScreenText.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-LockScreenText.debug.xcconfig"; sourceTree = "<group>"; };
 		32E294F28DF3B80EAFFF8F02A7200766 /* EFColorPicker.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = EFColorPicker.xcconfig; sourceTree = "<group>"; };
-		3874ECBB23B304B0A79F18E2DC4F3F85 /* Pods-LockScreenText-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-LockScreenText-resources.sh"; sourceTree = "<group>"; };
+		387CAC94D9BA935C2BED2DD21F219ECA /* Pods_LockScreenText.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_LockScreenText.framework; path = "Pods-LockScreenText.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3CDFC5F33484AA8DF6C2B00813B5B687 /* EFColorView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = EFColorView.swift; path = EFColorPicker/Classes/EFColorView.swift; sourceTree = "<group>"; };
-		49311D707D7F8E78CB13121233CF92B7 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		4A0A72FD5F1684C31CF2D685C26A2F24 /* Pods-LockScreenText.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-LockScreenText.release.xcconfig"; sourceTree = "<group>"; };
+		3EA90F4231A4061A66C2D81B0C1220E1 /* Pods-LockScreenTextFramework-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-LockScreenTextFramework-acknowledgements.plist"; sourceTree = "<group>"; };
+		484841100A28CED7AA306DA151BD7D97 /* Pods-LockScreenText-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-LockScreenText-acknowledgements.plist"; sourceTree = "<group>"; };
 		4C81B1D3DDF8731F98E9C04A2FDE9BB7 /* EFControl.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = EFControl.swift; path = EFColorPicker/Classes/EFControl.swift; sourceTree = "<group>"; };
-		58E8AB71A58C21AB7251E3BB1A0CEF0C /* Pods_LockScreenText.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_LockScreenText.framework; path = "Pods-LockScreenText.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		59CB6B6C32A07D47D2EAD988DC0ABE2D /* Pods-LockScreenText-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-LockScreenText-acknowledgements.markdown"; sourceTree = "<group>"; };
+		59F57B1784534977A02572748299B9A0 /* Pods-LockScreenText-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-LockScreenText-umbrella.h"; sourceTree = "<group>"; };
+		69C076CCA5C8A9B077DFFE9C747EA027 /* Pods-LockScreenTextFramework.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-LockScreenTextFramework.release.xcconfig"; sourceTree = "<group>"; };
 		74A73666B9ACC44A2E2EB035BF68DDA2 /* EFColorUtils.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = EFColorUtils.swift; path = EFColorPicker/Classes/EFColorUtils.swift; sourceTree = "<group>"; };
 		75727A2AF9B60238C1F9A9F7B2E05961 /* EFThumbView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = EFThumbView.swift; path = EFColorPicker/Classes/EFThumbView.swift; sourceTree = "<group>"; };
 		77DE7E427204EA8D47106AF54B650553 /* EFColorPicker-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "EFColorPicker-prefix.pch"; sourceTree = "<group>"; };
-		7B09F18B3F591597ECCCB2B71400F62C /* Pods-LockScreenText-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-LockScreenText-acknowledgements.markdown"; sourceTree = "<group>"; };
-		7DF845EBDE03C805B20428447E7191B3 /* EFColorPicker.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = EFColorPicker.framework; path = EFColorPicker.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		81C0E1962308F7B90F1240A753C8AF5D /* Pods-LockScreenText-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-LockScreenText-frameworks.sh"; sourceTree = "<group>"; };
+		7924F19AC6152CA8DAFEF80969AC5140 /* Pods-LockScreenText.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-LockScreenText.debug.xcconfig"; sourceTree = "<group>"; };
+		81B2AC5977E7CF65C0DBBEF0B3004636 /* Pods-LockScreenText-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-LockScreenText-resources.sh"; sourceTree = "<group>"; };
 		8510B80E2707EAD0067D586C26B1B544 /* EFRGBView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = EFRGBView.swift; path = EFColorPicker/Classes/EFRGBView.swift; sourceTree = "<group>"; };
+		911C9165E77F7CD6DC992696E4EBC3EA /* Pods-LockScreenText.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-LockScreenText.release.xcconfig"; sourceTree = "<group>"; };
+		9347CC5F6E10A147CCD1A520D973734C /* EFColorPicker.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = EFColorPicker.framework; path = EFColorPicker.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		95EF0233A6CA699B6ED28591C69DA1B9 /* Pods-LockScreenTextFramework.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-LockScreenTextFramework.modulemap"; sourceTree = "<group>"; };
+		A0617E2F1FDBFAA8B0A90F1CF1B1D574 /* Pods-LockScreenText-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-LockScreenText-frameworks.sh"; sourceTree = "<group>"; };
 		A57D2041B1E4B176A3BFBBFA5648DD9F /* EFColorWheelView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = EFColorWheelView.swift; path = EFColorPicker/Classes/EFColorWheelView.swift; sourceTree = "<group>"; };
+		AEDC55318F1DE39983C8BB87063197EE /* Pods-LockScreenTextFramework-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-LockScreenTextFramework-resources.sh"; sourceTree = "<group>"; };
+		B3E1192E573279DBDC28D738AE3682DA /* Pods-LockScreenTextFramework.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-LockScreenTextFramework.debug.xcconfig"; sourceTree = "<group>"; };
+		BC74CBF569BAE0E098A8E1788A45A931 /* Pods_LockScreenTextFramework.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_LockScreenTextFramework.framework; path = "Pods-LockScreenTextFramework.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BFA571231CC5F4E4A171D6CF65C03572 /* EFColorSelectionView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = EFColorSelectionView.swift; path = EFColorPicker/Classes/EFColorSelectionView.swift; sourceTree = "<group>"; };
 		C26EF0F405F33649FFCEF2524341FF3C /* EFColorSelectionViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = EFColorSelectionViewController.swift; path = EFColorPicker/Classes/EFColorSelectionViewController.swift; sourceTree = "<group>"; };
-		C2EF7A23B731856AC605A493D5199507 /* Pods-LockScreenText.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-LockScreenText.modulemap"; sourceTree = "<group>"; };
 		C3F8C4FEE8D359ACFE0166C83F0F9A02 /* EFSliderView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = EFSliderView.swift; path = EFColorPicker/Classes/EFSliderView.swift; sourceTree = "<group>"; };
 		C8903E9941EFBE463AA89772A0AA2DDD /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CD2BD80F79B67F555CF458676BDA0108 /* EFColorPicker.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = EFColorPicker.modulemap; sourceTree = "<group>"; };
+		CDA50DC55FC8723D8E65A1BC9A2A9372 /* Pods-LockScreenTextFramework-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-LockScreenTextFramework-acknowledgements.markdown"; sourceTree = "<group>"; };
+		D04035F86BD9919E12EDB6343E0F21D4 /* Pods-LockScreenText.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-LockScreenText.modulemap"; sourceTree = "<group>"; };
 		D6DFF15000AFE2A371BF499E7AFDA808 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
 		DEC5D85617197878E2B2DBC73C7500D6 /* EFColorComponentView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = EFColorComponentView.swift; path = EFColorPicker/Classes/EFColorComponentView.swift; sourceTree = "<group>"; };
+		E25FE01F477E79AEE680729EB17A54BB /* Pods-LockScreenText-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-LockScreenText-dummy.m"; sourceTree = "<group>"; };
 		ED5B9BD9F59401985D3E6B05A2C1756F /* EFColorPicker-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "EFColorPicker-umbrella.h"; sourceTree = "<group>"; };
-		F473884B5601C999C17C050D8C276EEC /* Pods-LockScreenText-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-LockScreenText-dummy.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,6 +104,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				BC6B066463A10473CCA2E3DDB00D099E /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E4FAEDF4987115830F2EC1CED61216C9 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0D4CC49ED108EFA258D68D5667D89E5D /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -110,6 +138,15 @@
 			path = EFColorPicker;
 			sourceTree = "<group>";
 		};
+		38B4692637622323BAE7517DC46FDCFF /* Targets Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				64206385016961492239D270B2F08C5E /* Pods-LockScreenText */,
+				667DA2BFE8F1DA10F8BE1BA5972C1FD5 /* Pods-LockScreenTextFramework */,
+			);
+			name = "Targets Support Files";
+			sourceTree = "<group>";
+		};
 		44D5347904CF754D6785B84253F2574A /* iOS */ = {
 			isa = PBXGroup;
 			children = (
@@ -126,13 +163,39 @@
 			path = SwiftLint;
 			sourceTree = "<group>";
 		};
-		530FB694B377FEEDCEE9BC7307C8370D /* Products */ = {
+		64206385016961492239D270B2F08C5E /* Pods-LockScreenText */ = {
 			isa = PBXGroup;
 			children = (
-				7DF845EBDE03C805B20428447E7191B3 /* EFColorPicker.framework */,
-				58E8AB71A58C21AB7251E3BB1A0CEF0C /* Pods_LockScreenText.framework */,
+				080B8EA47B931D26A490E5F349C04179 /* Info.plist */,
+				D04035F86BD9919E12EDB6343E0F21D4 /* Pods-LockScreenText.modulemap */,
+				59CB6B6C32A07D47D2EAD988DC0ABE2D /* Pods-LockScreenText-acknowledgements.markdown */,
+				484841100A28CED7AA306DA151BD7D97 /* Pods-LockScreenText-acknowledgements.plist */,
+				E25FE01F477E79AEE680729EB17A54BB /* Pods-LockScreenText-dummy.m */,
+				A0617E2F1FDBFAA8B0A90F1CF1B1D574 /* Pods-LockScreenText-frameworks.sh */,
+				81B2AC5977E7CF65C0DBBEF0B3004636 /* Pods-LockScreenText-resources.sh */,
+				59F57B1784534977A02572748299B9A0 /* Pods-LockScreenText-umbrella.h */,
+				7924F19AC6152CA8DAFEF80969AC5140 /* Pods-LockScreenText.debug.xcconfig */,
+				911C9165E77F7CD6DC992696E4EBC3EA /* Pods-LockScreenText.release.xcconfig */,
 			);
-			name = Products;
+			name = "Pods-LockScreenText";
+			path = "Target Support Files/Pods-LockScreenText";
+			sourceTree = "<group>";
+		};
+		667DA2BFE8F1DA10F8BE1BA5972C1FD5 /* Pods-LockScreenTextFramework */ = {
+			isa = PBXGroup;
+			children = (
+				27EB69515403294D5624E531C2186893 /* Info.plist */,
+				95EF0233A6CA699B6ED28591C69DA1B9 /* Pods-LockScreenTextFramework.modulemap */,
+				CDA50DC55FC8723D8E65A1BC9A2A9372 /* Pods-LockScreenTextFramework-acknowledgements.markdown */,
+				3EA90F4231A4061A66C2D81B0C1220E1 /* Pods-LockScreenTextFramework-acknowledgements.plist */,
+				24CBD59CCA02B0FCA7AAFA56F5FB7B00 /* Pods-LockScreenTextFramework-dummy.m */,
+				AEDC55318F1DE39983C8BB87063197EE /* Pods-LockScreenTextFramework-resources.sh */,
+				138DDA9132A86CC596B35A93F3981896 /* Pods-LockScreenTextFramework-umbrella.h */,
+				B3E1192E573279DBDC28D738AE3682DA /* Pods-LockScreenTextFramework.debug.xcconfig */,
+				69C076CCA5C8A9B077DFFE9C747EA027 /* Pods-LockScreenTextFramework.release.xcconfig */,
+			);
+			name = "Pods-LockScreenTextFramework";
+			path = "Target Support Files/Pods-LockScreenTextFramework";
 			sourceTree = "<group>";
 		};
 		7DB346D0F39D3F0E887471402A8071AB = {
@@ -141,8 +204,8 @@
 				93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */,
 				BC3CA7F9E30CC8F7E2DD044DD34432FC /* Frameworks */,
 				A27069463C9B5295B065F1E4474E5F2B /* Pods */,
-				530FB694B377FEEDCEE9BC7307C8370D /* Products */,
-				A64973E5F5DAF0A2D0D269A6ADEDC74C /* Targets Support Files */,
+				A2D1855674F1ACA66E00FE46AAFD190E /* Products */,
+				38B4692637622323BAE7517DC46FDCFF /* Targets Support Files */,
 			);
 			sourceTree = "<group>";
 		};
@@ -155,12 +218,14 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
-		A64973E5F5DAF0A2D0D269A6ADEDC74C /* Targets Support Files */ = {
+		A2D1855674F1ACA66E00FE46AAFD190E /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				CB0261A89366FD8FE7FE1EA5AB4F4C47 /* Pods-LockScreenText */,
+				9347CC5F6E10A147CCD1A520D973734C /* EFColorPicker.framework */,
+				387CAC94D9BA935C2BED2DD21F219ECA /* Pods_LockScreenText.framework */,
+				BC74CBF569BAE0E098A8E1788A45A931 /* Pods_LockScreenTextFramework.framework */,
 			);
-			name = "Targets Support Files";
+			name = Products;
 			sourceTree = "<group>";
 		};
 		BC3CA7F9E30CC8F7E2DD044DD34432FC /* Frameworks */ = {
@@ -169,24 +234,6 @@
 				44D5347904CF754D6785B84253F2574A /* iOS */,
 			);
 			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		CB0261A89366FD8FE7FE1EA5AB4F4C47 /* Pods-LockScreenText */ = {
-			isa = PBXGroup;
-			children = (
-				49311D707D7F8E78CB13121233CF92B7 /* Info.plist */,
-				C2EF7A23B731856AC605A493D5199507 /* Pods-LockScreenText.modulemap */,
-				7B09F18B3F591597ECCCB2B71400F62C /* Pods-LockScreenText-acknowledgements.markdown */,
-				06014BDF1E94AA598A328490A6C4783C /* Pods-LockScreenText-acknowledgements.plist */,
-				F473884B5601C999C17C050D8C276EEC /* Pods-LockScreenText-dummy.m */,
-				81C0E1962308F7B90F1240A753C8AF5D /* Pods-LockScreenText-frameworks.sh */,
-				3874ECBB23B304B0A79F18E2DC4F3F85 /* Pods-LockScreenText-resources.sh */,
-				175D44AB803354CF10D7C4A084FFA4E2 /* Pods-LockScreenText-umbrella.h */,
-				2A2E834D8CA93A6FB2ED8857FC657F5C /* Pods-LockScreenText.debug.xcconfig */,
-				4A0A72FD5F1684C31CF2D685C26A2F24 /* Pods-LockScreenText.release.xcconfig */,
-			);
-			name = "Pods-LockScreenText";
-			path = "Target Support Files/Pods-LockScreenText";
 			sourceTree = "<group>";
 		};
 		FFAA3547AC25FA3DCD1E48E8C278AA4F /* Support Files */ = {
@@ -206,6 +253,14 @@
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
+		4AAA3229E873BA8C2AF9DF07E1FCE6A4 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				89CBE669B613C3E2967DCA2ABBB149E5 /* Pods-LockScreenTextFramework-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		B6DCBF4C3D81DB556CA00E561B90E019 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
@@ -225,6 +280,25 @@
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
+		6973936B27414C772E570462C2266990 /* Pods-LockScreenTextFramework */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E80A39286BEDAF5E0F8D21D3B6B6777E /* Build configuration list for PBXNativeTarget "Pods-LockScreenTextFramework" */;
+			buildPhases = (
+				4AAA3229E873BA8C2AF9DF07E1FCE6A4 /* Headers */,
+				B47490B36A2D893104D32FA16B1BB531 /* Sources */,
+				E4FAEDF4987115830F2EC1CED61216C9 /* Frameworks */,
+				F95FBFA23204B3FFA2A338B836D5CC7F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				1060130E2B39B4236FA480D44BFB9CA7 /* PBXTargetDependency */,
+			);
+			name = "Pods-LockScreenTextFramework";
+			productName = "Pods-LockScreenTextFramework";
+			productReference = BC74CBF569BAE0E098A8E1788A45A931 /* Pods_LockScreenTextFramework.framework */;
+			productType = "com.apple.product-type.framework";
+		};
 		8301C02B957E9CEF493074D4995F195D /* Pods-LockScreenText */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = B860009C885944B4240A0256A4253B1A /* Build configuration list for PBXNativeTarget "Pods-LockScreenText" */;
@@ -241,7 +315,7 @@
 			);
 			name = "Pods-LockScreenText";
 			productName = "Pods-LockScreenText";
-			productReference = 58E8AB71A58C21AB7251E3BB1A0CEF0C /* Pods_LockScreenText.framework */;
+			productReference = 387CAC94D9BA935C2BED2DD21F219ECA /* Pods_LockScreenText.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 		C1B4FA8EB9FCA20954ADB63553812672 /* EFColorPicker */ = {
@@ -259,7 +333,7 @@
 			);
 			name = EFColorPicker;
 			productName = EFColorPicker;
-			productReference = 7DF845EBDE03C805B20428447E7191B3 /* EFColorPicker.framework */;
+			productReference = 9347CC5F6E10A147CCD1A520D973734C /* EFColorPicker.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 /* End PBXNativeTarget section */
@@ -279,12 +353,13 @@
 				en,
 			);
 			mainGroup = 7DB346D0F39D3F0E887471402A8071AB;
-			productRefGroup = 530FB694B377FEEDCEE9BC7307C8370D /* Products */;
+			productRefGroup = A2D1855674F1ACA66E00FE46AAFD190E /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
 				C1B4FA8EB9FCA20954ADB63553812672 /* EFColorPicker */,
 				8301C02B957E9CEF493074D4995F195D /* Pods-LockScreenText */,
+				6973936B27414C772E570462C2266990 /* Pods-LockScreenTextFramework */,
 			);
 		};
 /* End PBXProject section */
@@ -298,6 +373,13 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		BDB7ABBE7FB65A374149F3EEAD29AC5D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F95FBFA23204B3FFA2A338B836D5CC7F /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -334,9 +416,23 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		B47490B36A2D893104D32FA16B1BB531 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				65AC7DB6AE9A725E2D753FA11ED174B6 /* Pods-LockScreenTextFramework-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		1060130E2B39B4236FA480D44BFB9CA7 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = EFColorPicker;
+			target = C1B4FA8EB9FCA20954ADB63553812672 /* EFColorPicker */;
+			targetProxy = 04D4D7F4338AE450172A1069078428AA /* PBXContainerItemProxy */;
+		};
 		112F215FA8EA3BFE63B494DBD7ECAB5C /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = EFColorPicker;
@@ -382,9 +478,48 @@
 			};
 			name = Release;
 		};
+		0A94B73AF33E689D1B899F4755FDCE1A /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 69C076CCA5C8A9B077DFFE9C747EA027 /* Pods-LockScreenTextFramework.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-LockScreenTextFramework/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-LockScreenTextFramework/Pods-LockScreenTextFramework.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
 		0C642CE9E26BA2E06655F59D45F5E4C0 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 2A2E834D8CA93A6FB2ED8857FC657F5C /* Pods-LockScreenText.debug.xcconfig */;
+			baseConfigurationReference = 7924F19AC6152CA8DAFEF80969AC5140 /* Pods-LockScreenText.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				CLANG_ENABLE_OBJC_WEAK = NO;
@@ -407,6 +542,44 @@
 				);
 				MACH_O_TYPE = staticlib;
 				MODULEMAP_FILE = "Target Support Files/Pods-LockScreenText/Pods-LockScreenText.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		570EC011F1F0C2A74C4AF7B1766B33E6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = B3E1192E573279DBDC28D738AE3682DA /* Pods-LockScreenTextFramework.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-LockScreenTextFramework/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-LockScreenTextFramework/Pods-LockScreenTextFramework.modulemap";
 				OTHER_LDFLAGS = "";
 				OTHER_LIBTOOLFLAGS = "";
 				PODS_ROOT = "$(SRCROOT)";
@@ -585,7 +758,7 @@
 		};
 		EA03DACDF13A4B43154575C13D8A485F /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 4A0A72FD5F1684C31CF2D685C26A2F24 /* Pods-LockScreenText.release.xcconfig */;
+			baseConfigurationReference = 911C9165E77F7CD6DC992696E4EBC3EA /* Pods-LockScreenText.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				CLANG_ENABLE_OBJC_WEAK = NO;
@@ -648,6 +821,15 @@
 			buildConfigurations = (
 				0C642CE9E26BA2E06655F59D45F5E4C0 /* Debug */,
 				EA03DACDF13A4B43154575C13D8A485F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E80A39286BEDAF5E0F8D21D3B6B6777E /* Build configuration list for PBXNativeTarget "Pods-LockScreenTextFramework" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				570EC011F1F0C2A74C4AF7B1766B33E6 /* Debug */,
+				0A94B73AF33E689D1B899F4755FDCE1A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

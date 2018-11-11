@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import LockScreenTextFramework
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -15,6 +16,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+
+        // All logic is in the framework
+        self.window = UIWindow(frame: UIScreen.main.bounds)
+
+        let bundle = Bundle(identifier: "com.staveleytaylor.ben.LockScreenTextFramework")
+        let storyboard = UIStoryboard(name: "Main", bundle: bundle)
+        let initialVC = storyboard.instantiateInitialViewController()
+        self.window?.rootViewController = initialVC
+        self.window?.makeKeyAndVisible()
+
         return true
     }
 

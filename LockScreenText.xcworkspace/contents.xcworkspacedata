@@ -1,6 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Workspace
    version = "1.0">
+   <Group
+      location = "group:LockScreenText"
+      name = "Environment">
+      <FileRef
+         location = "group:../MyPlayground.playground">
+      </FileRef>
+      <FileRef
+         location = "group:../Podfile">
+      </FileRef>
+      <FileRef
+         location = "group:../swiftlint.yml">
+      </FileRef>
+   </Group>
    <FileRef
       location = "group:LockScreenText.xcodeproj">
    </FileRef>

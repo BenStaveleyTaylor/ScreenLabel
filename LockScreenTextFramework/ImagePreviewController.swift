@@ -12,7 +12,7 @@ import os.log
 import EFColorPicker
 
 @objc
-class ImagePreviewController: UIViewController {
+public class ImagePreviewController: UIViewController {
 
     // Nib properties
 
@@ -38,7 +38,7 @@ class ImagePreviewController: UIViewController {
     // true if the controls are all hidden to show the whole view
     var isInPreviewMode = false
 
-    override func viewDidLoad() {
+    public override func viewDidLoad() {
         super.viewDidLoad()
 
         self.title = NSLocalizedString("ProductTitle", comment: "")
@@ -142,8 +142,8 @@ class ImagePreviewController: UIViewController {
 
 extension ImagePreviewController: UIImagePickerControllerDelegate {
 
-    func imagePickerController(_ picker: UIImagePickerController,
-                               didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey: Any]) {
+    private func imagePickerController(_ picker: UIImagePickerController,
+                                       didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey: Any]) {
 
         // info[.editedImage] should be what we want, but it is very low quality
         // I'll have to implement scale and crop at some point
@@ -181,4 +181,13 @@ extension ImagePreviewController: SettingsCoordinatorViewDelegate {
         self.textBoxView.layer.borderWidth = coordinator.boxBorderWidth
         self.textBoxView.layer.cornerRadius = coordinator.boxCornerRadius
     }
+}
+
+extension ImagePreviewController: EFColorSelectionViewControllerDelegate {
+
+    @objc
+    public func colorViewController(_ colorViewCntroller: EFColorSelectionViewController, didChangeColor color: UIColor) {
+        // ...
+    }
+
 }

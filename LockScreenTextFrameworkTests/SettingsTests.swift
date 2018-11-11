@@ -7,7 +7,7 @@
 //
 
 import XCTest
-@testable import LockScreenText
+@testable import LockScreenTextFramework
 
 class SettingsTests: XCTestCase {
 
