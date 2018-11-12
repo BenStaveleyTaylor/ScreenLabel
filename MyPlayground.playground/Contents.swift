@@ -3,7 +3,7 @@
 import UIKit
 import PlaygroundSupport
 import EFColorPicker
-import LockScreenTextFramework
+@testable import LockScreenTextFramework
 
 
 let bundle = Bundle(identifier: "com.staveleytaylor.ben.LockScreenTextFramework")

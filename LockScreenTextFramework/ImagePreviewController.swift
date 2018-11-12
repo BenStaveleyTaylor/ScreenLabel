@@ -12,7 +12,7 @@ import os.log
 import EFColorPicker
 
 @objc
-public class ImagePreviewController: UIViewController {
+class ImagePreviewController: UIViewController {
 
     // Nib properties
 
@@ -38,7 +38,7 @@ public class ImagePreviewController: UIViewController {
     // true if the controls are all hidden to show the whole view
     var isInPreviewMode = false
 
-    public override func viewDidLoad() {
+    override func viewDidLoad() {
         super.viewDidLoad()
 
         self.title = Resources.localizedString("ProductTitle")
@@ -70,9 +70,6 @@ public class ImagePreviewController: UIViewController {
         picker.allowsEditing = false
 
         self.present(picker, animated: true)
-    }
-
-    @IBAction private func onPlainColourTapped(_ sender: Any) {
     }
 
     @IBAction private func onSaveTapped(_ sender: Any) {
@@ -138,6 +135,56 @@ public class ImagePreviewController: UIViewController {
         }
     }
 
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+
+        if segue.identifier == "pickImageBackgroundColorSegue" {
+            self.prepareForPickImageBackgroundColorSegue(segue, sender: sender)
+        }
+    }
+
+    private func prepareForPickImageBackgroundColorSegue(_ segue: UIStoryboardSegue, sender: Any?) {
+
+        assert(segue.identifier == "pickImageBackgroundColorSegue")
+
+        guard let destNav = segue.destination as? UINavigationController else {
+            assertionFailure("destination of pickImageBackgroundColorSegue was not a UINavigationController")
+            return
+        }
+
+        guard let pickerVC = destNav.topViewController as? EFColorSelectionViewController else {
+            assertionFailure("EFColorSelectionViewController not found")
+            return
+        }
+
+        // Show textual values for the chosen color
+        pickerVC.isColorTextFieldHidden = false
+        pickerVC.delegate = self
+        pickerVC.color = UIColor.white
+
+        if self.traitCollection.horizontalSizeClass == UIUserInterfaceSizeClass.compact {
+
+            // iPhone-style, including iPads in narrow split-screen view.
+            // Add a "Done" button to the nav bar
+            let doneButton = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(ef_dismissViewController(sender:)))
+            pickerVC.navigationItem.rightBarButtonItem = doneButton
+        } else {
+
+            // iPad-style
+            // Detect popopver dismissal
+            destNav.popoverPresentationController?.delegate = self
+        }
+    }
+
+    // After many colour update notifications while the selection UI is up,
+    // accept the final value and persist it
+    private func persistImageBackgroundColour()
+    {
+        // This is a no-op visually, but it copies the last selected color into
+        // the settings and persists it.
+        if let backgroundColor = self.imageView.backgroundColor {
+            self.settingsCoordinator.imageBackgroundColour = backgroundColor
+        }
+    }
 }
 
 extension ImagePreviewController: UIImagePickerControllerDelegate {
@@ -187,8 +234,26 @@ extension ImagePreviewController: SettingsCoordinatorViewDelegate {
 extension ImagePreviewController: EFColorSelectionViewControllerDelegate {
 
     @objc
-    public func colorViewController(_ colorViewCntroller: EFColorSelectionViewController, didChangeColor color: UIColor) {
-        // ...
+    public func colorViewController(_ colorViewController: EFColorSelectionViewController, didChangeColor color: UIColor) {
+
+        self.imageView.backgroundColor = color
+    }
+
+    // Not technically part if the delegate, but required by the Done button
+    @objc
+    func ef_dismissViewController(sender: UIBarButtonItem) {
+        self.dismiss(animated: true)
+        self.persistImageBackgroundColour()
+    }
+
+}
+
+extension ImagePreviewController: UIPopoverPresentationControllerDelegate {
+
+    // Detect closure of the Colour Picker and save the final result
+    @objc
+    public func popoverPresentationControllerDidDismissPopover(_ popoverPresentationController: UIPopoverPresentationController) {
+        self.persistImageBackgroundColour()
     }
 
 }

@@ -22,6 +22,7 @@
 		6B047A2F21988B7700B79CFA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6B047A2B21988B7600B79CFA /* Main.storyboard */; };
 		6B047A3021988B7700B79CFA /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6B047A2D21988B7600B79CFA /* Localizable.strings */; };
 		6B1E245021989F9B008A0CFC /* Resources.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B1E244F21989F9B008A0CFC /* Resources.swift */; };
+		6B89BBA82199D9A90026E640 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6B89BBA72199D9A90026E640 /* Localizable.strings */; };
 		6BA186E521988CCB00C9CE76 /* SettingsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B11DA112194DF9F001FAD4C /* SettingsTests.swift */; };
 		6BA186E721988D3C00C9CE76 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6BA186E621988D3C00C9CE76 /* InfoPlist.strings */; };
 		6BB2EBF321920DBA00BCDA34 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BB2EBF221920DBA00BCDA34 /* AppDelegate.swift */; };
@@ -91,6 +92,7 @@
 		6B047A2D21988B7600B79CFA /* Localizable.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
 		6B11DA112194DF9F001FAD4C /* SettingsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTests.swift; sourceTree = "<group>"; };
 		6B1E244F21989F9B008A0CFC /* Resources.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Resources.swift; sourceTree = "<group>"; };
+		6B89BBA72199D9A90026E640 /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
 		6BA186E421988BCC00C9CE76 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6BA186E621988D3C00C9CE76 /* InfoPlist.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = InfoPlist.strings; sourceTree = "<group>"; };
 		6BB2EBEF21920DBA00BCDA34 /* LockScreenText.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LockScreenText.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -205,6 +207,7 @@
 				6BB2EBF921920DBB00BCDA34 /* Assets.xcassets */,
 				6BA186E621988D3C00C9CE76 /* InfoPlist.strings */,
 				6BB2EBFB21920DBB00BCDA34 /* LaunchScreen.storyboard */,
+				6B89BBA72199D9A90026E640 /* Localizable.strings */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -369,6 +372,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6BB2EBFD21920DBB00BCDA34 /* LaunchScreen.storyboard in Resources */,
+				6B89BBA82199D9A90026E640 /* Localizable.strings in Resources */,
 				6BA186E721988D3C00C9CE76 /* InfoPlist.strings in Resources */,
 				6BB2EBFA21920DBB00BCDA34 /* Assets.xcassets in Resources */,
 			);

@@ -1,0 +1,21 @@
+/* 
+  Localizable.strings
+  LockScreenText
+
+  Created by Ben Staveley-Taylor on 12/11/2018.
+  Copyright © 2018 Ben Staveley-Taylor. All rights reserved.
+*/
+
+/* We need these here because EFColorPicker uses the default (i.e. app) bundle for its strings */
+
+"RGB" = "RGB Sliders";
+
+"HSB" = "Color Wheel";
+
+"Brightness" = "Brightness";
+
+"Red" = "Red";
+
+"Green" = "Green";
+
+"Blue" = "Blue";
