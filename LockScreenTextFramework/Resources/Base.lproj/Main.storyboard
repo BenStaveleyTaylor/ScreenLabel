@@ -37,6 +37,9 @@
                                     </view>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zco-QO-wj2">
                                         <rect key="frame" x="166.5" y="323.5" width="42" height="20.5"/>
+                                        <accessibility key="accessibilityConfiguration">
+                                            <accessibilityTraits key="traits" staticText="YES" notEnabled="YES"/>
+                                        </accessibility>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -128,6 +131,7 @@
                 <tapGestureRecognizer id="P1A-zI-KD9">
                     <connections>
                         <action selector="onTextTapped:" destination="BYZ-38-t0r" id="EZe-Ea-cr6"/>
+                        <segue destination="70U-AU-X1A" kind="show" identifier="editTextAttributesSegue" id="bE7-Z2-A7a"/>
                     </connections>
                 </tapGestureRecognizer>
                 <tapGestureRecognizer id="kIP-8p-Bz2">
@@ -136,7 +140,98 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="890" y="-564"/>
+            <point key="canvasLocation" x="888.79999999999995" y="-564.46776611694156"/>
+        </scene>
+        <!--Text Attributes View Controller-->
+        <scene sceneID="ipI-oL-16Z">
+            <objects>
+                <viewController id="70U-AU-X1A" customClass="TextAttributesViewController" customModule="LockScreenTextFramework" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="ZfU-RR-TOc">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nbU-ol-nh7">
+                                <rect key="frame" x="0.0" y="64" width="375" height="559"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8w5-dh-F7X" userLabel="Content View">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="143"/>
+                                        <subviews>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="dbi-kZ-Znd">
+                                                <rect key="frame" x="0.0" y="0.0" width="375" height="143"/>
+                                                <subviews>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Inf-ka-rzc">
+                                                        <rect key="frame" x="20" y="20" width="335" height="19"/>
+                                                        <subviews>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ooq-eg-RRA">
+                                                                <rect key="frame" x="0.0" y="0.0" width="308" height="19"/>
+                                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                <nil key="textColor"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="F5L-vD-cZe">
+                                                                <rect key="frame" x="316" y="0.0" width="19" height="19"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="height" constant="19" id="NQg-WH-RbT"/>
+                                                                    <constraint firstAttribute="width" constant="19" id="oGZ-Pn-PiK"/>
+                                                                </constraints>
+                                                                <state key="normal" title="Button" image="ClearTextButton"/>
+                                                                <connections>
+                                                                    <action selector="onClearText:" destination="70U-AU-X1A" eventType="touchUpInside" id="L40-zA-gdD"/>
+                                                                </connections>
+                                                            </button>
+                                                        </subviews>
+                                                    </stackView>
+                                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="BD7-Ro-e7a">
+                                                        <rect key="frame" x="20" y="47" width="335" height="76"/>
+                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="76" id="wnB-EN-ZPw"/>
+                                                        </constraints>
+                                                        <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                    </textView>
+                                                </subviews>
+                                                <edgeInsets key="layoutMargins" top="20" left="20" bottom="20" right="20"/>
+                                            </stackView>
+                                        </subviews>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstItem="dbi-kZ-Znd" firstAttribute="leading" secondItem="8w5-dh-F7X" secondAttribute="leading" id="Ghq-fg-67K"/>
+                                            <constraint firstAttribute="trailing" secondItem="dbi-kZ-Znd" secondAttribute="trailing" id="VKN-Ur-3zb"/>
+                                            <constraint firstItem="dbi-kZ-Znd" firstAttribute="top" secondItem="8w5-dh-F7X" secondAttribute="top" id="csE-Du-naA"/>
+                                            <constraint firstItem="dbi-kZ-Znd" firstAttribute="height" secondItem="8w5-dh-F7X" secondAttribute="height" id="yUn-Gu-opR"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="8w5-dh-F7X" secondAttribute="bottom" id="5Dh-VQ-qXQ"/>
+                                    <constraint firstAttribute="trailing" secondItem="8w5-dh-F7X" secondAttribute="trailing" id="ELy-YR-YBq"/>
+                                    <constraint firstItem="8w5-dh-F7X" firstAttribute="leading" secondItem="nbU-ol-nh7" secondAttribute="leading" id="ObC-ai-LA5"/>
+                                    <constraint firstItem="8w5-dh-F7X" firstAttribute="top" secondItem="nbU-ol-nh7" secondAttribute="top" id="bFL-cY-fJd"/>
+                                    <constraint firstItem="8w5-dh-F7X" firstAttribute="width" secondItem="nbU-ol-nh7" secondAttribute="width" id="uMh-Zb-Y5x"/>
+                                </constraints>
+                            </scrollView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="euc-QL-pt5" firstAttribute="trailing" secondItem="nbU-ol-nh7" secondAttribute="trailing" id="7Ca-8K-mMp"/>
+                            <constraint firstItem="euc-QL-pt5" firstAttribute="bottom" secondItem="nbU-ol-nh7" secondAttribute="bottom" id="Oab-Fr-Oo6"/>
+                            <constraint firstItem="nbU-ol-nh7" firstAttribute="top" secondItem="euc-QL-pt5" secondAttribute="top" id="ceh-ce-3A7"/>
+                            <constraint firstItem="nbU-ol-nh7" firstAttribute="leading" secondItem="euc-QL-pt5" secondAttribute="leading" id="nju-pC-cTG"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="euc-QL-pt5"/>
+                    </view>
+                    <connections>
+                        <outlet property="clearTextButton" destination="F5L-vD-cZe" id="2WV-DN-tZo"/>
+                        <outlet property="textLabel" destination="ooq-eg-RRA" id="IiK-pp-U0D"/>
+                        <outlet property="textView" destination="BD7-Ro-e7a" id="JMM-nj-J2f"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="uts-oM-Kgj" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1284" y="203.74812593703149"/>
         </scene>
         <!--Color Selection View Controller-->
         <scene sceneID="EOS-es-4KP">
@@ -195,4 +290,7 @@
             <point key="canvasLocation" x="1762" y="-564"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="ClearTextButton" width="19" height="19"/>
+    </resources>
 </document>

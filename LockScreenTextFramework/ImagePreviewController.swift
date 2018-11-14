@@ -137,8 +137,15 @@ class ImagePreviewController: UIViewController {
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
 
-        if segue.identifier == "pickImageBackgroundColorSegue" {
+        switch segue.identifier {
+        case "pickImageBackgroundColorSegue":
             self.prepareForPickImageBackgroundColorSegue(segue, sender: sender)
+
+        case "editTextAttributesSegue":
+            self.prepareForEditTextAttributesSegue(segue, sender: sender)
+
+        default:
+            os_log("Unexpected segue: %@", segue.identifier ?? "<nil>")
         }
     }
 
@@ -165,8 +172,11 @@ class ImagePreviewController: UIViewController {
 
             // iPhone-style, including iPads in narrow split-screen view.
             // Add a "Done" button to the nav bar
-            let doneButton = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(ef_dismissViewController(sender:)))
+            let doneButton = UIBarButtonItem(barButtonSystemItem: .done,
+                                             target: self,
+                                             action: #selector(ef_dismissViewController(sender:)))
             pickerVC.navigationItem.rightBarButtonItem = doneButton
+            destNav.popoverPresentationController?.delegate = nil
         } else {
 
             // iPad-style
@@ -175,10 +185,21 @@ class ImagePreviewController: UIViewController {
         }
     }
 
+    private func prepareForEditTextAttributesSegue(_ segue: UIStoryboardSegue, sender: Any?) {
+        
+        assert(segue.identifier == "editTextAttributesSegue")
+
+        guard let destVC = segue.destination as? TextAttributesViewController else {
+            assertionFailure("destination of editTextAttributesSegue was not a TextAttributesViewController")
+            return
+        }
+
+        destVC.prepare(settingsCoordinator: self.settingsCoordinator)
+    }
+
     // After many colour update notifications while the selection UI is up,
     // accept the final value and persist it
-    private func persistImageBackgroundColour()
-    {
+    private func persistImageBackgroundColour() {
         // This is a no-op visually, but it copies the last selected color into
         // the settings and persists it.
         if let backgroundColor = self.imageView.backgroundColor {
@@ -245,7 +266,6 @@ extension ImagePreviewController: EFColorSelectionViewControllerDelegate {
         self.dismiss(animated: true)
         self.persistImageBackgroundColour()
     }
-
 }
 
 extension ImagePreviewController: UIPopoverPresentationControllerDelegate {
@@ -255,5 +275,4 @@ extension ImagePreviewController: UIPopoverPresentationControllerDelegate {
     public func popoverPresentationControllerDidDismissPopover(_ popoverPresentationController: UIPopoverPresentationController) {
         self.persistImageBackgroundColour()
     }
-
 }

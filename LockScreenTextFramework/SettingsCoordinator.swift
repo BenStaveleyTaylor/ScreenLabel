@@ -32,6 +32,13 @@ protocol SettingsCoordinatorProtocol {
     var image: UIImage? { get set }
 
     func saveToPhotos(image: UIImage)
+
+    // Normally, when any of the model accessors are used to change a value, the
+    // values are persisted and observers are notified. If making multiple
+    // changes then call startBatchChanges() before, and then at the end
+    // endBatchChanges() will do a single persist-and-update.
+    func startBatchChanges()
+    func endBatchChanges()
 }
 
 class SettingsCoordinator: NSObject {
@@ -40,6 +47,7 @@ class SettingsCoordinator: NSObject {
     private var settings: Settings
 
     private var cachedImage: UIImage?
+    private var inBatchMode = false
 
     init(withDelegate delegate: SettingsCoordinatorViewDelegate, settings: Settings? = nil) {
 
@@ -57,8 +65,11 @@ class SettingsCoordinator: NSObject {
 
     // To do after any write to settings
     private func settingsDidChange() {
-        self.delegate?.settingsDidChange(coordinator: self, animated: true)
-        try? self.settings.writeToUserDefaults()
+        // Ignore when in batch mode
+        if !self.inBatchMode {
+            self.delegate?.settingsDidChange(coordinator: self, animated: true)
+            try? self.settings.writeToUserDefaults()
+        }
     }
 
     @objc
@@ -201,6 +212,15 @@ extension SettingsCoordinator: SettingsCoordinatorProtocol {
                                        self,
                                        #selector(image(_:didFinishSavingWithError:contextInfo:)),
                                        nil)
+    }
+
+    func startBatchChanges() {
+        self.inBatchMode = true
+    }
+
+    func endBatchChanges() {
+        self.inBatchMode = false
+        self.settingsDidChange()
     }
 
 }
