@@ -137,18 +137,16 @@
 		6B0479FB2198898800B79CFA /* LockScreenTextFramework */ = {
 			isa = PBXGroup;
 			children = (
-				6B047A1C21988B5F00B79CFA /* AlertUtilities.swift */,
 				6B047A1B21988B5F00B79CFA /* Constants.swift */,
-				6B047A1F21988B5F00B79CFA /* FileManagerUtilities.swift */,
 				6B047A1E21988B5F00B79CFA /* ImagePreviewController.swift */,
-				6B047A1A21988B5F00B79CFA /* ImageUtilities.swift */,
-				6B0479FD2198898800B79CFA /* Info.plist */,
 				6B0479FC2198898800B79CFA /* LockScreenTextFramework.h */,
 				6B1E244F21989F9B008A0CFC /* Resources.swift */,
 				6B047A2021988B5F00B79CFA /* Settings.swift */,
 				6B047A1821988B5F00B79CFA /* SettingsCoordinator.swift */,
 				6B79DC4F219B693F00F10A2F /* TextAttributesViewController.swift */,
+				6B4398F021A0CDDD0010D116 /* Utilities */,
 				6B047A2921988B7600B79CFA /* Resources */,
+				6B4398F121A0CDF60010D116 /* Supporting Files */,
 			);
 			path = LockScreenTextFramework;
 			sourceTree = "<group>";
@@ -170,6 +168,24 @@
 				6B047A2B21988B7600B79CFA /* Main.storyboard */,
 			);
 			path = Resources;
+			sourceTree = "<group>";
+		};
+		6B4398F021A0CDDD0010D116 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				6B047A1C21988B5F00B79CFA /* AlertUtilities.swift */,
+				6B047A1F21988B5F00B79CFA /* FileManagerUtilities.swift */,
+				6B047A1A21988B5F00B79CFA /* ImageUtilities.swift */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
+		6B4398F121A0CDF60010D116 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				6B0479FD2198898800B79CFA /* Info.plist */,
+			);
+			path = "Supporting Files";
 			sourceTree = "<group>";
 		};
 		6BB2EBE621920DBA00BCDA34 = {
