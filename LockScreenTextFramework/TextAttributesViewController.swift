@@ -18,6 +18,8 @@ class TextAttributesViewController: UIViewController {
     @IBOutlet private weak var textSizeLabel: UILabel!
     @IBOutlet private weak var textSizeValueLabel: UILabel!
 
+    @IBOutlet private weak var factorySettingsButton: UIButton!
+    
     // The source of the segue must push this in
     // Fatal error if nil
     private var settingsCoordinator: SettingsCoordinatorProtocol!
@@ -51,9 +53,15 @@ class TextAttributesViewController: UIViewController {
         self.textSizeValueLabel.text = String(format: format, NSNumber(value: textSizeValue))
     }
 
+    @IBAction private func onFactorySettingsTapped(_ sender: Any) {
+
+        self.settingsCoordinator.reset()
+        self.loadSettings()
+    }
+    
     public func prepare(settingsCoordinator: SettingsCoordinatorProtocol) {
         self.settingsCoordinator = settingsCoordinator
-   }
+    }
 
     private func loadSettings() {
 
@@ -68,6 +76,8 @@ class TextAttributesViewController: UIViewController {
         self.textSizeSlider.value = Float(textSizeValue)
         let format = Resources.localizedString("TextSizeValue")
         self.textSizeValueLabel.text = String(format: format, NSNumber(value: textSizeValue))
+
+        self.factorySettingsButton.setTitle(Resources.localizedString("FactorySettings"), for: .normal)
     }
 
     private func saveSettings() {

@@ -31,3 +31,5 @@
 "TextSizeLabel" = "Text Size";
 
 "TextSizeValue" = "%@ pts";
+
+"FactorySettings" = "Reset to Defaults";

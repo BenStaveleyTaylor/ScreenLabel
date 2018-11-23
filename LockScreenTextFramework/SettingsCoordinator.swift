@@ -39,6 +39,9 @@ protocol SettingsCoordinatorProtocol {
     // endBatchChanges() will do a single persist-and-update.
     func startBatchChanges()
     func endBatchChanges()
+
+    // Set everything to factory defaults
+    func reset()
 }
 
 class SettingsCoordinator: NSObject {
@@ -223,4 +226,8 @@ extension SettingsCoordinator: SettingsCoordinatorProtocol {
         self.settingsDidChange()
     }
 
+    func reset() {
+        self.settings = Settings.defaults
+        self.settingsDidChange()
+    }
 }

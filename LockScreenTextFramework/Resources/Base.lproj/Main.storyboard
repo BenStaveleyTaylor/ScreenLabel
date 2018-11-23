@@ -154,10 +154,10 @@
                                 <rect key="frame" x="0.0" y="64" width="375" height="559"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8w5-dh-F7X" userLabel="Content View">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="181"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="219"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="dbi-kZ-Znd">
-                                                <rect key="frame" x="0.0" y="0.0" width="375" height="181"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="375" height="219"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Inf-ka-rzc">
                                                         <rect key="frame" x="20" y="20" width="335" height="19"/>
@@ -217,6 +217,13 @@
                                                             </label>
                                                         </subviews>
                                                     </stackView>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ipc-10-oAy">
+                                                        <rect key="frame" x="20" y="169" width="335" height="30"/>
+                                                        <state key="normal" title="Button"/>
+                                                        <connections>
+                                                            <action selector="onFactorySettingsTapped:" destination="70U-AU-X1A" eventType="touchUpInside" id="kRO-YT-ckf"/>
+                                                        </connections>
+                                                    </button>
                                                 </subviews>
                                                 <edgeInsets key="layoutMargins" top="20" left="20" bottom="20" right="20"/>
                                             </stackView>
@@ -251,6 +258,7 @@
                     </view>
                     <connections>
                         <outlet property="clearTextButton" destination="F5L-vD-cZe" id="2WV-DN-tZo"/>
+                        <outlet property="factorySettingsButton" destination="ipc-10-oAy" id="N5x-I4-Fdh"/>
                         <outlet property="textLabel" destination="ooq-eg-RRA" id="IiK-pp-U0D"/>
                         <outlet property="textSizeLabel" destination="lTr-Bb-oNP" id="dOt-0L-tS7"/>
                         <outlet property="textSizeSlider" destination="eQP-21-HfM" id="VhK-iO-e4B"/>
