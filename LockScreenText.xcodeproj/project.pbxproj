@@ -25,7 +25,6 @@
 		6B79DC50219B693F00F10A2F /* TextAttributesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B79DC4F219B693F00F10A2F /* TextAttributesViewController.swift */; };
 		6B89BBA82199D9A90026E640 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6B89BBA72199D9A90026E640 /* Localizable.strings */; };
 		6BA186E521988CCB00C9CE76 /* SettingsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B11DA112194DF9F001FAD4C /* SettingsTests.swift */; };
-		6BA186E721988D3C00C9CE76 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6BA186E621988D3C00C9CE76 /* InfoPlist.strings */; };
 		6BB2EBF321920DBA00BCDA34 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BB2EBF221920DBA00BCDA34 /* AppDelegate.swift */; };
 		6BB2EBFA21920DBB00BCDA34 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6BB2EBF921920DBB00BCDA34 /* Assets.xcassets */; };
 		6BB2EBFD21920DBB00BCDA34 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6BB2EBFB21920DBB00BCDA34 /* LaunchScreen.storyboard */; };
@@ -188,15 +187,25 @@
 			path = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		6B4398F321A0D8750010D116 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				6BA186E421988BCC00C9CE76 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			path = "LockScreenText/Supporting Files";
+			sourceTree = "<group>";
+		};
 		6BB2EBE621920DBA00BCDA34 = {
 			isa = PBXGroup;
 			children = (
+				F382AB663EAFCBC8E7AB212F /* Frameworks */,
 				6BB2EBF121920DBA00BCDA34 /* LockScreenText */,
 				6B0479FB2198898800B79CFA /* LockScreenTextFramework */,
 				6B047A082198898800B79CFA /* LockScreenTextFrameworkTests */,
-				6BB2EBF021920DBA00BCDA34 /* Products */,
+				6B4398F321A0D8750010D116 /* Supporting Files */,
 				BC21F30E59178E4577F91CF9 /* Pods */,
-				F382AB663EAFCBC8E7AB212F /* Frameworks */,
+				6BB2EBF021920DBA00BCDA34 /* Products */,
 			);
 			sourceTree = "<group>";
 		};
@@ -214,7 +223,6 @@
 			isa = PBXGroup;
 			children = (
 				6BB2EBF221920DBA00BCDA34 /* AppDelegate.swift */,
-				6BA186E421988BCC00C9CE76 /* Info.plist */,
 				6BB2EC1321921B4E00BCDA34 /* Resources */,
 			);
 			path = LockScreenText;
@@ -392,7 +400,6 @@
 			files = (
 				6BB2EBFD21920DBB00BCDA34 /* LaunchScreen.storyboard in Resources */,
 				6B89BBA82199D9A90026E640 /* Localizable.strings in Resources */,
-				6BA186E721988D3C00C9CE76 /* InfoPlist.strings in Resources */,
 				6BB2EBFA21920DBB00BCDA34 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -572,7 +579,7 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = LockScreenTextFramework/Info.plist;
+				INFOPLIST_FILE = "LockScreenTextFramework/Supporting Files/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -603,7 +610,7 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = LockScreenTextFramework/Info.plist;
+				INFOPLIST_FILE = "LockScreenTextFramework/Supporting Files/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -782,7 +789,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = "";
-				INFOPLIST_FILE = LockScreenText/Info.plist;
+				INFOPLIST_FILE = "LockScreenText/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -803,7 +810,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = "";
-				INFOPLIST_FILE = LockScreenText/Info.plist;
+				INFOPLIST_FILE = "LockScreenText/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

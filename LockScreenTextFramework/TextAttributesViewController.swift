@@ -14,8 +14,13 @@ class TextAttributesViewController: UIViewController {
     @IBOutlet private weak var textView: UITextView!
     @IBOutlet private weak var clearTextButton: UIButton!
 
+    @IBOutlet private weak var textSizeSlider: UISlider!
+    @IBOutlet private weak var textSizeLabel: UILabel!
+    @IBOutlet private weak var textSizeValueLabel: UILabel!
+
     // The source of the segue must push this in
-    private var settingsCoordinator: SettingsCoordinatorProtocol?
+    // Fatal error if nil
+    private var settingsCoordinator: SettingsCoordinatorProtocol!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,6 +42,15 @@ class TextAttributesViewController: UIViewController {
         self.textView.text = ""
     }
 
+    @IBAction private func onTextSizeValueChanged(_ sender: Any) {
+
+        let textSizeValue: Int = Int(self.textSizeSlider.value)
+
+        // Format as e.g. "12 pt"
+        let format = Resources.localizedString("TextSizeValue")
+        self.textSizeValueLabel.text = String(format: format, NSNumber(value: textSizeValue))
+    }
+
     public func prepare(settingsCoordinator: SettingsCoordinatorProtocol) {
         self.settingsCoordinator = settingsCoordinator
    }
@@ -46,17 +60,27 @@ class TextAttributesViewController: UIViewController {
         assert(self.settingsCoordinator != nil, "No settings to edit")
 
         self.textLabel.text = Resources.localizedString("MessageLabel")
-        self.textView.text = self.settingsCoordinator?.message
+        self.textView.text = self.settingsCoordinator.message
+
+        self.textSizeLabel.text = Resources.localizedString("TextSizeLabel")
+
+        let textSizeValue: Int = Int(self.settingsCoordinator.textFont.pointSize)
+        self.textSizeSlider.value = Float(textSizeValue)
+        let format = Resources.localizedString("TextSizeValue")
+        self.textSizeValueLabel.text = String(format: format, NSNumber(value: textSizeValue))
     }
 
     private func saveSettings() {
 
         // Only issue a single update at endBatchChanges()
-        self.settingsCoordinator?.startBatchChanges()
+        self.settingsCoordinator.startBatchChanges()
 
-        self.settingsCoordinator?.message = self.textView.text
+        self.settingsCoordinator.message = self.textView.text
+        let oldFont = self.settingsCoordinator.textFont
+        let size: Float = self.textSizeSlider.value
+        self.settingsCoordinator.textFont = oldFont.withSize(CGFloat(size))
 
-        self.settingsCoordinator?.endBatchChanges()
+        self.settingsCoordinator.endBatchChanges()
 
     }
 }

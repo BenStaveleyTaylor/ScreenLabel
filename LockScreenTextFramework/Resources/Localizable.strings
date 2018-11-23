@@ -27,3 +27,7 @@
 "OK" = "OK";
 
 "MessageLabel" = "Message";
+
+"TextSizeLabel" = "Text Size";
+
+"TextSizeValue" = "%@ pts";
