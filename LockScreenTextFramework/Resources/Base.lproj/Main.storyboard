@@ -130,7 +130,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
                 <tapGestureRecognizer id="P1A-zI-KD9">
                     <connections>
-                        <action selector="onTextTapped:" destination="BYZ-38-t0r" id="EZe-Ea-cr6"/>
                         <segue destination="70U-AU-X1A" kind="show" identifier="editTextAttributesSegue" id="bE7-Z2-A7a"/>
                     </connections>
                 </tapGestureRecognizer>
@@ -219,7 +218,7 @@
                                                     </stackView>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ipc-10-oAy">
                                                         <rect key="frame" x="20" y="169" width="335" height="30"/>
-                                                        <state key="normal" title="Button"/>
+                                                        <state key="normal" title="&lt;factory settings&gt;"/>
                                                         <connections>
                                                             <action selector="onFactorySettingsTapped:" destination="70U-AU-X1A" eventType="touchUpInside" id="kRO-YT-ckf"/>
                                                         </connections>

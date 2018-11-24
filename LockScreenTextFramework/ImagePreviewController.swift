@@ -86,11 +86,6 @@ class ImagePreviewController: UIViewController {
         return
     }
 
-    // Open the text attributes controller
-    @IBAction private func onTextTapped(_ sender: Any) {
-        return
-    }
-
     // Segmented control changed from still to perspective
     @IBAction private func onBleedStyleChanged(_ sender: Any) {
 
@@ -261,7 +256,7 @@ extension ImagePreviewController: EFColorSelectionViewControllerDelegate {
         self.imageView.backgroundColor = color
     }
 
-    // Not technically part if the delegate, but required by the Done button
+    // Not technically part of the delegate, but required by the Done button
     @objc
     func ef_dismissViewController(sender: UIBarButtonItem) {
         self.dismiss(animated: true)
