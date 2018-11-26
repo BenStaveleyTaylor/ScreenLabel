@@ -11,19 +11,22 @@ import UIKit
 protocol FontPickerViewControllerDelegate: AnyObject {
 
     // The selected font name has changed
-    func didChangeSelectedFont(name: String)
+    func didChangeSelectedFont(internalName: String)
 }
 
 class FontPickerViewController: UITableViewController {
 
-    let sampleText = "Jackdaws love my big sphinx of quartz 123457890"
+    let sampleText = Resources.localizedString("FontPickerSample")
 
-    var selectedFontName: String?
+    var selectedFontInternalName: String?
+
     weak var delegate: FontPickerViewControllerDelegate?
 
-    lazy var fontNames: [String] = {
+    // List of all font names, sorted
+    lazy var fontInternalNames: [String] = {
 
-        var names: [String] = []
+        // Top entry is always "System Font"
+        var names: [String] = [ TextAttributesHelper.systemFontInternalName ]
 
         for family in UIFont.familyNames.sorted() {
 
@@ -34,10 +37,24 @@ class FontPickerViewController: UITableViewController {
         return names
     }()
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+
+        for cell in self.tableView.visibleCells {
+            self.setCellCheckmarkState(cell: cell)
+        }
     }
 
+    private func setCellCheckmarkState(cell: UITableViewCell) {
+
+        let fontInternalName = cell.detailTextLabel?.text
+
+        if fontInternalName == self.selectedFontInternalName {
+            cell.accessoryType = .checkmark
+        } else {
+            cell.accessoryType = .none
+        }
+    }
 }
 
 // UITableViewDataSource
@@ -48,36 +65,40 @@ extension FontPickerViewController {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.fontNames.count
+        return self.fontInternalNames.count
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "fontPickerCell", for: indexPath)
 
+        let sizeToUse: CGFloat = cell.textLabel?.font.pointSize ?? 12
+        let fontInternalName = self.fontInternalNames[indexPath.row]
+        let fontDisplayName = TextAttributesHelper.fontDisplayNameFrom(internalName: fontInternalName)
+
         // Use the right font for the cell title
-        let fontName = self.fontNames[indexPath.row]
-        let font = UIFont(name: fontName, size: cell.textLabel?.font.pointSize ?? 12)
+        let font: UIFont?
+
+        if indexPath.row == 0 {
+            // System font
+            font = UIFont.systemFont(ofSize: sizeToUse)
+        } else {
+            font = UIFont(name: fontInternalName, size: sizeToUse)
+        }
+
         cell.textLabel?.font = font
         cell.textLabel?.text = self.sampleText
+        cell.detailTextLabel?.text = fontDisplayName
 
-        cell.detailTextLabel?.text = fontName
-
-        // If this is the selected cell, show a tick
-        if fontName == self.selectedFontName {
-            cell.accessoryType = .checkmark
-        } else {
-            cell.accessoryType = .none
-        }
+        self.setCellCheckmarkState(cell: cell)
 
         return cell
     }
 
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+
         let selectedCell = tableView.cellForRow(at: indexPath)
         if let fontName = selectedCell?.textLabel?.font.fontName {
-
-            self.delegate?.didChangeSelectedFont(name: fontName)
+            self.delegate?.didChangeSelectedFont(internalName: fontName)
         }
     }
-
 }

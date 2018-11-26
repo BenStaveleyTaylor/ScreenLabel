@@ -35,3 +35,7 @@
 "TextSizeValue" = "%@ pts";
 
 "FactorySettings" = "Reset to Defaults";
+
+"FontPickerSample" = "Abcdef ghijklmn opq rstwqyz 123457890";
+
+"SystemFontDisplayName" = "System Font";

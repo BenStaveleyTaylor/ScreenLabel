@@ -86,7 +86,7 @@ class TextAttributesViewController: UIViewController {
 
         // Push the current font in so it can be shown ticked
         pickerVC.delegate = self
-        pickerVC.selectedFontName = self.settingsCoordinator.textFont.fontName
+        pickerVC.selectedFontInternalName = TextAttributesHelper.fontInternalNameFrom(displayName: self.textFontName.text!)
     }
 
     private func loadSettings() {
@@ -101,7 +101,9 @@ class TextAttributesViewController: UIViewController {
         self.textSizeSlider.value = Float(PointSizeSlider.sizeToSliderIndex(self.settingsCoordinator.textFont.pointSize))
 
         self.textFontLabel.text = Resources.localizedString("TextFontLabel")
-        self.textFontName.text = self.settingsCoordinator.textFont.fontName
+
+        let internalFontName =  self.settingsCoordinator.textFont.fontName
+        self.textFontName.text = TextAttributesHelper.fontDisplayNameFrom(internalName: internalFontName)
 
         self.factorySettingsButton.setTitle(Resources.localizedString("FactorySettings"), for: .normal)
     }
@@ -128,11 +130,10 @@ class TextAttributesViewController: UIViewController {
 
 extension TextAttributesViewController: FontPickerViewControllerDelegate {
 
-    // The selected font name has changed
-    func didChangeSelectedFont(name: String) {
+    // The selected font has changed
+    func didChangeSelectedFont(internalName: String) {
 
-        self.textFontName.text = name
-
+        self.textFontName.text = TextAttributesHelper.fontDisplayNameFrom(internalName: internalName)
         self.navigationController?.popViewController(animated: true)
     }
 }

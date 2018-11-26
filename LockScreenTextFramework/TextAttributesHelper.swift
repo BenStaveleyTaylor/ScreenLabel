@@ -10,6 +10,9 @@ import Foundation
 
 enum TextAttributesHelper {
 
+    static var systemFontInternalName = UIFont.systemFont(ofSize: 12).fontName
+    static var systemFontDisplayName = Resources.localizedString("SystemFontDisplayName")
+
     // Return a formatted string to display for a font's size
     // e.g. 12 returns "12 pt"
     static func displayTextForPointSize(_ size: CGFloat) -> String {
@@ -20,5 +23,25 @@ enum TextAttributesHelper {
         let text = String(format: format, NSNumber(value: value))
 
         return text
+    }
+
+    static func fontDisplayNameFrom(internalName: String) -> String {
+
+        // Return "System Font" instead of ".SFUIFont"
+        if internalName == systemFontInternalName {
+            return systemFontDisplayName
+        }
+
+        return internalName
+    }
+
+    static func fontInternalNameFrom(displayName: String) -> String {
+
+        // Return ".SFUIFont" instead of "System Font"
+        if displayName == systemFontDisplayName {
+            return systemFontInternalName
+        }
+
+        return displayName
     }
 }

@@ -73,7 +73,7 @@ struct Settings: Codable {
                   imageBackgroundColour: UIColor.white,
                   imageBleedStyle: .still,
                   message: Resources.localizedString("MessagePromptText"),
-                  textFont: UIFont.systemFont(ofSize: UIFont.smallSystemFontSize),
+                  textFont: UIFont.preferredFont(forTextStyle: .body),
                   textAlignment: .center,
                   textColour: UIColor.white,
                   boxColour: UIColor(white: 0, alpha: 0.5),
