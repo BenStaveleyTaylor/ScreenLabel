@@ -21,7 +21,13 @@ class TextAttributesViewController: UIViewController {
 
     @IBOutlet private weak var textFontLabel: UILabel!
     @IBOutlet private weak var textFontName: UILabel!
+
+    @IBOutlet private weak var textColourLabel: UILabel!
+    @IBOutlet private weak var textColourSwatchView: ColorSwatchView!
     
+    @IBOutlet private weak var boxColourLabel: UILabel!
+    @IBOutlet private weak var boxColourSwatchView: ColorSwatchView!
+
     @IBOutlet private weak var factorySettingsButton: UIButton!
     
     // The source of the segue must push this in
@@ -34,6 +40,12 @@ class TextAttributesViewController: UIViewController {
         // Set the text point size slider range
         self.textSizeSlider.minimumValue = 0
         self.textSizeSlider.maximumValue = Float(PointSizeSlider.numPointSizeSteps-1)
+
+        self.boxColourSwatchView.layer.borderWidth = 1
+        self.boxColourSwatchView.layer.borderColor = UIColor.gray.cgColor
+
+        self.textColourSwatchView.layer.borderWidth = 1
+        self.textColourSwatchView.layer.borderColor = UIColor.gray.cgColor
 
         self.loadSettings()
     }
@@ -104,6 +116,12 @@ class TextAttributesViewController: UIViewController {
 
         let internalFontName =  self.settingsCoordinator.textFont.fontName
         self.textFontName.text = TextAttributesHelper.fontDisplayNameFrom(internalName: internalFontName)
+
+        self.textColourLabel.text = Resources.localizedString("TextColourLabel")
+        self.textColourSwatchView.swatchColor = self.settingsCoordinator.textColour
+
+        self.boxColourLabel.text = Resources.localizedString("BoxColourLabel")
+        self.boxColourSwatchView.swatchColor = self.settingsCoordinator.boxColour
 
         self.factorySettingsButton.setTitle(Resources.localizedString("FactorySettings"), for: .normal)
     }

@@ -14,9 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "6BB2EBEE21920DBA00BCDA34"
-               BuildableName = "LockScreenText.app"
-               BlueprintName = "LockScreenText"
+               BlueprintIdentifier = "6B0479F92198898800B79CFA"
+               BuildableName = "LockScreenTextFramework.framework"
+               BlueprintName = "LockScreenTextFramework"
                ReferencedContainer = "container:LockScreenText.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -28,26 +28,7 @@
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       shouldUseLaunchSchemeArgsEnv = "YES">
       <Testables>
-         <TestableReference
-            skipped = "NO">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "6B047A012198898800B79CFA"
-               BuildableName = "LockScreenTextFrameworkTests.xctest"
-               BlueprintName = "LockScreenTextFrameworkTests"
-               ReferencedContainer = "container:LockScreenText.xcodeproj">
-            </BuildableReference>
-         </TestableReference>
       </Testables>
-      <MacroExpansion>
-         <BuildableReference
-            BuildableIdentifier = "primary"
-            BlueprintIdentifier = "6BB2EBEE21920DBA00BCDA34"
-            BuildableName = "LockScreenText.app"
-            BlueprintName = "LockScreenText"
-            ReferencedContainer = "container:LockScreenText.xcodeproj">
-         </BuildableReference>
-      </MacroExpansion>
       <AdditionalOptions>
       </AdditionalOptions>
    </TestAction>
@@ -55,25 +36,21 @@
       buildConfiguration = "Debug"
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
-      enableASanStackUseAfterReturn = "YES"
       launchStyle = "0"
       useCustomWorkingDirectory = "NO"
       ignoresPersistentStateOnLaunch = "NO"
       debugDocumentVersioning = "YES"
-      stopOnEveryThreadSanitizerIssue = "YES"
-      stopOnEveryMainThreadCheckerIssue = "YES"
       debugServiceExtension = "internal"
       allowLocationSimulation = "YES">
-      <BuildableProductRunnable
-         runnableDebuggingMode = "0">
+      <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "6BB2EBEE21920DBA00BCDA34"
-            BuildableName = "LockScreenText.app"
-            BlueprintName = "LockScreenText"
+            BlueprintIdentifier = "6B0479F92198898800B79CFA"
+            BuildableName = "LockScreenTextFramework.framework"
+            BlueprintName = "LockScreenTextFramework"
             ReferencedContainer = "container:LockScreenText.xcodeproj">
          </BuildableReference>
-      </BuildableProductRunnable>
+      </MacroExpansion>
       <AdditionalOptions>
       </AdditionalOptions>
    </LaunchAction>
@@ -83,16 +60,15 @@
       savedToolIdentifier = ""
       useCustomWorkingDirectory = "NO"
       debugDocumentVersioning = "YES">
-      <BuildableProductRunnable
-         runnableDebuggingMode = "0">
+      <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "6BB2EBEE21920DBA00BCDA34"
-            BuildableName = "LockScreenText.app"
-            BlueprintName = "LockScreenText"
+            BlueprintIdentifier = "6B0479F92198898800B79CFA"
+            BuildableName = "LockScreenTextFramework.framework"
+            BlueprintName = "LockScreenTextFramework"
             ReferencedContainer = "container:LockScreenText.xcodeproj">
          </BuildableReference>
-      </BuildableProductRunnable>
+      </MacroExpansion>
    </ProfileAction>
    <AnalyzeAction
       buildConfiguration = "Debug">

@@ -39,3 +39,7 @@
 "FontPickerSample" = "Abcdef ghijklmn opq rstwqyz 123457890";
 
 "SystemFontDisplayName" = "System Font";
+
+"BoxColourLabel" = "Box Colour";
+
+"TextColourLabel" = "Text Colour";

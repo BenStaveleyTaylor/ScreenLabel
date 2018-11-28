@@ -26,6 +26,8 @@
 		6B7FDF5A21A9B1E3004BB497 /* TextAttributesHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B7FDF5921A9B1E3004BB497 /* TextAttributesHelper.swift */; };
 		6B7FDF5C21A9C7D8004BB497 /* PointSizeSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B7FDF5B21A9C7D8004BB497 /* PointSizeSlider.swift */; };
 		6B7FDF5E21A9F8AE004BB497 /* FontPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B7FDF5D21A9F8AE004BB497 /* FontPickerViewController.swift */; };
+		6B7FDF6021ABF75D004BB497 /* ColorSwatchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B7FDF5F21ABF75D004BB497 /* ColorSwatchView.swift */; };
+		6B7FDF6221ABFA12004BB497 /* UIView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B7FDF6121ABFA12004BB497 /* UIView+Extensions.swift */; };
 		6B89BBA82199D9A90026E640 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6B89BBA72199D9A90026E640 /* Localizable.strings */; };
 		6BA186E521988CCB00C9CE76 /* SettingsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B11DA112194DF9F001FAD4C /* SettingsTests.swift */; };
 		6BB2EBF321920DBA00BCDA34 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BB2EBF221920DBA00BCDA34 /* AppDelegate.swift */; };
@@ -99,6 +101,8 @@
 		6B7FDF5921A9B1E3004BB497 /* TextAttributesHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextAttributesHelper.swift; sourceTree = "<group>"; };
 		6B7FDF5B21A9C7D8004BB497 /* PointSizeSlider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PointSizeSlider.swift; sourceTree = "<group>"; };
 		6B7FDF5D21A9F8AE004BB497 /* FontPickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontPickerViewController.swift; sourceTree = "<group>"; };
+		6B7FDF5F21ABF75D004BB497 /* ColorSwatchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorSwatchView.swift; sourceTree = "<group>"; };
+		6B7FDF6121ABFA12004BB497 /* UIView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extensions.swift"; sourceTree = "<group>"; };
 		6B89BBA72199D9A90026E640 /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
 		6BA186E421988BCC00C9CE76 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6BA186E621988D3C00C9CE76 /* InfoPlist.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = InfoPlist.strings; sourceTree = "<group>"; };
@@ -142,6 +146,7 @@
 		6B0479FB2198898800B79CFA /* LockScreenTextFramework */ = {
 			isa = PBXGroup;
 			children = (
+				6B7FDF5F21ABF75D004BB497 /* ColorSwatchView.swift */,
 				6B047A1B21988B5F00B79CFA /* Constants.swift */,
 				6B7FDF5D21A9F8AE004BB497 /* FontPickerViewController.swift */,
 				6B047A1E21988B5F00B79CFA /* ImagePreviewController.swift */,
@@ -184,6 +189,7 @@
 				6B047A1C21988B5F00B79CFA /* AlertUtilities.swift */,
 				6B047A1F21988B5F00B79CFA /* FileManagerUtilities.swift */,
 				6B047A1A21988B5F00B79CFA /* ImageUtilities.swift */,
+				6B7FDF6121ABFA12004BB497 /* UIView+Extensions.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -514,6 +520,8 @@
 				6B047A2721988B5F00B79CFA /* FileManagerUtilities.swift in Sources */,
 				6B7FDF5E21A9F8AE004BB497 /* FontPickerViewController.swift in Sources */,
 				6B7FDF5C21A9C7D8004BB497 /* PointSizeSlider.swift in Sources */,
+				6B7FDF6021ABF75D004BB497 /* ColorSwatchView.swift in Sources */,
+				6B7FDF6221ABFA12004BB497 /* UIView+Extensions.swift in Sources */,
 				6B047A2121988B5F00B79CFA /* SettingsCoordinator.swift in Sources */,
 				6B047A2821988B5F00B79CFA /* Settings.swift in Sources */,
 				6B1E245021989F9B008A0CFC /* Resources.swift in Sources */,

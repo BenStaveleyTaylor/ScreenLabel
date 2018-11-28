@@ -153,10 +153,10 @@
                                 <rect key="frame" x="0.0" y="64" width="375" height="559"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8w5-dh-F7X" userLabel="Content View">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="263.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="375.5"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="dbi-kZ-Znd">
-                                                <rect key="frame" x="0.0" y="0.0" width="375" height="263.5"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="375" height="375.5"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Inf-ka-rzc">
                                                         <rect key="frame" x="20" y="20" width="335" height="19"/>
@@ -227,6 +227,9 @@
                                                             </label>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="&lt;font name&gt;" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="emB-lV-U3A">
                                                                 <rect key="frame" x="236.5" y="0.0" width="98.5" height="20.5"/>
+                                                                <accessibility key="accessibilityConfiguration">
+                                                                    <accessibilityTraits key="traits" button="YES"/>
+                                                                </accessibility>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                 <nil key="textColor"/>
                                                                 <nil key="highlightedColor"/>
@@ -236,8 +239,58 @@
                                                             <outletCollection property="gestureRecognizers" destination="Odu-iK-mNM" appends="YES" id="iFC-9w-l4r"/>
                                                         </connections>
                                                     </stackView>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uSW-kV-p1V">
+                                                        <rect key="frame" x="20" y="213.5" width="335" height="44"/>
+                                                        <subviews>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="&lt;text colour&gt;" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TcI-Pa-OYs">
+                                                                <rect key="frame" x="0.0" y="0.0" width="291" height="44"/>
+                                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                <nil key="textColor"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9j0-pa-deP" customClass="ColorSwatchView" customModule="LockScreenTextFramework" customModuleProvider="target">
+                                                                <rect key="frame" x="291" y="0.0" width="44" height="44"/>
+                                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                <accessibility key="accessibilityConfiguration">
+                                                                    <accessibilityTraits key="traits" button="YES"/>
+                                                                </accessibility>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="width" constant="44" id="3zo-lb-nXS"/>
+                                                                    <constraint firstAttribute="height" constant="44" id="mlS-CE-Asg"/>
+                                                                </constraints>
+                                                            </view>
+                                                        </subviews>
+                                                        <connections>
+                                                            <outletCollection property="gestureRecognizers" destination="HH3-hc-2hx" appends="YES" id="Y4p-lE-q8V"/>
+                                                        </connections>
+                                                    </stackView>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HCJ-FR-vxP">
+                                                        <rect key="frame" x="20" y="269.5" width="335" height="44"/>
+                                                        <subviews>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="&lt;box colour&gt;" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="y3P-sI-Lcg">
+                                                                <rect key="frame" x="0.0" y="0.0" width="291" height="44"/>
+                                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                <nil key="textColor"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9o3-EI-WfJ" customClass="ColorSwatchView" customModule="LockScreenTextFramework" customModuleProvider="target">
+                                                                <rect key="frame" x="291" y="0.0" width="44" height="44"/>
+                                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                <accessibility key="accessibilityConfiguration">
+                                                                    <accessibilityTraits key="traits" button="YES"/>
+                                                                </accessibility>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="width" constant="44" id="7Oq-aH-Y0t"/>
+                                                                    <constraint firstAttribute="height" constant="44" id="oh8-wZ-JcU"/>
+                                                                </constraints>
+                                                            </view>
+                                                        </subviews>
+                                                        <connections>
+                                                            <outletCollection property="gestureRecognizers" destination="bLJ-eN-5Mj" appends="YES" id="4HT-FB-rQJ"/>
+                                                        </connections>
+                                                    </stackView>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ipc-10-oAy">
-                                                        <rect key="frame" x="20" y="213.5" width="335" height="30"/>
+                                                        <rect key="frame" x="20" y="325.5" width="335" height="30"/>
                                                         <state key="normal" title="&lt;factory settings&gt;"/>
                                                         <connections>
                                                             <action selector="onFactorySettingsTapped:" destination="70U-AU-X1A" eventType="touchUpInside" id="kRO-YT-ckf"/>
@@ -276,8 +329,12 @@
                         <viewLayoutGuide key="safeArea" id="euc-QL-pt5"/>
                     </view>
                     <connections>
+                        <outlet property="boxColourLabel" destination="y3P-sI-Lcg" id="usI-O6-oWZ"/>
+                        <outlet property="boxColourSwatchView" destination="9o3-EI-WfJ" id="08D-Nb-eIg"/>
                         <outlet property="clearTextButton" destination="F5L-vD-cZe" id="2WV-DN-tZo"/>
                         <outlet property="factorySettingsButton" destination="ipc-10-oAy" id="N5x-I4-Fdh"/>
+                        <outlet property="textColourLabel" destination="TcI-Pa-OYs" id="gcm-9O-4pn"/>
+                        <outlet property="textColourSwatchView" destination="9j0-pa-deP" id="tmk-ug-cfZ"/>
                         <outlet property="textFontLabel" destination="oB8-eR-2jT" id="esq-RD-Ujh"/>
                         <outlet property="textFontName" destination="emB-lV-U3A" id="rrt-Lr-g5z"/>
                         <outlet property="textLabel" destination="ooq-eg-RRA" id="IiK-pp-U0D"/>
@@ -288,9 +345,23 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uts-oM-Kgj" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <tapGestureRecognizer id="Odu-iK-mNM">
+                <tapGestureRecognizer id="Odu-iK-mNM" userLabel="fontPickerTapRecognizer">
                     <connections>
                         <segue destination="F4h-7y-sTj" kind="show" identifier="pickFontSegue" id="zuU-RK-hTV"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer id="bLJ-eN-5Mj" userLabel="boxColourTapRecognizer">
+                    <connections>
+                        <segue destination="3Bj-rk-VE4" kind="popoverPresentation" identifier="boxColorPickerSegue" popoverAnchorView="9o3-EI-WfJ" id="WE2-Lz-tVa">
+                            <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
+                        </segue>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer id="HH3-hc-2hx" userLabel="textColorTapRecognizer">
+                    <connections>
+                        <segue destination="3Bj-rk-VE4" kind="popoverPresentation" identifier="textColorPickerSegue" popoverAnchorView="9j0-pa-deP" id="wRK-US-9xZ">
+                            <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
+                        </segue>
                     </connections>
                 </tapGestureRecognizer>
             </objects>
@@ -338,7 +409,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3ah-EI-0FC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2207" y="204"/>
+            <point key="canvasLocation" x="2348" y="362"/>
         </scene>
         <!--Color Selection View Controller-->
         <scene sceneID="EOS-es-4KP">
@@ -354,7 +425,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aCV-w9-PZ9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2561" y="-564"/>
+            <point key="canvasLocation" x="3239" y="-564"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="EoK-EE-Zgz">
@@ -394,10 +465,13 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aqY-u7-uZQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1762" y="-564"/>
+            <point key="canvasLocation" x="2514" y="-564"/>
         </scene>
     </scenes>
     <resources>
         <image name="ClearTextButton" width="19" height="19"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="wRK-US-9xZ"/>
+    </inferredMetricsTieBreakers>
 </document>
