@@ -32,10 +32,10 @@ open class TranslucentColorSwatchView: UIView {
 
     open var swatchColor: UIColor? {
         get {
-            return self.swatchView.colour
+            return self.swatchView.color
         }
         set {
-            self.swatchView.colour = newValue
+            self.swatchView.color = newValue
 
             // If the swatch is opaque, no background image is needed
             let backgroundImageVisible = showOpacity && self.swatchView.alpha() < 1.0
@@ -44,7 +44,7 @@ open class TranslucentColorSwatchView: UIView {
     }
 
     // 'self' view is the grid background
-    private lazy var swatchView = ColourSwatchView(frame: self.bounds)
+    private lazy var swatchView = ColorSwatchView(frame: self.bounds)
     private lazy var backgroundImageView = UIImageView(frame: self.bounds)
 
     override init(frame: CGRect) {
@@ -70,7 +70,7 @@ open class TranslucentColorSwatchView: UIView {
         
         self.backgroundColor = UIColor.white
 
-        self.backgroundImageView.image = UIImage(named: "ColourSwatchBackground",
+        self.backgroundImageView.image = UIImage(named: "ColorSwatchBackground",
                                                  in: Bundle(for: type(of: self)),
                                                  compatibleWith: nil)
 

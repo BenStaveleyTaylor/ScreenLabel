@@ -18,12 +18,12 @@ protocol SettingsCoordinatorViewDelegate: AnyObject {
 protocol SettingsCoordinatorProtocol {
 
     // Simple Model (i.e. Settings) accessors
-    var imageBackgroundColour: UIColor { get set }
+    var imageBackgroundColor: UIColor { get set }
     var imageBleedStyle: BleedStyle { get set }
     var message: String { get set }
     var textFont: UIFont { get set }
-    var textColour: UIColor { get set }
-    var boxColour: UIColor { get set }
+    var textColor: UIColor { get set }
+    var boxColor: UIColor { get set }
     var boxBorderWidth: CGFloat { get set }
     var boxCornerRadius: CGFloat { get set }
 
@@ -99,12 +99,12 @@ class SettingsCoordinator: NSObject {
 extension SettingsCoordinator: SettingsCoordinatorProtocol {
 
     // Model (i.e. Settings) accessors
-    var imageBackgroundColour: UIColor {
+    var imageBackgroundColor: UIColor {
         get {
-            return self.settings.imageBackgroundColour
+            return self.settings.imageBackgroundColor
         }
         set {
-            self.settings.imageBackgroundColour = newValue
+            self.settings.imageBackgroundColor = newValue
             self.settingsDidChange()
         }
     }
@@ -139,22 +139,22 @@ extension SettingsCoordinator: SettingsCoordinatorProtocol {
         }
     }
 
-    var textColour: UIColor {
+    var textColor: UIColor {
         get {
-            return self.settings.textColour
+            return self.settings.textColor
         }
         set {
-            self.settings.textColour = newValue
+            self.settings.textColor = newValue
             self.settingsDidChange()
         }
     }
 
-    var boxColour: UIColor {
+    var boxColor: UIColor {
         get {
-            return self.settings.boxColour
+            return self.settings.boxColor
         }
         set {
-            self.settings.boxColour = newValue
+            self.settings.boxColor = newValue
             self.settingsDidChange()
         }
     }

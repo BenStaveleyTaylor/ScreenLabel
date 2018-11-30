@@ -1,5 +1,5 @@
 //
-//  ColourSwatchView.swift
+//  ColorSwatchView.swift
 //  LockScreenTextFramework
 //
 //  Created by Ben Staveley-Taylor on 30/11/2018.
@@ -9,10 +9,10 @@
 import UIKit
 
 /// A view to show a block of colour with an optional stripe when transparent
-class ColourSwatchView: UIView {
+class ColorSwatchView: UIView {
 
-    /// The colour to dispplay
-    var colour: UIColor? {
+    /// The colour to display
+    var color: UIColor? {
         get {
             return self.backgroundColor
         }
@@ -46,7 +46,7 @@ class ColourSwatchView: UIView {
     func alpha() -> CGFloat {
         var alpha: CGFloat = 0
 
-        self.colour?.getRed(nil, green: nil, blue: nil, alpha: &alpha)
+        self.color?.getRed(nil, green: nil, blue: nil, alpha: &alpha)
 
         return alpha
     }

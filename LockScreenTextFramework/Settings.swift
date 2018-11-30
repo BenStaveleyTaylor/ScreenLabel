@@ -30,7 +30,7 @@ struct Settings: Codable {
 
     // Name of the image file in the KnownDirectory.images folder
     var imageName: String?
-    var imageBackgroundColour: UIColor
+    var imageBackgroundColor: UIColor
     var imageBleedStyle: BleedStyle
 
     // The text of the message
@@ -38,9 +38,9 @@ struct Settings: Codable {
 
     var textFont: UIFont
     var textAlignment: NSTextAlignment
-    var textColour: UIColor
+    var textColor: UIColor
 
-    var boxColour: UIColor
+    var boxColor: UIColor
     var boxBorderWidth: CGFloat
     var boxCornerRadius: CGFloat
     var boxInsets: UIEdgeInsets
@@ -53,13 +53,13 @@ struct Settings: Codable {
     private enum CodingKeys: String, CodingKey {
         case version
         case imageName
-        case imageBackgroundColour
+        case imageBackgroundColor
         case imageBleedStyle
         case message
         case textFont
         case textAlignment
-        case textColour
-        case boxColour
+        case textColor
+        case boxColor
         case boxBorderWidth
         case boxCornerRadius
         case boxInsets
@@ -70,13 +70,13 @@ struct Settings: Codable {
     init() {
         self.init(version: Settings.currentVersion,
                   imageName: nil,           // Nil imageName means it's a plain colour lock screen (background colour only)
-                  imageBackgroundColour: UIColor.white,
+                  imageBackgroundColor: UIColor.white,
                   imageBleedStyle: .still,
                   message: Resources.localizedString("MessagePromptText"),
                   textFont: UIFont.preferredFont(forTextStyle: .body),
                   textAlignment: .center,
-                  textColour: UIColor.white,
-                  boxColour: UIColor(white: 0, alpha: 0.5),
+                  textColor: UIColor.white,
+                  boxColor: UIColor(white: 0, alpha: 0.5),
                   boxBorderWidth: 0,
                   boxCornerRadius: 6,
                   boxInsets: UIEdgeInsets(top: 20, left: 20, bottom: 20, right: 20),
@@ -86,13 +86,13 @@ struct Settings: Codable {
     // All-properties initialiser
     init(version: Int,
          imageName: String?,
-         imageBackgroundColour: UIColor,
+         imageBackgroundColor: UIColor,
          imageBleedStyle: BleedStyle,
          message: String,
          textFont: UIFont,
          textAlignment: NSTextAlignment,
-         textColour: UIColor,
-         boxColour: UIColor,
+         textColor: UIColor,
+         boxColor: UIColor,
          boxBorderWidth: CGFloat,
          boxCornerRadius: CGFloat,
          boxInsets: UIEdgeInsets,
@@ -100,13 +100,13 @@ struct Settings: Codable {
 
         self.version =                  version
         self.imageName =                imageName
-        self.imageBackgroundColour =    imageBackgroundColour
+        self.imageBackgroundColor =     imageBackgroundColor
         self.imageBleedStyle =          imageBleedStyle
         self.message =                  message
         self.textFont =                 textFont
         self.textAlignment =            textAlignment
-        self.textColour =               textColour
-        self.boxColour =                boxColour
+        self.textColor =                textColor
+        self.boxColor =                 boxColor
         self.boxBorderWidth =           boxBorderWidth
         self.boxCornerRadius =          boxCornerRadius
         self.boxInsets =                boxInsets
@@ -121,7 +121,7 @@ struct Settings: Codable {
 
         let version =               try? container.decode(Int.self, forKey: .version)
         let imageName =             try? container.decode(String.self, forKey: .imageName)
-        let imageBackgroundColour = try? container.decode(CodableColor.self, forKey: .imageBackgroundColour).toUIColor()
+        let imageBackgroundColor =  try? container.decode(CodableColor.self, forKey: .imageBackgroundColor).toUIColor()
         let imageBleedStyle =       try? container.decode(BleedStyle.self, forKey: .imageBleedStyle)
         let message =               try? container.decode(String.self, forKey: .message)
 
@@ -133,8 +133,8 @@ struct Settings: Codable {
             textAlignment = NSTextAlignment(rawValue: rawTextAlignment)
         }
 
-        let textColour =            try? container.decode(CodableColor.self, forKey: .textColour).toUIColor()
-        let boxColour =             try? container.decode(CodableColor.self, forKey: .boxColour).toUIColor()
+        let textColor =             try? container.decode(CodableColor.self, forKey: .textColor).toUIColor()
+        let boxColor =              try? container.decode(CodableColor.self, forKey: .boxColor).toUIColor()
         let boxBorderWidth =        try? container.decode(CGFloat.self, forKey: .boxBorderWidth)
         let boxCornerRadius =       try? container.decode(CGFloat.self, forKey: .boxCornerRadius)
         let boxInsets =             try? container.decode(CodableEdgeInsets.self, forKey: .boxInsets).toUIEdgeInsets()
@@ -143,13 +143,13 @@ struct Settings: Codable {
         // If any individual setting was missing, use the default value
         self.init(version: version                              ?? Settings.defaults.version,
                   imageName: imageName,                         // nil is ok
-                  imageBackgroundColour: imageBackgroundColour  ?? Settings.defaults.imageBackgroundColour,
+                  imageBackgroundColor: imageBackgroundColor    ?? Settings.defaults.imageBackgroundColor,
                   imageBleedStyle: imageBleedStyle              ?? Settings.defaults.imageBleedStyle,
                   message: message                              ?? Settings.defaults.message,
                   textFont: textFont                            ?? Settings.defaults.textFont,
                   textAlignment: textAlignment                  ?? Settings.defaults.textAlignment,
-                  textColour: textColour                        ?? Settings.defaults.textColour,
-                  boxColour: boxColour                          ?? Settings.defaults.boxColour,
+                  textColor: textColor                          ?? Settings.defaults.textColor,
+                  boxColor: boxColor                            ?? Settings.defaults.boxColor,
                   boxBorderWidth: boxBorderWidth                ?? Settings.defaults.boxBorderWidth,
                   boxCornerRadius: boxCornerRadius              ?? Settings.defaults.boxCornerRadius,
                   boxInsets: boxInsets                          ?? Settings.defaults.boxInsets,
@@ -161,13 +161,13 @@ struct Settings: Codable {
 
         try container.encode(self.version, forKey: .version)
         try container.encode(self.imageName, forKey: .imageName)
-        try container.encode(CodableColor(uiColor: self.imageBackgroundColour), forKey: .imageBackgroundColour)
+        try container.encode(CodableColor(uiColor: self.imageBackgroundColor), forKey: .imageBackgroundColor)
         try container.encode(self.imageBleedStyle, forKey: .imageBleedStyle)
         try container.encode(self.message, forKey: .message)
         try container.encode(CodableFont(uiFont: self.textFont), forKey: .textFont)
         try container.encode(self.textAlignment.rawValue, forKey: .textAlignment)
-        try container.encode(CodableColor(uiColor: self.textColour), forKey: .textColour)
-        try container.encode(CodableColor(uiColor: self.boxColour), forKey: .boxColour)
+        try container.encode(CodableColor(uiColor: self.textColor), forKey: .textColor)
+        try container.encode(CodableColor(uiColor: self.boxColor), forKey: .boxColor)
         try container.encode(self.boxBorderWidth, forKey: .boxBorderWidth)
         try container.encode(self.boxCornerRadius, forKey: .boxCornerRadius)
         try container.encode(CodableEdgeInsets(uiEdgeInsets: self.boxInsets), forKey: .boxInsets)

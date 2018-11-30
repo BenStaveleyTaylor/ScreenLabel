@@ -21,7 +21,7 @@ class ImagePreviewController: UIViewController {
     @IBOutlet private weak var textBoxView: UIView!
     @IBOutlet private weak var helpButton: UIBarButtonItem!
     @IBOutlet private weak var choosePhotoButton: UIBarButtonItem!
-    @IBOutlet private weak var plainColourButton: UIBarButtonItem!
+    @IBOutlet private weak var plainColorButton: UIBarButtonItem!
     @IBOutlet private weak var saveButton: UIBarButtonItem!
     @IBOutlet private weak var bleedStyleSegmentControl: UISegmentedControl!
     @IBOutlet private var imageTapRecognizer: UITapGestureRecognizer!
@@ -194,11 +194,11 @@ class ImagePreviewController: UIViewController {
 
     // After many colour update notifications while the selection UI is up,
     // accept the final value and persist it
-    private func persistImageBackgroundColour() {
+    private func persistImageBackgroundColor() {
         // This is a no-op visually, but it copies the last selected color into
         // the settings and persists it.
         if let backgroundColor = self.imageView.backgroundColor {
-            self.settingsCoordinator.imageBackgroundColour = backgroundColor
+            self.settingsCoordinator.imageBackgroundColor = backgroundColor
         }
     }
 }
@@ -233,16 +233,16 @@ extension ImagePreviewController: SettingsCoordinatorViewDelegate {
 
         // image will be nil if this is a plain colour
         self.imageView.image = coordinator.image
-        self.imageView.backgroundColor = coordinator.imageBackgroundColour
+        self.imageView.backgroundColor = coordinator.imageBackgroundColor
 
         self.bleedStyleSegmentControl.selectedSegmentIndex = coordinator.imageBleedStyle.rawValue
         self.setBleedStyle(coordinator.imageBleedStyle, animated: animated)
 
         self.textLabel.text = coordinator.message
-        self.textLabel.textColor = coordinator.textColour
+        self.textLabel.textColor = coordinator.textColor
         self.textLabel.font = coordinator.textFont
 
-        self.textBoxView.layer.backgroundColor = coordinator.boxColour.cgColor
+        self.textBoxView.layer.backgroundColor = coordinator.boxColor.cgColor
         self.textBoxView.layer.borderWidth = coordinator.boxBorderWidth
         self.textBoxView.layer.cornerRadius = coordinator.boxCornerRadius
     }
@@ -260,7 +260,7 @@ extension ImagePreviewController: EFColorSelectionViewControllerDelegate {
     @objc
     func ef_dismissViewController(sender: UIBarButtonItem) {
         self.dismiss(animated: true)
-        self.persistImageBackgroundColour()
+        self.persistImageBackgroundColor()
     }
 }
 
@@ -269,6 +269,6 @@ extension ImagePreviewController: UIPopoverPresentationControllerDelegate {
     // Detect closure of the Colour Picker and save the final result
     @objc
     public func popoverPresentationControllerDidDismissPopover(_ popoverPresentationController: UIPopoverPresentationController) {
-        self.persistImageBackgroundColour()
+        self.persistImageBackgroundColor()
     }
 }

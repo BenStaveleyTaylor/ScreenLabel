@@ -40,6 +40,6 @@
 
 "SystemFontDisplayName" = "System Font";
 
-"BoxColourLabel" = "Box Colour";
+"BoxColorLabel" = "Box Colour";
 
-"TextColourLabel" = "Text Colour";
+"TextColorLabel" = "Text Colour";

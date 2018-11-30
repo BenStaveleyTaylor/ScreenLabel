@@ -22,11 +22,11 @@ class TextAttributesViewController: UIViewController {
     @IBOutlet private weak var textFontLabel: UILabel!
     @IBOutlet private weak var textFontName: UILabel!
 
-    @IBOutlet private weak var textColourLabel: UILabel!
-    @IBOutlet private weak var textColourSwatchView: TranslucentColorSwatchView!
+    @IBOutlet private weak var textColorLabel: UILabel!
+    @IBOutlet private weak var textColorSwatchView: TranslucentColorSwatchView!
     
-    @IBOutlet private weak var boxColourLabel: UILabel!
-    @IBOutlet private weak var boxColourSwatchView: TranslucentColorSwatchView!
+    @IBOutlet private weak var boxColorLabel: UILabel!
+    @IBOutlet private weak var boxColorSwatchView: TranslucentColorSwatchView!
 
     @IBOutlet private weak var factorySettingsButton: UIButton!
     
@@ -41,11 +41,11 @@ class TextAttributesViewController: UIViewController {
         self.textSizeSlider.minimumValue = 0
         self.textSizeSlider.maximumValue = Float(PointSizeSlider.numPointSizeSteps-1)
 
-        self.boxColourSwatchView.layer.borderWidth = 1
-        self.boxColourSwatchView.layer.borderColor = UIColor.gray.cgColor
+        self.boxColorSwatchView.layer.borderWidth = 1
+        self.boxColorSwatchView.layer.borderColor = UIColor.gray.cgColor
 
-        self.textColourSwatchView.layer.borderWidth = 1
-        self.textColourSwatchView.layer.borderColor = UIColor.gray.cgColor
+        self.textColorSwatchView.layer.borderWidth = 1
+        self.textColorSwatchView.layer.borderColor = UIColor.gray.cgColor
 
         self.loadSettings()
     }
@@ -117,11 +117,11 @@ class TextAttributesViewController: UIViewController {
         let internalFontName =  self.settingsCoordinator.textFont.fontName
         self.textFontName.text = TextAttributesHelper.fontDisplayNameFrom(internalName: internalFontName)
 
-        self.textColourLabel.text = Resources.localizedString("TextColourLabel")
-        self.textColourSwatchView.swatchColor = self.settingsCoordinator.textColour
+        self.textColorLabel.text = Resources.localizedString("TextColorLabel")
+        self.textColorSwatchView.swatchColor = self.settingsCoordinator.textColor
 
-        self.boxColourLabel.text = Resources.localizedString("BoxColourLabel")
-        self.boxColourSwatchView.swatchColor = self.settingsCoordinator.boxColour
+        self.boxColorLabel.text = Resources.localizedString("BoxColorLabel")
+        self.boxColorSwatchView.swatchColor = self.settingsCoordinator.boxColor
 
         self.factorySettingsButton.setTitle(Resources.localizedString("FactorySettings"), for: .normal)
     }
