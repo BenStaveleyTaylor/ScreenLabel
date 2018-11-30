@@ -23,10 +23,10 @@ class TextAttributesViewController: UIViewController {
     @IBOutlet private weak var textFontName: UILabel!
 
     @IBOutlet private weak var textColourLabel: UILabel!
-    @IBOutlet private weak var textColourSwatchView: ColorSwatchView!
+    @IBOutlet private weak var textColourSwatchView: TranslucentColorSwatchView!
     
     @IBOutlet private weak var boxColourLabel: UILabel!
-    @IBOutlet private weak var boxColourSwatchView: ColorSwatchView!
+    @IBOutlet private weak var boxColourSwatchView: TranslucentColorSwatchView!
 
     @IBOutlet private weak var factorySettingsButton: UIButton!
     
