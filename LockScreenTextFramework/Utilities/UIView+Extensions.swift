@@ -30,4 +30,10 @@ extension UIView {
 
         NSLayoutConstraint.activate(newConstraints)
     }
+
+    // Set a standard 1pt gray border
+    public func setBorder(color: UIColor = UIColor.gray, width: CGFloat = 1) {
+        self.layer.borderColor = color.cgColor
+        self.layer.borderWidth = width
+    }
 }

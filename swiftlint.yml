@@ -219,3 +219,6 @@ modifier_order:
 
 force_cast:
     severity: warning
+
+identifier_name:
+    min_length: 2

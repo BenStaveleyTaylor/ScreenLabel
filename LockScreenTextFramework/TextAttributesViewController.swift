@@ -37,11 +37,8 @@ class TextAttributesViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        self.boxColorSwatchView.layer.borderWidth = 1
-        self.boxColorSwatchView.layer.borderColor = UIColor.gray.cgColor
-
-        self.textColorSwatchView.layer.borderWidth = 1
-        self.textColorSwatchView.layer.borderColor = UIColor.gray.cgColor
+        self.boxColorSwatchView.setBorder()
+        self.textColorSwatchView.setBorder()
 
         self.loadSettings()
     }
