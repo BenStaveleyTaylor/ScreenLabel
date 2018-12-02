@@ -14,10 +14,9 @@ import PlaygroundSupport
 //// Present the view controller in the Live View window
 //PlaygroundPage.current.liveView = testVC
 
-let view = ColorSwatchView(frame: CGRect(x: 0, y: 0, width: 44, height: 44))
+let view = TranslucentColorSwatchView(frame: CGRect(x: 0, y: 0, width: 100, height: 100))
 PlaygroundPage.current.liveView = view
 
-view.gridColor = UIColor.black
-view.swatchColor = UIColor(red: 1, green: 1, blue: 0, alpha: 0.5)
+view.swatchColor = UIColor(red: 1.0, green: 0, blue: 0, alpha: 0.0)
 
 

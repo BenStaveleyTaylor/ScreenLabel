@@ -15,7 +15,7 @@ class TextAttributesViewController: UIViewController {
     @IBOutlet private weak var textView: UITextView!
     @IBOutlet private weak var clearTextButton: UIButton!
 
-    @IBOutlet private weak var textSizeSlider: UISlider!
+    @IBOutlet private weak var textSizeSlider: PointSizeSlider!
     @IBOutlet private weak var textSizeLabel: UILabel!
     @IBOutlet private weak var textSizeValueLabel: UILabel!
 
@@ -37,10 +37,6 @@ class TextAttributesViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Set the text point size slider range
-        self.textSizeSlider.minimumValue = 0
-        self.textSizeSlider.maximumValue = Float(PointSizeSlider.numPointSizeSteps-1)
-
         self.boxColorSwatchView.layer.borderWidth = 1
         self.boxColorSwatchView.layer.borderColor = UIColor.gray.cgColor
 
@@ -61,9 +57,8 @@ class TextAttributesViewController: UIViewController {
 
     @IBAction private func onTextSizeValueChanged(_ sender: Any) {
 
-        let index = Int(self.textSizeSlider.value)
-        let size = PointSizeSlider.sliderIndexToSize(index)
-        self.textSizeValueLabel.text = TextAttributesHelper.displayTextForPointSize(size)
+        let size = self.textSizeSlider.stepValue
+        self.textSizeValueLabel.text = TextAttributesHelper.displayTextForPointSize(CGFloat(size))
     }
 
     @IBAction private func onFactorySettingsTapped(_ sender: Any) {
@@ -110,7 +105,7 @@ class TextAttributesViewController: UIViewController {
 
         self.textSizeLabel.text = Resources.localizedString("TextSizeLabel")
         self.textSizeValueLabel.text = TextAttributesHelper.displayTextForPointSize(self.settingsCoordinator.textFont.pointSize)
-        self.textSizeSlider.value = Float(PointSizeSlider.sizeToSliderIndex(self.settingsCoordinator.textFont.pointSize))
+        self.textSizeSlider.stepValue = lround(self.settingsCoordinator.textFont.pointSize.native)
 
         self.textFontLabel.text = Resources.localizedString("TextFontLabel")
 
@@ -133,11 +128,10 @@ class TextAttributesViewController: UIViewController {
 
         self.settingsCoordinator.message = self.textView.text
 
-        let index = Int(self.textSizeSlider.value)
-        let size = PointSizeSlider.sliderIndexToSize(index)
+        let size = self.textSizeSlider.stepValue
 
         if let newFontName = self.textFontName.text,
-            let newFont = UIFont(name: newFontName, size: size) {
+            let newFont = UIFont(name: newFontName, size: CGFloat(size)) {
             
             self.settingsCoordinator.textFont = newFont
         }

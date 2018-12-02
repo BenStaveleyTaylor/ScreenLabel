@@ -199,7 +199,7 @@
                                                                 <nil key="textColor"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
-                                                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="16" minValue="6" maxValue="256" translatesAutoresizingMaskIntoConstraints="NO" id="eQP-21-HfM">
+                                                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="16" minValue="6" maxValue="256" translatesAutoresizingMaskIntoConstraints="NO" id="eQP-21-HfM" customClass="PointSizeSlider" customModule="LockScreenTextFramework" customModuleProvider="target">
                                                                 <rect key="frame" x="91" y="0.0" width="178" height="31"/>
                                                                 <connections>
                                                                     <action selector="onTextSizeValueChanged:" destination="70U-AU-X1A" eventType="valueChanged" id="3yK-C2-j7L"/>
@@ -472,6 +472,6 @@
         <image name="ClearTextButton" width="19" height="19"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="X0m-39-2aG"/>
+        <segue reference="WE2-Lz-tVa"/>
     </inferredMetricsTieBreakers>
 </document>
