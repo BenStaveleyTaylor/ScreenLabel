@@ -411,16 +411,10 @@
             </objects>
             <point key="canvasLocation" x="2348" y="362"/>
         </scene>
-        <!--Color Selection View Controller-->
+        <!--Color Picker View Controller-->
         <scene sceneID="EOS-es-4KP">
             <objects>
-                <viewController id="nUf-5L-Fmh" customClass="EFColorSelectionViewController" customModule="EFColorPicker" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="b1I-Jb-ymc">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <viewLayoutGuide key="safeArea" id="jKD-el-82f"/>
-                    </view>
+                <viewController id="nUf-5L-Fmh" customClass="ColorPickerViewController" customModule="LockScreenTextFramework" customModuleProvider="target" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="efh-wf-sl1"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aCV-w9-PZ9" userLabel="First Responder" sceneMemberID="firstResponder"/>

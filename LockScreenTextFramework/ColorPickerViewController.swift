@@ -13,7 +13,7 @@ protocol ColorPickerViewControllerDelegate: AnyObject {
 
     // User has selected a new color. This happens many times before a final "OK"
     // For example as the user pans around the color wheel, this is issues repeatedly
-    func colorDidChange(to: UIColor)
+    func colorPicker(_ picker: ColorPickerViewController, didChangeTo color: UIColor)
 
 }
 
@@ -44,12 +44,22 @@ class ColorPickerViewController: UIViewController {
     var selectedColor: UIColor = UIColor.white {
         didSet {
             self.afterSwatch.swatchColor = self.selectedColor
-            self.delegate?.colorDidChange(to: self.selectedColor)
+
+            // Show the alpha and brightness
+            var alpha: CGFloat = 0
+            var brightness: CGFloat = 0
+            self.selectedColor.getHue(nil, saturation: nil, brightness: &brightness, alpha: &alpha)
+            self.brightnessSlider.value = Float(brightness)
+            self.transparencySlider.value = Float(alpha)
+
+            self.delegate?.colorPicker(self, didChangeTo: self.selectedColor)
         }
     }
     weak var delegate: ColorPickerViewControllerDelegate?
 
     var startingColor: UIColor?
+
+    lazy var colorWheelImageData: CFData? = self.colorWheelImageView.image?.cgImage?.dataProvider?.data
 
     // MARK: View lifecycle
 
@@ -62,6 +72,16 @@ class ColorPickerViewController: UIViewController {
 
         self.startingColor = startingColor
         self.delegate = delegate
+    }
+
+    // This allows the xib-based ViewController to be referenced in a Storyboard
+    // see https://japko.net/2014/09/08/loading-swift-uiviewcontroller-from-xib-in-storyboard/
+
+    override func loadView() {
+        let selfClass = type(of: self)
+        let className = String(describing: selfClass)
+        let bundle = Bundle(for: selfClass)
+        bundle.loadNibNamed(className, owner: self, options: nil)
     }
 
     override func viewDidLoad() {
@@ -79,6 +99,9 @@ class ColorPickerViewController: UIViewController {
             self.beforeColor = startingColor
             self.selectedColor = startingColor
         }
+
+        // Turn the brightness slider from horizontal to vertical
+        self.brightnessSlider.transform = CGAffineTransform(rotationAngle: .pi / -2)
     }
 
     // -------------------------------------------------------------------------
@@ -86,6 +109,11 @@ class ColorPickerViewController: UIViewController {
     // -------------------------------------------------------------------------
 
     @IBAction private func onColorWheelPan(_ sender: UIPanGestureRecognizer) {
+        self.selectColorFromWheelTouch(gestureRecognizer: sender)
+    }
+
+    @IBAction private func onColorWheelTap(_ sender: UITapGestureRecognizer) {
+        self.selectColorFromWheelTouch(gestureRecognizer: sender)
     }
 
     @IBAction private func onColorSwatchTap(_ sender: UITapGestureRecognizer) {
@@ -95,8 +123,42 @@ class ColorPickerViewController: UIViewController {
         }
     }
 
+    @IBAction private func onBrightnessChanged(_ sender: UISlider) {
+
+        var hue: CGFloat = 0
+        var saturation: CGFloat = 0
+        var alpha: CGFloat = 0
+        if self.selectedColor.getHue(&hue, saturation: &saturation, brightness: nil, alpha: &alpha) {
+
+            let newBrightness = CGFloat(sender.value)
+            let newColor = UIColor(hue: hue, saturation: saturation, brightness: newBrightness, alpha: alpha)
+            self.selectedColor = newColor
+        }
+    }
+
+    @IBAction private func onTransparencyChanged(_ sender: UISlider) {
+
+        let newAlpha = CGFloat(sender.value)
+        let newColor = self.selectedColor.withAlphaComponent(newAlpha)
+        self.selectedColor = newColor
+    }
+    
     // -------------------------------------------------------------------------
     // MARK: Private methods
     // -------------------------------------------------------------------------
+
+    private func selectColorFromWheelTouch(gestureRecognizer: UIGestureRecognizer) {
+
+        if gestureRecognizer.numberOfTouches > 0 {
+            let touchLoc = gestureRecognizer.location(ofTouch: 0, in: self.colorWheelImageView)
+
+            if self.colorWheelImageView.point(inside: touchLoc, with: nil) {
+
+                if let pickedColor = self.colorWheelImageView.color(at: touchLoc) {
+                    self.selectedColor = pickedColor
+                }
+            }
+        }
+    }
 
 }

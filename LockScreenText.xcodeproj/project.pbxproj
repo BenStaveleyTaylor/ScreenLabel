@@ -28,6 +28,8 @@
 		6B1E245021989F9B008A0CFC /* Resources.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B1E244F21989F9B008A0CFC /* Resources.swift */; };
 		6B324C0221B1457900EB236A /* TranslucentColorSwatchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B324C0121B1457900EB236A /* TranslucentColorSwatchView.swift */; };
 		6B324C0421B1458F00EB236A /* ColorSwatchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B324C0321B1458F00EB236A /* ColorSwatchView.swift */; };
+		6B64167621B726D000F6365C /* UIImageView+Pixels.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B64167421B726D000F6365C /* UIImageView+Pixels.m */; };
+		6B64167721B726D000F6365C /* UIImageView+Pixels.h in Headers */ = {isa = PBXBuildFile; fileRef = 6B64167521B726D000F6365C /* UIImageView+Pixels.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6B79DC50219B693F00F10A2F /* TextAttributesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B79DC4F219B693F00F10A2F /* TextAttributesViewController.swift */; };
 		6B7FDF5A21A9B1E3004BB497 /* TextAttributesHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B7FDF5921A9B1E3004BB497 /* TextAttributesHelper.swift */; };
 		6B7FDF5C21A9C7D8004BB497 /* PointSizeSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B7FDF5B21A9C7D8004BB497 /* PointSizeSlider.swift */; };
@@ -38,6 +40,7 @@
 		6BB2EBF321920DBA00BCDA34 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BB2EBF221920DBA00BCDA34 /* AppDelegate.swift */; };
 		6BB2EBFA21920DBB00BCDA34 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6BB2EBF921920DBB00BCDA34 /* Assets.xcassets */; };
 		6BB2EBFD21920DBB00BCDA34 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6BB2EBFB21920DBB00BCDA34 /* LaunchScreen.storyboard */; };
+		6BD6878E21B5ABE000A0EC6D /* ColorPickerWheelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BD6878D21B5ABE000A0EC6D /* ColorPickerWheelView.swift */; };
 		9F6F6FB64D2217A30E9128AC /* Pods_LockScreenTextFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0C04CA558397C4DBA7A9C962 /* Pods_LockScreenTextFramework.framework */; };
 		FC71560C74D8C50F0E91087E /* Pods_LockScreenText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 503457CF7F58C2A068B606C6 /* Pods_LockScreenText.framework */; };
 /* End PBXBuildFile section */
@@ -108,6 +111,8 @@
 		6B1E244F21989F9B008A0CFC /* Resources.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Resources.swift; sourceTree = "<group>"; };
 		6B324C0121B1457900EB236A /* TranslucentColorSwatchView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TranslucentColorSwatchView.swift; sourceTree = "<group>"; };
 		6B324C0321B1458F00EB236A /* ColorSwatchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorSwatchView.swift; sourceTree = "<group>"; };
+		6B64167421B726D000F6365C /* UIImageView+Pixels.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+Pixels.m"; sourceTree = "<group>"; };
+		6B64167521B726D000F6365C /* UIImageView+Pixels.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImageView+Pixels.h"; sourceTree = "<group>"; };
 		6B79DC4F219B693F00F10A2F /* TextAttributesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextAttributesViewController.swift; sourceTree = "<group>"; };
 		6B7FDF5921A9B1E3004BB497 /* TextAttributesHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextAttributesHelper.swift; sourceTree = "<group>"; };
 		6B7FDF5B21A9C7D8004BB497 /* PointSizeSlider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PointSizeSlider.swift; sourceTree = "<group>"; };
@@ -120,6 +125,7 @@
 		6BB2EBF221920DBA00BCDA34 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		6BB2EBF921920DBB00BCDA34 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		6BB2EBFC21920DBB00BCDA34 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		6BD6878D21B5ABE000A0EC6D /* ColorPickerWheelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorPickerWheelView.swift; sourceTree = "<group>"; };
 		6D1BFDFAB5DE9951D543D9C1 /* Pods-LockScreenText.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LockScreenText.debug.xcconfig"; path = "Pods/Target Support Files/Pods-LockScreenText/Pods-LockScreenText.debug.xcconfig"; sourceTree = "<group>"; };
 		FF5002C85F693D947D515944 /* Pods-LockScreenTextFramework.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LockScreenTextFramework.release.xcconfig"; path = "Pods/Target Support Files/Pods-LockScreenTextFramework/Pods-LockScreenTextFramework.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -157,6 +163,7 @@
 			isa = PBXGroup;
 			children = (
 				6B08E60D21B4307400D9B47C /* ColorPickerViewController.swift */,
+				6BD6878D21B5ABE000A0EC6D /* ColorPickerWheelView.swift */,
 				6B324C0321B1458F00EB236A /* ColorSwatchView.swift */,
 				6B047A1B21988B5F00B79CFA /* Constants.swift */,
 				6B7FDF5D21A9F8AE004BB497 /* FontPickerViewController.swift */,
@@ -204,6 +211,8 @@
 				6B047A1C21988B5F00B79CFA /* AlertUtilities.swift */,
 				6B047A1F21988B5F00B79CFA /* FileManagerUtilities.swift */,
 				6B047A1A21988B5F00B79CFA /* ImageUtilities.swift */,
+				6B64167521B726D000F6365C /* UIImageView+Pixels.h */,
+				6B64167421B726D000F6365C /* UIImageView+Pixels.m */,
 				6B7FDF6121ABFA12004BB497 /* UIView+Extensions.swift */,
 			);
 			path = Utilities;
@@ -296,6 +305,7 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6B64167721B726D000F6365C /* UIImageView+Pixels.h in Headers */,
 				6B047A0C2198898800B79CFA /* LockScreenTextFramework.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -529,12 +539,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6BD6878E21B5ABE000A0EC6D /* ColorPickerWheelView.swift in Sources */,
 				6B047A2621988B5F00B79CFA /* ImagePreviewController.swift in Sources */,
 				6B7FDF5A21A9B1E3004BB497 /* TextAttributesHelper.swift in Sources */,
 				6B79DC50219B693F00F10A2F /* TextAttributesViewController.swift in Sources */,
 				6B047A2221988B5F00B79CFA /* ImageUtilities.swift in Sources */,
 				6B047A2721988B5F00B79CFA /* FileManagerUtilities.swift in Sources */,
 				6B7FDF5E21A9F8AE004BB497 /* FontPickerViewController.swift in Sources */,
+				6B64167621B726D000F6365C /* UIImageView+Pixels.m in Sources */,
 				6B7FDF5C21A9C7D8004BB497 /* PointSizeSlider.swift in Sources */,
 				6B08E60A21B3421C00D9B47C /* QuantizedSlider.swift in Sources */,
 				6B7FDF6221ABFA12004BB497 /* UIView+Extensions.swift in Sources */,

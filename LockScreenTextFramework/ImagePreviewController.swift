@@ -9,7 +9,6 @@
 import UIKit
 import MobileCoreServices
 import os.log
-import EFColorPicker
 
 @objc
 class ImagePreviewController: UIViewController {
@@ -153,15 +152,13 @@ class ImagePreviewController: UIViewController {
             return
         }
 
-        guard let pickerVC = destNav.topViewController as? EFColorSelectionViewController else {
-            assertionFailure("EFColorSelectionViewController not found")
+        guard let pickerVC = destNav.topViewController as? ColorPickerViewController else {
+            assertionFailure("ColorPickerViewController not found")
             return
         }
 
-        // Show textual values for the chosen color
-        pickerVC.isColorTextFieldHidden = false
         pickerVC.delegate = self
-        pickerVC.color = UIColor.white
+        pickerVC.startingColor = self.settingsCoordinator.imageBackgroundColor
 
         if self.traitCollection.horizontalSizeClass == UIUserInterfaceSizeClass.compact {
 
@@ -169,7 +166,7 @@ class ImagePreviewController: UIViewController {
             // Add a "Done" button to the nav bar
             let doneButton = UIBarButtonItem(barButtonSystemItem: .done,
                                              target: self,
-                                             action: #selector(ef_dismissViewController(sender:)))
+                                             action: #selector(onColorPickerDone(sender:)))
             pickerVC.navigationItem.rightBarButtonItem = doneButton
             destNav.popoverPresentationController?.delegate = nil
         } else {
@@ -248,17 +245,15 @@ extension ImagePreviewController: SettingsCoordinatorViewDelegate {
     }
 }
 
-extension ImagePreviewController: EFColorSelectionViewControllerDelegate {
+extension ImagePreviewController: ColorPickerViewControllerDelegate {
 
-    @objc
-    public func colorViewController(_ colorViewController: EFColorSelectionViewController, didChangeColor color: UIColor) {
-
+    func colorPicker(_ picker: ColorPickerViewController, didChangeTo color: UIColor) {
         self.imageView.backgroundColor = color
     }
 
     // Not technically part of the delegate, but required by the Done button
     @objc
-    func ef_dismissViewController(sender: UIBarButtonItem) {
+    func onColorPickerDone(sender: UIBarButtonItem) {
         self.dismiss(animated: true)
         self.persistImageBackgroundColor()
     }
