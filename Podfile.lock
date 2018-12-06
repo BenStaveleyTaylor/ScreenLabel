@@ -1,20 +1,16 @@
 PODS:
-  - EFColorPicker (1.2.0)
   - SwiftLint (0.27.0)
 
 DEPENDENCIES:
-  - EFColorPicker (~> 1.2)
   - SwiftLint
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
-    - EFColorPicker
     - SwiftLint
 
 SPEC CHECKSUMS:
-  EFColorPicker: 1af455606b2c8e6af2cfa6791348f1cbaff609ee
   SwiftLint: 3207c1faa2240bf8973b191820a116113cd11073
 
-PODFILE CHECKSUM: 64b39419334b55d41b267f2f08c3d9aaf363ba87
+PODFILE CHECKSUM: c781cc57eee5f3c217587957d44051e1854f705f
 
 COCOAPODS: 1.5.3

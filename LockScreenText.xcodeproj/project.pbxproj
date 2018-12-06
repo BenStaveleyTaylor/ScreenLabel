@@ -41,7 +41,6 @@
 		6BB2EBFA21920DBB00BCDA34 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6BB2EBF921920DBB00BCDA34 /* Assets.xcassets */; };
 		6BB2EBFD21920DBB00BCDA34 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6BB2EBFB21920DBB00BCDA34 /* LaunchScreen.storyboard */; };
 		6BD6878E21B5ABE000A0EC6D /* ColorPickerWheelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BD6878D21B5ABE000A0EC6D /* ColorPickerWheelView.swift */; };
-		9F6F6FB64D2217A30E9128AC /* Pods_LockScreenTextFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0C04CA558397C4DBA7A9C962 /* Pods_LockScreenTextFramework.framework */; };
 		FC71560C74D8C50F0E91087E /* Pods_LockScreenText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 503457CF7F58C2A068B606C6 /* Pods_LockScreenText.framework */; };
 /* End PBXBuildFile section */
 
@@ -85,7 +84,6 @@
 
 /* Begin PBXFileReference section */
 		0C04CA558397C4DBA7A9C962 /* Pods_LockScreenTextFramework.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LockScreenTextFramework.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		4A90778F57716989A93E0B87 /* Pods-LockScreenTextFramework.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LockScreenTextFramework.debug.xcconfig"; path = "Pods/Target Support Files/Pods-LockScreenTextFramework/Pods-LockScreenTextFramework.debug.xcconfig"; sourceTree = "<group>"; };
 		503457CF7F58C2A068B606C6 /* Pods_LockScreenText.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LockScreenText.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		54D0023314460655A8376C26 /* Pods-LockScreenText.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LockScreenText.release.xcconfig"; path = "Pods/Target Support Files/Pods-LockScreenText/Pods-LockScreenText.release.xcconfig"; sourceTree = "<group>"; };
 		6B0479FA2198898800B79CFA /* LockScreenTextFramework.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = LockScreenTextFramework.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -127,7 +125,6 @@
 		6BB2EBFC21920DBB00BCDA34 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		6BD6878D21B5ABE000A0EC6D /* ColorPickerWheelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorPickerWheelView.swift; sourceTree = "<group>"; };
 		6D1BFDFAB5DE9951D543D9C1 /* Pods-LockScreenText.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LockScreenText.debug.xcconfig"; path = "Pods/Target Support Files/Pods-LockScreenText/Pods-LockScreenText.debug.xcconfig"; sourceTree = "<group>"; };
-		FF5002C85F693D947D515944 /* Pods-LockScreenTextFramework.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LockScreenTextFramework.release.xcconfig"; path = "Pods/Target Support Files/Pods-LockScreenTextFramework/Pods-LockScreenTextFramework.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -135,7 +132,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9F6F6FB64D2217A30E9128AC /* Pods_LockScreenTextFramework.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -283,8 +279,6 @@
 			children = (
 				6D1BFDFAB5DE9951D543D9C1 /* Pods-LockScreenText.debug.xcconfig */,
 				54D0023314460655A8376C26 /* Pods-LockScreenText.release.xcconfig */,
-				4A90778F57716989A93E0B87 /* Pods-LockScreenTextFramework.debug.xcconfig */,
-				FF5002C85F693D947D515944 /* Pods-LockScreenTextFramework.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -317,7 +311,6 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 6B047A112198898800B79CFA /* Build configuration list for PBXNativeTarget "LockScreenTextFramework" */;
 			buildPhases = (
-				B5D4F3D2E0AEDF593DBFE263 /* [CP] Check Pods Manifest.lock */,
 				6B0479F52198898800B79CFA /* Headers */,
 				6B0479F62198898800B79CFA /* Sources */,
 				6B0479F72198898800B79CFA /* Frameworks */,
@@ -360,7 +353,6 @@
 				6BB2EBEC21920DBA00BCDA34 /* Frameworks */,
 				6B70592921948C5300CD3178 /* Run SwiftLint */,
 				6BB2EBED21920DBA00BCDA34 /* Resources */,
-				56FA73D807E9A63E33520260 /* [CP] Embed Pods Frameworks */,
 				6B047A142198898800B79CFA /* Embed Frameworks */,
 			);
 			buildRules = (
@@ -448,28 +440,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		56FA73D807E9A63E33520260 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-LockScreenText/Pods-LockScreenText-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/EFColorPicker/EFColorPicker.framework",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/EFColorPicker.framework",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-LockScreenText/Pods-LockScreenText-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		60E10A862C735A5E9D47DE44 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -509,28 +479,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "SWIFTLINT=$PODS_ROOT/SwiftLint/swiftlint\n[[ -x $SWIFTLINT ]] || { echo \"error: SwiftLint not found\" ; exit 1 ; }\n$SWIFTLINT lint --config swiftlint.yml\n";
-		};
-		B5D4F3D2E0AEDF593DBFE263 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-LockScreenTextFramework-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -628,7 +576,6 @@
 /* Begin XCBuildConfiguration section */
 		6B047A122198898800B79CFA /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 4A90778F57716989A93E0B87 /* Pods-LockScreenTextFramework.debug.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
@@ -659,7 +606,6 @@
 		};
 		6B047A132198898800B79CFA /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = FF5002C85F693D947D515944 /* Pods-LockScreenTextFramework.release.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
