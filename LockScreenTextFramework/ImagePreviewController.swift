@@ -71,6 +71,32 @@ class ImagePreviewController: UIViewController {
         self.present(picker, animated: true)
     }
 
+    // Show the ColorPicker
+    @IBAction private func onPlainColorTapped(_ sender: Any) {
+
+        let colorPickerVC = ColorPickerViewController(startingColor: self.settingsCoordinator.imageBackgroundColor,
+                                                      delegate: self)
+
+        // Present as a popover on iPad, or push on iPhone
+
+        if self.traitCollection.horizontalSizeClass == UIUserInterfaceSizeClass.compact {
+
+            // iPhone-style, including iPads in narrow split-screen view.
+            self.navigationController?.pushViewController(colorPickerVC, animated: true)
+        } else {
+
+            // iPad-style
+            colorPickerVC.modalPresentationStyle = .popover
+            self.present(colorPickerVC, animated: true, completion: nil)
+
+            let popController = colorPickerVC.popoverPresentationController
+            popController?.backgroundColor = colorPickerVC.view.backgroundColor
+            popController?.permittedArrowDirections = .any
+            popController?.barButtonItem = sender as? UIBarButtonItem
+            popController?.delegate = self
+        }
+    }
+
     @IBAction private func onSaveTapped(_ sender: Any) {
 
         // Save the renderable view into the photo album
@@ -147,12 +173,7 @@ class ImagePreviewController: UIViewController {
 
         assert(segue.identifier == "pickImageBackgroundColorSegue")
 
-        guard let destNav = segue.destination as? UINavigationController else {
-            assertionFailure("destination of pickImageBackgroundColorSegue was not a UINavigationController")
-            return
-        }
-
-        guard let pickerVC = destNav.topViewController as? ColorPickerViewController else {
+        guard let pickerVC = segue.destination as? ColorPickerViewController else {
             assertionFailure("ColorPickerViewController not found")
             return
         }
@@ -160,21 +181,24 @@ class ImagePreviewController: UIViewController {
         pickerVC.delegate = self
         pickerVC.startingColor = self.settingsCoordinator.imageBackgroundColor
 
-        if self.traitCollection.horizontalSizeClass == UIUserInterfaceSizeClass.compact {
+//        pickerVC.modalPresentationStyle = UIModalPresentationPopover;
+        pickerVC.popoverPresentationController?.delegate = self
 
-            // iPhone-style, including iPads in narrow split-screen view.
-            // Add a "Done" button to the nav bar
-            let doneButton = UIBarButtonItem(barButtonSystemItem: .done,
-                                             target: self,
-                                             action: #selector(onColorPickerDone(sender:)))
-            pickerVC.navigationItem.rightBarButtonItem = doneButton
-            destNav.popoverPresentationController?.delegate = nil
-        } else {
-
-            // iPad-style
-            // Detect popopver dismissal
-            destNav.popoverPresentationController?.delegate = self
-        }
+//        if self.traitCollection.horizontalSizeClass == UIUserInterfaceSizeClass.compact {
+//
+//            // iPhone-style, including iPads in narrow split-screen view.
+//            // Add a "Done" button to the nav bar
+//            let doneButton = UIBarButtonItem(barButtonSystemItem: .done,
+//                                             target: self,
+//                                             action: #selector(onColorPickerDone(sender:)))
+//            pickerVC.navigationItem.rightBarButtonItem = doneButton
+//            destNav.popoverPresentationController?.delegate = nil
+//        } else {
+//
+//            // iPad-style
+//            // Detect popopver dismissal
+//            destNav.popoverPresentationController?.delegate = self
+//        }
     }
 
     private func prepareForEditTextAttributesSegue(_ segue: UIStoryboardSegue, sender: Any?) {
@@ -251,11 +275,11 @@ extension ImagePreviewController: ColorPickerViewControllerDelegate {
         self.imageView.backgroundColor = color
     }
 
-    // Not technically part of the delegate, but required by the Done button
-    @objc
-    func onColorPickerDone(sender: UIBarButtonItem) {
-        self.dismiss(animated: true)
+    func colorPickerWillClose(_ picker: ColorPickerViewController) {
         self.persistImageBackgroundColor()
+
+        // This is only called if we presented by pushing, so:
+        self.navigationController?.popViewController(animated: true)
     }
 }
 

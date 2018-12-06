@@ -30,9 +30,14 @@ class TextAttributesViewController: UIViewController {
 
     @IBOutlet private weak var factorySettingsButton: UIButton!
     
+    @IBOutlet private var textColorTapGestureRecognizer: UITapGestureRecognizer!
+    @IBOutlet private var boxColorTapGestureRecognizer: UITapGestureRecognizer!
+
     // The source of the segue must push this in
     // Fatal error if nil
     private var settingsCoordinator: SettingsCoordinatorProtocol!
+
+    private var colorSwatchBeingEdited: TranslucentColorSwatchView?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -63,7 +68,46 @@ class TextAttributesViewController: UIViewController {
         self.settingsCoordinator.reset()
         self.loadSettings()
     }
-    
+
+    @IBAction private func onColorSwatchTapped(_ sender: UITapGestureRecognizer) {
+
+        // Same action sent for both Text and Box color changes
+        if sender == self.textColorTapGestureRecognizer {
+            self.colorSwatchBeingEdited = self.textColorSwatchView
+        }
+        else if sender == self.boxColorTapGestureRecognizer {
+            self.colorSwatchBeingEdited = self.boxColorSwatchView
+        }
+
+        guard let anchorView = self.colorSwatchBeingEdited else {
+            os_log("Unknown color swatch tap sender: %@", sender)
+            return
+        }
+
+        let colorPickerVC = ColorPickerViewController(startingColor: anchorView.swatchColor ?? UIColor.white,
+                                                      delegate: self)
+
+        // Present as a popover on iPad, or push on iPhone
+
+        if self.traitCollection.horizontalSizeClass == UIUserInterfaceSizeClass.compact {
+
+            // iPhone-style, including iPads in narrow split-screen view.
+            self.navigationController?.pushViewController(colorPickerVC, animated: true)
+        } else {
+
+            // iPad-style
+            colorPickerVC.modalPresentationStyle = .popover
+            self.present(colorPickerVC, animated: true, completion: nil)
+
+            let popController = colorPickerVC.popoverPresentationController
+            popController?.backgroundColor = colorPickerVC.view.backgroundColor
+            popController?.permittedArrowDirections = .any
+            popController?.sourceView = anchorView
+            popController?.sourceRect = anchorView.bounds
+            popController?.delegate = self
+        }
+    }
+
     public func prepare(settingsCoordinator: SettingsCoordinatorProtocol) {
         self.settingsCoordinator = settingsCoordinator
     }
@@ -133,6 +177,14 @@ class TextAttributesViewController: UIViewController {
             self.settingsCoordinator.textFont = newFont
         }
 
+        if let textColor = self.textColorSwatchView.swatchColor {
+            self.settingsCoordinator.textColor = textColor
+        }
+
+        if let boxColor = self.boxColorSwatchView.swatchColor {
+            self.settingsCoordinator.boxColor = boxColor
+        }
+
         self.settingsCoordinator.endBatchChanges()
     }
 }
@@ -144,5 +196,35 @@ extension TextAttributesViewController: FontPickerViewControllerDelegate {
 
         self.textFontName.text = TextAttributesHelper.fontDisplayNameFrom(internalName: internalName)
         self.navigationController?.popViewController(animated: true)
+    }
+}
+
+extension TextAttributesViewController: ColorPickerViewControllerDelegate {
+
+    func colorPicker(_ picker: ColorPickerViewController, didChangeTo color: UIColor) {
+
+        if self.colorSwatchBeingEdited == self.boxColorSwatchView {
+            self.boxColorSwatchView.swatchColor = color
+        }
+        else if self.colorSwatchBeingEdited == self.textColorSwatchView {
+            self.textColorSwatchView.swatchColor = color
+        }
+    }
+
+    func colorPickerWillClose(_ picker: ColorPickerViewController) {
+
+        self.colorSwatchBeingEdited = nil
+
+        // This is only called if we presented by pushing, so:
+        self.navigationController?.popViewController(animated: true)
+    }
+}
+
+extension TextAttributesViewController: UIPopoverPresentationControllerDelegate {
+
+    // Detect closure of the Colour Picker and save the final result
+    @objc
+    public func popoverPresentationControllerDidDismissPopover(_ popoverPresentationController: UIPopoverPresentationController) {
+        self.colorSwatchBeingEdited = nil
     }
 }

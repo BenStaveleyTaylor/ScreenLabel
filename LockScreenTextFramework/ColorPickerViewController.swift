@@ -15,12 +15,17 @@ protocol ColorPickerViewControllerDelegate: AnyObject {
     // For example as the user pans around the color wheel, this is issues repeatedly
     func colorPicker(_ picker: ColorPickerViewController, didChangeTo color: UIColor)
 
+    // Sent just before the color picker closes -- but only if it is a navigation
+    // push/pop situation. This is not sent when presentated as a popover. In that UI case
+    // use UIPopoverPresentationControllerDelegate popoverPresentationControllerDidDismissPopover
+    func colorPickerWillClose(_ picker: ColorPickerViewController)
 }
 
 class ColorPickerViewController: UIViewController {
 
     // MARK: Nib properties
 
+    @IBOutlet private weak var containingStackView: UIStackView!
     @IBOutlet private weak var colorWheelImageView: UIImageView!
     @IBOutlet private weak var swatchesStack: UIStackView!
     @IBOutlet private weak var lighterLabel: UILabel!
@@ -87,6 +92,15 @@ class ColorPickerViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        // Set the labels
+        self.title = Resources.localizedString("PickColorTitle")
+        self.afterLabel.text = Resources.localizedString("ColourAfterTitle")
+        self.beforeLabel.text = Resources.localizedString("ColourBeforeTitle")
+        self.darkerLabel.text = Resources.localizedString("ColourDarkerTitle")
+        self.lighterLabel.text = Resources.localizedString("ColourLighterTitle")
+        self.clearerLabel.text = Resources.localizedString("ColourClearerTitle")
+        self.opaquerLabel.text = Resources.localizedString("ColourOpaquerTitle")
+
         // Set borders on all color swatches
         for swatch in self.swatchesStack.subviews {
             swatch.setBorder()
@@ -102,6 +116,34 @@ class ColorPickerViewController: UIViewController {
 
         // Turn the brightness slider from horizontal to vertical
         self.brightnessSlider.transform = CGAffineTransform(rotationAngle: .pi / -2)
+
+        // Replace the standard Back button so we can tell when we are dismissed
+        if self.navigationController != nil {
+            self.navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .done,
+                                                                    target: self,
+                                                                    action: #selector(onDone(_:)))
+        }
+    }
+
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.navigationController?.setToolbarHidden(true, animated: animated)
+    }
+
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        self.navigationController?.setToolbarHidden(false, animated: animated)
+    }
+
+    // Determine the size when presented as a popover
+    override var preferredContentSize: CGSize {
+        get {
+            self.containingStackView.layoutIfNeeded()
+            return self.containingStackView.bounds.size
+        }
+        set {
+            // Ignored
+        }
     }
 
     // -------------------------------------------------------------------------
@@ -118,7 +160,17 @@ class ColorPickerViewController: UIViewController {
 
     @IBAction private func onColorSwatchTap(_ sender: UITapGestureRecognizer) {
 
-        if let selectedColor = sender.view?.backgroundColor {
+        // The tapped view might be a plain UIView, or it might be a TranslucentColorSwatchView
+        let maybeColor: UIColor?
+
+        switch sender.view {
+        case let view as TranslucentColorSwatchView:
+            maybeColor = view.swatchColor
+        default:
+            maybeColor = sender.view?.backgroundColor
+        }
+
+        if let selectedColor = maybeColor {
             self.selectedColor = selectedColor
         }
     }
@@ -142,7 +194,13 @@ class ColorPickerViewController: UIViewController {
         let newColor = self.selectedColor.withAlphaComponent(newAlpha)
         self.selectedColor = newColor
     }
-    
+
+    @objc
+    private func onDone(_ sender: UIBarButtonItem) {
+
+        self.delegate?.colorPickerWillClose(self)
+    }
+
     // -------------------------------------------------------------------------
     // MARK: Private methods
     // -------------------------------------------------------------------------

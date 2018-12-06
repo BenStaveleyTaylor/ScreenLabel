@@ -43,3 +43,11 @@
 "BoxColorLabel" = "Box Colour";
 
 "TextColorLabel" = "Text Colour";
+
+"PickColorTitle" = "Pick a Colour";
+"ColourAfterTitle" = "New";
+"ColourBeforeTitle" = "Old";
+"ColourDarkerTitle" = "Dark";
+"ColourLighterTitle" = "Light";
+"ColourClearerTitle" = "Clear";
+"ColourOpaquerTitle" = "Solid";
