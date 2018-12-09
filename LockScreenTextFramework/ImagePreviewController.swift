@@ -227,10 +227,16 @@ class ImagePreviewController: UIViewController {
     // After many colour update notifications while the selection UI is up,
     // accept the final value and persist it
     private func persistImageBackgroundColor() {
-        // This is a no-op visually, but it copies the last selected color into
-        // the settings and persists it.
+
         if let backgroundColor = self.imageView.backgroundColor {
+            self.settingsCoordinator.startBatchChanges()
+            
             self.settingsCoordinator.imageBackgroundColor = backgroundColor
+
+            // Remove any image so the background colour shows
+            self.settingsCoordinator.image = nil
+
+            self.settingsCoordinator.endBatchChanges()
         }
     }
 }
