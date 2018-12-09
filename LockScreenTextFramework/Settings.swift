@@ -45,9 +45,9 @@ struct Settings: Codable {
     var boxCornerRadius: CGFloat
     var boxInsets: UIEdgeInsets
 
-    // Vertical centre of the box as a fracion of the image height
-    // 0.0 means at the very top; 1.0 at the very bottom
-    var boxYCentre: CGFloat
+    // Vertical centre of the box as an offset from the centre of the container
+    // (i.e. screen rect.) 0 is at the centre.
+    var boxYCentreOffset: CGFloat
 
     // Currently everything
     private enum CodingKeys: String, CodingKey {
@@ -63,7 +63,7 @@ struct Settings: Codable {
         case boxBorderWidth
         case boxCornerRadius
         case boxInsets
-        case boxYCentre
+        case boxYCentreOffset
     }
 
     // Set up defaults
@@ -79,8 +79,8 @@ struct Settings: Codable {
                   boxColor: UIColor(white: 0, alpha: 0.5),
                   boxBorderWidth: 0,
                   boxCornerRadius: 6,
-                  boxInsets: UIEdgeInsets(top: 20, left: 20, bottom: 20, right: 20),
-                  boxYCentre: 0.5)          // Default is half way up
+                  boxInsets: UIEdgeInsets(top: 12, left: 12, bottom: 12, right: 12),
+                  boxYCentreOffset: 0)          // Default is vertically centered
     }
 
     // All-properties initialiser
@@ -96,7 +96,7 @@ struct Settings: Codable {
          boxBorderWidth: CGFloat,
          boxCornerRadius: CGFloat,
          boxInsets: UIEdgeInsets,
-         boxYCentre: CGFloat) {
+         boxYCentreOffset: CGFloat) {
 
         self.version =                  version
         self.imageName =                imageName
@@ -110,7 +110,7 @@ struct Settings: Codable {
         self.boxBorderWidth =           boxBorderWidth
         self.boxCornerRadius =          boxCornerRadius
         self.boxInsets =                boxInsets
-        self.boxYCentre =               boxYCentre
+        self.boxYCentreOffset =               boxYCentreOffset
     }
 
     // We have to implement encode and decode because we have some non-codable properties
@@ -138,7 +138,7 @@ struct Settings: Codable {
         let boxBorderWidth =        try? container.decode(CGFloat.self, forKey: .boxBorderWidth)
         let boxCornerRadius =       try? container.decode(CGFloat.self, forKey: .boxCornerRadius)
         let boxInsets =             try? container.decode(CodableEdgeInsets.self, forKey: .boxInsets).toUIEdgeInsets()
-        let boxYCentre =            try? container.decode(CGFloat.self, forKey: .boxYCentre)
+        let boxYCentreOffset =            try? container.decode(CGFloat.self, forKey: .boxYCentreOffset)
 
         // If any individual setting was missing, use the default value
         self.init(version: version                              ?? Settings.defaults.version,
@@ -153,7 +153,7 @@ struct Settings: Codable {
                   boxBorderWidth: boxBorderWidth                ?? Settings.defaults.boxBorderWidth,
                   boxCornerRadius: boxCornerRadius              ?? Settings.defaults.boxCornerRadius,
                   boxInsets: boxInsets                          ?? Settings.defaults.boxInsets,
-                  boxYCentre: boxYCentre                        ?? Settings.defaults.boxYCentre)
+                  boxYCentreOffset: boxYCentreOffset                        ?? Settings.defaults.boxYCentreOffset)
     }
 
     func encode(to encoder: Encoder) throws {
@@ -171,7 +171,7 @@ struct Settings: Codable {
         try container.encode(self.boxBorderWidth, forKey: .boxBorderWidth)
         try container.encode(self.boxCornerRadius, forKey: .boxCornerRadius)
         try container.encode(CodableEdgeInsets(uiEdgeInsets: self.boxInsets), forKey: .boxInsets)
-        try container.encode(self.boxYCentre, forKey: .boxYCentre)
+        try container.encode(self.boxYCentreOffset, forKey: .boxYCentreOffset)
     }
 
     func writeToUserDefaults() throws {

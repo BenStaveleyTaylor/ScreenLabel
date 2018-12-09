@@ -29,13 +29,14 @@
                                         </connections>
                                     </imageView>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GBZ-oQ-mnU">
-                                        <rect key="frame" x="146.5" y="303.5" width="82" height="60.5"/>
+                                        <rect key="frame" x="154.5" y="311.5" width="66" height="44.5"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <connections>
                                             <outletCollection property="gestureRecognizers" destination="P1A-zI-KD9" appends="YES" id="ded-db-enk"/>
+                                            <outletCollection property="gestureRecognizers" destination="qLW-OB-VlM" appends="YES" id="MLz-Oc-a2o"/>
                                         </connections>
                                     </view>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zco-QO-wj2">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="6" translatesAutoresizingMaskIntoConstraints="NO" id="Zco-QO-wj2">
                                         <rect key="frame" x="166.5" y="323.5" width="42" height="20.5"/>
                                         <accessibility key="accessibilityConfiguration">
                                             <accessibilityTraits key="traits" staticText="YES" notEnabled="YES"/>
@@ -47,16 +48,18 @@
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstItem="Zco-QO-wj2" firstAttribute="centerY" secondItem="mAn-8c-p3c" secondAttribute="centerY" id="0Uk-6u-hEW"/>
-                                    <constraint firstItem="GBZ-oQ-mnU" firstAttribute="trailing" secondItem="Zco-QO-wj2" secondAttribute="trailing" constant="20" id="2dI-um-CMf"/>
-                                    <constraint firstItem="GBZ-oQ-mnU" firstAttribute="leading" secondItem="Zco-QO-wj2" secondAttribute="leading" constant="-20" id="DLg-dG-Ulg"/>
-                                    <constraint firstItem="GBZ-oQ-mnU" firstAttribute="top" secondItem="Zco-QO-wj2" secondAttribute="top" constant="-20" id="FoK-O0-xpY"/>
+                                    <constraint firstItem="GBZ-oQ-mnU" firstAttribute="width" secondItem="Zco-QO-wj2" secondAttribute="width" constant="24" id="4Nb-XY-27y"/>
+                                    <constraint firstItem="wvr-oY-b6M" firstAttribute="height" relation="greaterThanOrEqual" secondItem="Zco-QO-wj2" secondAttribute="height" constant="40" id="AmQ-sJ-ELr"/>
+                                    <constraint firstItem="GBZ-oQ-mnU" firstAttribute="centerX" secondItem="Zco-QO-wj2" secondAttribute="centerX" id="Gof-BC-sTC"/>
                                     <constraint firstAttribute="trailing" secondItem="wvr-oY-b6M" secondAttribute="trailing" id="S10-ws-JQl"/>
+                                    <constraint firstItem="wvr-oY-b6M" firstAttribute="width" relation="greaterThanOrEqual" secondItem="Zco-QO-wj2" secondAttribute="width" constant="20" id="Um2-sD-vfl"/>
+                                    <constraint firstItem="GBZ-oQ-mnU" firstAttribute="centerY" secondItem="Zco-QO-wj2" secondAttribute="centerY" id="Yap-P4-MRm"/>
                                     <constraint firstItem="wvr-oY-b6M" firstAttribute="top" secondItem="mAn-8c-p3c" secondAttribute="top" id="aJa-cO-iib"/>
+                                    <constraint firstItem="Zco-QO-wj2" firstAttribute="centerY" secondItem="mAn-8c-p3c" secondAttribute="centerY" id="btH-gj-ggi"/>
+                                    <constraint firstItem="Zco-QO-wj2" firstAttribute="centerX" secondItem="mAn-8c-p3c" secondAttribute="centerX" id="eB9-N8-Wgw"/>
                                     <constraint firstItem="wvr-oY-b6M" firstAttribute="leading" secondItem="mAn-8c-p3c" secondAttribute="leading" id="eMe-VJ-lBC"/>
                                     <constraint firstAttribute="bottom" secondItem="wvr-oY-b6M" secondAttribute="bottom" id="hbD-EJ-9C9"/>
-                                    <constraint firstItem="Zco-QO-wj2" firstAttribute="centerX" secondItem="mAn-8c-p3c" secondAttribute="centerX" id="nYV-O4-shW"/>
-                                    <constraint firstItem="GBZ-oQ-mnU" firstAttribute="bottom" secondItem="Zco-QO-wj2" secondAttribute="bottom" constant="20" id="wBd-K4-bv2"/>
+                                    <constraint firstItem="GBZ-oQ-mnU" firstAttribute="height" secondItem="Zco-QO-wj2" secondAttribute="height" constant="24" id="vyz-Wz-11S"/>
                                 </constraints>
                             </view>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="CCK-k8-LQI">
@@ -120,9 +123,11 @@
                         <outlet property="renderableViewHeightConstraint" destination="hsO-Ug-wxa" id="h9u-VI-3af"/>
                         <outlet property="renderableViewWidthConstraint" destination="u2V-vE-aUA" id="Kaq-pf-j8h"/>
                         <outlet property="saveButton" destination="6lu-gD-SOE" id="Yqd-Gu-V5x"/>
+                        <outlet property="textBoxPanRecognizer" destination="qLW-OB-VlM" id="4My-Jc-Wfs"/>
+                        <outlet property="textBoxTapRecognizer" destination="P1A-zI-KD9" id="JiL-7a-f7H"/>
                         <outlet property="textBoxView" destination="GBZ-oQ-mnU" id="5mk-vJ-EGX"/>
                         <outlet property="textLabel" destination="Zco-QO-wj2" id="TBk-gk-T5I"/>
-                        <outlet property="textTapRecognizer" destination="P1A-zI-KD9" id="fi0-Cd-yjE"/>
+                        <outlet property="textLabelCentreYConstraint" destination="btH-gj-ggi" id="bi6-fu-iyg"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -136,6 +141,11 @@
                         <action selector="onImageTapped:" destination="BYZ-38-t0r" id="4ZO-KS-qMv"/>
                     </connections>
                 </tapGestureRecognizer>
+                <panGestureRecognizer minimumNumberOfTouches="1" id="qLW-OB-VlM">
+                    <connections>
+                        <action selector="onTextBoxPan:" destination="BYZ-38-t0r" id="y8d-zc-2JB"/>
+                    </connections>
+                </panGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="888.79999999999995" y="-564.46776611694156"/>
         </scene>

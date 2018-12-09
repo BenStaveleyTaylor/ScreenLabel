@@ -39,7 +39,7 @@ class SettingsTests: XCTestCase {
                                 boxBorderWidth: 0.5,
                                 boxCornerRadius: 10,
                                 boxInsets: UIEdgeInsets(top: 1, left: 2, bottom: 3, right: 4),
-                                boxYCentre: 0.75)
+                                boxYCentreOffset: 0.75)
 
         // Encode it
         let encoder = PropertyListEncoder()
@@ -64,6 +64,6 @@ class SettingsTests: XCTestCase {
         XCTAssertEqual(settings.boxBorderWidth, checkSettings!.boxBorderWidth)
         XCTAssertEqual(settings.boxCornerRadius, checkSettings!.boxCornerRadius)
         XCTAssertEqual(settings.boxInsets, checkSettings!.boxInsets)
-        XCTAssertEqual(settings.boxYCentre, checkSettings!.boxYCentre)
+        XCTAssertEqual(settings.boxYCentreOffset, checkSettings!.boxYCentreOffset)
     }
 }

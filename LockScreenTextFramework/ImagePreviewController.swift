@@ -24,7 +24,9 @@ class ImagePreviewController: UIViewController {
     @IBOutlet private weak var saveButton: UIBarButtonItem!
     @IBOutlet private weak var bleedStyleSegmentControl: UISegmentedControl!
     @IBOutlet private var imageTapRecognizer: UITapGestureRecognizer!
-    @IBOutlet private var textTapRecognizer: UITapGestureRecognizer!
+    @IBOutlet private var textBoxTapRecognizer: UITapGestureRecognizer!
+    @IBOutlet private var textBoxPanRecognizer: UIPanGestureRecognizer!
+    @IBOutlet private weak var textLabelCentreYConstraint: NSLayoutConstraint!
 
     // Render this view to get the lock screen image
     @IBOutlet private weak var renderableView: UIView!
@@ -119,6 +121,49 @@ class ImagePreviewController: UIViewController {
         }
     }
 
+    // User is dragging the text box.
+    // It is always centred horizontally
+    @IBAction private func onTextBoxPan(_ sender: UIPanGestureRecognizer) {
+
+        switch sender.state {
+        case .changed:
+            // Do the drag
+
+            // Where are we, wrt the image bounding box
+            if sender.numberOfTouches > 0 {
+                let touchPos = sender.location(ofTouch: 0, in: self.imageView)
+
+                var touchY = touchPos.y
+
+                // Can't drag textBox out of the imageview
+                let textBoxHeight = self.textBoxView.bounds.height
+                let permittedRect = self.imageView.bounds.insetBy(dx: 0, dy: textBoxHeight/2)
+
+                touchY = max(touchY, permittedRect.minY)
+                touchY = min(touchY, permittedRect.maxY)
+
+                // Update the layout constraint of the text label to put it at this
+                // location. It is a vertical centre + deltaY constraint.
+
+                var deltaY = touchY - self.imageView.bounds.height/2
+
+                // If we are near the vertical centre, snap to it
+                if abs(deltaY) < 20 {
+                    deltaY = 0
+                }
+                self.textLabelCentreYConstraint.constant = deltaY
+                self.imageView.layoutIfNeeded()
+            }
+
+        case .ended:
+            // Save the final value
+            self.settingsCoordinator.boxYCentreOffset = self.textLabelCentreYConstraint.constant
+
+        default:
+            break
+        }
+    }
+
     // MARK: Private methods
 
     private func togglePreviewMode() {
@@ -131,7 +176,7 @@ class ImagePreviewController: UIViewController {
         self.navigationController?.setToolbarHidden(self.isInPreviewMode, animated: true)
 
         // Can't push new VCs when the Navigation Bar is hidden, so disallow text editing
-        self.textTapRecognizer.isEnabled = !self.isInPreviewMode
+        self.textBoxTapRecognizer.isEnabled = !self.isInPreviewMode
     }
 
     private func setBleedStyle(_ bleedStyle: BleedStyle, animated: Bool) {
@@ -158,8 +203,6 @@ class ImagePreviewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
 
         switch segue.identifier {
-        case "pickImageBackgroundColorSegue":
-            self.prepareForPickImageBackgroundColorSegue(segue, sender: sender)
 
         case "editTextAttributesSegue":
             self.prepareForEditTextAttributesSegue(segue, sender: sender)
@@ -167,38 +210,6 @@ class ImagePreviewController: UIViewController {
         default:
             os_log("Unexpected segue: %@", segue.identifier ?? "<nil>")
         }
-    }
-
-    private func prepareForPickImageBackgroundColorSegue(_ segue: UIStoryboardSegue, sender: Any?) {
-
-        assert(segue.identifier == "pickImageBackgroundColorSegue")
-
-        guard let pickerVC = segue.destination as? ColorPickerViewController else {
-            assertionFailure("ColorPickerViewController not found")
-            return
-        }
-
-        pickerVC.delegate = self
-        pickerVC.startingColor = self.settingsCoordinator.imageBackgroundColor
-
-//        pickerVC.modalPresentationStyle = UIModalPresentationPopover;
-        pickerVC.popoverPresentationController?.delegate = self
-
-//        if self.traitCollection.horizontalSizeClass == UIUserInterfaceSizeClass.compact {
-//
-//            // iPhone-style, including iPads in narrow split-screen view.
-//            // Add a "Done" button to the nav bar
-//            let doneButton = UIBarButtonItem(barButtonSystemItem: .done,
-//                                             target: self,
-//                                             action: #selector(onColorPickerDone(sender:)))
-//            pickerVC.navigationItem.rightBarButtonItem = doneButton
-//            destNav.popoverPresentationController?.delegate = nil
-//        } else {
-//
-//            // iPad-style
-//            // Detect popopver dismissal
-//            destNav.popoverPresentationController?.delegate = self
-//        }
     }
 
     private func prepareForEditTextAttributesSegue(_ segue: UIStoryboardSegue, sender: Any?) {
@@ -266,6 +277,8 @@ extension ImagePreviewController: SettingsCoordinatorViewDelegate {
         self.textBoxView.layer.backgroundColor = coordinator.boxColor.cgColor
         self.textBoxView.layer.borderWidth = coordinator.boxBorderWidth
         self.textBoxView.layer.cornerRadius = coordinator.boxCornerRadius
+
+        self.textLabelCentreYConstraint.constant = coordinator.boxYCentreOffset
     }
 }
 

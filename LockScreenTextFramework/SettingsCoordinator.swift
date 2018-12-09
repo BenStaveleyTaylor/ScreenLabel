@@ -26,6 +26,7 @@ protocol SettingsCoordinatorProtocol {
     var boxColor: UIColor { get set }
     var boxBorderWidth: CGFloat { get set }
     var boxCornerRadius: CGFloat { get set }
+    var boxYCentreOffset: CGFloat { get set }
 
     // Store an image as the current working selection
     // This will be nil if a plain background colour is selected
@@ -175,6 +176,16 @@ extension SettingsCoordinator: SettingsCoordinatorProtocol {
         }
         set {
             self.settings.boxCornerRadius = newValue
+            self.settingsDidChange()
+        }
+    }
+
+    var boxYCentreOffset: CGFloat {
+        get {
+            return settings.boxYCentreOffset
+        }
+        set {
+            self.settings.boxYCentreOffset = newValue
             self.settingsDidChange()
         }
     }
