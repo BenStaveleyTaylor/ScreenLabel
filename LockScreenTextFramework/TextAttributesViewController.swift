@@ -66,7 +66,7 @@ class TextAttributesViewController: UIViewController {
         self.textSizeValueLabel.text = TextAttributesHelper.displayTextForPointSize(CGFloat(size))
     }
 
-    @IBAction func onTextStyleChanged(_ sender: UISegmentedControl) {
+    @IBAction private func onTextStyleChanged(_ sender: UISegmentedControl) {
     }
 
     @IBAction private func onFactorySettingsTapped(_ sender: Any) {
@@ -140,7 +140,8 @@ class TextAttributesViewController: UIViewController {
 
         // Push the current font in so it can be shown ticked
         pickerVC.delegate = self
-        pickerVC.selectedFontInternalName = TextAttributesHelper.fontInternalNameFrom(displayName: self.textFontName.text!)
+        let fontName = self.textFontName.text ?? ""
+        pickerVC.selectedFontInternalName = TextAttributesHelper.fontInternalNameFrom(displayName: fontName)
     }
 
     private func loadSettings() {
