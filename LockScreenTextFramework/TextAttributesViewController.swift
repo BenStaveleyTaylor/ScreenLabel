@@ -22,6 +22,9 @@ class TextAttributesViewController: UIViewController {
     @IBOutlet private weak var textFontLabel: UILabel!
     @IBOutlet private weak var textFontName: UILabel!
 
+    @IBOutlet private weak var textStyleLabel: UILabel!
+    @IBOutlet private weak var textStyleSegmentControl: UISegmentedControl!
+
     @IBOutlet private weak var textColorLabel: UILabel!
     @IBOutlet private weak var textColorSwatchView: TranslucentColorSwatchView!
     
@@ -61,6 +64,9 @@ class TextAttributesViewController: UIViewController {
 
         let size = self.textSizeSlider.stepValue
         self.textSizeValueLabel.text = TextAttributesHelper.displayTextForPointSize(CGFloat(size))
+    }
+
+    @IBAction func onTextStyleChanged(_ sender: UISegmentedControl) {
     }
 
     @IBAction private func onFactorySettingsTapped(_ sender: Any) {
@@ -150,8 +156,10 @@ class TextAttributesViewController: UIViewController {
 
         self.textFontLabel.text = Resources.localizedString("TextFontLabel")
 
-        let internalFontName =  self.settingsCoordinator.textFont.fontName
+        let internalFontName =  self.settingsCoordinator.textFont.familyName
         self.textFontName.text = TextAttributesHelper.fontDisplayNameFrom(internalName: internalFontName)
+
+        self.textStyleLabel.text = Resources.localizedString("TextStyleLabel")
 
         self.textColorLabel.text = Resources.localizedString("TextColorLabel")
         self.textColorSwatchView.swatchColor = self.settingsCoordinator.textColor

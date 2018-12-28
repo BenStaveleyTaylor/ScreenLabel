@@ -10,7 +10,7 @@ import Foundation
 
 enum TextAttributesHelper {
 
-    static var systemFontInternalName = UIFont.systemFont(ofSize: 12).fontName
+    static var systemFontInternalName = UIFont.systemFont(ofSize: 12).familyName
     static var systemFontDisplayName = Resources.localizedString("SystemFontDisplayName")
 
     // Return a formatted string to display for a font's size

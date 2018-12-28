@@ -36,13 +36,15 @@
 
 "FactorySettings" = "Reset to Defaults";
 
-"FontPickerSample" = "Abcdef ghijklmn opq rstwqyz 123457890";
+"FontPickerSample" = "The quick brown fox jumps over the lazy dog 1234567890";
 
 "SystemFontDisplayName" = "System Font";
 
 "BoxColorLabel" = "Box Colour";
 
 "TextColorLabel" = "Text Colour";
+
+"TextStyleLabel" = "Text Style";
 
 "PickColorTitle" = "Pick a Colour";
 "ColourAfterTitle" = "New";

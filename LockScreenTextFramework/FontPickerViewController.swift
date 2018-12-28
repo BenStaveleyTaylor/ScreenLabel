@@ -27,12 +27,7 @@ class FontPickerViewController: UITableViewController {
 
         // Top entry is always "System Font"
         var names: [String] = [ TextAttributesHelper.systemFontInternalName ]
-
-        for family in UIFont.familyNames.sorted() {
-
-            let styleNames = UIFont.fontNames(forFamilyName: family).sorted()
-            names.append(contentsOf: styleNames)
-        }
+        names.append(contentsOf: UIFont.familyNames.sorted())
 
         return names
     }()
