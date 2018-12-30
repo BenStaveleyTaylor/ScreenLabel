@@ -2,22 +2,14 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "BigBenCloseup-67x67.jpg",
-      "scale" : "1x"
-    },
-    {
-      "idiom" : "universal",
-      "filename" : "BigBenCloseup-134x134.jpg",
-      "scale" : "2x"
-    },
-    {
-      "idiom" : "universal",
-      "filename" : "BigBenCloseup-201x201.jpg",
-      "scale" : "3x"
+      "filename" : "Smiley.pdf"
     }
   ],
   "info" : {
     "version" : 1,
     "author" : "xcode"
+  },
+  "properties" : {
+    "preserves-vector-representation" : true
   }
 }

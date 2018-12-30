@@ -276,7 +276,13 @@ extension ImagePreviewController: SettingsCoordinatorViewDelegate {
         self.bleedStyleSegmentControl.selectedSegmentIndex = coordinator.imageBleedStyle.rawValue
         self.setBleedStyle(coordinator.imageBleedStyle, animated: animated)
 
-        self.textLabel.text = coordinator.message
+        // If the string is empty, show a helpful prompt
+        var message = coordinator.message
+        if message.isEmpty {
+            message = Resources.localizedString("MessagePromptText")
+        }
+        self.textLabel.text = message
+
         self.textLabel.textColor = coordinator.textColor
         self.textLabel.font = coordinator.textFont
 

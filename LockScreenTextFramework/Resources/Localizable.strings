@@ -12,6 +12,8 @@
 
 "MessagePromptText" = "Tap here to create your message";
 
+"MessagePlaceholderText" = "Examples:\n\"Email bob@mac.com if found\"\n\"Training Room iPad 1\"";
+
 "ActivitySubjectDescription" = "Image prepared by the %@ app";
 
 "StillBleedStyle" = "Still";

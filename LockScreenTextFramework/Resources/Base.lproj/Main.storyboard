@@ -188,17 +188,39 @@
                                                             </button>
                                                         </subviews>
                                                     </stackView>
-                                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="BD7-Ro-e7a" userLabel="Message Text">
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bZO-tC-SnP" userLabel="Message Text Group">
                                                         <rect key="frame" x="20" y="51" width="335" height="76"/>
+                                                        <subviews>
+                                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="BD7-Ro-e7a" userLabel="Message Text">
+                                                                <rect key="frame" x="0.0" y="0.0" width="335" height="76"/>
+                                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                                <connections>
+                                                                    <outlet property="delegate" destination="70U-AU-X1A" id="sBx-Rb-ROF"/>
+                                                                </connections>
+                                                            </textView>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Placeholder text" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TME-xV-Hyt">
+                                                                <rect key="frame" x="5" y="5" width="325" height="17"/>
+                                                                <fontDescription key="fontDescription" type="italicSystem" pointSize="14"/>
+                                                                <color key="textColor" white="0.5" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                        </subviews>
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <constraints>
-                                                            <constraint firstAttribute="height" constant="76" id="wnB-EN-ZPw"/>
+                                                            <constraint firstAttribute="trailing" secondItem="TME-xV-Hyt" secondAttribute="trailing" constant="5" id="5rU-ZG-te1"/>
+                                                            <constraint firstAttribute="height" constant="76" id="6Rr-9G-bt4"/>
+                                                            <constraint firstItem="TME-xV-Hyt" firstAttribute="leading" secondItem="bZO-tC-SnP" secondAttribute="leading" constant="5" id="73b-gF-cV7"/>
+                                                            <constraint firstAttribute="trailing" secondItem="BD7-Ro-e7a" secondAttribute="trailing" id="Bo0-li-vng"/>
+                                                            <constraint firstItem="BD7-Ro-e7a" firstAttribute="leading" secondItem="bZO-tC-SnP" secondAttribute="leading" id="EAn-la-KGw"/>
+                                                            <constraint firstItem="BD7-Ro-e7a" firstAttribute="top" secondItem="bZO-tC-SnP" secondAttribute="top" id="q0w-SQ-00u"/>
+                                                            <constraint firstAttribute="bottom" secondItem="BD7-Ro-e7a" secondAttribute="bottom" id="rLW-Kh-eD7"/>
+                                                            <constraint firstItem="TME-xV-Hyt" firstAttribute="top" secondItem="bZO-tC-SnP" secondAttribute="top" constant="5" id="sTY-ca-Qwe"/>
                                                         </constraints>
-                                                        <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                                    </textView>
-                                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="U1Z-QL-uX7" userLabel="Text Size">
+                                                    </view>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="U1Z-QL-uX7" userLabel="Text Size">
                                                         <rect key="frame" x="20" y="139" width="335" height="30"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="&lt;text size&gt;" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lTr-Bb-oNP">
@@ -208,7 +230,7 @@
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="16" minValue="6" maxValue="256" translatesAutoresizingMaskIntoConstraints="NO" id="eQP-21-HfM" customClass="PointSizeSlider" customModule="LockScreenTextFramework" customModuleProvider="target">
-                                                                <rect key="frame" x="91" y="0.0" width="187" height="31"/>
+                                                                <rect key="frame" x="95" y="0.0" width="179" height="31"/>
                                                                 <connections>
                                                                     <action selector="onTextSizeValueChanged:" destination="70U-AU-X1A" eventType="valueChanged" id="3yK-C2-j7L"/>
                                                                 </connections>
@@ -221,11 +243,11 @@
                                                             </label>
                                                         </subviews>
                                                     </stackView>
-                                                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vq9-rJ-plw" userLabel="Text Font Name">
+                                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="vq9-rJ-plw" userLabel="Text Font Name">
                                                         <rect key="frame" x="20" y="181" width="335" height="20.5"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="&lt;text font&gt;" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oB8-eR-2jT">
-                                                                <rect key="frame" x="0.0" y="0.0" width="236.5" height="20.5"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="224.5" height="20.5"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                 <nil key="textColor"/>
                                                                 <nil key="highlightedColor"/>
@@ -244,7 +266,7 @@
                                                             <outletCollection property="gestureRecognizers" destination="Odu-iK-mNM" appends="YES" id="iFC-9w-l4r"/>
                                                         </connections>
                                                     </stackView>
-                                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="WJi-hD-OKq" userLabel="Text Style Buttons">
+                                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="WJi-hD-OKq" userLabel="Text Style Buttons">
                                                         <rect key="frame" x="20" y="213.5" width="335" height="28"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="&lt;text style&gt;" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fu5-IP-kmN">
@@ -254,7 +276,7 @@
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="9SL-S2-llc">
-                                                                <rect key="frame" x="99" y="0.0" width="236" height="29"/>
+                                                                <rect key="frame" x="103" y="0.0" width="232" height="29"/>
                                                                 <segments>
                                                                     <segment title="" image="A-Plain"/>
                                                                     <segment title="" image="A-Bold"/>
@@ -362,6 +384,8 @@
                         <outlet property="boxColorTapGestureRecognizer" destination="bLJ-eN-5Mj" id="V22-pE-TGQ"/>
                         <outlet property="clearTextButton" destination="F5L-vD-cZe" id="2WV-DN-tZo"/>
                         <outlet property="factorySettingsButton" destination="ipc-10-oAy" id="N5x-I4-Fdh"/>
+                        <outlet property="messagePlaceholder" destination="TME-xV-Hyt" id="kUH-I5-L9s"/>
+                        <outlet property="messageTextView" destination="BD7-Ro-e7a" id="a7l-1E-obh"/>
                         <outlet property="textColorLabel" destination="TcI-Pa-OYs" id="gcm-9O-4pn"/>
                         <outlet property="textColorSwatchView" destination="9j0-pa-deP" id="tmk-ug-cfZ"/>
                         <outlet property="textColorTapGestureRecognizer" destination="HH3-hc-2hx" id="4Nv-dI-loQ"/>
@@ -373,7 +397,6 @@
                         <outlet property="textSizeValueLabel" destination="rlP-jJ-bw5" id="bKv-RA-nUJ"/>
                         <outlet property="textStyleLabel" destination="fu5-IP-kmN" id="6MQ-Fe-cmd"/>
                         <outlet property="textStyleSegmentControl" destination="9SL-S2-llc" id="szN-4q-k39"/>
-                        <outlet property="textView" destination="BD7-Ro-e7a" id="JMM-nj-J2f"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uts-oM-Kgj" userLabel="First Responder" sceneMemberID="firstResponder"/>

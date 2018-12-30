@@ -12,8 +12,9 @@ import os.log
 class TextAttributesViewController: UIViewController {
 
     @IBOutlet private weak var textLabel: UILabel!
-    @IBOutlet private weak var textView: UITextView!
+    @IBOutlet private weak var messageTextView: UITextView!
     @IBOutlet private weak var clearTextButton: UIButton!
+    @IBOutlet private weak var messagePlaceholder: UILabel!
 
     @IBOutlet private weak var textSizeSlider: PointSizeSlider!
     @IBOutlet private weak var textSizeLabel: UILabel!
@@ -42,11 +43,15 @@ class TextAttributesViewController: UIViewController {
 
     private var colorSwatchBeingEdited: TranslucentColorSwatchView?
 
+    private var isEditingMessage: Bool = false
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
         self.boxColorSwatchView.setBorder()
         self.textColorSwatchView.setBorder()
+
+        self.messagePlaceholder.text = Resources.localizedString("MessagePlaceholderText")
 
         self.loadSettings()
     }
@@ -57,7 +62,8 @@ class TextAttributesViewController: UIViewController {
     }
 
     @IBAction private func onClearText(_ sender: Any) {
-        self.textView.text = ""
+        self.messageTextView.text = ""
+        self.updatePlaceholderTextVisibility()
     }
 
     @IBAction private func onTextSizeValueChanged(_ sender: Any) {
@@ -149,7 +155,7 @@ class TextAttributesViewController: UIViewController {
         assert(self.settingsCoordinator != nil, "No settings to edit")
 
         self.textLabel.text = Resources.localizedString("MessageLabel")
-        self.textView.text = self.settingsCoordinator.message
+        self.messageTextView.text = self.settingsCoordinator.message
 
         self.textSizeLabel.text = Resources.localizedString("TextSizeLabel")
         self.textSizeValueLabel.text = TextAttributesHelper.displayTextForPointSize(self.settingsCoordinator.textFont.pointSize)
@@ -169,6 +175,8 @@ class TextAttributesViewController: UIViewController {
         self.boxColorSwatchView.swatchColor = self.settingsCoordinator.boxColor
 
         self.factorySettingsButton.setTitle(Resources.localizedString("FactorySettings"), for: .normal)
+
+        self.updatePlaceholderTextVisibility()
     }
 
     private func saveSettings() {
@@ -176,7 +184,7 @@ class TextAttributesViewController: UIViewController {
         // Only issue a single update at endBatchChanges()
         self.settingsCoordinator.startBatchChanges()
 
-        self.settingsCoordinator.message = self.textView.text
+        self.settingsCoordinator.message = self.messageTextView.text
 
         let size = self.textSizeSlider.stepValue
 
@@ -195,6 +203,16 @@ class TextAttributesViewController: UIViewController {
         }
 
         self.settingsCoordinator.endBatchChanges()
+    }
+
+    // Ensure the massage placeholder text shows when there is no message text
+    // and hides when there is some text
+    // It is always hidden while editing
+    private func updatePlaceholderTextVisibility() {
+
+        let hidden = self.isEditingMessage || !self.messageTextView.text.isEmpty
+
+        self.messagePlaceholder.isHidden = hidden
     }
 }
 
@@ -235,5 +253,18 @@ extension TextAttributesViewController: UIPopoverPresentationControllerDelegate 
     @objc
     public func popoverPresentationControllerDidDismissPopover(_ popoverPresentationController: UIPopoverPresentationController) {
         self.colorSwatchBeingEdited = nil
+    }
+}
+
+extension TextAttributesViewController: UITextViewDelegate {
+
+    public func textViewDidBeginEditing(_ textView: UITextView) {
+        self.isEditingMessage = true
+        self.updatePlaceholderTextVisibility()
+    }
+
+    public func textViewDidEndEditing(_ textView: UITextView) {
+        self.isEditingMessage = false
+        self.updatePlaceholderTextVisibility()
     }
 }

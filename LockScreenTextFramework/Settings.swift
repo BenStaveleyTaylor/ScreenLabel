@@ -72,7 +72,7 @@ struct Settings: Codable {
                   imageName: nil,           // Nil imageName means it's a plain colour lock screen (background colour only)
                   imageBackgroundColor: UIColor.white,
                   imageBleedStyle: .still,
-                  message: Resources.localizedString("MessagePromptText"),
+                  message: "",
                   textFont: UIFont.preferredFont(forTextStyle: .body),
                   textAlignment: .center,
                   textColor: UIColor.white,
