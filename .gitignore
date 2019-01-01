@@ -1,0 +1,17 @@
+# place ignored files here
+
+*.DS_Store
+
+# Xcode
+xcuserdata
+project.xcworkspace
+*.pbxuser
+!default.pbxuser
+xcuserdata
+*.xccheckout
+DerivedData
+*.diff
+*.xctimeline
+
+# CocoaPods
+Pods
