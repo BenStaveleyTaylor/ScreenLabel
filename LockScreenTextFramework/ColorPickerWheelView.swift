@@ -18,8 +18,7 @@ class ColorPickerWheelView: UIImageView {
     override init(frame: CGRect) {
         super.init(frame: frame)
 
-        let bundle = Bundle(for: type(of: self))
-        self.image = UIImage(named: "ColorPickerWheel", in: bundle, compatibleWith: nil)
+        self.image = Resources.image(named: "ColorPickerWheel")
     }
 
     required init?(coder aDecoder: NSCoder) {

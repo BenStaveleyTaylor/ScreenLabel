@@ -1,0 +1,18 @@
+/* 
+  Help.strings
+  LockScreenText
+
+  Created by Ben Staveley-Taylor on 31/12/2018.
+  Copyright © 2018 Ben Staveley-Taylor. All rights reserved.
+*/
+
+"HelpNavTitle" = "How to...";
+
+"HelpTitle1" = "Help Page 1";
+"HelpText1"  = "Useful information that goes on page 1 of Help";
+
+"HelpTitle2" = "Help Page 2";
+"HelpText2"  = "Useful information that goes on page 2 of Help";
+
+"HelpTitle3" = "Help Page 3";
+"HelpText3"  = "Useful information that goes on page 3 of Help";

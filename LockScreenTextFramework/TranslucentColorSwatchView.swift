@@ -70,9 +70,7 @@ open class TranslucentColorSwatchView: UIView {
         
         self.backgroundColor = UIColor.white
 
-        self.backgroundImageView.image = UIImage(named: "ColorSwatchBackground",
-                                                 in: Bundle(for: type(of: self)),
-                                                 compatibleWith: nil)
+        self.backgroundImageView.image = Resources.image(named: "ColorSwatchBackground")
 
         // Create the subviews
         self.backgroundImageView.contentMode = .scaleAspectFill

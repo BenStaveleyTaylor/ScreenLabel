@@ -8,14 +8,3 @@
 
 /* We need these here because EFColorPicker uses the default (i.e. app) bundle for its strings */
 
-"RGB" = "RGB Sliders";
-
-"HSB" = "Color Wheel";
-
-"Brightness" = "Brightness";
-
-"Red" = "Red";
-
-"Green" = "Green";
-
-"Blue" = "Blue";

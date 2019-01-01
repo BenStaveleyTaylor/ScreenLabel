@@ -56,9 +56,6 @@ class ImagePreviewController: UIViewController {
         self.settingsDidChange(coordinator: self.settingsCoordinator, animated: false)
     }
 
-    @IBAction private func onHelpTapped(_ sender: Any) {
-    }
-
     @IBAction private func onChoosePhotoTapped(_ sender: Any) {
 
         let picker = UIImagePickerController()
@@ -207,6 +204,9 @@ class ImagePreviewController: UIViewController {
         case "editTextAttributesSegue":
             self.prepareForEditTextAttributesSegue(segue, sender: sender)
 
+        case "showHelpSegue":
+            self.prepareForShowHelpSegue(segue, sender: sender)
+
         default:
             os_log("Unexpected segue: %@", segue.identifier ?? "<nil>")
         }
@@ -222,6 +222,26 @@ class ImagePreviewController: UIViewController {
         }
 
         destVC.prepare(settingsCoordinator: self.settingsCoordinator)
+    }
+
+    private func prepareForShowHelpSegue(_ segue: UIStoryboardSegue, sender: Any?) {
+
+        assert(segue.identifier == "showHelpSegue")
+
+        guard let helpNav = segue.destination as? UINavigationController else {
+            assertionFailure("destination of showHelpSegue was not a UINavigationController")
+            return
+        }
+
+        guard let helpPageController = helpNav.topViewController as? HelpPageViewController else {
+            assertionFailure("top view controller was not a HelpPageViewController")
+            return
+        }
+
+        helpPageController.preparePages()
+
+        let aboutVC = AboutViewController.create()
+        helpPageController.appendPage(aboutVC)
     }
 
     // After many colour update notifications while the selection UI is up,

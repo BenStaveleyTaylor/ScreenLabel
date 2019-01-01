@@ -18,14 +18,32 @@ enum Resources {
         return bundle
     }
 
-    /// Wrapper/Replacement for NSLocalizedString that uses the framework bundle
-    public static func localizedString(_ key: String) -> String {
+    /// Wrapper/Replacement for NSLocalizedString that reads a named string table
+    /// in the framework bundle
+    public static func localizedString(_ key: String, tableName: String? = nil) -> String {
 
         guard let bundle = Resources.frameworkBundle else {
             return "???"
         }
 
-        let result = NSLocalizedString(key, bundle: bundle, comment: "")
+        let result = NSLocalizedString(key, tableName: tableName, bundle: bundle, comment: "")
         return result
     }
+
+    /// Read an image from this bundle
+    public static func image(named name: String,
+                             in bundle: Bundle? = Resources.frameworkBundle,
+                             compatibleWith traitCollection: UITraitCollection? = nil) -> UIImage? {
+
+        return UIImage(named: name, in: bundle, compatibleWith: traitCollection)
+    }
+
+    /// Read a color from this bundle
+    public static func color(named name: String,
+                             in bundle: Bundle? = Resources.frameworkBundle,
+                             compatibleWith traitCollection: UITraitCollection? = nil) -> UIColor? {
+
+        return UIColor(named: name, in: bundle, compatibleWith: traitCollection)
+    }
+
 }
