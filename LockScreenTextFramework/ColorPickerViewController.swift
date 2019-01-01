@@ -41,12 +41,12 @@ class ColorPickerViewController: UIViewController {
 
     // MARK: Other properties
 
-    var beforeColor: UIColor = UIColor.white {
+    var beforeColor = UIColor.white {
         didSet {
             self.beforeSwatch.swatchColor = self.beforeColor
         }
     }
-    var selectedColor: UIColor = UIColor.white {
+    var selectedColor = UIColor.white {
         didSet {
             self.afterSwatch.swatchColor = self.selectedColor
 
@@ -166,6 +166,7 @@ class ColorPickerViewController: UIViewController {
         switch sender.view {
         case let view as TranslucentColorSwatchView:
             maybeColor = view.swatchColor
+
         default:
             maybeColor = sender.view?.backgroundColor
         }
