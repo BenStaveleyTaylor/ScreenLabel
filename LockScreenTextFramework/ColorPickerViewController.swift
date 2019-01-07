@@ -40,6 +40,7 @@ class ColorPickerViewController: UIViewController {
     @IBOutlet private weak var afterLabel: UILabel!
 
     // MARK: Other properties
+    var settingsInitialised: Bool = false
 
     var beforeColor = UIColor.white {
         didSet {
@@ -57,7 +58,10 @@ class ColorPickerViewController: UIViewController {
             self.brightnessSlider.value = Float(brightness)
             self.transparencySlider.value = Float(alpha)
 
-            self.delegate?.colorPicker(self, didChangeTo: self.selectedColor)
+            // Only call the delegate after the initial load has finished
+            if self.settingsInitialised {
+                self.delegate?.colorPicker(self, didChangeTo: self.selectedColor)
+            }
         }
     }
     weak var delegate: ColorPickerViewControllerDelegate?
@@ -123,6 +127,8 @@ class ColorPickerViewController: UIViewController {
                                                                     target: self,
                                                                     action: #selector(onDone(_:)))
         }
+
+        self.settingsInitialised = true
     }
 
     override func viewWillAppear(_ animated: Bool) {

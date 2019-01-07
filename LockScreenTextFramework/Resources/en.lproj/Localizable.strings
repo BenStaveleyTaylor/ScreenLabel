@@ -12,7 +12,7 @@
 
 "MessagePromptText" = "Tap here to create your message";
 
-"MessagePlaceholderText" = "Examples:\n\"Email bob@mac.com if found\"\n\"Training Room iPad 1\"";
+"MessagePlaceholderText" = "Examples:\n\"If found please call 01234 567890\"\n\"Physics Lab iPad 1\"";
 
 "ActivitySubjectDescription" = "Image prepared by the %@ app";
 

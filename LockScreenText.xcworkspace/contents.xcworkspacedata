@@ -13,6 +13,9 @@
       <FileRef
          location = "group:../swiftlint.yml">
       </FileRef>
+      <FileRef
+         location = "group:TODO.md">
+      </FileRef>
    </Group>
    <FileRef
       location = "group:LockScreenText.xcodeproj">

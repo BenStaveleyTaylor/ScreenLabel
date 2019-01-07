@@ -35,6 +35,7 @@ class ImagePreviewController: UIViewController {
     
     // Local properties
     private var settingsCoordinator: SettingsCoordinatorProtocol!
+    private var colorDidChange: Bool = false
 
     // true if the controls are all hidden to show the whole view
     var isInPreviewMode = false
@@ -77,6 +78,7 @@ class ImagePreviewController: UIViewController {
                                                       delegate: self)
 
         // Present as a popover on iPad, or push on iPhone
+        self.colorDidChange = false
 
         if self.traitCollection.horizontalSizeClass == UIUserInterfaceSizeClass.compact {
 
@@ -318,10 +320,13 @@ extension ImagePreviewController: ColorPickerViewControllerDelegate {
 
     func colorPicker(_ picker: ColorPickerViewController, didChangeTo color: UIColor) {
         self.imageView.backgroundColor = color
+        self.colorDidChange = true
     }
 
     func colorPickerWillClose(_ picker: ColorPickerViewController) {
-        self.persistImageBackgroundColor()
+        if self.colorDidChange {
+            self.persistImageBackgroundColor()
+        }
 
         // This is only called if we presented by pushing, so:
         self.navigationController?.popViewController(animated: true)
