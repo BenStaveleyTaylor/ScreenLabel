@@ -119,7 +119,8 @@ class TextAttributesViewController: UIViewController {
             return
         }
 
-        let colorPickerVC = ColorPickerViewController(startingColor: anchorView.swatchColor ?? UIColor.white,
+        let colorPickerVC = ColorPickerViewController(title: Resources.localizedString("PickColorTitle"),
+                                                      startingColor: anchorView.swatchColor ?? UIColor.white,
                                                       delegate: self)
 
         // Present as a popover on iPad, or push on iPhone

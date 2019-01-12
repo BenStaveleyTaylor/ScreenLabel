@@ -53,7 +53,8 @@
 "ResetToDefaultsResetAction" = "Reset";
 "Cancel" = "Cancel";
 
-"PickColorTitle" = "Pick a Colour";
+"PickBackgroundColorTitle" = "Set Background Colour";
+"PickColorTitle" = "Choose Colour";
 "ColourAfterTitle" = "New";
 "ColourBeforeTitle" = "Old";
 "ColourDarkerTitle" = "Dark";

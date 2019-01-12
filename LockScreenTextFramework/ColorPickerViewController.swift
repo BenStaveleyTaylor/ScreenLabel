@@ -72,13 +72,16 @@ class ColorPickerViewController: UIViewController {
 
     // MARK: View lifecycle
 
-    convenience init(startingColor: UIColor, delegate: ColorPickerViewControllerDelegate?) {
+    convenience init(title: String,
+                     startingColor: UIColor,
+                     delegate: ColorPickerViewControllerDelegate?) {
 
         let selfClass = type(of: self)
         let className = String(describing: selfClass)
         let bundle = Bundle(for: selfClass)
         self.init(nibName: className, bundle: bundle)
 
+        self.title = title
         self.startingColor = startingColor
         self.delegate = delegate
     }
@@ -97,7 +100,6 @@ class ColorPickerViewController: UIViewController {
         super.viewDidLoad()
 
         // Set the labels
-        self.title = Resources.localizedString("PickColorTitle")
         self.afterLabel.text = Resources.localizedString("ColourAfterTitle")
         self.beforeLabel.text = Resources.localizedString("ColourBeforeTitle")
         self.darkerLabel.text = Resources.localizedString("ColourDarkerTitle")

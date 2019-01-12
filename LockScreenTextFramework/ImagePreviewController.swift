@@ -66,7 +66,8 @@ class ImagePreviewController: UIViewController {
     // Show the ColorPicker
     @IBAction private func onPlainColorTapped(_ sender: Any) {
 
-        let colorPickerVC = ColorPickerViewController(startingColor: self.settingsCoordinator.imageBackgroundColor,
+        let colorPickerVC = ColorPickerViewController(title: Resources.localizedString("PickBackgroundColorTitle"),
+                                                      startingColor: self.settingsCoordinator.imageBackgroundColor,
                                                       delegate: self)
 
         // Present as a popover on iPad, or push on iPhone
