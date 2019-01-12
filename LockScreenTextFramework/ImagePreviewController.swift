@@ -22,7 +22,6 @@ class ImagePreviewController: UIViewController {
     @IBOutlet private weak var choosePhotoButton: UIBarButtonItem!
     @IBOutlet private weak var plainColorButton: UIBarButtonItem!
     @IBOutlet private weak var saveButton: UIBarButtonItem!
-    @IBOutlet private weak var bleedStyleSegmentControl: UISegmentedControl!
     @IBOutlet private var imageTapRecognizer: UITapGestureRecognizer!
     @IBOutlet private var textBoxTapRecognizer: UITapGestureRecognizer!
     @IBOutlet private var textBoxPanRecognizer: UIPanGestureRecognizer!
@@ -45,13 +44,6 @@ class ImagePreviewController: UIViewController {
 
         self.title = Resources.localizedString("ProductTitle")
         self.helpButton.title = Resources.localizedString("HelpButtonText")
-
-        self.bleedStyleSegmentControl.setTitle(Resources.localizedString("StillBleedStyle"),
-                                               forSegmentAt: BleedStyle.still.rawValue)
-        self.bleedStyleSegmentControl.setTitle(Resources.localizedString("PerspectiveBleedStyle"),
-                                               forSegmentAt: BleedStyle.perspective.rawValue)
-        self.bleedStyleSegmentControl.layer.cornerRadius = 4
-        self.bleedStyleSegmentControl.layer.masksToBounds = true
 
         self.settingsCoordinator = SettingsCoordinator(withDelegate: self)
         self.settingsDidChange(coordinator: self.settingsCoordinator, animated: false)
@@ -112,14 +104,6 @@ class ImagePreviewController: UIViewController {
         return
     }
 
-    // Segmented control changed from still to perspective
-    @IBAction private func onBleedStyleChanged(_ sender: Any) {
-
-        if let bleedStyle = BleedStyle(rawValue: self.bleedStyleSegmentControl.selectedSegmentIndex) {
-            self.settingsCoordinator.imageBleedStyle = bleedStyle
-        }
-    }
-
     // User is dragging the text box.
     // It is always centred horizontally
     @IBAction private func onTextBoxPan(_ sender: UIPanGestureRecognizer) {
@@ -168,8 +152,6 @@ class ImagePreviewController: UIViewController {
     private func togglePreviewMode() {
 
         self.isInPreviewMode.toggle()
-
-        self.bleedStyleSegmentControl.isHidden = self.isInPreviewMode
 
         self.navigationController?.setNavigationBarHidden(self.isInPreviewMode, animated: true)
         self.navigationController?.setToolbarHidden(self.isInPreviewMode, animated: true)
@@ -295,7 +277,6 @@ extension ImagePreviewController: SettingsCoordinatorViewDelegate {
         self.imageView.image = coordinator.image
         self.imageView.backgroundColor = coordinator.imageBackgroundColor
 
-        self.bleedStyleSegmentControl.selectedSegmentIndex = coordinator.imageBleedStyle.rawValue
         self.setBleedStyle(coordinator.imageBleedStyle, animated: animated)
 
         // If the string is empty, show a helpful prompt

@@ -32,6 +32,10 @@ class TextAttributesViewController: UIViewController {
     @IBOutlet private weak var boxColorLabel: UILabel!
     @IBOutlet private weak var boxColorSwatchView: TranslucentColorSwatchView!
 
+    @IBOutlet weak var bleedStyleLabel: UILabel!
+    @IBOutlet weak var bleedStyleSwitch: UISwitch!
+    @IBOutlet weak var bleedStyleHelpLabel: UILabel!
+
     @IBOutlet private weak var factorySettingsButton: UIButton!
     
     @IBOutlet private var textColorTapGestureRecognizer: UITapGestureRecognizer!
@@ -73,6 +77,10 @@ class TextAttributesViewController: UIViewController {
     }
 
     @IBAction private func onTextStyleChanged(_ sender: UISegmentedControl) {
+    }
+
+    @IBAction func onBleedStyleChanged(_ sender: UISwitch) {
+        // nop
     }
 
     @IBAction private func onFactorySettingsTapped(_ sender: Any) {
@@ -174,6 +182,10 @@ class TextAttributesViewController: UIViewController {
         self.boxColorLabel.text = Resources.localizedString("BoxColorLabel")
         self.boxColorSwatchView.swatchColor = self.settingsCoordinator.boxColor
 
+        self.bleedStyleLabel.text = Resources.localizedString("BleedStyleLabel")
+        self.bleedStyleHelpLabel.text = Resources.localizedString("BleedStyleHelpText")
+        self.bleedStyleSwitch.isOn = (self.settingsCoordinator.imageBleedStyle == .perspective)
+
         self.factorySettingsButton.setTitle(Resources.localizedString("FactorySettings"), for: .normal)
 
         self.updatePlaceholderTextVisibility()
@@ -201,6 +213,9 @@ class TextAttributesViewController: UIViewController {
         if let boxColor = self.boxColorSwatchView.swatchColor {
             self.settingsCoordinator.boxColor = boxColor
         }
+
+        let bleedStyle: BleedStyle = self.bleedStyleSwitch.isOn ? .perspective : .still
+        self.settingsCoordinator.imageBleedStyle = bleedStyle
 
         self.settingsCoordinator.endBatchChanges()
     }

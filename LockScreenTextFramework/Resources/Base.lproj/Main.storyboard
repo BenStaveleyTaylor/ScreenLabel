@@ -60,26 +60,13 @@
                                     <constraint firstItem="GBZ-oQ-mnU" firstAttribute="height" secondItem="Zco-QO-wj2" secondAttribute="height" constant="24" id="vyz-Wz-11S"/>
                                 </constraints>
                             </view>
-                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="CCK-k8-LQI">
-                                <rect key="frame" x="127" y="84" width="121" height="29"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <segments>
-                                    <segment title="First"/>
-                                    <segment title="Second"/>
-                                </segments>
-                                <connections>
-                                    <action selector="onBleedStyleChanged:" destination="BYZ-38-t0r" eventType="valueChanged" id="QRp-v3-Zkd"/>
-                                </connections>
-                            </segmentedControl>
                         </subviews>
                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="mAn-8c-p3c" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="6bQ-My-usE"/>
                             <constraint firstAttribute="height" relation="greaterThanOrEqual" secondItem="Zco-QO-wj2" secondAttribute="height" constant="40" id="Ipd-9B-QNH"/>
-                            <constraint firstItem="CCK-k8-LQI" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="20" id="aS6-Xr-pDp"/>
                             <constraint firstAttribute="width" relation="greaterThanOrEqual" secondItem="Zco-QO-wj2" secondAttribute="width" constant="40" id="hT8-0h-sh8"/>
                             <constraint firstItem="mAn-8c-p3c" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" id="hsO-Ug-wxa"/>
-                            <constraint firstItem="CCK-k8-LQI" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="nhU-Av-DX0"/>
                             <constraint firstItem="mAn-8c-p3c" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" id="u2V-vE-aUA"/>
                             <constraint firstItem="mAn-8c-p3c" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="zak-td-SbV"/>
                         </constraints>
@@ -113,7 +100,6 @@
                     </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
-                        <outlet property="bleedStyleSegmentControl" destination="CCK-k8-LQI" id="znE-GJ-D7b"/>
                         <outlet property="choosePhotoButton" destination="uRv-fb-dld" id="m2x-Ti-Wif"/>
                         <outlet property="helpButton" destination="aq7-Gs-wsB" id="MB5-0Q-iem"/>
                         <outlet property="imageTapRecognizer" destination="kIP-8p-Bz2" id="fTr-j1-zzb"/>
@@ -169,10 +155,10 @@
                                 <rect key="frame" x="0.0" y="64" width="375" height="559"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8w5-dh-F7X" userLabel="Content View">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="457.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="530.5"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="18" translatesAutoresizingMaskIntoConstraints="NO" id="dbi-kZ-Znd">
-                                                <rect key="frame" x="0.0" y="0.0" width="375" height="457.5"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="375" height="530.5"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Inf-ka-rzc" userLabel="Message title">
                                                         <rect key="frame" x="20" y="20" width="335" height="19"/>
@@ -203,15 +189,15 @@
                                                                 <rect key="frame" x="0.0" y="0.0" width="335" height="76"/>
                                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
-                                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                                                 <connections>
                                                                     <outlet property="delegate" destination="70U-AU-X1A" id="sBx-Rb-ROF"/>
                                                                 </connections>
                                                             </textView>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Placeholder text" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TME-xV-Hyt">
-                                                                <rect key="frame" x="5" y="5" width="325" height="17"/>
-                                                                <fontDescription key="fontDescription" type="italicSystem" pointSize="14"/>
+                                                                <rect key="frame" x="5" y="5" width="325" height="18"/>
+                                                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                                 <color key="textColor" white="0.5" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
@@ -232,13 +218,13 @@
                                                         <rect key="frame" x="20" y="151" width="335" height="30"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="&lt;text size&gt;" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lTr-Bb-oNP">
-                                                                <rect key="frame" x="0.0" y="0.0" width="85" height="30"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="61" height="30"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                 <nil key="textColor"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="16" minValue="6" maxValue="256" translatesAutoresizingMaskIntoConstraints="NO" id="eQP-21-HfM" customClass="PointSizeSlider" customModule="LockScreenTextFramework" customModuleProvider="target">
-                                                                <rect key="frame" x="95" y="0.0" width="179" height="31"/>
+                                                                <rect key="frame" x="71" y="0.0" width="203" height="31"/>
                                                                 <connections>
                                                                     <action selector="onTextSizeValueChanged:" destination="70U-AU-X1A" eventType="valueChanged" id="3yK-C2-j7L"/>
                                                                 </connections>
@@ -347,8 +333,36 @@
                                                             <outletCollection property="gestureRecognizers" destination="bLJ-eN-5Mj" appends="YES" id="4HT-FB-rQJ"/>
                                                         </connections>
                                                     </stackView>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="XwX-67-ZXc" userLabel="Bleed Style stack">
+                                                        <rect key="frame" x="20" y="407.5" width="335" height="55"/>
+                                                        <subviews>
+                                                            <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="58w-vj-yeo" userLabel="Bleed Style controls">
+                                                                <rect key="frame" x="0.0" y="0.0" width="335" height="31"/>
+                                                                <subviews>
+                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="&lt;bleed style&gt;" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7yc-Tp-CQq">
+                                                                        <rect key="frame" x="0.0" y="0.0" width="286" height="31"/>
+                                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                        <nil key="textColor"/>
+                                                                        <nil key="highlightedColor"/>
+                                                                    </label>
+                                                                    <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="haH-av-ZSh">
+                                                                        <rect key="frame" x="286" y="0.0" width="51" height="31"/>
+                                                                        <connections>
+                                                                            <action selector="onBleedStyleChanged:" destination="70U-AU-X1A" eventType="valueChanged" id="VlV-qj-XFw"/>
+                                                                        </connections>
+                                                                    </switch>
+                                                                </subviews>
+                                                            </stackView>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="&lt;bleed style help&gt;" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e8b-hs-VK3">
+                                                                <rect key="frame" x="0.0" y="37" width="335" height="18"/>
+                                                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                                <color key="textColor" white="0.5" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                        </subviews>
+                                                    </stackView>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ipc-10-oAy">
-                                                        <rect key="frame" x="20" y="407.5" width="335" height="30"/>
+                                                        <rect key="frame" x="20" y="480.5" width="335" height="30"/>
                                                         <state key="normal" title="&lt;factory settings&gt;"/>
                                                         <connections>
                                                             <action selector="onFactorySettingsTapped:" destination="70U-AU-X1A" eventType="touchUpInside" id="kRO-YT-ckf"/>
@@ -387,6 +401,9 @@
                         <viewLayoutGuide key="safeArea" id="euc-QL-pt5"/>
                     </view>
                     <connections>
+                        <outlet property="bleedStyleHelpLabel" destination="e8b-hs-VK3" id="1Di-Ki-i5n"/>
+                        <outlet property="bleedStyleLabel" destination="7yc-Tp-CQq" id="ncY-KI-zms"/>
+                        <outlet property="bleedStyleSwitch" destination="haH-av-ZSh" id="36j-pQ-E3Z"/>
                         <outlet property="boxColorLabel" destination="y3P-sI-Lcg" id="usI-O6-oWZ"/>
                         <outlet property="boxColorSwatchView" destination="9o3-EI-WfJ" id="08D-Nb-eIg"/>
                         <outlet property="boxColorTapGestureRecognizer" destination="bLJ-eN-5Mj" id="V22-pE-TGQ"/>
