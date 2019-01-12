@@ -1,16 +1,31 @@
 PODS:
-  - SwiftLint (0.29.2)
+  - PromiseKit (6.7.1):
+    - PromiseKit/CorePromise (= 6.7.1)
+    - PromiseKit/Foundation (= 6.7.1)
+    - PromiseKit/UIKit (= 6.7.1)
+  - PromiseKit/CorePromise (6.7.1)
+  - PromiseKit/Foundation (6.7.1):
+    - PromiseKit/CorePromise
+  - PromiseKit/Photos (6.7.1):
+    - PromiseKit/CorePromise
+  - PromiseKit/UIKit (6.7.1):
+    - PromiseKit/CorePromise
+  - SwiftLint (0.29.3)
 
 DEPENDENCIES:
+  - PromiseKit
+  - PromiseKit/Photos
   - SwiftLint
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
+    - PromiseKit
     - SwiftLint
 
 SPEC CHECKSUMS:
-  SwiftLint: 47df60bdea6e7e902b193b6596db8683aafd86a3
+  PromiseKit: ef376fb8b4e92edfeb66bd403b983eaa07fbde0c
+  SwiftLint: bfa7ca7b4d170cfaf0d236ca3ffd969e88a2f002
 
-PODFILE CHECKSUM: c781cc57eee5f3c217587957d44051e1854f705f
+PODFILE CHECKSUM: 3931623a102ac013a81301fd53c630f7f3e8fa1d
 
 COCOAPODS: 1.5.3

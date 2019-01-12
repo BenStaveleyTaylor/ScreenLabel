@@ -26,6 +26,8 @@
 
 "HowToSetWallpaperBody" = "Switch to Photos, tap the footer Share button and choose the \"Use as Wallpaper\" action";
 
+"PhotosAccessDenied" = "This app is blocked from accessing your Photos library. To fix this, open Settings > Privacy > Photos > LockScreen Text, and allow Read and Write access.";
+
 "OK" = "OK";
 
 "MessageLabel" = "Message";

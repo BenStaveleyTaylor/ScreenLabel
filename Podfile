@@ -7,3 +7,8 @@ use_frameworks!
 target 'LockScreenText' do
     pod 'SwiftLint'
 end
+
+target 'LockScreenTextFramework' do
+    pod 'PromiseKit'
+    pod 'PromiseKit/Photos'
+end

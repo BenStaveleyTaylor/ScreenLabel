@@ -8,9 +8,6 @@
 
 import UIKit
 
-// TODO: Add Still/Perspective
-// Change to UIEdgeInsets for padding
-
 // Data model
 
 enum BleedStyle: Int, Codable {

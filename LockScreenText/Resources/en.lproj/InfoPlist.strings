@@ -6,6 +6,6 @@
   Copyright © 2018 Ben Staveley-Taylor. All rights reserved.
 */
 
-"NSPhotoLibraryUsageDescription" = "To select photos to edit to make a Lock Screen";
+"To import photos and save new backgrounds you create" = "To import photos and save new backgrounds you create";
 
-"NSPhotoLibraryAddUsageDescription" = "To save edited Lock Screen images back to Photos";
+"To save new backgrounds you create" = "To save new backgrounds you create";

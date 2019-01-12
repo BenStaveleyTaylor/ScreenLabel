@@ -8,6 +8,8 @@
 
 import UIKit
 import os.log
+import Photos
+import PromiseKit
 
 // Actions that affect the view are sent using this delgate
 protocol SettingsCoordinatorViewDelegate: AnyObject {
@@ -219,13 +221,26 @@ extension SettingsCoordinator: SettingsCoordinatorProtocol {
     }
 
     func saveToPhotos(image: UIImage) {
-        
-        // Save the renderable view into the photo album then tell the user
-        // what to do in the completion callback
-        UIImageWriteToSavedPhotosAlbum(image,
-                                       self,
-                                       #selector(image(_:didFinishSavingWithError:contextInfo:)),
-                                       nil)
+
+        // Check we have access to the Photos data
+        firstly {
+            PHPhotoLibrary.requestAuthorization()
+        }.done { status in
+
+            if status == .authorized {
+
+                // Save the renderable view into the photo album then tell the user
+                // what to do in the completion callback
+                UIImageWriteToSavedPhotosAlbum(image,
+                                               self,
+                                               #selector(self.image(_:didFinishSavingWithError:contextInfo:)),
+                                               nil)
+            }
+            else {
+                AlertUtilities.showMessage(title: Resources.localizedString("FailedAlertTitle"),
+                                           body: Resources.localizedString("PhotosAccessDenied"))
+            }
+        }
     }
 
     func startBatchChanges() {
