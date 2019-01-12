@@ -1,7 +1,7 @@
 #  TODO
 
 [x] Toolbar icons
-Move perspective button to settings
+√ Move perspective button to settings
 Confirm reset to defaults
 Can we open settings to Wallpaper directly?
 Create real help content

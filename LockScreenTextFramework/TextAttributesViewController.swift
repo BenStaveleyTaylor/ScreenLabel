@@ -8,6 +8,7 @@
 
 import UIKit
 import os.log
+import PromiseKit
 
 class TextAttributesViewController: UIViewController {
 
@@ -32,9 +33,9 @@ class TextAttributesViewController: UIViewController {
     @IBOutlet private weak var boxColorLabel: UILabel!
     @IBOutlet private weak var boxColorSwatchView: TranslucentColorSwatchView!
 
-    @IBOutlet weak var bleedStyleLabel: UILabel!
-    @IBOutlet weak var bleedStyleSwitch: UISwitch!
-    @IBOutlet weak var bleedStyleHelpLabel: UILabel!
+    @IBOutlet private weak var bleedStyleLabel: UILabel!
+    @IBOutlet private weak var bleedStyleSwitch: UISwitch!
+    @IBOutlet private weak var bleedStyleHelpLabel: UILabel!
 
     @IBOutlet private weak var factorySettingsButton: UIButton!
     
@@ -79,14 +80,28 @@ class TextAttributesViewController: UIViewController {
     @IBAction private func onTextStyleChanged(_ sender: UISegmentedControl) {
     }
 
-    @IBAction func onBleedStyleChanged(_ sender: UISwitch) {
+    @IBAction private func onBleedStyleChanged(_ sender: UISwitch) {
         // nop
     }
 
     @IBAction private func onFactorySettingsTapped(_ sender: Any) {
 
-        self.settingsCoordinator.reset()
-        self.loadSettings()
+        let questionText = Resources.localizedString("ResetToDefaultsConfirmation")
+        let agreeText = Resources.localizedString("ResetToDefaultsResetAction")
+        let cancelText = Resources.localizedString("Cancel")
+
+        // Confirm with the user as this is destructive
+        let question = UIAlertController.askForAgreement(from: self,
+                                                         question: questionText,
+                                                         agreeButtonText: agreeText,
+                                                         agreeIsDestructive: true,
+                                                         cancelButtonText: cancelText)
+        question.done { agreed in
+            if agreed {
+                self.settingsCoordinator.reset()
+                self.loadSettings()
+            }
+        }
     }
 
     @IBAction private func onColorSwatchTapped(_ sender: UITapGestureRecognizer) {

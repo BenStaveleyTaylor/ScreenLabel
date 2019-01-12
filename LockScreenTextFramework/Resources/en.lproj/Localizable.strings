@@ -18,7 +18,7 @@
 
 "BleedStyleLabel" = "Add Perspective Margins";
 
-"BleedStyleHelpText" = "Turn this on for a more accurate image preview if you will be using the wallpaper in ‘Perspective’ mode";
+"BleedStyleHelpText" = "Turn this on for a better image preview if you will be using the wallpaper in ‘Perspective’ mode";
 
 "FailedAlertTitle" = "Failed";
 
@@ -38,8 +38,6 @@
 
 "TextSizeValue" = "%@ pts";
 
-"FactorySettings" = "Reset to Defaults";
-
 "FontPickerSample" = "The quick brown fox jumps over the lazy dog 1234567890";
 
 "SystemFontDisplayName" = "System Font";
@@ -49,6 +47,11 @@
 "TextColorLabel" = "Text Colour";
 
 "TextStyleLabel" = "Text Style";
+
+"FactorySettings" = "Reset to Defaults";
+"ResetToDefaultsConfirmation" = "Are you sure you want to reset the settings? This will clear the current background image too.";
+"ResetToDefaultsResetAction" = "Reset";
+"Cancel" = "Cancel";
 
 "PickColorTitle" = "Pick a Colour";
 "ColourAfterTitle" = "New";

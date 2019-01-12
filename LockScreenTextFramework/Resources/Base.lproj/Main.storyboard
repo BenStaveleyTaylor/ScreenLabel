@@ -218,13 +218,13 @@
                                                         <rect key="frame" x="20" y="151" width="335" height="30"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="&lt;text size&gt;" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lTr-Bb-oNP">
-                                                                <rect key="frame" x="0.0" y="0.0" width="61" height="30"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="53" height="30"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                 <nil key="textColor"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="16" minValue="6" maxValue="256" translatesAutoresizingMaskIntoConstraints="NO" id="eQP-21-HfM" customClass="PointSizeSlider" customModule="LockScreenTextFramework" customModuleProvider="target">
-                                                                <rect key="frame" x="71" y="0.0" width="203" height="31"/>
+                                                                <rect key="frame" x="63" y="0.0" width="211" height="31"/>
                                                                 <connections>
                                                                     <action selector="onTextSizeValueChanged:" destination="70U-AU-X1A" eventType="valueChanged" id="3yK-C2-j7L"/>
                                                                 </connections>
