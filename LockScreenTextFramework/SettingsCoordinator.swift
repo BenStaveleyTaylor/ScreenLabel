@@ -22,6 +22,8 @@ protocol SettingsCoordinatorProtocol {
     // Simple Model (i.e. Settings) accessors
     var imageBackgroundColor: UIColor { get set }
     var imageBleedStyle: BleedStyle { get set }
+    var scrollScale: CGFloat { get set }
+    var scrollOffset: CGPoint { get set }
     var message: String { get set }
     var textFont: UIFont { get set }
     var textColor: UIColor { get set }
@@ -42,6 +44,9 @@ protocol SettingsCoordinatorProtocol {
     // endBatchChanges() will do a single persist-and-update.
     func startBatchChanges()
     func endBatchChanges()
+
+    // Retore the scroll to unscrolled, no offset
+    func resetScrollState()
 
     // Set everything to factory defaults
     func reset()
@@ -118,6 +123,26 @@ extension SettingsCoordinator: SettingsCoordinatorProtocol {
         }
         set {
             self.settings.imageBleedStyle = newValue
+            self.settingsDidChange()
+        }
+    }
+
+    var scrollScale: CGFloat {
+        get {
+            return self.settings.scrollScale
+        }
+        set {
+            self.settings.scrollScale = newValue
+            self.settingsDidChange()
+        }
+    }
+
+    var scrollOffset: CGPoint {
+        get {
+            return self.settings.scrollOffset
+        }
+        set {
+            self.settings.scrollOffset = newValue
             self.settingsDidChange()
         }
     }
@@ -250,6 +275,14 @@ extension SettingsCoordinator: SettingsCoordinatorProtocol {
     func endBatchChanges() {
         self.inBatchMode = false
         self.settingsDidChange()
+    }
+
+    func resetScrollState() {
+
+        let defaults = Settings.defaults
+
+        self.settings.scrollScale = defaults.scrollScale
+        self.settings.scrollOffset = defaults.scrollOffset
     }
 
     func reset() {

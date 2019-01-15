@@ -13,7 +13,7 @@
         <!--Image Preview Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController storyboardIdentifier="ImagePreviewController" id="BYZ-38-t0r" customClass="ImagePreviewController" customModule="LockScreenTextFramework" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ImagePreviewController" extendedLayoutIncludesOpaqueBars="YES" automaticallyAdjustsScrollViewInsets="NO" id="BYZ-38-t0r" customClass="ImagePreviewController" customModule="LockScreenTextFramework" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -21,13 +21,27 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mAn-8c-p3c">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <subviews>
-                                    <imageView contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="wvr-oY-b6M">
+                                    <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" contentInsetAdjustmentBehavior="never" maximumZoomScale="3" translatesAutoresizingMaskIntoConstraints="NO" id="4E3-co-55s">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                                        <gestureRecognizers/>
+                                        <subviews>
+                                            <imageView contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" insetsLayoutMarginsFromSafeArea="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wvr-oY-b6M">
+                                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                                <gestureRecognizers/>
+                                                <connections>
+                                                    <outletCollection property="gestureRecognizers" destination="kIP-8p-Bz2" appends="YES" id="9I1-li-ZCf"/>
+                                                </connections>
+                                            </imageView>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstAttribute="bottom" secondItem="wvr-oY-b6M" secondAttribute="bottom" id="Hc5-px-T1d"/>
+                                            <constraint firstAttribute="trailing" secondItem="wvr-oY-b6M" secondAttribute="trailing" id="LZB-hC-36D"/>
+                                            <constraint firstItem="wvr-oY-b6M" firstAttribute="leading" secondItem="4E3-co-55s" secondAttribute="leading" id="Ue9-MC-qLU"/>
+                                            <constraint firstItem="wvr-oY-b6M" firstAttribute="top" secondItem="4E3-co-55s" secondAttribute="top" id="q5k-Zo-z8P"/>
+                                        </constraints>
                                         <connections>
-                                            <outletCollection property="gestureRecognizers" destination="kIP-8p-Bz2" appends="YES" id="9I1-li-ZCf"/>
+                                            <outlet property="delegate" destination="BYZ-38-t0r" id="k4x-lh-A7Z"/>
                                         </connections>
-                                    </imageView>
+                                    </scrollView>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GBZ-oQ-mnU">
                                         <rect key="frame" x="154.5" y="311.5" width="66" height="44.5"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -49,26 +63,28 @@
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstItem="GBZ-oQ-mnU" firstAttribute="width" secondItem="Zco-QO-wj2" secondAttribute="width" constant="24" id="4Nb-XY-27y"/>
+                                    <constraint firstItem="4E3-co-55s" firstAttribute="leading" secondItem="mAn-8c-p3c" secondAttribute="leading" id="5Ux-uI-vU3"/>
                                     <constraint firstItem="GBZ-oQ-mnU" firstAttribute="centerX" secondItem="Zco-QO-wj2" secondAttribute="centerX" id="Gof-BC-sTC"/>
-                                    <constraint firstAttribute="trailing" secondItem="wvr-oY-b6M" secondAttribute="trailing" id="S10-ws-JQl"/>
+                                    <constraint firstItem="wvr-oY-b6M" firstAttribute="height" secondItem="mAn-8c-p3c" secondAttribute="height" id="L0v-BK-S36"/>
+                                    <constraint firstItem="4E3-co-55s" firstAttribute="top" secondItem="mAn-8c-p3c" secondAttribute="top" id="TMQ-Zm-b4v"/>
                                     <constraint firstItem="GBZ-oQ-mnU" firstAttribute="centerY" secondItem="Zco-QO-wj2" secondAttribute="centerY" id="Yap-P4-MRm"/>
-                                    <constraint firstItem="wvr-oY-b6M" firstAttribute="top" secondItem="mAn-8c-p3c" secondAttribute="top" id="aJa-cO-iib"/>
                                     <constraint firstItem="Zco-QO-wj2" firstAttribute="centerY" secondItem="mAn-8c-p3c" secondAttribute="centerY" id="btH-gj-ggi"/>
+                                    <constraint firstItem="wvr-oY-b6M" firstAttribute="width" secondItem="mAn-8c-p3c" secondAttribute="width" id="dEf-Nc-AbZ"/>
                                     <constraint firstItem="Zco-QO-wj2" firstAttribute="centerX" secondItem="mAn-8c-p3c" secondAttribute="centerX" id="eB9-N8-Wgw"/>
-                                    <constraint firstItem="wvr-oY-b6M" firstAttribute="leading" secondItem="mAn-8c-p3c" secondAttribute="leading" id="eMe-VJ-lBC"/>
-                                    <constraint firstAttribute="bottom" secondItem="wvr-oY-b6M" secondAttribute="bottom" id="hbD-EJ-9C9"/>
+                                    <constraint firstAttribute="trailing" secondItem="4E3-co-55s" secondAttribute="trailing" id="mOl-Ld-bcs"/>
                                     <constraint firstItem="GBZ-oQ-mnU" firstAttribute="height" secondItem="Zco-QO-wj2" secondAttribute="height" constant="24" id="vyz-Wz-11S"/>
+                                    <constraint firstAttribute="bottom" secondItem="4E3-co-55s" secondAttribute="bottom" id="xmh-U9-cLx"/>
                                 </constraints>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="mAn-8c-p3c" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="6bQ-My-usE"/>
+                            <constraint firstItem="mAn-8c-p3c" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="0zm-fv-Sxo"/>
                             <constraint firstAttribute="height" relation="greaterThanOrEqual" secondItem="Zco-QO-wj2" secondAttribute="height" constant="40" id="Ipd-9B-QNH"/>
+                            <constraint firstItem="mAn-8c-p3c" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" id="QQ0-RZ-MU7"/>
+                            <constraint firstItem="mAn-8c-p3c" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" id="eur-3N-dV4"/>
                             <constraint firstAttribute="width" relation="greaterThanOrEqual" secondItem="Zco-QO-wj2" secondAttribute="width" constant="40" id="hT8-0h-sh8"/>
-                            <constraint firstItem="mAn-8c-p3c" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" id="hsO-Ug-wxa"/>
-                            <constraint firstItem="mAn-8c-p3c" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" id="u2V-vE-aUA"/>
-                            <constraint firstItem="mAn-8c-p3c" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="zak-td-SbV"/>
+                            <constraint firstItem="mAn-8c-p3c" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="vnU-TT-grm"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
@@ -106,9 +122,10 @@
                         <outlet property="imageView" destination="wvr-oY-b6M" id="ege-Ee-gW2"/>
                         <outlet property="plainColorButton" destination="JN8-qB-fgU" id="gvr-QU-1yb"/>
                         <outlet property="renderableView" destination="mAn-8c-p3c" id="ofy-Mg-9sw"/>
-                        <outlet property="renderableViewHeightConstraint" destination="hsO-Ug-wxa" id="h9u-VI-3af"/>
-                        <outlet property="renderableViewWidthConstraint" destination="u2V-vE-aUA" id="Kaq-pf-j8h"/>
+                        <outlet property="renderableViewHeightConstraint" destination="QQ0-RZ-MU7" id="dvb-VR-fox"/>
+                        <outlet property="renderableViewWidthConstraint" destination="eur-3N-dV4" id="1pN-88-h2f"/>
                         <outlet property="saveButton" destination="6lu-gD-SOE" id="Yqd-Gu-V5x"/>
+                        <outlet property="scrollView" destination="4E3-co-55s" id="NST-wd-ly1"/>
                         <outlet property="textBoxPanRecognizer" destination="qLW-OB-VlM" id="4My-Jc-Wfs"/>
                         <outlet property="textBoxTapRecognizer" destination="P1A-zI-KD9" id="JiL-7a-f7H"/>
                         <outlet property="textBoxView" destination="GBZ-oQ-mnU" id="5mk-vJ-EGX"/>
@@ -218,25 +235,25 @@
                                                         <rect key="frame" x="20" y="152" width="335" height="30"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="&lt;text size&gt;" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lTr-Bb-oNP">
-                                                                <rect key="frame" x="0.0" y="0.0" width="17" height="30"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="0.0" height="30"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                 <nil key="textColor"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="GDb-zm-KSH" userLabel="Slider group">
-                                                                <rect key="frame" x="29" y="0.0" width="243" height="30"/>
+                                                                <rect key="frame" x="12" y="0.0" width="260" height="30"/>
                                                                 <subviews>
                                                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="A-Small" translatesAutoresizingMaskIntoConstraints="NO" id="dXd-8I-GB2">
-                                                                        <rect key="frame" x="0.0" y="0.0" width="30" height="30"/>
+                                                                        <rect key="frame" x="0.0" y="0.0" width="0.0" height="30"/>
                                                                     </imageView>
                                                                     <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="16" minValue="6" maxValue="256" translatesAutoresizingMaskIntoConstraints="NO" id="eQP-21-HfM" customClass="PointSizeSlider" customModule="LockScreenTextFramework" customModuleProvider="target">
-                                                                        <rect key="frame" x="32" y="0.0" width="179" height="31"/>
+                                                                        <rect key="frame" x="2" y="0.0" width="235" height="31"/>
                                                                         <connections>
                                                                             <action selector="onTextSizeValueChanged:" destination="70U-AU-X1A" eventType="valueChanged" id="3yK-C2-j7L"/>
                                                                         </connections>
                                                                     </slider>
                                                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="A-Large" translatesAutoresizingMaskIntoConstraints="NO" id="b21-Qt-62i">
-                                                                        <rect key="frame" x="213" y="0.0" width="30" height="30"/>
+                                                                        <rect key="frame" x="239" y="0.0" width="21" height="30"/>
                                                                     </imageView>
                                                                 </subviews>
                                                             </stackView>

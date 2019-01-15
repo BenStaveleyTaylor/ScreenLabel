@@ -31,6 +31,8 @@ class SettingsTests: XCTestCase {
                                 imageName: "Total Perspective Vortex",
                                 imageBackgroundColor: UIColor.red,
                                 imageBleedStyle: BleedStyle.perspective,
+                                scrollScale: 2.0,
+                                scrollOffset: CGPoint(x: 123, y: 456),
                                 message: "Expect the unexpected",
                                 textFont: testFont,
                                 textAlignment: .right,
@@ -56,6 +58,8 @@ class SettingsTests: XCTestCase {
         XCTAssertEqual(settings.imageName, checkSettings!.imageName)
         XCTAssertEqual(settings.imageBackgroundColor, checkSettings!.imageBackgroundColor)
         XCTAssertEqual(settings.imageBleedStyle, checkSettings!.imageBleedStyle)
+        XCTAssertEqual(settings.scrollScale, checkSettings!.scrollScale)
+        XCTAssertEqual(settings.scrollOffset, checkSettings!.scrollOffset)
         XCTAssertEqual(settings.message, checkSettings!.message)
         XCTAssertEqual(settings.textFont, checkSettings!.textFont)
         XCTAssertEqual(settings.textAlignment, checkSettings!.textAlignment)

@@ -15,6 +15,7 @@ class ImagePreviewController: UIViewController {
 
     // Nib properties
 
+    @IBOutlet private weak var scrollView: UIScrollView!
     @IBOutlet private weak var imageView: UIImageView!
     @IBOutlet private weak var textLabel: UILabel!
     @IBOutlet private weak var textBoxView: UIView!
@@ -240,6 +241,7 @@ class ImagePreviewController: UIViewController {
 
             // Remove any image so the background colour shows
             self.settingsCoordinator.image = nil
+            self.settingsCoordinator.resetScrollState()
 
             self.settingsCoordinator.endBatchChanges()
         }
@@ -260,6 +262,7 @@ extension ImagePreviewController: UIImagePickerControllerDelegate {
         }
 
         self.settingsCoordinator.image = originalImage
+        self.settingsCoordinator.resetScrollState()
 
         self.dismiss(animated: true)
     }
@@ -279,6 +282,9 @@ extension ImagePreviewController: SettingsCoordinatorViewDelegate {
         self.imageView.backgroundColor = coordinator.imageBackgroundColor
 
         self.setBleedStyle(coordinator.imageBleedStyle, animated: animated)
+
+        self.scrollView.zoomScale = coordinator.scrollScale
+        self.scrollView.contentOffset = coordinator.scrollOffset
 
         // If the string is empty, show a helpful prompt
         var message = coordinator.message
@@ -321,5 +327,29 @@ extension ImagePreviewController: UIPopoverPresentationControllerDelegate {
     @objc
     public func popoverPresentationControllerDidDismissPopover(_ popoverPresentationController: UIPopoverPresentationController) {
         self.persistImageBackgroundColor()
+    }
+}
+
+extension ImagePreviewController: UIScrollViewDelegate {
+
+    func viewForZooming(in scrollView: UIScrollView) -> UIView? {
+        return self.imageView
+    }
+
+    func scrollViewDidEndZooming(_ scrollView: UIScrollView, with view: UIView?, atScale scale: CGFloat) {
+        self.settingsCoordinator.scrollScale = scale
+print("Saved zoom scale at \(scale)")
+    }
+
+    func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
+        if !decelerate {
+            self.settingsCoordinator.scrollOffset = scrollView.contentOffset
+print("Saved zoom offset at \(scrollView.contentOffset)")
+        }
+    }
+
+    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+        self.settingsCoordinator.scrollOffset = scrollView.contentOffset
+print("Saved zoom offset at \(scrollView.contentOffset)")
     }
 }

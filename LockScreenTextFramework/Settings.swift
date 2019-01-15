@@ -30,6 +30,9 @@ struct Settings: Codable {
     var imageBackgroundColor: UIColor
     var imageBleedStyle: BleedStyle
 
+    var scrollScale: CGFloat
+    var scrollOffset: CGPoint
+
     // The text of the message
     var message: String
 
@@ -52,6 +55,8 @@ struct Settings: Codable {
         case imageName
         case imageBackgroundColor
         case imageBleedStyle
+        case scrollScale
+        case scrollOffset
         case message
         case textFont
         case textAlignment
@@ -69,6 +74,8 @@ struct Settings: Codable {
                   imageName: nil,           // Nil imageName means it's a plain colour lock screen (background colour only)
                   imageBackgroundColor: UIColor.white,
                   imageBleedStyle: .still,
+                  scrollScale: 1.0,
+                  scrollOffset: CGPoint.zero,
                   message: "",
                   textFont: UIFont.preferredFont(forTextStyle: .body),
                   textAlignment: .center,
@@ -85,6 +92,8 @@ struct Settings: Codable {
          imageName: String?,
          imageBackgroundColor: UIColor,
          imageBleedStyle: BleedStyle,
+         scrollScale: CGFloat,
+         scrollOffset: CGPoint,
          message: String,
          textFont: UIFont,
          textAlignment: NSTextAlignment,
@@ -99,6 +108,8 @@ struct Settings: Codable {
         self.imageName =                imageName
         self.imageBackgroundColor =     imageBackgroundColor
         self.imageBleedStyle =          imageBleedStyle
+        self.scrollScale =              scrollScale
+        self.scrollOffset =             scrollOffset
         self.message =                  message
         self.textFont =                 textFont
         self.textAlignment =            textAlignment
@@ -107,7 +118,7 @@ struct Settings: Codable {
         self.boxBorderWidth =           boxBorderWidth
         self.boxCornerRadius =          boxCornerRadius
         self.boxInsets =                boxInsets
-        self.boxYCentreOffset =               boxYCentreOffset
+        self.boxYCentreOffset =         boxYCentreOffset
     }
 
     // We have to implement encode and decode because we have some non-codable properties
@@ -120,6 +131,10 @@ struct Settings: Codable {
         let imageName =             try? container.decode(String.self, forKey: .imageName)
         let imageBackgroundColor =  try? container.decode(CodableColor.self, forKey: .imageBackgroundColor).toUIColor()
         let imageBleedStyle =       try? container.decode(BleedStyle.self, forKey: .imageBleedStyle)
+
+        let scrollScale =           try? container.decode(CGFloat.self, forKey: .scrollScale)
+        let scrollOffset =          try? container.decode(CGPoint.self, forKey: .scrollOffset)
+
         let message =               try? container.decode(String.self, forKey: .message)
 
         let codableTextFont =       try? container.decode(CodableFont.self, forKey: .textFont)
@@ -135,13 +150,15 @@ struct Settings: Codable {
         let boxBorderWidth =        try? container.decode(CGFloat.self, forKey: .boxBorderWidth)
         let boxCornerRadius =       try? container.decode(CGFloat.self, forKey: .boxCornerRadius)
         let boxInsets =             try? container.decode(CodableEdgeInsets.self, forKey: .boxInsets).toUIEdgeInsets()
-        let boxYCentreOffset =            try? container.decode(CGFloat.self, forKey: .boxYCentreOffset)
+        let boxYCentreOffset =      try? container.decode(CGFloat.self, forKey: .boxYCentreOffset)
 
         // If any individual setting was missing, use the default value
         self.init(version: version                              ?? Settings.defaults.version,
                   imageName: imageName,                         // nil is ok
                   imageBackgroundColor: imageBackgroundColor    ?? Settings.defaults.imageBackgroundColor,
                   imageBleedStyle: imageBleedStyle              ?? Settings.defaults.imageBleedStyle,
+                  scrollScale: scrollScale                      ?? Settings.defaults.scrollScale,
+                  scrollOffset: scrollOffset                    ?? Settings.defaults.scrollOffset,
                   message: message                              ?? Settings.defaults.message,
                   textFont: textFont                            ?? Settings.defaults.textFont,
                   textAlignment: textAlignment                  ?? Settings.defaults.textAlignment,
@@ -150,7 +167,7 @@ struct Settings: Codable {
                   boxBorderWidth: boxBorderWidth                ?? Settings.defaults.boxBorderWidth,
                   boxCornerRadius: boxCornerRadius              ?? Settings.defaults.boxCornerRadius,
                   boxInsets: boxInsets                          ?? Settings.defaults.boxInsets,
-                  boxYCentreOffset: boxYCentreOffset                        ?? Settings.defaults.boxYCentreOffset)
+                  boxYCentreOffset: boxYCentreOffset            ?? Settings.defaults.boxYCentreOffset)
     }
 
     func encode(to encoder: Encoder) throws {
@@ -160,6 +177,8 @@ struct Settings: Codable {
         try container.encode(self.imageName, forKey: .imageName)
         try container.encode(CodableColor(uiColor: self.imageBackgroundColor), forKey: .imageBackgroundColor)
         try container.encode(self.imageBleedStyle, forKey: .imageBleedStyle)
+        try container.encode(self.scrollScale, forKey: .scrollScale)
+        try container.encode(self.scrollOffset, forKey: .scrollOffset)
         try container.encode(self.message, forKey: .message)
         try container.encode(CodableFont(uiFont: self.textFont), forKey: .textFont)
         try container.encode(self.textAlignment.rawValue, forKey: .textAlignment)
