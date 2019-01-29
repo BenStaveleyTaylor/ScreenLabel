@@ -55,7 +55,12 @@ protocol SettingsCoordinatorProtocol {
 class SettingsCoordinator: NSObject {
 
     private weak var delegate: SettingsCoordinatorViewDelegate?
-    private var settings: Settings
+    private var settings: Settings {
+        didSet {
+            // Clear any caches
+            self.cachedImage = nil
+        }
+    }
 
     private var cachedImage: UIImage?
     private var inBatchMode = false

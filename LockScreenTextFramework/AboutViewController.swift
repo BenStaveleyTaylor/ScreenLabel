@@ -24,6 +24,7 @@ class AboutViewController: UIViewController {
         let className = String(describing: self)
         let storyboard = UIStoryboard(name: "Main", bundle: bundle)
 
+        // swiftlint:disable:next force_cast
         return storyboard.instantiateViewController(withIdentifier: className) as! AboutViewController
     }
 

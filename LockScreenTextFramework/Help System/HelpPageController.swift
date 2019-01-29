@@ -24,6 +24,7 @@ class HelpPageController: UIViewController {
         let className = String(describing: self)
         let storyboard = UIStoryboard(name: "Help", bundle: bundle)
 
+        // swiftlint:disable:next force_cast
         let result = storyboard.instantiateViewController(withIdentifier: className) as! HelpPageController
 
         result.helpTitleValue = title
