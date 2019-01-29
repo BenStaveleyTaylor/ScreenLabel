@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "6BB2EBEE21920DBA00BCDA34"
-               BuildableName = "LockScreenText.app"
+               BuildableName = "Label My Phone.app"
                BlueprintName = "LockScreenText"
                ReferencedContainer = "container:LockScreenText.xcodeproj">
             </BuildableReference>
@@ -43,7 +43,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "6BB2EBEE21920DBA00BCDA34"
-            BuildableName = "LockScreenText.app"
+            BuildableName = "Label My Phone.app"
             BlueprintName = "LockScreenText"
             ReferencedContainer = "container:LockScreenText.xcodeproj">
          </BuildableReference>
@@ -69,7 +69,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "6BB2EBEE21920DBA00BCDA34"
-            BuildableName = "LockScreenText.app"
+            BuildableName = "Label My Phone.app"
             BlueprintName = "LockScreenText"
             ReferencedContainer = "container:LockScreenText.xcodeproj">
          </BuildableReference>
@@ -88,7 +88,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "6BB2EBEE21920DBA00BCDA34"
-            BuildableName = "LockScreenText.app"
+            BuildableName = "Label My Phone.app"
             BlueprintName = "LockScreenText"
             ReferencedContainer = "container:LockScreenText.xcodeproj">
          </BuildableReference>

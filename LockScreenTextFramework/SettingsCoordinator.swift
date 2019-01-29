@@ -86,20 +86,23 @@ class SettingsCoordinator: NSObject {
     @objc
     func image(_ image: UIImage, didFinishSavingWithError error: NSError?, contextInfo: Any?) {
 
-        let title: String
-        let body: String
-
         if let error = error {
             os_log("Error saving image to Photos (%@)", "\(error)")
 
-            title = Resources.localizedString("FailedAlertTitle")
-            body = error.localizedDescription
+            AlertUtilities.showMessage(title: Resources.localizedString("FailedAlertTitle"),
+                                       body: error.localizedDescription)
         } else {
-            title = Resources.localizedString("SavedAlertTitle")
-            body = Resources.localizedString("HowToSetWallpaperBody")
-        }
+            AlertUtilities.showMessage(title: Resources.localizedString("SavedAlertTitle"),
+                                       body: Resources.localizedString("HowToSetWallpaperBody"),
+                                       button1Text: Resources.localizedString("OpenSettings"),
+                                       button2Text: Resources.localizedString("Done")) { choice in
 
-        AlertUtilities.showMessage(title: title, body: body)
+                                        if choice == 1 {
+                                            // Open Settings
+                                            SystemSettingsUtilities.openSettings()
+                                        }
+            }
+        }
     }
 
 }
@@ -263,7 +266,16 @@ extension SettingsCoordinator: SettingsCoordinatorProtocol {
             }
             else {
                 AlertUtilities.showMessage(title: Resources.localizedString("FailedAlertTitle"),
-                                           body: Resources.localizedString("PhotosAccessDenied"))
+                                           body: Resources.localizedString("PhotosAccessDenied"),
+                                           button1Text: Resources.localizedString("OpenSettings"),
+                                           button2Text: Resources.localizedString("Done")) { choice in
+
+                                            if choice == 1 {
+                                                // Open Settings
+                                                SystemSettingsUtilities.openSettings()
+                                            }
+                }
+
             }
         }
     }

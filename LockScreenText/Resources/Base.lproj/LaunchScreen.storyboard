@@ -29,7 +29,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2Fo-qU-RKe" userLabel="TextBoxArea">
-                                <rect key="frame" x="52" y="425.5" width="310.5" height="45"/>
+                                <rect key="frame" x="52" y="578" width="310.5" height="45"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="LaunchTextBox-Left" translatesAutoresizingMaskIntoConstraints="NO" id="TGB-xn-vwl" userLabel="Left end">
                                         <rect key="frame" x="0.0" y="0.0" width="6" height="45"/>
@@ -71,7 +71,7 @@
                             <constraint firstItem="2Fo-qU-RKe" firstAttribute="width" secondItem="Ze5-6b-2t3" secondAttribute="width" multiplier="0.75" id="fxE-ky-yL2"/>
                             <constraint firstAttribute="bottom" secondItem="gdn-AW-C7c" secondAttribute="bottom" id="kWl-wT-hBo"/>
                             <constraint firstAttribute="trailing" secondItem="gdn-AW-C7c" secondAttribute="trailing" id="nMu-D5-uGt"/>
-                            <constraint firstItem="2Fo-qU-RKe" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="xzg-eA-4TN"/>
+                            <constraint firstItem="2Fo-qU-RKe" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="bottom" multiplier="0.67" id="xzg-eA-4TN"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>

@@ -22,6 +22,7 @@ class ImagePreviewController: UIViewController {
     @IBOutlet private weak var helpButton: UIBarButtonItem!
     @IBOutlet private weak var choosePhotoButton: UIBarButtonItem!
     @IBOutlet private weak var plainColorButton: UIBarButtonItem!
+    @IBOutlet private weak var textAttributesButton: UIBarButtonItem!
     @IBOutlet private weak var saveButton: UIBarButtonItem!
     @IBOutlet private var imageTapRecognizer: UITapGestureRecognizer!
     @IBOutlet private var textBoxTapRecognizer: UITapGestureRecognizer!
@@ -90,6 +91,13 @@ class ImagePreviewController: UIViewController {
             popController?.barButtonItem = sender as? UIBarButtonItem
             popController?.delegate = self
         }
+    }
+
+    @IBAction private func onTextAttributesTapped(_ sender: Any) {
+        // Same as tapping the text label, but more discoverable
+        // Might be handy if the text label text goes tiny
+
+        self.performSegue(withIdentifier: "editTextAttributesSegue", sender: self)
     }
 
     @IBAction private func onSaveTapped(_ sender: Any) {

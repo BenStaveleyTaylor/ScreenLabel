@@ -43,7 +43,7 @@
                                         </connections>
                                     </scrollView>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GBZ-oQ-mnU">
-                                        <rect key="frame" x="154.5" y="311.5" width="66" height="44.5"/>
+                                        <rect key="frame" x="154.5" y="424.5" width="66" height="44.5"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <connections>
                                             <outletCollection property="gestureRecognizers" destination="P1A-zI-KD9" appends="YES" id="ded-db-enk"/>
@@ -51,7 +51,7 @@
                                         </connections>
                                     </view>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="6" translatesAutoresizingMaskIntoConstraints="NO" id="Zco-QO-wj2">
-                                        <rect key="frame" x="166.5" y="323.5" width="42" height="20.5"/>
+                                        <rect key="frame" x="166.5" y="436.5" width="42" height="20.5"/>
                                         <accessibility key="accessibilityConfiguration">
                                             <accessibilityTraits key="traits" staticText="YES" notEnabled="YES"/>
                                         </accessibility>
@@ -68,7 +68,7 @@
                                     <constraint firstItem="wvr-oY-b6M" firstAttribute="height" secondItem="mAn-8c-p3c" secondAttribute="height" id="L0v-BK-S36"/>
                                     <constraint firstItem="4E3-co-55s" firstAttribute="top" secondItem="mAn-8c-p3c" secondAttribute="top" id="TMQ-Zm-b4v"/>
                                     <constraint firstItem="GBZ-oQ-mnU" firstAttribute="centerY" secondItem="Zco-QO-wj2" secondAttribute="centerY" id="Yap-P4-MRm"/>
-                                    <constraint firstItem="Zco-QO-wj2" firstAttribute="centerY" secondItem="mAn-8c-p3c" secondAttribute="centerY" id="btH-gj-ggi"/>
+                                    <constraint firstItem="Zco-QO-wj2" firstAttribute="centerY" secondItem="mAn-8c-p3c" secondAttribute="bottom" multiplier="0.67" id="btH-gj-ggi"/>
                                     <constraint firstItem="wvr-oY-b6M" firstAttribute="width" secondItem="mAn-8c-p3c" secondAttribute="width" id="dEf-Nc-AbZ"/>
                                     <constraint firstItem="Zco-QO-wj2" firstAttribute="centerX" secondItem="mAn-8c-p3c" secondAttribute="centerX" id="eB9-N8-Wgw"/>
                                     <constraint firstAttribute="trailing" secondItem="4E3-co-55s" secondAttribute="trailing" id="mOl-Ld-bcs"/>
@@ -89,7 +89,7 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <toolbarItems>
-                        <barButtonItem style="plain" systemItem="camera" id="uRv-fb-dld">
+                        <barButtonItem image="Pictures" style="plain" id="uRv-fb-dld">
                             <connections>
                                 <action selector="onChoosePhotoTapped:" destination="BYZ-38-t0r" id="RxM-vh-wYV"/>
                             </connections>
@@ -101,6 +101,12 @@
                             </connections>
                         </barButtonItem>
                         <barButtonItem style="plain" systemItem="flexibleSpace" id="oD8-N2-EN9"/>
+                        <barButtonItem image="Settings" id="yLr-wX-wg6">
+                            <connections>
+                                <action selector="onTextAttributesTapped:" destination="BYZ-38-t0r" id="M9l-lB-NSN"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem style="plain" systemItem="flexibleSpace" id="scZ-AL-Iv9"/>
                         <barButtonItem systemItem="save" id="6lu-gD-SOE">
                             <connections>
                                 <action selector="onSaveTapped:" destination="BYZ-38-t0r" id="OTJ-gM-bPE"/>
@@ -126,6 +132,7 @@
                         <outlet property="renderableViewWidthConstraint" destination="eur-3N-dV4" id="1pN-88-h2f"/>
                         <outlet property="saveButton" destination="6lu-gD-SOE" id="Yqd-Gu-V5x"/>
                         <outlet property="scrollView" destination="4E3-co-55s" id="NST-wd-ly1"/>
+                        <outlet property="textAttributesButton" destination="yLr-wX-wg6" id="QMB-q0-Yvv"/>
                         <outlet property="textBoxPanRecognizer" destination="qLW-OB-VlM" id="4My-Jc-Wfs"/>
                         <outlet property="textBoxTapRecognizer" destination="P1A-zI-KD9" id="JiL-7a-f7H"/>
                         <outlet property="textBoxView" destination="GBZ-oQ-mnU" id="5mk-vJ-EGX"/>
@@ -247,13 +254,13 @@
                                                                         <rect key="frame" x="0.0" y="0.0" width="0.0" height="30"/>
                                                                     </imageView>
                                                                     <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="16" minValue="6" maxValue="256" translatesAutoresizingMaskIntoConstraints="NO" id="eQP-21-HfM" customClass="PointSizeSlider" customModule="LockScreenTextFramework" customModuleProvider="target">
-                                                                        <rect key="frame" x="2" y="0.0" width="235" height="31"/>
+                                                                        <rect key="frame" x="2" y="0.0" width="256" height="31"/>
                                                                         <connections>
                                                                             <action selector="onTextSizeValueChanged:" destination="70U-AU-X1A" eventType="valueChanged" id="3yK-C2-j7L"/>
                                                                         </connections>
                                                                     </slider>
                                                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="A-Large" translatesAutoresizingMaskIntoConstraints="NO" id="b21-Qt-62i">
-                                                                        <rect key="frame" x="239" y="0.0" width="21" height="30"/>
+                                                                        <rect key="frame" x="260" y="0.0" width="0.0" height="30"/>
                                                                     </imageView>
                                                                 </subviews>
                                                             </stackView>
@@ -621,5 +628,7 @@
         <image name="A-Small" width="30" height="30"/>
         <image name="ClearTextButton" width="20" height="20"/>
         <image name="Colors" width="30" height="30"/>
+        <image name="Pictures" width="30" height="30"/>
+        <image name="Settings" width="30" height="30"/>
     </resources>
 </document>
