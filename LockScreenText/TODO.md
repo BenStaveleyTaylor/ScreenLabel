@@ -7,7 +7,8 @@
 √ Support drag and zoom of main image
 √ Change Camera image for a photo image
 √ Add explicit settings button in toolbar
-Bug: reset does not clear selected photo
+√ Bug: reset does not clear selected photo
 Bug: zoom and scroll is all screwed
+Bug: Dragging  large label is clunky
 Can we open settings to Wallpaper directly?
 Create real help content
