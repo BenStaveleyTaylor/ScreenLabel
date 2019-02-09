@@ -191,6 +191,7 @@ struct Settings: Codable {
     }
 
     func writeToUserDefaults() throws {
+print("Writing settings")
         UserDefaults.standard.set(try PropertyListEncoder().encode(self), forKey: "AppSettings")
     }
 

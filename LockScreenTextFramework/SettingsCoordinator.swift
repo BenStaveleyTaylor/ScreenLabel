@@ -14,7 +14,43 @@ import PromiseKit
 // Actions that affect the view are sent using this delgate
 protocol SettingsCoordinatorViewDelegate: AnyObject {
 
-    func settingsDidChange(coordinator: SettingsCoordinatorProtocol, animated: Bool)
+    func settingsDidChange(_ changes: SettingItems,
+                           coordinator: SettingsCoordinatorProtocol,
+                           animated: Bool)
+}
+
+// Identifies which setting is affected by an operation
+struct SettingItems: OptionSet {
+    let rawValue: Int
+
+    static let imageBackgroundColor = SettingItems(rawValue: 1 << 0)    // 1
+    static let imageBleedStyle      = SettingItems(rawValue: 1 << 1)    // 2
+    static let scrollScale          = SettingItems(rawValue: 1 << 2)    // 4
+    static let scrollOffset         = SettingItems(rawValue: 1 << 3)    // 8
+    static let message              = SettingItems(rawValue: 1 << 4)    // 16
+    static let textFont             = SettingItems(rawValue: 1 << 5)    // 32
+    static let textColor            = SettingItems(rawValue: 1 << 6)    // 64
+    static let boxColor             = SettingItems(rawValue: 1 << 7)    // 128
+    static let boxBorderWidth       = SettingItems(rawValue: 1 << 8)    // 256
+    static let boxCornerRadius      = SettingItems(rawValue: 1 << 9)    // 512
+    static let boxYCentreOffset     = SettingItems(rawValue: 1 << 10)   // 1024
+    static let image                = SettingItems(rawValue: 1 << 11)   // 2048
+
+    // Cop-out with all bits set if we can't be sure what specifically changed
+    static let all: SettingItems = [
+        .imageBackgroundColor,
+        .imageBleedStyle,
+        .scrollScale,
+        .scrollOffset,
+        .message,
+        .textFont,
+        .textColor,
+        .boxColor,
+        .boxBorderWidth,
+        .boxCornerRadius,
+        .boxYCentreOffset,
+        .image
+    ]
 }
 
 protocol SettingsCoordinatorProtocol {
@@ -63,7 +99,9 @@ class SettingsCoordinator: NSObject {
     }
 
     private var cachedImage: UIImage?
+    
     private var inBatchMode = false
+    private var batchedChanges: SettingItems = []
 
     init(withDelegate delegate: SettingsCoordinatorViewDelegate, settings: Settings? = nil) {
 
@@ -80,10 +118,13 @@ class SettingsCoordinator: NSObject {
     }
 
     // To do after any write to settings
-    private func settingsDidChange() {
-        // Ignore when in batch mode
-        if !self.inBatchMode {
-            self.delegate?.settingsDidChange(coordinator: self, animated: true)
+    private func settingsDidChange(_ changes: SettingItems) {
+        // Ignore (but collect) when in batch mode
+        if self.inBatchMode {
+            self.batchedChanges = self.batchedChanges.union(changes)
+        }
+        else {
+            self.delegate?.settingsDidChange(changes, coordinator: self, animated: true)
             try? self.settings.writeToUserDefaults()
         }
     }
@@ -121,7 +162,7 @@ extension SettingsCoordinator: SettingsCoordinatorProtocol {
         }
         set {
             self.settings.imageBackgroundColor = newValue
-            self.settingsDidChange()
+            self.settingsDidChange([.imageBackgroundColor])
         }
     }
 
@@ -131,7 +172,7 @@ extension SettingsCoordinator: SettingsCoordinatorProtocol {
         }
         set {
             self.settings.imageBleedStyle = newValue
-            self.settingsDidChange()
+            self.settingsDidChange([.imageBleedStyle])
         }
     }
 
@@ -141,7 +182,7 @@ extension SettingsCoordinator: SettingsCoordinatorProtocol {
         }
         set {
             self.settings.scrollScale = newValue
-            self.settingsDidChange()
+            self.settingsDidChange([.scrollScale])
         }
     }
 
@@ -151,7 +192,7 @@ extension SettingsCoordinator: SettingsCoordinatorProtocol {
         }
         set {
             self.settings.scrollOffset = newValue
-            self.settingsDidChange()
+            self.settingsDidChange([.scrollOffset])
         }
     }
 
@@ -161,7 +202,7 @@ extension SettingsCoordinator: SettingsCoordinatorProtocol {
         }
         set {
             self.settings.message = newValue
-            self.settingsDidChange()
+            self.settingsDidChange([.message])
         }
     }
 
@@ -171,7 +212,7 @@ extension SettingsCoordinator: SettingsCoordinatorProtocol {
         }
         set {
             self.settings.textFont = newValue
-            self.settingsDidChange()
+            self.settingsDidChange([.textFont])
         }
     }
 
@@ -181,7 +222,7 @@ extension SettingsCoordinator: SettingsCoordinatorProtocol {
         }
         set {
             self.settings.textColor = newValue
-            self.settingsDidChange()
+            self.settingsDidChange([.textColor])
         }
     }
 
@@ -191,7 +232,7 @@ extension SettingsCoordinator: SettingsCoordinatorProtocol {
         }
         set {
             self.settings.boxColor = newValue
-            self.settingsDidChange()
+            self.settingsDidChange([.boxColor])
         }
     }
 
@@ -201,7 +242,7 @@ extension SettingsCoordinator: SettingsCoordinatorProtocol {
         }
         set {
             self.settings.boxBorderWidth = newValue
-            self.settingsDidChange()
+            self.settingsDidChange([.boxBorderWidth])
         }
     }
 
@@ -211,7 +252,7 @@ extension SettingsCoordinator: SettingsCoordinatorProtocol {
         }
         set {
             self.settings.boxCornerRadius = newValue
-            self.settingsDidChange()
+            self.settingsDidChange([.boxCornerRadius])
         }
     }
 
@@ -221,7 +262,7 @@ extension SettingsCoordinator: SettingsCoordinatorProtocol {
         }
         set {
             self.settings.boxYCentreOffset = newValue
-            self.settingsDidChange()
+            self.settingsDidChange([.boxYCentreOffset])
         }
     }
 
@@ -240,6 +281,10 @@ extension SettingsCoordinator: SettingsCoordinatorProtocol {
         set {
             self.cachedImage = newValue
 
+            // Changing the image reverts to 100% view, default position
+            self.settings.scrollScale = 1.0
+            self.settings.scrollOffset = .zero
+
             if let image = newValue {
                 // Save the image as a JPEG so we can get it back after relaunch
                 let savedUrl = ImageUtilities.saveAsJpeg(image: image, nameWithoutExtension: "LastPickedImage")
@@ -249,7 +294,7 @@ extension SettingsCoordinator: SettingsCoordinatorProtocol {
                 self.settings.imageName = nil
             }
 
-            self.settingsDidChange()
+            self.settingsDidChange([.image])
         }
     }
 
@@ -287,11 +332,12 @@ extension SettingsCoordinator: SettingsCoordinatorProtocol {
 
     func startBatchChanges() {
         self.inBatchMode = true
+        self.batchedChanges = []
     }
 
     func endBatchChanges() {
         self.inBatchMode = false
-        self.settingsDidChange()
+        self.settingsDidChange(self.batchedChanges)
     }
 
     func resetScrollState() {
@@ -304,6 +350,6 @@ extension SettingsCoordinator: SettingsCoordinatorProtocol {
 
     func reset() {
         self.settings = Settings.defaults
-        self.settingsDidChange()
+        self.settingsDidChange(SettingItems.all)
     }
 }

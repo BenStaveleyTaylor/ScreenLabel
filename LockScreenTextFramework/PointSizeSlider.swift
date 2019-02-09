@@ -16,7 +16,7 @@ class PointSizeSlider: QuantizedSlider {
         
         // List of allowed point sizes
         return [
-            6, 7, 8, 9, 10, 12, 14, 16, 18, 20, 24,
+            6, 7, 8, 9, 10, 12, 14, 16, 17, 18, 20, 24,
             28, 32, 36, 40, 48, 56, 64, 72, 84, 96,
             112, 128, 144, 160, 176, 192, 208, 224, 256
         ]

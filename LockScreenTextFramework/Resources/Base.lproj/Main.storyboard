@@ -21,22 +21,26 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mAn-8c-p3c">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <subviews>
-                                    <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" contentInsetAdjustmentBehavior="never" maximumZoomScale="3" translatesAutoresizingMaskIntoConstraints="NO" id="4E3-co-55s">
+                                    <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" contentInsetAdjustmentBehavior="never" maximumZoomScale="4" translatesAutoresizingMaskIntoConstraints="NO" id="4E3-co-55s" customClass="DebugScrollView" customModule="LockScreenTextFramework" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                         <subviews>
-                                            <imageView contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" insetsLayoutMarginsFromSafeArea="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wvr-oY-b6M">
-                                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                            <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" insetsLayoutMarginsFromSafeArea="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wvr-oY-b6M">
+                                                <rect key="frame" x="0.0" y="0.0" width="400" height="300"/>
                                                 <gestureRecognizers/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="300" id="soO-iL-bBQ"/>
+                                                    <constraint firstAttribute="width" constant="400" id="vdA-pe-i7x"/>
+                                                </constraints>
                                                 <connections>
-                                                    <outletCollection property="gestureRecognizers" destination="kIP-8p-Bz2" appends="YES" id="9I1-li-ZCf"/>
+                                                    <outletCollection property="gestureRecognizers" destination="kIP-8p-Bz2" appends="YES" id="Lxf-XI-onB"/>
                                                 </connections>
                                             </imageView>
                                         </subviews>
                                         <constraints>
-                                            <constraint firstAttribute="bottom" secondItem="wvr-oY-b6M" secondAttribute="bottom" id="Hc5-px-T1d"/>
-                                            <constraint firstAttribute="trailing" secondItem="wvr-oY-b6M" secondAttribute="trailing" id="LZB-hC-36D"/>
-                                            <constraint firstItem="wvr-oY-b6M" firstAttribute="leading" secondItem="4E3-co-55s" secondAttribute="leading" id="Ue9-MC-qLU"/>
-                                            <constraint firstItem="wvr-oY-b6M" firstAttribute="top" secondItem="4E3-co-55s" secondAttribute="top" id="q5k-Zo-z8P"/>
+                                            <constraint firstItem="wvr-oY-b6M" firstAttribute="top" secondItem="4E3-co-55s" secondAttribute="top" id="5i9-nK-uK6"/>
+                                            <constraint firstItem="wvr-oY-b6M" firstAttribute="leading" secondItem="4E3-co-55s" secondAttribute="leading" id="a4a-UI-wGu"/>
+                                            <constraint firstAttribute="bottom" secondItem="wvr-oY-b6M" secondAttribute="bottom" id="lnm-Yx-zJr"/>
+                                            <constraint firstAttribute="trailing" secondItem="wvr-oY-b6M" secondAttribute="trailing" id="tUm-y5-M47"/>
                                         </constraints>
                                         <connections>
                                             <outlet property="delegate" destination="BYZ-38-t0r" id="k4x-lh-A7Z"/>
@@ -65,11 +69,9 @@
                                     <constraint firstItem="GBZ-oQ-mnU" firstAttribute="width" secondItem="Zco-QO-wj2" secondAttribute="width" constant="24" id="4Nb-XY-27y"/>
                                     <constraint firstItem="4E3-co-55s" firstAttribute="leading" secondItem="mAn-8c-p3c" secondAttribute="leading" id="5Ux-uI-vU3"/>
                                     <constraint firstItem="GBZ-oQ-mnU" firstAttribute="centerX" secondItem="Zco-QO-wj2" secondAttribute="centerX" id="Gof-BC-sTC"/>
-                                    <constraint firstItem="wvr-oY-b6M" firstAttribute="height" secondItem="mAn-8c-p3c" secondAttribute="height" id="L0v-BK-S36"/>
                                     <constraint firstItem="4E3-co-55s" firstAttribute="top" secondItem="mAn-8c-p3c" secondAttribute="top" id="TMQ-Zm-b4v"/>
                                     <constraint firstItem="GBZ-oQ-mnU" firstAttribute="centerY" secondItem="Zco-QO-wj2" secondAttribute="centerY" id="Yap-P4-MRm"/>
                                     <constraint firstItem="Zco-QO-wj2" firstAttribute="centerY" secondItem="mAn-8c-p3c" secondAttribute="bottom" multiplier="0.67" id="btH-gj-ggi"/>
-                                    <constraint firstItem="wvr-oY-b6M" firstAttribute="width" secondItem="mAn-8c-p3c" secondAttribute="width" id="dEf-Nc-AbZ"/>
                                     <constraint firstItem="Zco-QO-wj2" firstAttribute="centerX" secondItem="mAn-8c-p3c" secondAttribute="centerX" id="eB9-N8-Wgw"/>
                                     <constraint firstAttribute="trailing" secondItem="4E3-co-55s" secondAttribute="trailing" id="mOl-Ld-bcs"/>
                                     <constraint firstItem="GBZ-oQ-mnU" firstAttribute="height" secondItem="Zco-QO-wj2" secondAttribute="height" constant="24" id="vyz-Wz-11S"/>
@@ -126,6 +128,8 @@
                         <outlet property="helpButton" destination="aq7-Gs-wsB" id="MB5-0Q-iem"/>
                         <outlet property="imageTapRecognizer" destination="kIP-8p-Bz2" id="fTr-j1-zzb"/>
                         <outlet property="imageView" destination="wvr-oY-b6M" id="ege-Ee-gW2"/>
+                        <outlet property="imageViewHeightConstraint" destination="soO-iL-bBQ" id="jMK-Yn-GBY"/>
+                        <outlet property="imageViewWidthConstraint" destination="vdA-pe-i7x" id="IRF-4Q-y1Q"/>
                         <outlet property="plainColorButton" destination="JN8-qB-fgU" id="gvr-QU-1yb"/>
                         <outlet property="renderableView" destination="mAn-8c-p3c" id="ofy-Mg-9sw"/>
                         <outlet property="renderableViewHeightConstraint" destination="QQ0-RZ-MU7" id="dvb-VR-fox"/>

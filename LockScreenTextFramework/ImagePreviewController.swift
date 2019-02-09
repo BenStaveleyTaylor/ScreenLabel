@@ -34,6 +34,9 @@ class ImagePreviewController: UIViewController {
     @IBOutlet private weak var renderableViewHeightConstraint: NSLayoutConstraint!
     @IBOutlet private weak var renderableViewWidthConstraint: NSLayoutConstraint!
     
+    @IBOutlet private weak var imageViewWidthConstraint: NSLayoutConstraint!
+    @IBOutlet private weak var imageViewHeightConstraint: NSLayoutConstraint!
+
     // Local properties
     private var settingsCoordinator: SettingsCoordinatorProtocol!
     private var colorDidChange: Bool = false
@@ -48,7 +51,13 @@ class ImagePreviewController: UIViewController {
         self.helpButton.title = Resources.localizedString("HelpButtonText")
 
         self.settingsCoordinator = SettingsCoordinator(withDelegate: self)
-        self.settingsDidChange(coordinator: self.settingsCoordinator, animated: false)
+        self.settingsDidChange(.all, coordinator: self.settingsCoordinator, animated: false)
+    }
+
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+
+        self.configureImageViewSize()
     }
 
     @IBAction private func onChoosePhotoTapped(_ sender: Any) {
@@ -263,14 +272,13 @@ extension ImagePreviewController: UIImagePickerControllerDelegate {
                                       didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey: Any]) {
 
         // info[.editedImage] should be what we want, but it is very low quality
-        // I'll have to implement scale and crop at some point
+        // We have to implement our own scaling and cropping
 
         guard let originalImage = info[.originalImage] as? UIImage else {
             return
         }
 
         self.settingsCoordinator.image = originalImage
-        self.settingsCoordinator.resetScrollState()
 
         self.dismiss(animated: true)
     }
@@ -281,18 +289,14 @@ extension ImagePreviewController: UINavigationControllerDelegate {}
 
 extension ImagePreviewController: SettingsCoordinatorViewDelegate {
 
-    func settingsDidChange(coordinator: SettingsCoordinatorProtocol, animated: Bool) {
+    func settingsDidChange(_ changes: SettingItems, coordinator: SettingsCoordinatorProtocol, animated: Bool) {
+print("Settings did change")
 
         // Update the UI to show the new settings
 
-        // image will be nil if this is a plain colour
-        self.imageView.image = coordinator.image
         self.imageView.backgroundColor = coordinator.imageBackgroundColor
 
         self.setBleedStyle(coordinator.imageBleedStyle, animated: animated)
-
-        self.scrollView.zoomScale = coordinator.scrollScale
-        self.scrollView.contentOffset = coordinator.scrollOffset
 
         // If the string is empty, show a helpful prompt
         var message = coordinator.message
@@ -309,6 +313,15 @@ extension ImagePreviewController: SettingsCoordinatorViewDelegate {
         self.textBoxView.layer.cornerRadius = coordinator.boxCornerRadius
 
         self.textLabelCentreYConstraint.constant = coordinator.boxYCentreOffset
+        
+        // image will be nil if this is a plain colour
+        // if image has changed:
+        if changes.contains(.image) {
+            self.imageView.image = coordinator.image
+            self.configureImageViewSize()
+            self.scrollView.zoomScale = coordinator.scrollScale
+            self.scrollView.contentOffset = coordinator.scrollOffset
+        }
     }
 }
 
@@ -345,19 +358,72 @@ extension ImagePreviewController: UIScrollViewDelegate {
     }
 
     func scrollViewDidEndZooming(_ scrollView: UIScrollView, with view: UIView?, atScale scale: CGFloat) {
+print("User zoomed to scale: \(scale)")
         self.settingsCoordinator.scrollScale = scale
-print("Saved zoom scale at \(scale)")
     }
 
     func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
         if !decelerate {
             self.settingsCoordinator.scrollOffset = scrollView.contentOffset
-print("Saved zoom offset at \(scrollView.contentOffset)")
+print("(1) Saved zoom offset at \(scrollView.contentOffset) [scale: \(scrollView.zoomScale)]")
         }
     }
 
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
         self.settingsCoordinator.scrollOffset = scrollView.contentOffset
-print("Saved zoom offset at \(scrollView.contentOffset)")
+print("(2) Saved zoom offset at \(scrollView.contentOffset) [scale: \(scrollView.zoomScale)]")
     }
+
+    func aspectFillScale() -> CGFloat {
+
+        guard let image = self.imageView.image,
+            image.size.width > 0,
+            image.size.height > 0 else {
+            return 1.0
+        }
+
+        let xScale = self.renderableView.bounds.width/image.size.width
+        let yScale = self.renderableView.bounds.height/image.size.height
+
+        let result = max(xScale, yScale)
+
+        return result
+    }
+
+    // The content offset to apply to center the image at Aspect Fill size
+    func aspectFillContentOffset() -> CGPoint {
+
+        guard let image = self.imageView.image else {
+            return .zero
+        }
+
+        let aspectFillScale = self.aspectFillScale()
+        let aspectFillSize = CGSize(width: image.size.width*aspectFillScale, height: image.size.height*aspectFillScale)
+        let frameSize = self.renderableView.bounds.size
+
+        let offset = CGPoint(x: (aspectFillSize.width-frameSize.width)/2,
+                             y: (aspectFillSize.height-frameSize.height)/2)
+
+        return offset
+    }
+
+    // Set up the constraints
+    func configureImageViewSize() {
+
+        guard let image = self.imageView.image else {
+            self.imageViewWidthConstraint.constant = self.renderableView.bounds.width
+            self.imageViewHeightConstraint.constant = self.renderableView.bounds.height
+
+            return
+        }
+
+        let aspectFillScale = self.aspectFillScale()
+
+        self.imageViewWidthConstraint.constant = image.size.width*aspectFillScale
+        self.imageViewHeightConstraint.constant = image.size.height*aspectFillScale
+
+        self.scrollView.setNeedsUpdateConstraints()
+        self.scrollView.setNeedsLayout()
+    }
+
 }
