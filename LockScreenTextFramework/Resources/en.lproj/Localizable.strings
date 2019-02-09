@@ -6,7 +6,7 @@
   Copyright © 2018 Ben Staveley-Taylor. All rights reserved.
 */
 
-"ProductTitle" = "Label My Phone";
+"ProductTitle" = "Label Me";
 
 "HelpButtonText" = "Help";
 
@@ -30,7 +30,7 @@
 
 "HowToSetWallpaperBody" = "Open Settings > Wallpaper and do “Choose a New Wallpaper” then “Set Lock Screen”.\n\nYou will find your image in the Camera Roll.";
 
-"PhotosAccessDenied" = "This app is blocked from accessing your Photos library. To fix this, open Settings > Label My Phone > Photos, and allow Read and Write access.";
+"PhotosAccessDenied" = "This app is blocked from accessing your Photos library. To fix this, open Settings > Label Me > Photos, and allow Read and Write access.";
 
 "OK" = "OK";
 
