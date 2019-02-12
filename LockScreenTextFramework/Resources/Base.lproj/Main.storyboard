@@ -33,6 +33,7 @@
                                                 </constraints>
                                                 <connections>
                                                     <outletCollection property="gestureRecognizers" destination="kIP-8p-Bz2" appends="YES" id="Lxf-XI-onB"/>
+                                                    <outletCollection property="gestureRecognizers" destination="Xtw-ZX-gz6" appends="YES" id="4jk-yN-t9E"/>
                                                 </connections>
                                             </imageView>
                                         </subviews>
@@ -126,6 +127,7 @@
                     <connections>
                         <outlet property="choosePhotoButton" destination="uRv-fb-dld" id="m2x-Ti-Wif"/>
                         <outlet property="helpButton" destination="aq7-Gs-wsB" id="MB5-0Q-iem"/>
+                        <outlet property="imageDoubleTapRecognizer" destination="Xtw-ZX-gz6" id="VwC-iw-jrr"/>
                         <outlet property="imageTapRecognizer" destination="kIP-8p-Bz2" id="fTr-j1-zzb"/>
                         <outlet property="imageView" destination="wvr-oY-b6M" id="ege-Ee-gW2"/>
                         <outlet property="imageViewHeightConstraint" destination="soO-iL-bBQ" id="jMK-Yn-GBY"/>
@@ -160,6 +162,11 @@
                         <action selector="onTextBoxPan:" destination="BYZ-38-t0r" id="y8d-zc-2JB"/>
                     </connections>
                 </panGestureRecognizer>
+                <tapGestureRecognizer numberOfTapsRequired="2" id="Xtw-ZX-gz6" userLabel="Image Double-tap Recognizer">
+                    <connections>
+                        <action selector="onImageDoubleTapped:" destination="BYZ-38-t0r" id="btu-Mr-3SV"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="888.79999999999995" y="-564.46776611694156"/>
         </scene>

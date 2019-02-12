@@ -81,9 +81,6 @@ protocol SettingsCoordinatorProtocol {
     func startBatchChanges()
     func endBatchChanges()
 
-    // Retore the scroll to unscrolled, no offset
-    func resetScrollState()
-
     // Set everything to factory defaults
     func reset()
 }
@@ -281,10 +278,6 @@ extension SettingsCoordinator: SettingsCoordinatorProtocol {
         set {
             self.cachedImage = newValue
 
-            // Changing the image reverts to 100% view, default position
-            self.settings.scrollScale = 1.0
-            self.settings.scrollOffset = .zero
-
             if let image = newValue {
                 // Save the image as a JPEG so we can get it back after relaunch
                 let savedUrl = ImageUtilities.saveAsJpeg(image: image, nameWithoutExtension: "LastPickedImage")
@@ -325,7 +318,6 @@ extension SettingsCoordinator: SettingsCoordinatorProtocol {
                                                 SystemSettingsUtilities.openSettings()
                                             }
                 }
-
             }
         }
     }
@@ -338,14 +330,6 @@ extension SettingsCoordinator: SettingsCoordinatorProtocol {
     func endBatchChanges() {
         self.inBatchMode = false
         self.settingsDidChange(self.batchedChanges)
-    }
-
-    func resetScrollState() {
-
-        let defaults = Settings.defaults
-
-        self.settings.scrollScale = defaults.scrollScale
-        self.settings.scrollOffset = defaults.scrollOffset
     }
 
     func reset() {

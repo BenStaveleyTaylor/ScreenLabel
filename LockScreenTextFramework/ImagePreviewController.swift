@@ -8,6 +8,7 @@
 
 import UIKit
 import MobileCoreServices
+import PromiseKit
 import os.log
 
 @objc
@@ -25,6 +26,7 @@ class ImagePreviewController: UIViewController {
     @IBOutlet private weak var textAttributesButton: UIBarButtonItem!
     @IBOutlet private weak var saveButton: UIBarButtonItem!
     @IBOutlet private var imageTapRecognizer: UITapGestureRecognizer!
+    @IBOutlet private var imageDoubleTapRecognizer: UITapGestureRecognizer!
     @IBOutlet private var textBoxTapRecognizer: UITapGestureRecognizer!
     @IBOutlet private var textBoxPanRecognizer: UIPanGestureRecognizer!
     @IBOutlet private weak var textLabelCentreYConstraint: NSLayoutConstraint!
@@ -52,6 +54,11 @@ class ImagePreviewController: UIViewController {
 
         self.settingsCoordinator = SettingsCoordinator(withDelegate: self)
         self.settingsDidChange(.all, coordinator: self.settingsCoordinator, animated: false)
+        
+        // Necessary to allow both single and double-tap recognizers
+        self.imageTapRecognizer.require(toFail: self.imageDoubleTapRecognizer)
+        self.imageTapRecognizer.delegate = self
+        self.imageDoubleTapRecognizer.delegate = self
     }
 
     override func viewDidLayoutSubviews() {
@@ -120,7 +127,11 @@ class ImagePreviewController: UIViewController {
     // Another tap toggles it back on again
     @IBAction private func onImageTapped(_ sender: Any) {
         self.togglePreviewMode()
-        return
+    }
+
+    // Double-tap removes any scroll and zoom, i.e. back to initial state
+    @IBAction private func onImageDoubleTapped(_ sender: Any) {
+        self.setImageToDefaultPosition()
     }
 
     // User is dragging the text box.
@@ -258,7 +269,8 @@ class ImagePreviewController: UIViewController {
 
             // Remove any image so the background colour shows
             self.settingsCoordinator.image = nil
-            self.settingsCoordinator.resetScrollState()
+            self.settingsCoordinator.scrollOffset = .zero
+            self.settingsCoordinator.scrollScale = 1.0
 
             self.settingsCoordinator.endBatchChanges()
         }
@@ -279,6 +291,8 @@ extension ImagePreviewController: UIImagePickerControllerDelegate {
         }
 
         self.settingsCoordinator.image = originalImage
+        
+        self.setImageToDefaultPosition()
 
         self.dismiss(animated: true)
     }
@@ -319,7 +333,13 @@ print("Settings did change")
         if changes.contains(.image) {
             self.imageView.image = coordinator.image
             self.configureImageViewSize()
-            self.scrollView.zoomScale = coordinator.scrollScale
+        }
+        
+        if changes.contains(.scrollScale) {
+           self.scrollView.zoomScale = coordinator.scrollScale
+        }
+        
+        if changes.contains(.scrollOffset) {
             self.scrollView.contentOffset = coordinator.scrollOffset
         }
     }
@@ -390,23 +410,6 @@ print("(2) Saved zoom offset at \(scrollView.contentOffset) [scale: \(scrollView
         return result
     }
 
-    // The content offset to apply to center the image at Aspect Fill size
-    func aspectFillContentOffset() -> CGPoint {
-
-        guard let image = self.imageView.image else {
-            return .zero
-        }
-
-        let aspectFillScale = self.aspectFillScale()
-        let aspectFillSize = CGSize(width: image.size.width*aspectFillScale, height: image.size.height*aspectFillScale)
-        let frameSize = self.renderableView.bounds.size
-
-        let offset = CGPoint(x: (aspectFillSize.width-frameSize.width)/2,
-                             y: (aspectFillSize.height-frameSize.height)/2)
-
-        return offset
-    }
-
     // Set up the constraints
     func configureImageViewSize() {
 
@@ -425,5 +428,28 @@ print("(2) Saved zoom offset at \(scrollView.contentOffset) [scale: \(scrollView
         self.scrollView.setNeedsUpdateConstraints()
         self.scrollView.setNeedsLayout()
     }
+    
+    // Set the zoom to 1.0 and scroll to centre the image, as per initial state
+    func setImageToDefaultPosition() {
+        self.settingsCoordinator.startBatchChanges()
+        
+        self.settingsCoordinator.scrollScale = 1.0
+        
+        let overWidth = self.imageViewWidthConstraint.constant-self.scrollView.bounds.width
+        let overHeight = self.imageViewHeightConstraint.constant-self.scrollView.bounds.height
+        
+        let offset = CGPoint(x: overWidth/2, y: overHeight/2)
+        self.settingsCoordinator.scrollOffset = offset
 
+        self.settingsCoordinator.endBatchChanges()
+    }
+
+}
+
+extension ImagePreviewController: UIGestureRecognizerDelegate {
+    
+    func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWith otherGestureRecognizer: UIGestureRecognizer) -> Bool {
+        
+        return true
+    }
 }
