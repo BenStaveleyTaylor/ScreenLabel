@@ -8,7 +8,7 @@
 
 import UIKit
 import MobileCoreServices
-import PromiseKit
+
 import os.log
 
 @objc

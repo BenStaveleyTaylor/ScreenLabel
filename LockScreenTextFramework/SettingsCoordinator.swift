@@ -9,7 +9,6 @@
 import UIKit
 import os.log
 import Photos
-import PromiseKit
 
 // Actions that affect the view are sent using this delgate
 protocol SettingsCoordinatorViewDelegate: AnyObject {
@@ -294,10 +293,8 @@ extension SettingsCoordinator: SettingsCoordinatorProtocol {
     func saveToPhotos(image: UIImage) {
 
         // Check we have access to the Photos data
-        firstly {
-            PHPhotoLibrary.requestAuthorization()
-        }.done { status in
-
+        PHPhotoLibrary.requestAuthorization { status in
+            
             if status == .authorized {
 
                 // Save the renderable view into the photo album then tell the user

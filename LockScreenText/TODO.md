@@ -10,8 +10,9 @@
 √ Bug: reset does not clear selected photo
 √ Bug: zoom and scroll is all screwed
 √ Double-tap to reset zoom
-Bug: Dragging label is clunky
+√ Bug: Dragging label is clunky
 Can we open settings to Wallpaper directly?
 Create real help content
 Add colour wheel code to darken wheel in preview
+Remove PromiseKit shite
 

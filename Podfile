@@ -8,8 +8,3 @@ target 'LockScreenText' do
     pod 'SwiftLint'
 end
 
-target 'LockScreenTextFramework' do
-    pod 'PromiseKit'
-    pod 'PromiseKit/Photos'
-    pod 'PromiseKit/UIKit'
-end

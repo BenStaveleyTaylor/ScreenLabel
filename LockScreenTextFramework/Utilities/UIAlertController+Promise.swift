@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import PromiseKit
 
 extension UIAlertController {
 
@@ -35,6 +34,7 @@ extension UIAlertController {
     ///   - agreeButtonText: text of the 'agree' button
     ///   - agreeIsDestructive: whether agreeing is destructive. The button will be red if so.
     ///   - cancelButtonText: text of the cancel button
+    ///   - completion: callback to notify of agreement or not. Parameter is `true` if agreed
     /// - Returns: Promise to evaluate. It will resolve to true if the user
     ///   selected the agree button, false if cancelled.
 
@@ -42,18 +42,24 @@ extension UIAlertController {
                                       question: String,
                                       agreeButtonText: String,
                                       agreeIsDestructive: Bool,
-                                      cancelButtonText: String) -> Guarantee<Bool> {
+                                      cancelButtonText: String,
+                                      completion: @escaping (_ agreed: Bool) -> Void) {
 
-        return Guarantee { seal in
-
-            let alert = UIAlertController(title: nil, message: question, preferredStyle: .alert)
-            let agreeStyle: UIAlertAction.Style = agreeIsDestructive ? .destructive : .default
-            let agreeAction = UIAlertAction(title: agreeButtonText, style: agreeStyle) { _ in seal(true) }
-            let cancelAction = UIAlertAction(title: cancelButtonText, style: .cancel) { _ in seal(false) }
-            alert.addAction(agreeAction)
-            alert.addAction(cancelAction)
-
-            owningVC.present(alert, animated: true)
+        let alert = UIAlertController(title: nil, message: question, preferredStyle: .alert)
+        let agreeStyle: UIAlertAction.Style = agreeIsDestructive ? .destructive : .default
+        let agreeAction = UIAlertAction(title: agreeButtonText, style: agreeStyle) { _ in
+            DispatchQueue.main.async {
+                completion(true)
+            }
         }
+        let cancelAction = UIAlertAction(title: cancelButtonText, style: .cancel) { _ in
+            DispatchQueue.main.async {
+                completion(false)
+            }
+        }
+        alert.addAction(agreeAction)
+        alert.addAction(cancelAction)
+
+        owningVC.present(alert, animated: true)
     }
 }

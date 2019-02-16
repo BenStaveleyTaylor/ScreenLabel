@@ -8,7 +8,6 @@
 
 import UIKit
 import os.log
-import PromiseKit
 
 class TextAttributesViewController: UIViewController {
 
@@ -91,16 +90,15 @@ class TextAttributesViewController: UIViewController {
         let cancelText = Resources.localizedString("Cancel")
 
         // Confirm with the user as this is destructive
-        let question = UIAlertController.askForAgreement(from: self,
-                                                         question: questionText,
-                                                         agreeButtonText: agreeText,
-                                                         agreeIsDestructive: true,
-                                                         cancelButtonText: cancelText)
-        question.done { agreed in
-            if agreed {
-                self.settingsCoordinator.reset()
-                self.loadSettings()
-            }
+        UIAlertController.askForAgreement(from: self,
+                                          question: questionText,
+                                          agreeButtonText: agreeText,
+                                          agreeIsDestructive: true,
+                                          cancelButtonText: cancelText) { agreed in
+                                            if agreed {
+                                                self.settingsCoordinator.reset()
+                                                self.loadSettings()
+                                            }
         }
     }
 

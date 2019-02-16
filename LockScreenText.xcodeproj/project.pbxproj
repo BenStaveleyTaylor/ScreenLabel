@@ -55,7 +55,6 @@
 		6BDDB6CF21D933BE002DF120 /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BDDB6CE21D933BE002DF120 /* AboutViewController.swift */; };
 		6BECFE7621DC1F0C0096CEC1 /* UITheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BECFE7521DC1F0C0096CEC1 /* UITheme.swift */; };
 		6BECFE7721DC20340096CEC1 /* UITheme.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6BECFE7321DC08DF0096CEC1 /* UITheme.xcassets */; };
-		8373902A981E338D364BD075 /* Pods_LockScreenTextFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0C04CA558397C4DBA7A9C962 /* Pods_LockScreenTextFramework.framework */; };
 		FC71560C74D8C50F0E91087E /* Pods_LockScreenText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 503457CF7F58C2A068B606C6 /* Pods_LockScreenText.framework */; };
 /* End PBXBuildFile section */
 
@@ -153,8 +152,6 @@
 		6BECFE7321DC08DF0096CEC1 /* UITheme.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = UITheme.xcassets; sourceTree = "<group>"; };
 		6BECFE7521DC1F0C0096CEC1 /* UITheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITheme.swift; sourceTree = "<group>"; };
 		6D1BFDFAB5DE9951D543D9C1 /* Pods-LockScreenText.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LockScreenText.debug.xcconfig"; path = "Pods/Target Support Files/Pods-LockScreenText/Pods-LockScreenText.debug.xcconfig"; sourceTree = "<group>"; };
-		AE147833564FC8C331F77750 /* Pods-LockScreenTextFramework.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LockScreenTextFramework.debug.xcconfig"; path = "Pods/Target Support Files/Pods-LockScreenTextFramework/Pods-LockScreenTextFramework.debug.xcconfig"; sourceTree = "<group>"; };
-		B5D3B0D56879C11EAA389181 /* Pods-LockScreenTextFramework.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LockScreenTextFramework.release.xcconfig"; path = "Pods/Target Support Files/Pods-LockScreenTextFramework/Pods-LockScreenTextFramework.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -162,7 +159,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8373902A981E338D364BD075 /* Pods_LockScreenTextFramework.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -339,8 +335,6 @@
 			children = (
 				6D1BFDFAB5DE9951D543D9C1 /* Pods-LockScreenText.debug.xcconfig */,
 				54D0023314460655A8376C26 /* Pods-LockScreenText.release.xcconfig */,
-				AE147833564FC8C331F77750 /* Pods-LockScreenTextFramework.debug.xcconfig */,
-				B5D3B0D56879C11EAA389181 /* Pods-LockScreenTextFramework.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -373,7 +367,6 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 6B047A112198898800B79CFA /* Build configuration list for PBXNativeTarget "LockScreenTextFramework" */;
 			buildPhases = (
-				B31824C6B2A49E1B295C5FE0 /* [CP] Check Pods Manifest.lock */,
 				6B0479F52198898800B79CFA /* Headers */,
 				6B0479F62198898800B79CFA /* Sources */,
 				6B0479F72198898800B79CFA /* Frameworks */,
@@ -417,7 +410,6 @@
 				6B70592921948C5300CD3178 /* Run SwiftLint */,
 				6BB2EBED21920DBA00BCDA34 /* Resources */,
 				6B047A142198898800B79CFA /* Embed Frameworks */,
-				D8AE6A8253DF2466275CC227 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -548,50 +540,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "SWIFTLINT=$PODS_ROOT/SwiftLint/swiftlint\n[[ -x $SWIFTLINT ]] || { echo \"error: SwiftLint not found\" ; exit 1 ; }\n$SWIFTLINT lint --config swiftlint.yml\n";
-		};
-		B31824C6B2A49E1B295C5FE0 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-LockScreenTextFramework-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		D8AE6A8253DF2466275CC227 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-LockScreenText/Pods-LockScreenText-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/PromiseKit/PromiseKit.framework",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PromiseKit.framework",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-LockScreenText/Pods-LockScreenText-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -738,7 +686,6 @@
 /* Begin XCBuildConfiguration section */
 		6B047A122198898800B79CFA /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = AE147833564FC8C331F77750 /* Pods-LockScreenTextFramework.debug.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
@@ -769,7 +716,6 @@
 		};
 		6B047A132198898800B79CFA /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = B5D3B0D56879C11EAA389181 /* Pods-LockScreenTextFramework.release.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
