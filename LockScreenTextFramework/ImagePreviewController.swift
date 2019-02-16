@@ -42,6 +42,7 @@ class ImagePreviewController: UIViewController {
     // Local properties
     private var settingsCoordinator: SettingsCoordinatorProtocol!
     private var colorDidChange: Bool = false
+    private var lastPanTouchPos: CGPoint = .zero
 
     // true if the controls are all hidden to show the whole view
     var isInPreviewMode = false
@@ -139,33 +140,41 @@ class ImagePreviewController: UIViewController {
     @IBAction private func onTextBoxPan(_ sender: UIPanGestureRecognizer) {
 
         switch sender.state {
+        case .began:
+            // Remember where the drag started
+            guard sender.numberOfTouches > 0 else {
+                return
+            }
+            self.lastPanTouchPos = sender.location(ofTouch: 0, in: self.renderableView)
+
         case .changed:
             // Do the drag
 
+            guard sender.numberOfTouches > 0 else {
+                return
+            }
+
             // Where are we, wrt the image bounding box
-            if sender.numberOfTouches > 0 {
-                let touchPos = sender.location(ofTouch: 0, in: self.imageView)
+            let curTouchPos = sender.location(ofTouch: 0, in: self.renderableView)
+            var touchY = curTouchPos.y
 
-                var touchY = touchPos.y
+            // Can't drag textBox out of the renderableView
+            let textBoxHeight = self.textBoxView.bounds.height
+            let permittedRect = self.renderableView.bounds.insetBy(dx: 0, dy: textBoxHeight/2)
 
-                // Can't drag textBox out of the imageview
-                let textBoxHeight = self.textBoxView.bounds.height
-                let permittedRect = self.imageView.bounds.insetBy(dx: 0, dy: textBoxHeight/2)
+            touchY = max(touchY, permittedRect.minY)
+            touchY = min(touchY, permittedRect.maxY)
 
-                touchY = max(touchY, permittedRect.minY)
-                touchY = min(touchY, permittedRect.maxY)
+            let boundedTouchPos = CGPoint(x: curTouchPos.x, y: touchY)
 
-                // Update the layout constraint of the text label to put it at this
-                // location. It is a vertical centre + deltaY constraint.
+            // Update the layout constraint of the text label to put it at this
+            // location. It is a vertical centre + deltaY constraint.
+            let deltaY = touchY-self.lastPanTouchPos.y
+            self.lastPanTouchPos = boundedTouchPos
 
-                var deltaY = touchY - self.imageView.bounds.height/2
-
-                // If we are near the vertical centre, snap to it
-                if abs(deltaY) < 20 {
-                    deltaY = 0
-                }
-                self.textLabelCentreYConstraint.constant = deltaY
-                self.imageView.layoutIfNeeded()
+            if deltaY != 0 {
+                self.textLabelCentreYConstraint.constant += deltaY
+                self.renderableView.layoutIfNeeded()
             }
 
         case .ended:

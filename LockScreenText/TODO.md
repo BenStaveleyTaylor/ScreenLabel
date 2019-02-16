@@ -9,7 +9,9 @@
 √ Add explicit settings button in toolbar
 √ Bug: reset does not clear selected photo
 √ Bug: zoom and scroll is all screwed
-Bug: Dragging  large label is clunky
+√ Double-tap to reset zoom
+Bug: Dragging label is clunky
 Can we open settings to Wallpaper directly?
 Create real help content
-Double-tap to reset zoom
+Add colour wheel code to darken wheel in preview
+
