@@ -26,7 +26,7 @@ class ColorPickerViewController: UIViewController {
     // MARK: Nib properties
 
     @IBOutlet private weak var containingStackView: UIStackView!
-    @IBOutlet private weak var colorWheelImageView: UIImageView!
+    @IBOutlet private weak var colorWheelImageView: ColorPickerWheelView!
     @IBOutlet private weak var swatchesStack: UIStackView!
     @IBOutlet private weak var lighterLabel: UILabel!
     @IBOutlet private weak var brightnessSlider: UISlider!
@@ -186,12 +186,16 @@ class ColorPickerViewController: UIViewController {
 
     @IBAction private func onBrightnessChanged(_ sender: UISlider) {
 
+        let newBrightness = CGFloat(sender.value)
+
+        // Redraw the wheel
+        self.colorWheelImageView.brightness = newBrightness
+
         var hue: CGFloat = 0
         var saturation: CGFloat = 0
         var alpha: CGFloat = 0
         if self.selectedColor.getHue(&hue, saturation: &saturation, brightness: nil, alpha: &alpha) {
 
-            let newBrightness = CGFloat(sender.value)
             let newColor = UIColor(hue: hue, saturation: saturation, brightness: newBrightness, alpha: alpha)
             self.selectedColor = newColor
         }
