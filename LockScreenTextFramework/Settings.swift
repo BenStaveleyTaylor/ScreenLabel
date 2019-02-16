@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import os.log
 
 // Data model
 
@@ -191,7 +192,7 @@ struct Settings: Codable {
     }
 
     func writeToUserDefaults() throws {
-print("Writing settings")
+        os_log("Writing settings")
         UserDefaults.standard.set(try PropertyListEncoder().encode(self), forKey: "AppSettings")
     }
 

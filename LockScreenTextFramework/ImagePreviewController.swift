@@ -313,7 +313,7 @@ extension ImagePreviewController: UINavigationControllerDelegate {}
 extension ImagePreviewController: SettingsCoordinatorViewDelegate {
 
     func settingsDidChange(_ changes: SettingItems, coordinator: SettingsCoordinatorProtocol, animated: Bool) {
-print("Settings did change")
+        os_log("Settings change detected")
 
         // Update the UI to show the new settings
 
@@ -387,20 +387,17 @@ extension ImagePreviewController: UIScrollViewDelegate {
     }
 
     func scrollViewDidEndZooming(_ scrollView: UIScrollView, with view: UIView?, atScale scale: CGFloat) {
-print("User zoomed to scale: \(scale)")
         self.settingsCoordinator.scrollScale = scale
     }
 
     func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
         if !decelerate {
             self.settingsCoordinator.scrollOffset = scrollView.contentOffset
-print("(1) Saved zoom offset at \(scrollView.contentOffset) [scale: \(scrollView.zoomScale)]")
         }
     }
 
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
         self.settingsCoordinator.scrollOffset = scrollView.contentOffset
-print("(2) Saved zoom offset at \(scrollView.contentOffset) [scale: \(scrollView.zoomScale)]")
     }
 
     func aspectFillScale() -> CGFloat {

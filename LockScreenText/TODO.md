@@ -11,8 +11,8 @@
 √ Bug: zoom and scroll is all screwed
 √ Double-tap to reset zoom
 √ Bug: Dragging label is clunky
+√ Remove PromiseKit
 Can we open settings to Wallpaper directly?
 Create real help content
 Add colour wheel code to darken wheel in preview
-Remove PromiseKit shite
 
