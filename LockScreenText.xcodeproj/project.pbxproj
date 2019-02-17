@@ -137,7 +137,7 @@
 		6B7FDF5D21A9F8AE004BB497 /* FontPickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontPickerViewController.swift; sourceTree = "<group>"; };
 		6B7FDF6121ABFA12004BB497 /* UIView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extensions.swift"; sourceTree = "<group>"; };
 		6BA186E421988BCC00C9CE76 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		6BB2EBEF21920DBA00BCDA34 /* Label My Phone.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Label My Phone.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		6BB2EBEF21920DBA00BCDA34 /* Label Me.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Label Me.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6BB2EBF221920DBA00BCDA34 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		6BB2EBF921920DBB00BCDA34 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		6BB2EBFC21920DBB00BCDA34 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -295,7 +295,7 @@
 		6BB2EBF021920DBA00BCDA34 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				6BB2EBEF21920DBA00BCDA34 /* Label My Phone.app */,
+				6BB2EBEF21920DBA00BCDA34 /* Label Me.app */,
 				6B0479FA2198898800B79CFA /* LockScreenTextFramework.framework */,
 				6B047A022198898800B79CFA /* LockScreenTextFrameworkTests.xctest */,
 			);
@@ -411,7 +411,7 @@
 			);
 			name = LockScreenText;
 			productName = LockScreenText;
-			productReference = 6BB2EBEF21920DBA00BCDA34 /* Label My Phone.app */;
+			productReference = 6BB2EBEF21920DBA00BCDA34 /* Label Me.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -803,9 +803,11 @@
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Ben Staveley-Taylor (VNVM6K9QRE)";
+				CODE_SIGN_STYLE = Manual;
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = GK635W8YY4;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
@@ -826,6 +828,7 @@
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
+				PROVISIONING_PROFILE_SPECIFIER = "LockScreenText Dev";
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -864,9 +867,10 @@
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Manual;
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = GK635W8YY4;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
@@ -892,16 +896,13 @@
 			baseConfigurationReference = 6D1BFDFAB5DE9951D543D9C1 /* Pods-LockScreenText.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_STYLE = Manual;
-				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = "LockScreenText/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.staveleytaylor.ben.LockScreenText;
-				PRODUCT_NAME = "Label My Phone";
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PRODUCT_NAME = "Label Me";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -912,16 +913,13 @@
 			baseConfigurationReference = 54D0023314460655A8376C26 /* Pods-LockScreenText.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_STYLE = Manual;
-				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = "LockScreenText/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.staveleytaylor.ben.LockScreenText;
-				PRODUCT_NAME = "Label My Phone";
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PRODUCT_NAME = "Label Me";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

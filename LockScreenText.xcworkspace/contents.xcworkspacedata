@@ -16,6 +16,9 @@
       <FileRef
          location = "group:TODO.md">
       </FileRef>
+      <FileRef
+         location = "group:CHANGELOG.md">
+      </FileRef>
    </Group>
    <FileRef
       location = "group:LockScreenText.xcodeproj">

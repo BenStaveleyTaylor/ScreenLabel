@@ -12,7 +12,17 @@
 √ Double-tap to reset zoom
 √ Bug: Dragging label is clunky
 √ Remove PromiseKit
-Can we open settings to Wallpaper directly?
-Create real help content
-Add colour wheel code to darken wheel in preview
+√ Add colour wheel code to darken wheel in preview
+√ Create Changelog.MD file
 
+Permissions prompts: can't open settings because it's useless.
+Make nav bar theme green
+Add dismiss keyboard button to Text Settings
+
+Create real help content
+    Setting Wallpaper: Exact steps are:
+    Settings > Wallpaper > Choose a New Wallpaper 
+    Tap Camera Roll, tap most recent photo
+    Choose Perspective (Still is the default)
+    Tap Set
+    Choose Set Lock Screen/Set Home Screen/Both
