@@ -17,6 +17,15 @@ public class HelpPageViewController: UIPageViewController {
 
         self.view.backgroundColor = UIColor.white
 
+        // Assume this defined by the app
+        if let darkThemeColor = UIColor(named: "AppThemeDarkColor") {
+            self.navigationController?.navigationBar.barTintColor = darkThemeColor
+            self.navigationController?.navigationBar.tintColor = .white
+
+            let whiteTextAttribute: [NSAttributedString.Key: Any] = [.foregroundColor: UIColor.white]
+            self.navigationController?.navigationBar.titleTextAttributes = whiteTextAttribute
+        }
+
         // Do any additional setup after loading the view.
         self.title = Resources.localizedString("HelpNavTitle", tableName: HelpManager.helpStringsTable)
 
@@ -25,8 +34,8 @@ public class HelpPageViewController: UIPageViewController {
     }
 
     // Expected to be called when the segue is being prepared
-    public func preparePages() {
-        self.helpManager.preparePages()
+    public func preparePages(startingAt: Int = 0) {
+        self.helpManager.preparePages(startingAt: startingAt)
     }
 
     // Expected to be called when the segue is being prepared

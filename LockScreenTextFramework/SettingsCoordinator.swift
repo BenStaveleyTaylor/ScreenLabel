@@ -71,7 +71,7 @@ protocol SettingsCoordinatorProtocol {
     // This will be nil if a plain background colour is selected
     var image: UIImage? { get set }
 
-    func saveToPhotos(image: UIImage)
+    func saveToPhotos(image: UIImage, fromViewController presentingVC: UIViewController)
 
     // Normally, when any of the model accessors are used to change a value, the
     // values are persisted and observers are notified. If making multiple
@@ -98,6 +98,7 @@ class SettingsCoordinator: NSObject {
     
     private var inBatchMode = false
     private var batchedChanges: SettingItems = []
+    private weak var photoSaveContext: UIViewController?
 
     init(withDelegate delegate: SettingsCoordinatorViewDelegate, settings: Settings? = nil) {
 
@@ -126,7 +127,7 @@ class SettingsCoordinator: NSObject {
     }
 
     @objc
-    func image(_ image: UIImage, didFinishSavingWithError error: NSError?, contextInfo: Any?) {
+    func image(_ image: UIImage, didFinishSavingWithError error: NSError?, contextInfo: UnsafeRawPointer) {
 
         if let error = error {
             os_log("Error saving image to Photos (%@)", "\(error)")
@@ -136,12 +137,14 @@ class SettingsCoordinator: NSObject {
         } else {
             AlertUtilities.showMessage(title: Resources.localizedString("SavedAlertTitle"),
                                        body: Resources.localizedString("HowToSetWallpaperBody"),
-                                       button1Text: Resources.localizedString("OpenSettings"),
+                                       button1Text: Resources.localizedString("MoreWallpaperHelp"),
                                        button2Text: Resources.localizedString("Done")) { choice in
 
                                         if choice == 1 {
-                                            // Open Settings
-                                            SystemSettingsUtilities.openSettings()
+                                            // Show more help about setting the wallpaper
+
+                                            let presentingVC = self.photoSaveContext
+                                            presentingVC?.performSegue(withIdentifier: "showHelpSegue", sender: HelpPage.setWallpaper)
                                         }
             }
         }
@@ -290,12 +293,17 @@ extension SettingsCoordinator: SettingsCoordinatorProtocol {
         }
     }
 
-    func saveToPhotos(image: UIImage) {
+    func saveToPhotos(image: UIImage, fromViewController presentingVC: UIViewController) {
+
+        // I can't figure out the syntax for passing presentingVC as an UnsafeMutableRawPointer context
+        self.photoSaveContext = presentingVC
 
         // Check we have access to the Photos data
         PHPhotoLibrary.requestAuthorization { status in
-            
+
             if status == .authorized {
+
+
 
                 // Save the renderable view into the photo album then tell the user
                 // what to do in the completion callback
@@ -308,7 +316,8 @@ extension SettingsCoordinator: SettingsCoordinatorProtocol {
                 AlertUtilities.showMessage(title: Resources.localizedString("FailedAlertTitle"),
                                            body: Resources.localizedString("PhotosAccessDenied"),
                                            button1Text: Resources.localizedString("OpenSettings"),
-                                           button2Text: Resources.localizedString("Done")) { choice in
+                                           button2Text: Resources.localizedString("Done"),
+                                           fromViewController: presentingVC) { choice in
 
                                             if choice == 1 {
                                                 // Open Settings

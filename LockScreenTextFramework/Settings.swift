@@ -73,14 +73,14 @@ struct Settings: Codable {
     init() {
         self.init(version: Settings.currentVersion,
                   imageName: nil,           // Nil imageName means it's a plain colour lock screen (background colour only)
-                  imageBackgroundColor: UIColor.white,
+                  imageBackgroundColor: UIColor(named: "EmptyBackgroundColor") ?? .white,
                   imageBleedStyle: .still,
                   scrollScale: 1.0,
-                  scrollOffset: CGPoint.zero,
+                  scrollOffset: .zero,
                   message: "",
-                  textFont: UIFont.preferredFont(forTextStyle: .body),
+                  textFont: .preferredFont(forTextStyle: .body),
                   textAlignment: .center,
-                  textColor: UIColor.white,
+                  textColor: .white,
                   boxColor: UIColor(white: 0, alpha: 0.5),
                   boxBorderWidth: 0,
                   boxCornerRadius: 6,

@@ -453,6 +453,9 @@
                             <constraint firstItem="nbU-ol-nh7" firstAttribute="leading" secondItem="euc-QL-pt5" secondAttribute="leading" id="nju-pC-cTG"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="euc-QL-pt5"/>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="sBX-Qh-Z8I" appends="YES" id="Fag-qW-vMO"/>
+                        </connections>
                     </view>
                     <connections>
                         <outlet property="bleedStyleHelpLabel" destination="e8b-hs-VK3" id="1Di-Ki-i5n"/>
@@ -463,6 +466,7 @@
                         <outlet property="boxColorTapGestureRecognizer" destination="bLJ-eN-5Mj" id="V22-pE-TGQ"/>
                         <outlet property="clearTextButton" destination="F5L-vD-cZe" id="2WV-DN-tZo"/>
                         <outlet property="factorySettingsButton" destination="ipc-10-oAy" id="N5x-I4-Fdh"/>
+                        <outlet property="hideKeyboardTapGestureRecognizer" destination="sBX-Qh-Z8I" id="Tjx-oo-4yT"/>
                         <outlet property="messagePlaceholder" destination="TME-xV-Hyt" id="kUH-I5-L9s"/>
                         <outlet property="messageTextView" destination="BD7-Ro-e7a" id="a7l-1E-obh"/>
                         <outlet property="textColorLabel" destination="TcI-Pa-OYs" id="gcm-9O-4pn"/>
@@ -479,6 +483,11 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uts-oM-Kgj" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer cancelsTouchesInView="NO" id="sBX-Qh-Z8I">
+                    <connections>
+                        <action selector="onHideKeyboardTap:" destination="70U-AU-X1A" id="M0H-aP-Thr"/>
+                    </connections>
+                </tapGestureRecognizer>
                 <tapGestureRecognizer id="Odu-iK-mNM" userLabel="fontPickerTapRecognizer">
                     <connections>
                         <segue destination="F4h-7y-sTj" kind="show" identifier="pickFontSegue" id="zuU-RK-hTV"/>

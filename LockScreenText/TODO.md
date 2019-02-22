@@ -16,13 +16,17 @@
 √ Create Changelog.MD file
 
 Permissions prompts: can't open settings because it's useless.
-Make nav bar theme green
-Add dismiss keyboard button to Text Settings
+√ Open Help at specific page
+√ Make nav bar theme green
+√ Add dismiss keyboard button to Text Settings
 
-Create real help content
+√ Create real help content
     Setting Wallpaper: Exact steps are:
     Settings > Wallpaper > Choose a New Wallpaper 
     Tap Camera Roll, tap most recent photo
-    Choose Perspective (Still is the default)
+    [Choose Perspective (Still is the default)]
     Tap Set
     Choose Set Lock Screen/Set Home Screen/Both
+
+Add Photos step into Wallpaper help
+Make email address hot in About

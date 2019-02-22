@@ -62,6 +62,13 @@ class ImagePreviewController: UIViewController {
         self.imageDoubleTapRecognizer.delegate = self
     }
 
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        // Make sure our toolbar is visible
+        self.navigationController?.setToolbarHidden(false, animated: false)
+    }
+
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
 
@@ -121,7 +128,7 @@ class ImagePreviewController: UIViewController {
 
         // Save the renderable view into the photo album
         let image = ImageUtilities.imageFromView(self.renderableView)
-        self.settingsCoordinator.saveToPhotos(image: image)
+        self.settingsCoordinator.saveToPhotos(image: image, fromViewController: self)
     }
 
     // When the image area is tapped, toggle the chrome off so the whole thing can be seen
@@ -256,15 +263,25 @@ class ImagePreviewController: UIViewController {
             return
         }
 
-        guard let helpPageController = helpNav.topViewController as? HelpPageViewController else {
+        guard let helpPageViewController = helpNav.topViewController as? HelpPageViewController else {
             assertionFailure("top view controller was not a HelpPageViewController")
             return
         }
 
-        helpPageController.preparePages()
+        // sender may be specifed as a "HelpPage" type giving a page to open at
+        if let initialPage = sender as? HelpPage {
+            helpPageViewController.preparePages(startingAt: initialPage.rawValue)
+        }
+        else {
+            helpPageViewController.preparePages()
+        }
 
         let aboutVC = AboutViewController.create()
-        helpPageController.appendPage(aboutVC)
+        helpPageViewController.appendPage(aboutVC)
+    }
+
+    public func showHelp(startingAt page: HelpPage) {
+        self.performSegue(withIdentifier: "showHelpSegue", sender: page)
     }
 
     // After many colour update notifications while the selection UI is up,

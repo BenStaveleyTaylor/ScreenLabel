@@ -40,6 +40,7 @@ class TextAttributesViewController: UIViewController {
     
     @IBOutlet private var textColorTapGestureRecognizer: UITapGestureRecognizer!
     @IBOutlet private var boxColorTapGestureRecognizer: UITapGestureRecognizer!
+    @IBOutlet private var hideKeyboardTapGestureRecognizer: UITapGestureRecognizer!
 
     // The source of the segue must push this in
     // Fatal error if nil
@@ -60,8 +61,16 @@ class TextAttributesViewController: UIViewController {
         self.loadSettings()
     }
 
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+
+        // Hide teh toolbar for this one
+        self.navigationController?.setToolbarHidden(true, animated: false)
+    }
+
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
+        self.hideKeyboard()
         self.saveSettings()
     }
 
@@ -139,6 +148,16 @@ class TextAttributesViewController: UIViewController {
             popController?.sourceView = anchorView
             popController?.sourceRect = anchorView.bounds
             popController?.delegate = self
+        }
+    }
+
+    @IBAction private func onHideKeyboardTap(_ sender: UITapGestureRecognizer) {
+
+        // Cancel editing, as long as the tap is not in the edit field itself
+        let loc = sender.location(in: self.messageTextView)
+        if !self.messageTextView.bounds.contains(loc) {
+            print("Got touch at \(loc)")
+            self.hideKeyboard()
         }
     }
 
@@ -242,6 +261,10 @@ class TextAttributesViewController: UIViewController {
         let hidden = self.isEditingMessage || !self.messageTextView.text.isEmpty
 
         self.messagePlaceholder.isHidden = hidden
+    }
+
+    private func hideKeyboard() {
+        self.messageTextView.endEditing(true)
     }
 }
 

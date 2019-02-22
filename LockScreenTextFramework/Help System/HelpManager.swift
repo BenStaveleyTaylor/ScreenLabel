@@ -24,7 +24,7 @@ class HelpManager: NSObject {
     private let helpImageBase = "HelpImage"
     private let helpTextBase = "HelpText"
 
-    func preparePages() {
+    func preparePages(startingAt: Int) {
 
         // 3 pages of help info
         for index in 1...3 {
@@ -41,6 +41,8 @@ class HelpManager: NSObject {
             let vc = HelpPageController.create(title: title, image: image, text: text)
             self.pages.append(vc)
         }
+
+        self.currentPageIndex = startingAt
     }
 
     // Intended for adding an About page at the end of the help sequence
@@ -53,7 +55,7 @@ class HelpManager: NSObject {
 
         assert(!self.pages.isEmpty, "Help system has not been initialised")
 
-        return self.pages[0]
+        return self.pages[self.currentPageIndex]
     }
     
     func indexForViewController(_ viewController: UIViewController) -> Int? {
