@@ -158,7 +158,6 @@ class TextAttributesViewController: UIViewController {
         // Cancel editing, as long as the tap is not in the edit field itself
         let loc = sender.location(in: self.messageTextView)
         if !self.messageTextView.bounds.contains(loc) {
-            print("Got touch at \(loc)")
             self.hideKeyboard()
         }
     }
