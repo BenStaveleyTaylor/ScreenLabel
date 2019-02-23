@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import MessageUI
+import os.log
 
 class AboutViewController: UIViewController {
 
@@ -14,7 +16,12 @@ class AboutViewController: UIViewController {
     @IBOutlet private weak var titleLabel: UILabel!
     @IBOutlet private weak var versionLabel: UILabel!
     @IBOutlet private weak var copyrightLabel: UILabel!
-    @IBOutlet private weak var contactLabel: UILabel!
+    @IBOutlet private weak var contactButton: UIButton!
+
+    let productTitle: String
+    let copyrightNotice: String
+    let emailAddress: String
+    let versionString: String
 
     // Class method to create the ViewController
 
@@ -28,11 +35,24 @@ class AboutViewController: UIViewController {
         return storyboard.instantiateViewController(withIdentifier: className) as! AboutViewController
     }
 
+    required init?(coder aDecoder: NSCoder) {
+        // Load the strings
+        let appBundle = Bundle.main
+        self.productTitle = Resources.localizedString("ProductTitle")
+        self.copyrightNotice = Resources.localizedString("CopyrightNotice")
+        self.emailAddress = Resources.localizedString("SupportEmail")
+
+        let appVersion: String? = appBundle.object(forInfoDictionaryKey: "CFBundleShortVersionString") as? String
+        let versionTemplate = Resources.localizedString("VersionTemplate")
+        self.versionString = String(format: versionTemplate, appVersion ?? "–")
+
+        super.init(coder: aDecoder)
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Populate the fields
-        let appBundle = Bundle.main
 
         // Start with the iPhone icon
         var icon = UIImage(named: "AppIcon60x60")
@@ -42,15 +62,47 @@ class AboutViewController: UIViewController {
         }
         self.iconImage.image = icon
 
-        self.titleLabel.text = Resources.localizedString("ProductTitle")
-
-        let appVersion: String? = appBundle.object(forInfoDictionaryKey: "CFBundleShortVersionString") as? String
-        let versionTemplate = Resources.localizedString("VersionTemplate")
-        self.versionLabel.text = String(format: versionTemplate, appVersion ?? "–")
-
-        self.copyrightLabel.text = Resources.localizedString("CopyrightNotice")
-
-        self.contactLabel.text = Resources.localizedString("ContactInfo")
+        self.titleLabel.text = self.productTitle
+        self.versionLabel.text = self.versionString
+        self.copyrightLabel.text = self.copyrightNotice
+        self.contactButton.setTitle(self.emailAddress, for: .normal)
     }
 
+    @IBAction private func onContactEmailTapped(_ sender: UIButton) {
+
+        // Allow the user to send me an email
+        guard MFMailComposeViewController.canSendMail() else {
+            os_log("Mail services are not available")
+            return
+        }
+
+        let composeVC = MFMailComposeViewController()
+        composeVC.mailComposeDelegate = self
+
+        // Configure the fields of the interface.
+        composeVC.setToRecipients([self.emailAddress])
+
+        // Subject line
+        let emailSubjectTemplate = Resources.localizedString("emailSubjectTemplate")
+        let emailSubject = String(format: emailSubjectTemplate, self.productTitle)
+        composeVC.setSubject(emailSubject)
+
+        // Body is "Version: nnn"
+        // Not localised because I need to read it
+        let emailBodyTemplate = Resources.localizedString("emailBodyTemplate")
+        let emailBody = String(format: emailBodyTemplate, self.versionString)
+        composeVC.setMessageBody(emailBody, isHTML: false)
+
+        // Present the view controller modally.
+        self.present(composeVC, animated: true, completion: nil)
+    }
+}
+
+extension AboutViewController: MFMailComposeViewControllerDelegate {
+
+    public func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
+
+        // Dismiss the mail compose view controller.
+        controller.dismiss(animated: true, completion: nil)
+    }
 }

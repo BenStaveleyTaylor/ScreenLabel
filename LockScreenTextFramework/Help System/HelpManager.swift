@@ -16,7 +16,7 @@ class HelpManager: NSObject {
     public static let helpStringsTable = "Help"
 
     private var pages: [UIViewController] = []
-    private var currentPageIndex: Int = 0
+    private var initialPageIndex: Int = 0
 
     // An index (e.g. "1") is added on to the base names
     private let helpTitleBase = "HelpTitle"
@@ -42,7 +42,7 @@ class HelpManager: NSObject {
             self.pages.append(vc)
         }
 
-        self.currentPageIndex = startingAt
+        self.initialPageIndex = startingAt
     }
 
     // Intended for adding an About page at the end of the help sequence
@@ -55,12 +55,26 @@ class HelpManager: NSObject {
 
         assert(!self.pages.isEmpty, "Help system has not been initialised")
 
-        return self.pages[self.currentPageIndex]
+        return self.pages[self.initialPageIndex]
     }
     
-    func indexForViewController(_ viewController: UIViewController) -> Int? {
+    func indexFor(viewController: UIViewController) -> Int? {
         let index = self.pages.firstIndex(of: viewController)
         return index
+    }
+
+    // The text to be displayed as the title of a help page
+    func titleFor(viewController: UIViewController) -> String {
+        let template = Resources.localizedString("HelpNavTitleTemplate", tableName: HelpManager.helpStringsTable)
+
+        // Insert current and total page numbers
+        let currentPageIndex = self.indexFor(viewController: viewController) ?? NSNotFound
+        // 0-based to human readable number conversion
+        let result = String(format: template,
+                            NSNumber(value: currentPageIndex+1),
+                            NSNumber(value: self.pages.count))
+
+        return result
     }
 
 }
@@ -75,7 +89,7 @@ extension HelpManager: UIPageViewControllerDataSource {
         
         var result: UIViewController?
         
-        if let index = self.indexForViewController(viewController), index > 0 {
+        if let index = self.indexFor(viewController: viewController), index > 0 {
             result = self.pages[index-1]
         }
         
@@ -86,7 +100,7 @@ extension HelpManager: UIPageViewControllerDataSource {
         
         var result: UIViewController?
         
-        if let index = self.indexForViewController(viewController), index < (self.pages.count-1) {
+        if let index = self.indexFor(viewController: viewController), index < (self.pages.count-1) {
             result = self.pages[index+1]
         }
         
@@ -106,7 +120,14 @@ extension HelpManager: UIPageViewControllerDataSource {
     
     // The selected item reflected in the page indicator.
     public func presentationIndex(for pageViewController: UIPageViewController) -> Int {
-        return self.currentPageIndex
+
+        var result: Int = NSNotFound
+        
+        if let page = pageViewController.viewControllers?.first,
+            let index = self.indexFor(viewController: page) {
+            result = index
+        }
+
+        return result
     }
-    
 }

@@ -138,7 +138,7 @@
 		6B7FDF5D21A9F8AE004BB497 /* FontPickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontPickerViewController.swift; sourceTree = "<group>"; };
 		6B7FDF6121ABFA12004BB497 /* UIView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extensions.swift"; sourceTree = "<group>"; };
 		6BA186E421988BCC00C9CE76 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		6BB2EBEF21920DBA00BCDA34 /* Label Me.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Label Me.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		6BB2EBEF21920DBA00BCDA34 /* Screen Label.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Screen Label.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6BB2EBF221920DBA00BCDA34 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		6BB2EBF921920DBB00BCDA34 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		6BB2EBFC21920DBB00BCDA34 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -298,7 +298,7 @@
 		6BB2EBF021920DBA00BCDA34 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				6BB2EBEF21920DBA00BCDA34 /* Label Me.app */,
+				6BB2EBEF21920DBA00BCDA34 /* Screen Label.app */,
 				6B0479FA2198898800B79CFA /* LockScreenTextFramework.framework */,
 				6B047A022198898800B79CFA /* LockScreenTextFrameworkTests.xctest */,
 			);
@@ -414,7 +414,7 @@
 			);
 			name = LockScreenText;
 			productName = LockScreenText;
-			productReference = 6BB2EBEF21920DBA00BCDA34 /* Label Me.app */;
+			productReference = 6BB2EBEF21920DBA00BCDA34 /* Screen Label.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -906,7 +906,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.staveleytaylor.ben.LockScreenText;
-				PRODUCT_NAME = "Label Me";
+				PRODUCT_NAME = "Screen Label";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -923,7 +923,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.staveleytaylor.ben.LockScreenText;
-				PRODUCT_NAME = "Label Me";
+				PRODUCT_NAME = "Screen Label";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

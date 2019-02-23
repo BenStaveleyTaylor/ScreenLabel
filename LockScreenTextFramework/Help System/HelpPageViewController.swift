@@ -27,10 +27,12 @@ public class HelpPageViewController: UIPageViewController {
         }
 
         // Do any additional setup after loading the view.
-        self.title = Resources.localizedString("HelpNavTitle", tableName: HelpManager.helpStringsTable)
-
         self.dataSource = self.helpManager.pageViewDataSource
-        self.setViewControllers([self.helpManager.entryPage], direction: .forward, animated: false, completion: nil)
+        self.delegate = self
+        let initialVC = self.helpManager.entryPage
+        self.setViewControllers([initialVC], direction: .forward, animated: false, completion: nil)
+
+        self.title = self.helpManager.titleFor(viewController: initialVC)
     }
 
     // Expected to be called when the segue is being prepared
@@ -47,5 +49,19 @@ public class HelpPageViewController: UIPageViewController {
     // Handler for the Done button
     @IBAction private func onDoneTapped(_ sender: UIBarButtonItem) {
         self.dismiss(animated: true, completion: nil)
+    }
+}
+
+extension HelpPageViewController: UIPageViewControllerDelegate {
+
+    public func pageViewController(_ pageViewController: UIPageViewController,
+                                   didFinishAnimating finished: Bool,
+                                   previousViewControllers: [UIViewController],
+                                   transitionCompleted completed: Bool) {
+
+        // Update the nave bar title to show the new page number
+        if let newCurrentVC = self.viewControllers?.first {
+            self.title = self.helpManager.titleFor(viewController: newCurrentVC)
+        }
     }
 }

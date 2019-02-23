@@ -6,11 +6,11 @@
   Copyright © 2018 Ben Staveley-Taylor. All rights reserved.
 */
 
-"ProductTitle" = "Label Me";
+"ProductTitle" = "Screen Label";
 
 "HelpButtonText" = "Help";
 
-"MessagePromptText" = "Tap here to customise this label\nDrag me up or down\n\nMore help is in the title bar";
+"MessagePromptText" = "Tap this label to change it\nDrag it up or down\n\nMore help from the title bar";
 
 "MessagePlaceholderText" = "Examples:\n“If found please call 01234 567890”\n“Physics Lab iPad 1”";
 
@@ -24,7 +24,9 @@
 
 "OpenSettings" = "Open Settings";
 
-"MoreWallpaperHelp" = "Wallpaper Help";
+"TextAttributesEditorTitle" = "Text Settings";
+
+"MoreWallpaperHelp" = "More Help";
 
 "FailedAlertTitle" = "Failed";
 
@@ -32,7 +34,7 @@
 
 "HowToSetWallpaperBody" = "Open Settings > Wallpaper and do “Choose a New Wallpaper” then “Set Lock Screen”.\n\nYou will find your image in the Camera Roll.";
 
-"PhotosAccessDenied" = "This app is blocked from accessing your Photos library. To fix this, open Settings > Label Me, choose Photos, and allow Read and Write access.";
+"PhotosAccessDenied" = "This app is blocked from accessing your Photos library. To fix this, open Settings > Screen Label, choose Photos, and allow Read and Write access.";
 
 "OK" = "OK";
 
@@ -70,4 +72,7 @@
 
 "VersionTemplate" = "Version %@";
 "CopyrightNotice" = "Copyright © Ben Staveley-Taylor, 2019. All rights reserved.";
-"ContactInfo" = "bstiosdev@icloud.com";
+"SupportEmail" = "bstiosdev@icloud.com";
+"emailSubjectTemplate" = "%@ user email";
+"emailBodyTemplate" = "App Version: %@\n(If possible, please write your email in English 🙂)\n\n* * * * *\n\n";
+

@@ -58,6 +58,8 @@ class TextAttributesViewController: UIViewController {
 
         self.messagePlaceholder.text = Resources.localizedString("MessagePlaceholderText")
 
+        self.title = Resources.localizedString("TextAttributesEditorTitle")
+
         self.loadSettings()
     }
 

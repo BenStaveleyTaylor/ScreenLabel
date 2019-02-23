@@ -138,7 +138,7 @@ class SettingsCoordinator: NSObject {
             AlertUtilities.showMessage(title: Resources.localizedString("SavedAlertTitle"),
                                        body: Resources.localizedString("HowToSetWallpaperBody"),
                                        button1Text: Resources.localizedString("MoreWallpaperHelp"),
-                                       button2Text: Resources.localizedString("Done")) { choice in
+                                       button2Text: Resources.localizedString("OK")) { choice in
 
                                         if choice == 1 {
                                             // Show more help about setting the wallpaper
@@ -303,8 +303,6 @@ extension SettingsCoordinator: SettingsCoordinatorProtocol {
 
             if status == .authorized {
 
-
-
                 // Save the renderable view into the photo album then tell the user
                 // what to do in the completion callback
                 UIImageWriteToSavedPhotosAlbum(image,
@@ -316,7 +314,7 @@ extension SettingsCoordinator: SettingsCoordinatorProtocol {
                 AlertUtilities.showMessage(title: Resources.localizedString("FailedAlertTitle"),
                                            body: Resources.localizedString("PhotosAccessDenied"),
                                            button1Text: Resources.localizedString("OpenSettings"),
-                                           button2Text: Resources.localizedString("Done"),
+                                           button2Text: Resources.localizedString("OK"),
                                            fromViewController: presentingVC) { choice in
 
                                             if choice == 1 {
