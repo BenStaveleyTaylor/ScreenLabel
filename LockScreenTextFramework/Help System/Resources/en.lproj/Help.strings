@@ -13,7 +13,10 @@
 "HelpText1"  = "Screen Label helps you put a tag where it can be seen, even when your phone is locked.\n\nYou might show an alternate phone number to call, or your email address.\n\nIf you lose your phone, you stand a better chance of getting it back 🙏.";
 
 "HelpTitle2" = "Choose your background and text";
-"HelpText2"  = "① To start, import one of your photos. You can scroll and zoom the photo image to get just the part you want.\n\n② Or you can choose a simple background colour instead of a photo.\n\n③ Then edit the text size and colour to make it stand out, or to be unobtrusive.\n\n④ When you're done, save it back as a new photo. Your original won't be changed.\n\n— Tips —\n\n• Tap the image area to get a full-screen preview.\n\n• Usually it looks best if the text block is about ⅔ or ¾ of the way down the screen so it doesn't overlap the other items on the Lock Screen.";
+"HelpText2"  = "① To start, import one of your photos. You can scroll and zoom the photo image to get just the part you want.\n\n② Or you can choose a simple background colour instead of a photo.\n\n③ Then edit the text size and colour to make it stand out, or to be unobtrusive.\n\n④ When you're done, save it back as a new photo. Your original won't be changed.";
 
 "HelpTitle3" = "Set your Wallpaper";
 "HelpText3"  = "① Open the system Settings and choose Wallpaper\n\n② Tap \"Choose a New Wallpaper\".\n\n③ Your Photos are shown. Choose \"Camera Roll\" and the Screen Label photo should be the most recent photo, at the end of the list.\n\n④ Tap \"Set\"\n\n⑤ Choose whether you want the new image to be just the Lock Screen or also your Home Screen.";
+
+"HelpTitle4" = "Tips";
+"HelpText4"  = "• Tap the image area to get a full-screen preview.\n\n• Usually it looks best if the text block is about ⅔ or ¾ of the way down the screen so it doesn't overlap the other items on the Lock Screen.\n\n• Once you have set the Lock Screen, you can delete the saved Screen Label image from your Camera Roll if you want.\n\n• If you don't want any background to the label, make the Box Colour clear.";

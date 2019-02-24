@@ -26,21 +26,32 @@ class HelpManager: NSObject {
 
     func preparePages(startingAt: Int) {
 
-        // 3 pages of help info
-        for index in 1...3 {
+        // Loop until we run out of page titles
+        var index: Int = 1
+        repeat {
 
             let suffix = String(index)
             let titleKey = self.helpTitleBase + suffix
-            let imageKey = self.helpImageBase + suffix + ".jpg"
+            let imageKey = self.helpImageBase + suffix
             let textKey = self.helpTextBase + suffix
 
             let title = Resources.localizedString(titleKey, tableName: HelpManager.helpStringsTable)
-            let image = Resources.image(named: helpImagesFolder + "/" + imageKey)
+            if title == Resources.notFound {
+                break
+            }
+
+            // Try a .jpg image, then png
+            var image = Resources.image(named: helpImagesFolder + "/" + imageKey + ".jpg")
+            if image == nil {
+                image = Resources.image(named: helpImagesFolder + "/" + imageKey + ".png")
+            }
             let text = Resources.localizedString(textKey, tableName: HelpManager.helpStringsTable)
 
             let vc = HelpPageController.create(title: title, image: image, text: text)
             self.pages.append(vc)
-        }
+
+            index += 1
+        } while true
 
         self.initialPageIndex = startingAt
     }

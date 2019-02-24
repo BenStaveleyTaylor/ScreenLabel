@@ -12,6 +12,8 @@ enum Resources {
 
     static let bundleIdentifier = "com.staveleytaylor.ben.LockScreenTextFramework"
 
+    static let notFound = "???"
+
     static var frameworkBundle: Bundle? {
         let bundle = Bundle(identifier: Resources.bundleIdentifier)
         assert(bundle != nil, "Bundle '\(Resources.bundleIdentifier)' not found")
@@ -23,10 +25,14 @@ enum Resources {
     public static func localizedString(_ key: String, tableName: String? = nil) -> String {
 
         guard let bundle = Resources.frameworkBundle else {
-            return "???"
+            return self.notFound
         }
 
-        let result = NSLocalizedString(key, tableName: tableName, bundle: bundle, comment: "")
+        let result = NSLocalizedString(key,
+                                       tableName: tableName,
+                                       bundle: bundle,
+                                       value: self.notFound,
+                                       comment: "")
         return result
     }
 
