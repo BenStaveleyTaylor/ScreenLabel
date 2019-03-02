@@ -17,11 +17,20 @@ class AboutViewController: UIViewController {
     @IBOutlet private weak var versionLabel: UILabel!
     @IBOutlet private weak var copyrightLabel: UILabel!
     @IBOutlet private weak var contactButton: UIButton!
+    @IBOutlet private weak var webSiteButton: UIButton!
+    @IBOutlet private weak var privacyButton: UIButton!
+
+    let emailAddress = "bstiosdev@icloud.com"
+    let webSiteAddress = "https://www.staveleytaylor.com"
+    let privacyPolicyPath = "privacy.html"
 
     let productTitle: String
     let copyrightNotice: String
-    let emailAddress: String
+    let emailButtonFormat: String
+    let privacyButtonTitle: String
     let versionString: String
+    let webSiteLink: URL!
+    let privacyPolicyLink: URL!
 
     // Class method to create the ViewController
 
@@ -40,11 +49,16 @@ class AboutViewController: UIViewController {
         let appBundle = Bundle.main
         self.productTitle = Resources.localizedString("ProductTitle")
         self.copyrightNotice = Resources.localizedString("CopyrightNotice")
-        self.emailAddress = Resources.localizedString("SupportEmail")
+        self.emailButtonFormat = Resources.localizedString("EmailButtonFormat")
+        self.privacyButtonTitle = Resources.localizedString("PrivacyButtonTitle")
 
         let appVersion: String? = appBundle.object(forInfoDictionaryKey: "CFBundleShortVersionString") as? String
         let versionTemplate = Resources.localizedString("VersionTemplate")
         self.versionString = String(format: versionTemplate, appVersion ?? "–")
+
+        let baseUrl = URL(string: self.webSiteAddress)
+        self.webSiteLink = baseUrl
+        self.privacyPolicyLink = baseUrl?.appendingPathComponent(self.privacyPolicyPath, isDirectory: false)
 
         super.init(coder: aDecoder)
     }
@@ -65,10 +79,16 @@ class AboutViewController: UIViewController {
         self.titleLabel.text = self.productTitle
         self.versionLabel.text = self.versionString
         self.copyrightLabel.text = self.copyrightNotice
-        self.contactButton.setTitle(self.emailAddress, for: .normal)
+
+        let emailButtonText = String(format: self.emailButtonFormat, self.emailAddress)
+        self.contactButton.setTitle(emailButtonText, for: .normal)
+
+        self.webSiteButton.setTitle(self.webSiteAddress, for: .normal)
+
+        self.privacyButton.setTitle(self.privacyButtonTitle, for: .normal)
     }
 
-    @IBAction private func onContactEmailTapped(_ sender: UIButton) {
+    @IBAction private func onContactButtonTapped(_ sender: UIButton) {
 
         // Allow the user to send me an email
         guard MFMailComposeViewController.canSendMail() else {
@@ -83,18 +103,26 @@ class AboutViewController: UIViewController {
         composeVC.setToRecipients([self.emailAddress])
 
         // Subject line
-        let emailSubjectTemplate = Resources.localizedString("emailSubjectTemplate")
+        let emailSubjectTemplate = Resources.localizedString("EmailSubjectTemplate")
         let emailSubject = String(format: emailSubjectTemplate, self.productTitle)
         composeVC.setSubject(emailSubject)
 
         // Body is "Version: nnn"
         // Not localised because I need to read it
-        let emailBodyTemplate = Resources.localizedString("emailBodyTemplate")
+        let emailBodyTemplate = Resources.localizedString("EmailBodyTemplate")
         let emailBody = String(format: emailBodyTemplate, self.versionString)
         composeVC.setMessageBody(emailBody, isHTML: false)
 
         // Present the view controller modally.
         self.present(composeVC, animated: true, completion: nil)
+    }
+
+    @IBAction private func onWebSiteButtoTapped(_ sender: UIButton) {
+        UIApplication.shared.open(self.webSiteLink)
+    }
+    
+    @IBAction private func onPrivacyButtonTapped(_ sender: UIButton) {
+        UIApplication.shared.open(self.privacyPolicyLink)
     }
 }
 

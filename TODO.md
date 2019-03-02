@@ -27,4 +27,9 @@
     Choose Set Lock Screen/Set Home Screen/Both
 
 Add Photos step into Wallpaper help image
-Work out best size for iPad image portrait-landscape
+
+
+Next version:
+
+Gradient backgrounds
+Show 'safe area' when desiging on iPad (shows in both portrait and landscape)

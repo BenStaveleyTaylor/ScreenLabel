@@ -72,7 +72,8 @@
 
 "VersionTemplate" = "Version %@";
 "CopyrightNotice" = "Copyright © Ben Staveley-Taylor, 2019. All rights reserved.";
-"SupportEmail" = "bstiosdev@icloud.com";
-"emailSubjectTemplate" = "%@ user email";
-"emailBodyTemplate" = "App Version: %@\n(If possible, please write your email in English 🙂)\n\n* * * * *\n\n";
+"EmailButtonFormat" = "email: %@";
+"EmailSubjectTemplate" = "%@ user email";
+"EmailBodyTemplate" = "App Version: %@\n(If possible, please write your email in English 🙂)\n\n* * * * *\n\n";
+"PrivacyButtonTitle" = "Privacy Policy";
 
