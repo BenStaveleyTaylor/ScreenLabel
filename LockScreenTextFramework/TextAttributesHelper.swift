@@ -11,7 +11,7 @@ import Foundation
 enum TextAttributesHelper {
 
     static var systemFontInternalName = UIFont.systemFont(ofSize: 12).familyName
-    static var systemFontDisplayName = Resources.localizedString("SystemFontDisplayName")
+    static var systemFontDisplayName = Resources.sharedInstance.localizedString("SystemFontDisplayName")
 
     // Return a formatted string to display for a font's size
     // e.g. 12 returns "12 pt"
@@ -19,7 +19,7 @@ enum TextAttributesHelper {
 
         let value = Int(round(size))
 
-        let format = Resources.localizedString("TextSizeValue")
+        let format = Resources.sharedInstance.localizedString("TextSizeValue")
         let text = String(format: format, NSNumber(value: value))
 
         return text

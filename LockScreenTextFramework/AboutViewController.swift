@@ -47,13 +47,13 @@ class AboutViewController: UIViewController {
     required init?(coder aDecoder: NSCoder) {
         // Load the strings
         let appBundle = Bundle.main
-        self.productTitle = Resources.localizedString("ProductTitle")
-        self.copyrightNotice = Resources.localizedString("CopyrightNotice")
-        self.emailButtonFormat = Resources.localizedString("EmailButtonFormat")
-        self.privacyButtonTitle = Resources.localizedString("PrivacyButtonTitle")
+        self.productTitle = Resources.sharedInstance.appName
+        self.copyrightNotice = Resources.sharedInstance.localizedString("CopyrightNotice")
+        self.emailButtonFormat = Resources.sharedInstance.localizedString("EmailButtonFormat")
+        self.privacyButtonTitle = Resources.sharedInstance.localizedString("PrivacyButtonTitle")
 
         let appVersion: String? = appBundle.object(forInfoDictionaryKey: "CFBundleShortVersionString") as? String
-        let versionTemplate = Resources.localizedString("VersionTemplate")
+        let versionTemplate = Resources.sharedInstance.localizedString("VersionTemplate")
         self.versionString = String(format: versionTemplate, appVersion ?? "–")
 
         let baseUrl = URL(string: self.webSiteAddress)
@@ -103,13 +103,13 @@ class AboutViewController: UIViewController {
         composeVC.setToRecipients([self.emailAddress])
 
         // Subject line
-        let emailSubjectTemplate = Resources.localizedString("EmailSubjectTemplate")
+        let emailSubjectTemplate = Resources.sharedInstance.localizedString("EmailSubjectTemplate")
         let emailSubject = String(format: emailSubjectTemplate, self.productTitle)
         composeVC.setSubject(emailSubject)
 
         // Body is "Version: nnn"
         // Not localised because I need to read it
-        let emailBodyTemplate = Resources.localizedString("EmailBodyTemplate")
+        let emailBodyTemplate = Resources.sharedInstance.localizedString("EmailBodyTemplate")
         let emailBody = String(format: emailBodyTemplate, self.versionString)
         composeVC.setMessageBody(emailBody, isHTML: false)
 

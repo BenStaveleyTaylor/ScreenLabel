@@ -100,12 +100,12 @@ class ColorPickerViewController: UIViewController {
         super.viewDidLoad()
 
         // Set the labels
-        self.afterLabel.text = Resources.localizedString("ColourAfterTitle")
-        self.beforeLabel.text = Resources.localizedString("ColourBeforeTitle")
-        self.darkerLabel.text = Resources.localizedString("ColourDarkerTitle")
-        self.lighterLabel.text = Resources.localizedString("ColourLighterTitle")
-        self.clearerLabel.text = Resources.localizedString("ColourClearerTitle")
-        self.opaquerLabel.text = Resources.localizedString("ColourOpaquerTitle")
+        self.afterLabel.text = Resources.sharedInstance.localizedString("ColourAfterTitle")
+        self.beforeLabel.text = Resources.sharedInstance.localizedString("ColourBeforeTitle")
+        self.darkerLabel.text = Resources.sharedInstance.localizedString("ColourDarkerTitle")
+        self.lighterLabel.text = Resources.sharedInstance.localizedString("ColourLighterTitle")
+        self.clearerLabel.text = Resources.sharedInstance.localizedString("ColourClearerTitle")
+        self.opaquerLabel.text = Resources.sharedInstance.localizedString("ColourOpaquerTitle")
 
         // Set borders on all color swatches
         for swatch in self.swatchesStack.subviews {

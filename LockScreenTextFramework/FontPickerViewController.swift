@@ -16,7 +16,7 @@ protocol FontPickerViewControllerDelegate: AnyObject {
 
 class FontPickerViewController: UITableViewController {
 
-    let sampleText = Resources.localizedString("FontPickerSample")
+    let sampleText = Resources.sharedInstance.localizedString("FontPickerSample")
 
     var selectedFontInternalName: String?
 

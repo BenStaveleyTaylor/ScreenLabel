@@ -6,15 +6,11 @@
   Copyright © 2018 Ben Staveley-Taylor. All rights reserved.
 */
 
-"ProductTitle" = "Screen Label";
-
 "HelpButtonText" = "Help";
 
 "MessagePromptText" = "Tap this label to change it\nDrag it up or down\n\nMore help from the title bar";
 
-"MessagePlaceholderText" = "Examples:\n“If found please call 01234 567890”\n“Physics Lab iPad 1”";
-
-"ActivitySubjectDescription" = "Image prepared by the %@ app";
+"MessagePlaceholderText" = "Examples:\n“If found please call 01234 567890”\n“Language Lab @DeviceName@ 1”";
 
 "BleedStyleLabel" = "Add Perspective Margins";
 
@@ -34,7 +30,7 @@
 
 "HowToSetWallpaperBody" = "Open Settings > Wallpaper and do “Choose a New Wallpaper” then “Set Lock Screen”.\n\nYou will find your image in the Camera Roll.";
 
-"PhotosAccessDenied" = "This app is blocked from accessing your Photos library. To fix this, open Settings > Screen Label, choose Photos, and allow Read and Write access.";
+"PhotosAccessDenied" = "This app is blocked from accessing your Photos library. To fix this, open Settings > @AppName@, choose Photos, and allow Read and Write access.";
 
 "OK" = "OK";
 
@@ -46,7 +42,7 @@
 
 "TextSizeValue" = "%@ pts";
 
-"FontPickerSample" = "The quick brown fox jumps over the lazy dog 1234567890";
+"FontPickerSample" = "Jackdaws love my big sphinx of quartz 1234567890";
 
 "SystemFontDisplayName" = "System Font";
 

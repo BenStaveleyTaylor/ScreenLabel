@@ -56,9 +56,9 @@ class TextAttributesViewController: UIViewController {
         self.boxColorSwatchView.setBorder()
         self.textColorSwatchView.setBorder()
 
-        self.messagePlaceholder.text = Resources.localizedString("MessagePlaceholderText")
+        self.messagePlaceholder.text = Resources.sharedInstance.localizedString("MessagePlaceholderText")
 
-        self.title = Resources.localizedString("TextAttributesEditorTitle")
+        self.title = Resources.sharedInstance.localizedString("TextAttributesEditorTitle")
 
         self.loadSettings()
     }
@@ -96,9 +96,9 @@ class TextAttributesViewController: UIViewController {
 
     @IBAction private func onFactorySettingsTapped(_ sender: Any) {
 
-        let questionText = Resources.localizedString("ResetToDefaultsConfirmation")
-        let agreeText = Resources.localizedString("ResetToDefaultsResetAction")
-        let cancelText = Resources.localizedString("Cancel")
+        let questionText = Resources.sharedInstance.localizedString("ResetToDefaultsConfirmation")
+        let agreeText = Resources.sharedInstance.localizedString("ResetToDefaultsResetAction")
+        let cancelText = Resources.sharedInstance.localizedString("Cancel")
 
         // Confirm with the user as this is destructive
         UIAlertController.askForAgreement(from: self,
@@ -128,7 +128,7 @@ class TextAttributesViewController: UIViewController {
             return
         }
 
-        let colorPickerVC = ColorPickerViewController(title: Resources.localizedString("PickColorTitle"),
+        let colorPickerVC = ColorPickerViewController(title: Resources.sharedInstance.localizedString("PickColorTitle"),
                                                       startingColor: anchorView.swatchColor ?? UIColor.white,
                                                       delegate: self)
 
@@ -196,31 +196,31 @@ class TextAttributesViewController: UIViewController {
 
         assert(self.settingsCoordinator != nil, "No settings to edit")
 
-        self.textLabel.text = Resources.localizedString("MessageLabel")
+        self.textLabel.text = Resources.sharedInstance.localizedString("MessageLabel")
         self.messageTextView.text = self.settingsCoordinator.message
 
-        self.textSizeLabel.text = Resources.localizedString("TextSizeLabel")
+        self.textSizeLabel.text = Resources.sharedInstance.localizedString("TextSizeLabel")
         self.textSizeValueLabel.text = TextAttributesHelper.displayTextForPointSize(self.settingsCoordinator.textFont.pointSize)
         self.textSizeSlider.stepValue = lround(self.settingsCoordinator.textFont.pointSize.native)
 
-        self.textFontLabel.text = Resources.localizedString("TextFontLabel")
+        self.textFontLabel.text = Resources.sharedInstance.localizedString("TextFontLabel")
 
         let internalFontName =  self.settingsCoordinator.textFont.familyName
         self.textFontName.text = TextAttributesHelper.fontDisplayNameFrom(internalName: internalFontName)
 
-        self.textStyleLabel.text = Resources.localizedString("TextStyleLabel")
+        self.textStyleLabel.text = Resources.sharedInstance.localizedString("TextStyleLabel")
 
-        self.textColorLabel.text = Resources.localizedString("TextColorLabel")
+        self.textColorLabel.text = Resources.sharedInstance.localizedString("TextColorLabel")
         self.textColorSwatchView.swatchColor = self.settingsCoordinator.textColor
 
-        self.boxColorLabel.text = Resources.localizedString("BoxColorLabel")
+        self.boxColorLabel.text = Resources.sharedInstance.localizedString("BoxColorLabel")
         self.boxColorSwatchView.swatchColor = self.settingsCoordinator.boxColor
 
-        self.bleedStyleLabel.text = Resources.localizedString("BleedStyleLabel")
-        self.bleedStyleHelpLabel.text = Resources.localizedString("BleedStyleHelpText")
+        self.bleedStyleLabel.text = Resources.sharedInstance.localizedString("BleedStyleLabel")
+        self.bleedStyleHelpLabel.text = Resources.sharedInstance.localizedString("BleedStyleHelpText")
         self.bleedStyleSwitch.isOn = (self.settingsCoordinator.imageBleedStyle == .perspective)
 
-        self.factorySettingsButton.setTitle(Resources.localizedString("FactorySettings"), for: .normal)
+        self.factorySettingsButton.setTitle(Resources.sharedInstance.localizedString("FactorySettings"), for: .normal)
 
         self.updatePlaceholderTextVisibility()
     }

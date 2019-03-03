@@ -132,13 +132,13 @@ class SettingsCoordinator: NSObject {
         if let error = error {
             os_log("Error saving image to Photos (%@)", "\(error)")
 
-            AlertUtilities.showMessage(title: Resources.localizedString("FailedAlertTitle"),
+            AlertUtilities.showMessage(title: Resources.sharedInstance.localizedString("FailedAlertTitle"),
                                        body: error.localizedDescription)
         } else {
-            AlertUtilities.showMessage(title: Resources.localizedString("SavedAlertTitle"),
-                                       body: Resources.localizedString("HowToSetWallpaperBody"),
-                                       button1Text: Resources.localizedString("MoreWallpaperHelp"),
-                                       button2Text: Resources.localizedString("OK")) { choice in
+            AlertUtilities.showMessage(title: Resources.sharedInstance.localizedString("SavedAlertTitle"),
+                                       body: Resources.sharedInstance.localizedString("HowToSetWallpaperBody"),
+                                       button1Text: Resources.sharedInstance.localizedString("MoreWallpaperHelp"),
+                                       button2Text: Resources.sharedInstance.localizedString("OK")) { choice in
 
                                         if choice == 1 {
                                             // Show more help about setting the wallpaper
@@ -311,10 +311,10 @@ extension SettingsCoordinator: SettingsCoordinatorProtocol {
                                                nil)
             }
             else {
-                AlertUtilities.showMessage(title: Resources.localizedString("FailedAlertTitle"),
-                                           body: Resources.localizedString("PhotosAccessDenied"),
-                                           button1Text: Resources.localizedString("OpenSettings"),
-                                           button2Text: Resources.localizedString("OK"),
+                AlertUtilities.showMessage(title: Resources.sharedInstance.localizedString("FailedAlertTitle"),
+                                           body: Resources.sharedInstance.localizedString("PhotosAccessDenied"),
+                                           button1Text: Resources.sharedInstance.localizedString("OpenSettings"),
+                                           button2Text: Resources.sharedInstance.localizedString("OK"),
                                            fromViewController: presentingVC) { choice in
 
                                             if choice == 1 {

@@ -1,35 +1,44 @@
 #  TODO
 
-√ Toolbar icons
-√ Move perspective button to settings
-√ Confirm reset to defaults
-√ ish Save: Detect access denied and show a better error
-√ Support drag and zoom of main image
-√ Change Camera image for a photo image
-√ Add explicit settings button in toolbar
-√ Bug: reset does not clear selected photo
-√ Bug: zoom and scroll is all screwed
-√ Double-tap to reset zoom
-√ Bug: Dragging label is clunky
-√ Remove PromiseKit
-√ Add colour wheel code to darken wheel in preview
-√ Create Changelog.MD file
-√ Make email address hot in About
-√ Open Help at specific page
-√ Make nav bar theme green
-√ Add dismiss keyboard button to Text Settings
-√ Create real help content
+## Before initial release
+
+- [x] Toolbar icons
+- [x] Move perspective button to settings
+- [x] Confirm reset to defaults
+- [x] ish Save: Detect access denied and show a better error
+- [x] Support drag and zoom of main image
+- [x] Change Camera image for a photo image
+- [x] Add explicit settings button in toolbar
+- [x] Bug: reset does not clear selected photo
+- [x] Bug: zoom and scroll is all screwed
+- [x] Double-tap to reset zoom
+- [x] Bug: Dragging label is clunky
+- [x] Remove PromiseKit
+- [x] Add colour wheel code to darken wheel in preview
+- [x] Create Changelog.MD file
+- [x] Make email address hot in About
+- [x] Open Help at specific page
+- [x] Make nav bar theme green
+- [x] Add dismiss keyboard button to Text Settings
+- [x] Create real help content
     Setting Wallpaper: Exact steps are:
     Settings > Wallpaper > Choose a New Wallpaper 
     Tap Camera Roll, tap most recent photo
     [Choose Perspective (Still is the default)]
     Tap Set
     Choose Set Lock Screen/Set Home Screen/Both
+- [x] Add Photos step into Wallpaper help image
+- [x] Beef up web site to show larger text on mobile
 
-Add Photos step into Wallpaper help image
+- [ ] Add detail to 1024 app icon
+- [ ] Increase height of help form on iPad
+- [ ] Try a more yellow background (icon and app view)
+- [ ] Add ratings request every 3 months
+- [ ] Auto-insert product name and device type in strings
+- [ ] Review privacy statment
+- [ ] Add app store link to home page
 
+## Next version
 
-Next version:
-
-Gradient backgrounds
-Show 'safe area' when desiging on iPad (shows in both portrait and landscape)
+- [ ] Gradient backgrounds (in-app purchase)
+- [ ] Show 'safe area' when desiging on iPad (shows in both portrait and landscape)

@@ -21,13 +21,13 @@ class ResourcesTests: XCTestCase {
 
     func testReadStringInDefaultTable() {
 
-        let value = Resources.localizedString("SystemFontDisplayName")
+        let value = Resources.sharedInstance.localizedString("SystemFontDisplayName")
         XCTAssertEqual(value, "System Font")
     }
 
     func testReadStringInNamedTable() {
 
-        let value = Resources.localizedString("HelpTitle1", tableName: "Help")
+        let value = Resources.sharedInstance.localizedString("HelpTitle1", tableName: "Help")
         XCTAssertEqual(value, "Help Page 1")
 
     }

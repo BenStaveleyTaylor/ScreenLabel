@@ -35,17 +35,17 @@ class HelpManager: NSObject {
             let imageKey = self.helpImageBase + suffix
             let textKey = self.helpTextBase + suffix
 
-            let title = Resources.localizedString(titleKey, tableName: HelpManager.helpStringsTable)
+            let title = Resources.sharedInstance.localizedString(titleKey, tableName: HelpManager.helpStringsTable)
             if title == Resources.notFound {
                 break
             }
 
             // Try a .jpg image, then png
-            var image = Resources.image(named: helpImagesFolder + "/" + imageKey + ".jpg")
+            var image = Resources.sharedInstance.image(named: helpImagesFolder + "/" + imageKey + ".jpg")
             if image == nil {
-                image = Resources.image(named: helpImagesFolder + "/" + imageKey + ".png")
+                image = Resources.sharedInstance.image(named: helpImagesFolder + "/" + imageKey + ".png")
             }
-            let text = Resources.localizedString(textKey, tableName: HelpManager.helpStringsTable)
+            let text = Resources.sharedInstance.localizedString(textKey, tableName: HelpManager.helpStringsTable)
 
             let vc = HelpPageController.create(title: title, image: image, text: text)
             self.pages.append(vc)
@@ -76,7 +76,7 @@ class HelpManager: NSObject {
 
     // The text to be displayed as the title of a help page
     func titleFor(viewController: UIViewController) -> String {
-        let template = Resources.localizedString("HelpNavTitleTemplate", tableName: HelpManager.helpStringsTable)
+        let template = Resources.sharedInstance.localizedString("HelpNavTitleTemplate", tableName: HelpManager.helpStringsTable)
 
         // Insert current and total page numbers
         let currentPageIndex = self.indexFor(viewController: viewController) ?? NSNotFound
