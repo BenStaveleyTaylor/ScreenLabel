@@ -94,6 +94,7 @@ class ImagePreviewController: UIViewController {
 
         let colorPickerVC = ColorPickerViewController(title: Resources.sharedInstance.localizedString("PickBackgroundColorTitle"),
                                                       startingColor: self.settingsCoordinator.imageBackgroundColor,
+                                                      allowTransparency: false,
                                                       delegate: self)
 
         // Present as a popover on iPad, or push on iPhone

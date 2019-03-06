@@ -38,7 +38,8 @@ class ColorPickerViewController: UIViewController {
     @IBOutlet private weak var beforeLabel: UILabel!
     @IBOutlet private weak var afterSwatch: TranslucentColorSwatchView!
     @IBOutlet private weak var afterLabel: UILabel!
-
+    @IBOutlet private weak var transparencyControlsStack: UIStackView!
+    
     // MARK: Other properties
     var settingsInitialised: Bool = false
 
@@ -66,24 +67,33 @@ class ColorPickerViewController: UIViewController {
     }
     weak var delegate: ColorPickerViewControllerDelegate?
 
-    var startingColor: UIColor?
+    var startingColor: UIColor
+    var allowTransparency: Bool
 
     lazy var colorWheelImageData: CFData? = self.colorWheelImageView.image?.cgImage?.dataProvider?.data
 
     // MARK: View lifecycle
 
-    convenience init(title: String,
-                     startingColor: UIColor,
-                     delegate: ColorPickerViewControllerDelegate?) {
+    init(title: String,
+         startingColor: UIColor,
+         allowTransparency: Bool,
+         delegate: ColorPickerViewControllerDelegate?) {
+
+        self.startingColor = startingColor
+        self.allowTransparency = allowTransparency
+        self.delegate = delegate
 
         let selfClass = type(of: self)
         let className = String(describing: selfClass)
         let bundle = Bundle(for: selfClass)
-        self.init(nibName: className, bundle: bundle)
+        super.init(nibName: className, bundle: bundle)
 
         self.title = title
-        self.startingColor = startingColor
-        self.delegate = delegate
+    }
+
+    @available(iOS, unavailable)
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
 
     // This allows the xib-based ViewController to be referenced in a Storyboard
@@ -115,10 +125,11 @@ class ColorPickerViewController: UIViewController {
         self.afterSwatch.setBorder()
 
         // Start with no color change
-        if let startingColor = self.startingColor {
-            self.beforeColor = startingColor
-            self.selectedColor = startingColor
-        }
+        self.beforeColor = self.startingColor
+        self.selectedColor = self.startingColor
+
+        // Hide transparency controls if appropriate
+        self.transparencyControlsStack.isHidden = !self.allowTransparency
 
         // Turn the brightness slider from horizontal to vertical
         self.brightnessSlider.transform = CGAffineTransform(rotationAngle: .pi / -2)

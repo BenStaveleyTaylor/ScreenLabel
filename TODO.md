@@ -34,9 +34,15 @@
 - [ ] Increase height of help form on iPad
 - [ ] Try a more yellow background (icon and app view)
 - [ ] Add ratings request every 3 months
-- [ ] Auto-insert product name and device type in strings
+- [x] Auto-insert product name and device type in strings
 - [ ] Review privacy statment
 - [ ] Add app store link to home page
+- [x] Remove Transparency option from background colour picker
+- [ ] Make Font line more obviously clickable.
+
+## Testing
+Public link:
+- v0.1: https://testflight.apple.com/join/bvkWu3Vn
 
 ## Next version
 

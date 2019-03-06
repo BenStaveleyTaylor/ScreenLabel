@@ -24,6 +24,7 @@
                 <outlet property="lighterLabel" destination="Rxj-co-dhW" id="s36-Xb-OY7"/>
                 <outlet property="opaquerLabel" destination="mdc-CS-ttv" id="NZy-BG-c1x"/>
                 <outlet property="swatchesStack" destination="GMn-fm-Q8b" id="Qof-F5-nbi"/>
+                <outlet property="transparencyControlsStack" destination="dxh-Bz-ePv" id="Hiq-Og-kN6"/>
                 <outlet property="transparencySlider" destination="apa-ww-LVC" id="QC3-Em-kej"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
