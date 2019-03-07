@@ -95,10 +95,10 @@
             </objects>
             <point key="canvasLocation" x="2836" y="-756.07196401799104"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--Help Navigation Controller-->
         <scene sceneID="E1k-Xr-XKw">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="c6A-so-qHx" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="c6A-so-qHx" customClass="HelpNavigationController" customModule="LockScreenTextFramework" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translucent="NO" id="HK6-BG-89x">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>

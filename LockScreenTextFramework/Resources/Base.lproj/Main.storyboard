@@ -287,13 +287,13 @@
                                                         <rect key="frame" x="20" y="200" width="335" height="30"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" ambiguous="YES" text="&lt;text font&gt;" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oB8-eR-2jT">
-                                                                <rect key="frame" x="0.0" y="0.0" width="182.5" height="30"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="85" height="30"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                 <nil key="textColor"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="&lt;font name&gt;" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="emB-lV-U3A">
-                                                                <rect key="frame" x="194.5" y="0.0" width="98.5" height="30"/>
+                                                                <rect key="frame" x="97" y="0.0" width="98.5" height="30"/>
                                                                 <accessibility key="accessibilityConfiguration">
                                                                     <accessibilityTraits key="traits" button="YES"/>
                                                                 </accessibility>
@@ -302,7 +302,7 @@
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <button opaque="NO" userInteractionEnabled="NO" contentMode="center" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4Pm-t5-Ccr">
-                                                                <rect key="frame" x="305" y="0.0" width="30" height="30"/>
+                                                                <rect key="frame" x="207.5" y="0.0" width="127.5" height="30"/>
                                                                 <state key="normal" image="RightChevron"/>
                                                             </button>
                                                         </subviews>

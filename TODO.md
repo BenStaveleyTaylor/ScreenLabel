@@ -31,14 +31,15 @@
 - [x] Beef up web site to show larger text on mobile
 
 - [ ] Add detail to 1024 app icon
-- [ ] Increase height of help form on iPad
+- [ ] Use smaller default text on phone
+- [x] Increase height of help form on iPad
 - [ ] Try a more yellow background (icon and app view)
 - [ ] Add ratings request every 3 months
 - [x] Auto-insert product name and device type in strings
 - [ ] Review privacy statment
 - [ ] Add app store link to home page
 - [x] Remove Transparency option from background colour picker
-- [ ] Make Font line more obviously clickable.
+- [x] Make Font line more obviously clickable.
 
 ## Testing
 Public link:
