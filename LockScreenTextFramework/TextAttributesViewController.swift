@@ -210,6 +210,7 @@ class TextAttributesViewController: UIViewController {
         self.textFontName.text = TextAttributesHelper.fontDisplayNameFrom(internalName: internalFontName)
 
         self.textStyleLabel.text = Resources.sharedInstance.localizedString("TextStyleLabel")
+        self.textStyleSegmentControl.selectedSegmentIndex = TextAttributesHelper.styleSegmentIndexFrom(textStyle: self.settingsCoordinator.textStyle)
 
         self.textColorLabel.text = Resources.sharedInstance.localizedString("TextColorLabel")
         self.textColorSwatchView.swatchColor = self.settingsCoordinator.textColor
@@ -234,6 +235,9 @@ class TextAttributesViewController: UIViewController {
         self.settingsCoordinator.message = self.messageTextView.text
 
         let size = self.textSizeSlider.stepValue
+
+        let selectedSegmentIndex = self.textStyleSegmentControl.selectedSegmentIndex
+        self.settingsCoordinator.textStyle = TextAttributesHelper.textStyleFrom(styleSegmentIndex: selectedSegmentIndex)
 
         if let newFontName = self.textFontName.text,
             let newFont = UIFont(name: newFontName, size: CGFloat(size)) {

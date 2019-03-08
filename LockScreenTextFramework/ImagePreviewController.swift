@@ -347,7 +347,24 @@ extension ImagePreviewController: SettingsCoordinatorViewDelegate {
         self.textLabel.text = message
 
         self.textLabel.textColor = coordinator.textColor
-        self.textLabel.font = coordinator.textFont
+
+        var font = coordinator.textFont
+        // Derive the right style
+        switch coordinator.textStyle {
+        case .bold:
+            font = font.bold
+
+        case .italic:
+            font = font.italic
+
+        case.boldItalic:
+            font = font.boldItalic
+
+        default:
+            break
+        }
+
+        self.textLabel.font = font
 
         self.textBoxView.layer.backgroundColor = coordinator.boxColor.cgColor
         self.textBoxView.layer.borderWidth = coordinator.boxBorderWidth

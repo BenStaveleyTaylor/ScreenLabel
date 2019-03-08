@@ -28,12 +28,13 @@ struct SettingItems: OptionSet {
     static let scrollOffset         = SettingItems(rawValue: 1 << 3)    // 8
     static let message              = SettingItems(rawValue: 1 << 4)    // 16
     static let textFont             = SettingItems(rawValue: 1 << 5)    // 32
-    static let textColor            = SettingItems(rawValue: 1 << 6)    // 64
-    static let boxColor             = SettingItems(rawValue: 1 << 7)    // 128
-    static let boxBorderWidth       = SettingItems(rawValue: 1 << 8)    // 256
-    static let boxCornerRadius      = SettingItems(rawValue: 1 << 9)    // 512
-    static let boxYCentreOffset     = SettingItems(rawValue: 1 << 10)   // 1024
-    static let image                = SettingItems(rawValue: 1 << 11)   // 2048
+    static let textStyle            = SettingItems(rawValue: 1 << 6)    // 64
+    static let textColor            = SettingItems(rawValue: 1 << 7)    // 128
+    static let boxColor             = SettingItems(rawValue: 1 << 8)    // 256
+    static let boxBorderWidth       = SettingItems(rawValue: 1 << 9)    // 512
+    static let boxCornerRadius      = SettingItems(rawValue: 1 << 10)   // 1024
+    static let boxYCentreOffset     = SettingItems(rawValue: 1 << 11)   // 2048
+    static let image                = SettingItems(rawValue: 1 << 12)   // 4096
 
     // Cop-out with all bits set if we can't be sure what specifically changed
     static let all: SettingItems = [
@@ -43,6 +44,7 @@ struct SettingItems: OptionSet {
         .scrollOffset,
         .message,
         .textFont,
+        .textStyle,
         .textColor,
         .boxColor,
         .boxBorderWidth,
@@ -61,6 +63,7 @@ protocol SettingsCoordinatorProtocol {
     var scrollOffset: CGPoint { get set }
     var message: String { get set }
     var textFont: UIFont { get set }
+    var textStyle: TextStyle { get set }
     var textColor: UIColor { get set }
     var boxColor: UIColor { get set }
     var boxBorderWidth: CGFloat { get set }
@@ -212,6 +215,16 @@ extension SettingsCoordinator: SettingsCoordinatorProtocol {
         set {
             self.settings.textFont = newValue
             self.settingsDidChange([.textFont])
+        }
+    }
+
+    var textStyle: TextStyle {
+        get {
+            return self.settings.textStyle
+        }
+        set {
+            self.settings.textStyle = newValue
+            self.settingsDidChange([.textStyle])
         }
     }
 

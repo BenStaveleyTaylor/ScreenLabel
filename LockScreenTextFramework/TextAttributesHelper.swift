@@ -44,4 +44,40 @@ enum TextAttributesHelper {
 
         return displayName
     }
+
+    static func styleSegmentIndexFrom(textStyle: TextStyle) -> Int {
+
+        switch textStyle {
+        case .plain:
+            return 0
+
+        case .bold:
+            return 1
+
+        case .italic:
+            return 2
+
+        case .boldItalic:
+            return 3
+        }
+
+    }
+
+    static func textStyleFrom(styleSegmentIndex: Int) -> TextStyle {
+
+        switch styleSegmentIndex {
+        case 1:
+            return .bold
+
+        case 2:
+            return .italic
+
+        case 3:
+            return .boldItalic
+
+        default:
+            return .plain
+        }
+
+    }
 }

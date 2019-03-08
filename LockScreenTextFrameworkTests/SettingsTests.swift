@@ -35,6 +35,7 @@ class SettingsTests: XCTestCase {
                                 scrollOffset: CGPoint(x: 123, y: 456),
                                 message: "Expect the unexpected",
                                 textFont: testFont,
+                                textStyle: .boldItalic,
                                 textAlignment: .right,
                                 textColor: UIColor.green,
                                 boxColor: UIColor.blue,
@@ -62,7 +63,8 @@ class SettingsTests: XCTestCase {
         XCTAssertEqual(settings.scrollOffset, checkSettings!.scrollOffset)
         XCTAssertEqual(settings.message, checkSettings!.message)
         XCTAssertEqual(settings.textFont, checkSettings!.textFont)
-        XCTAssertEqual(settings.textAlignment, checkSettings!.textAlignment)
+        XCTAssertEqual(settings.textFont, checkSettings!.textFont)
+        XCTAssertEqual(settings.textStyle, checkSettings!.textStyle)
         XCTAssertEqual(settings.textColor, checkSettings!.textColor)
         XCTAssertEqual(settings.boxColor, checkSettings!.boxColor)
         XCTAssertEqual(settings.boxBorderWidth, checkSettings!.boxBorderWidth)

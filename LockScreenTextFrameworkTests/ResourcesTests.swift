@@ -28,7 +28,7 @@ class ResourcesTests: XCTestCase {
     func testReadStringInNamedTable() {
 
         let value = Resources.sharedInstance.localizedString("HelpTitle1", tableName: "Help")
-        XCTAssertEqual(value, "Help Page 1")
+        XCTAssertEqual(value, "Label your phone with Screen Label")
 
     }
 

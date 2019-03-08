@@ -10,6 +10,9 @@ import UIKit
 import os.log
 
 // Data model
+enum TextStyle: Int, Codable {
+    case plain, bold, italic, boldItalic
+}
 
 enum BleedStyle: Int, Codable {
     case still, perspective
@@ -37,7 +40,10 @@ struct Settings: Codable {
     // The text of the message
     var message: String
 
+    // The stored font is always the plain style
+    // Selected style variations are computed from that
     var textFont: UIFont
+    var textStyle: TextStyle
     var textAlignment: NSTextAlignment
     var textColor: UIColor
 
@@ -60,6 +66,7 @@ struct Settings: Codable {
         case scrollOffset
         case message
         case textFont
+        case textStyle
         case textAlignment
         case textColor
         case boxColor
@@ -71,6 +78,16 @@ struct Settings: Codable {
 
     // Set up defaults
     init() {
+
+        // Use a smaller text size on phone
+        let defaultTextFont: UIFont
+        if DeviceUtilities.isCompactDevice {
+            defaultTextFont = .preferredFont(forTextStyle: .footnote)   // 13pt
+        }
+        else {
+            defaultTextFont = .preferredFont(forTextStyle: .body)       // 17pt
+        }
+
         self.init(version: Settings.currentVersion,
                   imageName: nil,           // Nil imageName means it's a plain colour lock screen (background colour only)
                   imageBackgroundColor: UIColor(named: "EmptyBackgroundColor") ?? .white,
@@ -78,7 +95,8 @@ struct Settings: Codable {
                   scrollScale: 1.0,
                   scrollOffset: .zero,
                   message: "",
-                  textFont: .preferredFont(forTextStyle: .body),
+                  textFont: defaultTextFont,
+                  textStyle: .plain,
                   textAlignment: .center,
                   textColor: .white,
                   boxColor: UIColor(white: 0, alpha: 0.5),
@@ -97,6 +115,7 @@ struct Settings: Codable {
          scrollOffset: CGPoint,
          message: String,
          textFont: UIFont,
+         textStyle: TextStyle,
          textAlignment: NSTextAlignment,
          textColor: UIColor,
          boxColor: UIColor,
@@ -113,6 +132,7 @@ struct Settings: Codable {
         self.scrollOffset =             scrollOffset
         self.message =                  message
         self.textFont =                 textFont
+        self.textStyle =                textStyle
         self.textAlignment =            textAlignment
         self.textColor =                textColor
         self.boxColor =                 boxColor
@@ -140,6 +160,7 @@ struct Settings: Codable {
 
         let codableTextFont =       try? container.decode(CodableFont.self, forKey: .textFont)
         let textFont =              codableTextFont?.toUIFont()
+        let textStyle =             try? container.decode(TextStyle.self, forKey: .textStyle)
 
         var textAlignment: NSTextAlignment?
         if let rawTextAlignment =   try? container.decode(Int.self, forKey: .textAlignment) {
@@ -162,6 +183,7 @@ struct Settings: Codable {
                   scrollOffset: scrollOffset                    ?? Settings.defaults.scrollOffset,
                   message: message                              ?? Settings.defaults.message,
                   textFont: textFont                            ?? Settings.defaults.textFont,
+                  textStyle: textStyle                          ?? Settings.defaults.textStyle,
                   textAlignment: textAlignment                  ?? Settings.defaults.textAlignment,
                   textColor: textColor                          ?? Settings.defaults.textColor,
                   boxColor: boxColor                            ?? Settings.defaults.boxColor,
@@ -182,6 +204,7 @@ struct Settings: Codable {
         try container.encode(self.scrollOffset, forKey: .scrollOffset)
         try container.encode(self.message, forKey: .message)
         try container.encode(CodableFont(uiFont: self.textFont), forKey: .textFont)
+        try container.encode(self.textStyle, forKey: .textStyle)
         try container.encode(self.textAlignment.rawValue, forKey: .textAlignment)
         try container.encode(CodableColor(uiColor: self.textColor), forKey: .textColor)
         try container.encode(CodableColor(uiColor: self.boxColor), forKey: .boxColor)
