@@ -30,10 +30,10 @@
 - [x] Add Photos step into Wallpaper help image
 - [x] Beef up web site to show larger text on mobile
 
-- [ ] Add detail to 1024 app icon
-- [ ] Use smaller default text on phone
+- [~ ] Try a more yellow background (icon and app view)
+- [ ~] Add detail to 1024 app icon
+- [x] Use smaller default text on phone
 - [x] Increase height of help form on iPad
-- [ ] Try a more yellow background (icon and app view)
 - [ ] Add ratings request every 3 months
 - [x] Auto-insert product name and device type in strings
 - [ ] Review privacy statment
@@ -44,6 +44,11 @@
 ## Testing
 Public link:
 - v0.1: https://testflight.apple.com/join/bvkWu3Vn
+
+## TODO a new release
+ - Bump Info.plist version
+ - Add to CHANGELOG.md
+ - Make a git tag: leave this until after App Store acceptance
 
 ## Next version
 
