@@ -79,9 +79,16 @@ class ColorPickerViewController: UIViewController {
          allowTransparency: Bool,
          delegate: ColorPickerViewControllerDelegate?) {
 
-        self.startingColor = startingColor
         self.allowTransparency = allowTransparency
         self.delegate = delegate
+
+        // If transparency is not allowed, change the starting alpha to 1
+        if allowTransparency {
+            self.startingColor = startingColor
+        }
+        else {
+            self.startingColor = startingColor.withAlphaComponent(1.0)
+        }
 
         let selfClass = type(of: self)
         let className = String(describing: selfClass)
@@ -192,6 +199,11 @@ class ColorPickerViewController: UIViewController {
 
         if let selectedColor = maybeColor {
             self.selectedColor = selectedColor
+
+            // Update the colour wheel
+            var brightness: CGFloat = 0
+            selectedColor.getHue(nil, saturation: nil, brightness: &brightness, alpha: nil)
+            self.colorWheelImageView.brightness = brightness
         }
     }
 

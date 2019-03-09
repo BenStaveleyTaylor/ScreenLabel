@@ -31,15 +31,16 @@
 - [x] Beef up web site to show larger text on mobile
 
 - [~ ] Try a more yellow background (icon and app view)
-- [ ~] Add detail to 1024 app icon
+- [~] Add detail to 1024 app icon
 - [x] Use smaller default text on phone
 - [x] Increase height of help form on iPad
-- [ ] Add ratings request every 3 months
+- [x] Add ratings request every 3 months
 - [x] Auto-insert product name and device type in strings
 - [ ] Review privacy statment
 - [ ] Add app store link to home page
 - [x] Remove Transparency option from background colour picker
 - [x] Make Font line more obviously clickable.
+- [x] Complete Test Style feature
 
 ## Testing
 Public link:
@@ -54,3 +55,4 @@ Public link:
 
 - [ ] Gradient backgrounds (in-app purchase)
 - [ ] Show 'safe area' when desiging on iPad (shows in both portrait and landscape)
+- [ ] line space control

@@ -90,7 +90,7 @@ struct Settings: Codable {
 
         self.init(version: Settings.currentVersion,
                   imageName: nil,           // Nil imageName means it's a plain colour lock screen (background colour only)
-                  imageBackgroundColor: UIColor(named: "EmptyBackgroundColor") ?? .white,
+                  imageBackgroundColor: UIColor(white: 1.0, alpha: 0),
                   imageBleedStyle: .still,
                   scrollScale: 1.0,
                   scrollOffset: .zero,

@@ -39,6 +39,9 @@ class ImagePreviewController: UIViewController {
     @IBOutlet private weak var imageViewWidthConstraint: NSLayoutConstraint!
     @IBOutlet private weak var imageViewHeightConstraint: NSLayoutConstraint!
 
+    // Background when no image is set
+    @IBOutlet private weak var watermarkImageView: UIImageView!
+
     // Local properties
     private var settingsCoordinator: SettingsCoordinatorProtocol!
     private var colorDidChange: Bool = false
@@ -348,23 +351,9 @@ extension ImagePreviewController: SettingsCoordinatorViewDelegate {
 
         self.textLabel.textColor = coordinator.textColor
 
-        var font = coordinator.textFont
-        // Derive the right style
-        switch coordinator.textStyle {
-        case .bold:
-            font = font.bold
-
-        case .italic:
-            font = font.italic
-
-        case.boldItalic:
-            font = font.boldItalic
-
-        default:
-            break
-        }
-
-        self.textLabel.font = font
+        let baseFont = coordinator.textFont
+        let textStyle = coordinator.textStyle
+        self.textLabel.font = textStyle.applyToFont(baseFont)
 
         self.textBoxView.layer.backgroundColor = coordinator.boxColor.cgColor
         self.textBoxView.layer.borderWidth = coordinator.boxBorderWidth

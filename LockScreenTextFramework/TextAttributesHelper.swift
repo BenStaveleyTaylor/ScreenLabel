@@ -81,3 +81,24 @@ enum TextAttributesHelper {
 
     }
 }
+
+extension TextStyle {
+    
+    func applyToFont(_ baseFont: UIFont) -> UIFont {
+
+        // Derive the right style
+        switch self {
+        case .bold:
+            return baseFont.bold
+
+        case .italic:
+            return baseFont.italic
+
+        case.boldItalic:
+            return baseFont.boldItalic
+
+        default:
+            return baseFont
+        }
+    }
+}
