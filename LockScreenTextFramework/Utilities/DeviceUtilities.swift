@@ -13,12 +13,14 @@ enum DeviceUtilities {
 
     // Regardless of the size of the current view, is the device compact, i.e. iPhone-alike?
     static var isCompactDevice: Bool {
-        return UIDevice.current.userInterfaceIdiom == .phone
+        // Screen width of < 400px is deemed compact
+        let size = self.appScreenSize
+        return size.width < 400 || size.height < 400
     }
 
     // Regardless of the size of the current view, is the device regular, i.e. iPad-alike?
     static var isRegularDevice: Bool {
-        return UIDevice.current.userInterfaceIdiom == .pad
+        return !self.isCompactDevice
     }
 
     // Get the total size available to us

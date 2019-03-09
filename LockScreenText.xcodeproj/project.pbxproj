@@ -54,6 +54,7 @@
 		6BD6878E21B5ABE000A0EC6D /* ColorPickerWheelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BD6878D21B5ABE000A0EC6D /* ColorPickerWheelView.swift */; };
 		6BDDB6CD21D932E3002DF120 /* HelpManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BDDB6CC21D932E3002DF120 /* HelpManager.swift */; };
 		6BDDB6CF21D933BE002DF120 /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BDDB6CE21D933BE002DF120 /* AboutViewController.swift */; };
+		6BE24A9D2233E58900079D27 /* RatingsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BE24A9C2233E58900079D27 /* RatingsManager.swift */; };
 		6BECFE7621DC1F0C0096CEC1 /* UITheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BECFE7521DC1F0C0096CEC1 /* UITheme.swift */; };
 		6BECFE7721DC20340096CEC1 /* UITheme.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6BECFE7321DC08DF0096CEC1 /* UITheme.xcassets */; };
 		6BF343BC221F130F001A21CD /* HelpPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BF343BB221F130F001A21CD /* HelpPage.swift */; };
@@ -152,6 +153,7 @@
 		6BD6878D21B5ABE000A0EC6D /* ColorPickerWheelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorPickerWheelView.swift; sourceTree = "<group>"; };
 		6BDDB6CC21D932E3002DF120 /* HelpManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpManager.swift; sourceTree = "<group>"; };
 		6BDDB6CE21D933BE002DF120 /* AboutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
+		6BE24A9C2233E58900079D27 /* RatingsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatingsManager.swift; sourceTree = "<group>"; };
 		6BECFE7321DC08DF0096CEC1 /* UITheme.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = UITheme.xcassets; sourceTree = "<group>"; };
 		6BECFE7521DC1F0C0096CEC1 /* UITheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITheme.swift; sourceTree = "<group>"; };
 		6BF343BB221F130F001A21CD /* HelpPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpPage.swift; sourceTree = "<group>"; };
@@ -199,6 +201,7 @@
 				6B047A1E21988B5F00B79CFA /* ImagePreviewController.swift */,
 				6B7FDF5B21A9C7D8004BB497 /* PointSizeSlider.swift */,
 				6B08E60921B3421C00D9B47C /* QuantizedSlider.swift */,
+				6BE24A9C2233E58900079D27 /* RatingsManager.swift */,
 				6B1E244F21989F9B008A0CFC /* Resources.swift */,
 				6B047A2021988B5F00B79CFA /* Settings.swift */,
 				6B047A1821988B5F00B79CFA /* SettingsCoordinator.swift */,
@@ -581,6 +584,7 @@
 				6B1E245021989F9B008A0CFC /* Resources.swift in Sources */,
 				6B047A2321988B5F00B79CFA /* Constants.swift in Sources */,
 				6B047A2421988B5F00B79CFA /* AlertUtilities.swift in Sources */,
+				6BE24A9D2233E58900079D27 /* RatingsManager.swift in Sources */,
 				6B6C448822312BE20049CD88 /* HelpNavigationController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
