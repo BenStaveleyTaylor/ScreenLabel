@@ -51,7 +51,8 @@ class RatingsManagerTests: XCTestCase {
     func testSaveThreshold() {
 
         // Expect a prompt after 3 saves
-        let ratingsManager = RatingsManager(numSavesThreshold: 3)
+        let ratingsManager = RatingsManager(numSavesThreshold: 3,
+                                            elapsedTimeMinThreshold: 0)
 
         ratingsManager.didSaveImage()
         ratingsManager.didSaveImage()
@@ -62,10 +63,39 @@ class RatingsManagerTests: XCTestCase {
         XCTAssertEqual(ratingsManager.getSavesSinceLastPrompt(), 0)
     }
 
-    func testElapsedTimeThreshold() {
+    func testElapsedTimeMinThreshold() {
+
+        // No prompt until minimum time has elapsed
+        let ratingsManager = RatingsManager(numSavesThreshold: 3,
+                                            elapsedTimeMinThreshold: 2)
+
+        ratingsManager.didSaveImage()
+        ratingsManager.didSaveImage()
+        ratingsManager.didSaveImage()
+
+        // Even though 3 saved should trigger a prompt, nothing yet
+        XCTAssertEqual(ratingsManager.getSavesSinceLastPrompt(), 3)
+
+        // Wait 3 seconds
+        Thread.sleep(forTimeInterval: 2)
+
+        // Next save should prompt and reset counters
+        ratingsManager.didSaveImage()
+        XCTAssertEqual(ratingsManager.getSavesSinceLastPrompt(), 0)
+
+        let now = Date()
+        let lastPromptDate = ratingsManager.getLastPromptDate()
+
+        // These should be "the same" -- let's say to within 0.1 sec
+        let delta = now.timeIntervalSince(lastPromptDate!)
+        XCTAssertGreaterThanOrEqual(delta, 0)
+        XCTAssertLessThan(delta, 0.1)
+    }
+
+    func testElapsedTimeMaxThreshold() {
 
         // Expect a prompt if saving more than 1 second after the last save
-        let ratingsManager = RatingsManager(elapsedTimeThreshold: 1)
+        let ratingsManager = RatingsManager(elapsedTimeMaxThreshold: 1)
 
         ratingsManager.didSaveImage()
         ratingsManager.didSaveImage()

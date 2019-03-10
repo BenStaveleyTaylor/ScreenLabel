@@ -56,3 +56,4 @@ Public link:
 - [ ] Gradient backgrounds (in-app purchase)
 - [ ] Show 'safe area' when desiging on iPad (shows in both portrait and landscape)
 - [ ] line space control
+- [ ] US localization

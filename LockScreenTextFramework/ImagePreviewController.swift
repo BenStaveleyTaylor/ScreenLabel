@@ -63,6 +63,8 @@ class ImagePreviewController: UIViewController {
         self.imageTapRecognizer.require(toFail: self.imageDoubleTapRecognizer)
         self.imageTapRecognizer.delegate = self
         self.imageDoubleTapRecognizer.delegate = self
+
+        self.textLabel.layer.masksToBounds = false
     }
 
     override func viewWillAppear(_ animated: Bool) {

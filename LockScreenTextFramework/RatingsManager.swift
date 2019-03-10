@@ -17,17 +17,22 @@ struct RatingsManager {
     
     // The prompt will be after every 5 saves,
     // or every three months, whichever is the shorter.
+    // Never sooner than 1 day after installation
     var numSavesThreshold: Int
-    var elapsedTimeThreshold: TimeInterval
-    
+    var elapsedTimeMinThreshold: TimeInterval
+    var elapsedTimeMaxThreshold: TimeInterval
+
     // Three months is roughly 90 days.
-    static let threeMonths: TimeInterval = 60*60*24*90
+    static let oneDay: TimeInterval = 60*60*24
+    static let threeMonths: TimeInterval = oneDay*90
     
     init(numSavesThreshold: Int = 5,
-         elapsedTimeThreshold: TimeInterval = threeMonths) {
+         elapsedTimeMinThreshold: TimeInterval = oneDay,
+         elapsedTimeMaxThreshold: TimeInterval = threeMonths) {
         
         self.numSavesThreshold = numSavesThreshold
-        self.elapsedTimeThreshold = elapsedTimeThreshold
+        self.elapsedTimeMinThreshold = elapsedTimeMinThreshold
+        self.elapsedTimeMaxThreshold = elapsedTimeMaxThreshold
         
         // If no prompt tracking data has been created yet, do so.
         // This ensures the app install date is treated as the initial "last prompt date".
@@ -40,20 +45,23 @@ struct RatingsManager {
     func didSaveImage() {
         
         var needPrompt = false
-        
         let updatedNumSaves = self.getSavesSinceLastPrompt()+1
+
+        var timeSinceLastPrompt: TimeInterval = 0
+        if let lastPromptDate = self.getLastPromptDate() {
+            let now = Date()
+            timeSinceLastPrompt = now.timeIntervalSince(lastPromptDate)
+        }
+
         if updatedNumSaves >= numSavesThreshold {
-            needPrompt = true
+            // Never prompt before a minimum time has elapsed.
+            needPrompt = (timeSinceLastPrompt > elapsedTimeMinThreshold)
         }
         else {
             // Has enough time elapsed anyway?
-            if let lastPromptDate = self.getLastPromptDate() {
-                let now = Date()
-                let elapsedTime = now.timeIntervalSince(lastPromptDate)
-                needPrompt = (elapsedTime > elapsedTimeThreshold)
-            }
+            needPrompt = (timeSinceLastPrompt > elapsedTimeMaxThreshold)
         }
-        
+
         if needPrompt {
             self.promptUser()
             // Number of saves will be reset
