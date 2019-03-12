@@ -57,3 +57,6 @@ Public link:
 - [ ] Show 'safe area' when desiging on iPad (shows in both portrait and landscape)
 - [ ] line space control
 - [ ] US localization
+- [ ] Lighten icon greem slighltly
+- [ ] Improve dummy text on ap store icon
+- [ ] Change order of greyscale colour swatches so Clear is at the left
