@@ -60,3 +60,4 @@ Public link:
 - [ ] Lighten icon greem slighltly
 - [ ] Improve dummy text on ap store icon
 - [ ] Change order of greyscale colour swatches so Clear is at the left
+- [ ] recheck  how images are resized for lock screen use -- people find the edges are cutting off

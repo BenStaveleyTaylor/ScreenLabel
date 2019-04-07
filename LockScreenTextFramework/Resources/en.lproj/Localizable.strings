@@ -10,7 +10,7 @@
 
 "MessagePromptText" = "Tap this label to change it\nDrag it up or down\n\nMore help from the title bar";
 
-"MessagePlaceholderText" = "Examples:\n“If found please email me@myemail.com”\n“Language Lab @DeviceName@ 1”";
+"MessagePlaceholderText" = "Examples:\n“If found please email me@email.com”\n“Language Lab @DeviceName@ 1”\nLine breaks are allowed ([return] key)";
 
 "BleedStyleLabel" = "Add Perspective Margins";
 
