@@ -316,9 +316,9 @@ extension SettingsCoordinator: SettingsCoordinatorProtocol {
         self.photoSaveContext = presentingVC
 
         // Check we have access to the Photos data
-        PHPhotoLibrary.requestAuthorization { status in
+        PrivacyUtilities.requestPhotosAccess(fromViewController: presentingVC) { success in
 
-            if status == .authorized {
+            if success {
 
                 // Save the renderable view into the photo album then tell the user
                 // what to do in the completion callback
@@ -327,19 +327,7 @@ extension SettingsCoordinator: SettingsCoordinatorProtocol {
                                                #selector(self.image(_:didFinishSavingWithError:contextInfo:)),
                                                nil)
             }
-            else {
-                AlertUtilities.showMessage(title: Resources.sharedInstance.localizedString("FailedAlertTitle"),
-                                           body: Resources.sharedInstance.localizedString("PhotosAccessDenied"),
-                                           button1Text: Resources.sharedInstance.localizedString("OpenSettings"),
-                                           button2Text: Resources.sharedInstance.localizedString("OK"),
-                                           fromViewController: presentingVC) { choice in
-
-                                            if choice == 1 {
-                                                // Open Settings
-                                                SystemSettingsUtilities.openSettings()
-                                            }
-                }
-            }
+            // else: an alert has already been shown to the user
         }
     }
 

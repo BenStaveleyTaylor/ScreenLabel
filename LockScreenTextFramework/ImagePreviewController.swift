@@ -82,16 +82,26 @@ class ImagePreviewController: UIViewController {
 
     @IBAction private func onChoosePhotoTapped(_ sender: Any) {
 
-        let picker = UIImagePickerController()
-        picker.sourceType = .photoLibrary
-        picker.mediaTypes = [kUTTypeImage as String]        // Still images only
-        picker.delegate = self
+        // We need to explicitly check we have photos access. The
+        // UIImagePickerController does not do it automatically.
 
-        // We'll have to do our own cropping -- what you get back from
-        // UIImagePickerController is relatively low resolution
-        picker.allowsEditing = false
+        PrivacyUtilities.requestPhotosAccess(fromViewController: self) { success in
 
-        self.present(picker, animated: true)
+            if success {
+
+                let picker = UIImagePickerController()
+                picker.sourceType = .photoLibrary
+                picker.mediaTypes = [kUTTypeImage as String]        // Still images only
+                picker.delegate = self
+
+                // We'll have to do our own cropping -- what you get back from
+                // UIImagePickerController is relatively low resolution
+                picker.allowsEditing = false
+
+                self.present(picker, animated: true)
+            }
+            // else: an alert has already been shown to the user
+        }
     }
 
     // Show the ColorPicker
