@@ -86,6 +86,8 @@ class AboutViewController: UIViewController {
         self.webSiteButton.setTitle(self.webSiteAddress, for: .normal)
 
         self.privacyButton.setTitle(self.privacyButtonTitle, for: .normal)
+
+        self.title = Resources.sharedInstance.localizedString("AboutTitle")
     }
 
     @IBAction private func onContactButtonTapped(_ sender: UIButton) {
@@ -123,6 +125,11 @@ class AboutViewController: UIViewController {
     
     @IBAction private func onPrivacyButtonTapped(_ sender: UIButton) {
         UIApplication.shared.open(self.privacyPolicyLink)
+    }
+
+    // Handler for the Done button
+    @IBAction private func onDoneTapped(_ sender: UIBarButtonItem) {
+        self.dismiss(animated: true, completion: nil)
     }
 }
 

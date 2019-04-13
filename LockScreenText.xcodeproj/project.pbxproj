@@ -46,6 +46,7 @@
 		6B7FDF5C21A9C7D8004BB497 /* PointSizeSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B7FDF5B21A9C7D8004BB497 /* PointSizeSlider.swift */; };
 		6B7FDF5E21A9F8AE004BB497 /* FontPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B7FDF5D21A9F8AE004BB497 /* FontPickerViewController.swift */; };
 		6B7FDF6221ABFA12004BB497 /* UIView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B7FDF6121ABFA12004BB497 /* UIView+Extensions.swift */; };
+		6B8A0C7022629D110006CD56 /* DialogNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B8A0C6F22629D110006CD56 /* DialogNavigationController.swift */; };
 		6BA186E521988CCB00C9CE76 /* SettingsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B11DA112194DF9F001FAD4C /* SettingsTests.swift */; };
 		6BB2EBF321920DBA00BCDA34 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BB2EBF221920DBA00BCDA34 /* AppDelegate.swift */; };
 		6BB2EBFA21920DBB00BCDA34 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6BB2EBF921920DBB00BCDA34 /* Assets.xcassets */; };
@@ -146,6 +147,7 @@
 		6B7FDF5B21A9C7D8004BB497 /* PointSizeSlider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PointSizeSlider.swift; sourceTree = "<group>"; };
 		6B7FDF5D21A9F8AE004BB497 /* FontPickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontPickerViewController.swift; sourceTree = "<group>"; };
 		6B7FDF6121ABFA12004BB497 /* UIView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extensions.swift"; sourceTree = "<group>"; };
+		6B8A0C6F22629D110006CD56 /* DialogNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DialogNavigationController.swift; sourceTree = "<group>"; };
 		6BA186E421988BCC00C9CE76 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6BB2EBEF21920DBA00BCDA34 /* Screen Label.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Screen Label.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6BB2EBF221920DBA00BCDA34 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -201,6 +203,7 @@
 				6BD6878D21B5ABE000A0EC6D /* ColorPickerWheelView.swift */,
 				6B324C0321B1458F00EB236A /* ColorSwatchView.swift */,
 				6B047A1B21988B5F00B79CFA /* Constants.swift */,
+				6B8A0C6F22629D110006CD56 /* DialogNavigationController.swift */,
 				6B7FDF5D21A9F8AE004BB497 /* FontPickerViewController.swift */,
 				6B047A1E21988B5F00B79CFA /* ImagePreviewController.swift */,
 				6B7FDF5B21A9C7D8004BB497 /* PointSizeSlider.swift */,
@@ -566,6 +569,7 @@
 				6BD6878E21B5ABE000A0EC6D /* ColorPickerWheelView.swift in Sources */,
 				6B6C4486223127970049CD88 /* DeviceUtilities.swift in Sources */,
 				6B047A2621988B5F00B79CFA /* ImagePreviewController.swift in Sources */,
+				6B8A0C7022629D110006CD56 /* DialogNavigationController.swift in Sources */,
 				6B7FDF5A21A9B1E3004BB497 /* TextAttributesHelper.swift in Sources */,
 				6BDDB6CF21D933BE002DF120 /* AboutViewController.swift in Sources */,
 				6B79DC50219B693F00F10A2F /* TextAttributesViewController.swift in Sources */,

@@ -8,7 +8,7 @@
 
 import UIKit
 
-class HelpNavigationController: UINavigationController {
+class HelpNavigationController: DialogNavigationController {
 
     // Provide a bigger help viewing area than the standard form (h:620  x w:540)
     public override var preferredContentSize: CGSize {

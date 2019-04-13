@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import LockScreenTextFramework
 
 enum UITheme {
 
@@ -17,6 +18,14 @@ enum UITheme {
 
         pageControlAppearance.pageIndicatorTintColor = UIColor(named: "OtherPageBulletColor")
         pageControlAppearance.currentPageIndicatorTintColor = UIColor(named: "CurrentPageBulletColor")
+
+        // Dialogs are dark green bar with white text
+        let dialogNavBarAppearance = UINavigationBar.appearance(whenContainedInInstancesOf: [DialogNavigationController.self])
+        dialogNavBarAppearance.barTintColor = UIColor(named: "AppThemeDarkColor")
+        dialogNavBarAppearance.tintColor = .white
+
+        let whiteTextAttribute: [NSAttributedString.Key: Any] = [.foregroundColor: UIColor.white]
+        dialogNavBarAppearance.titleTextAttributes = whiteTextAttribute
     }
 
 }

@@ -20,6 +20,7 @@ class ImagePreviewController: UIViewController {
     @IBOutlet private weak var imageView: UIImageView!
     @IBOutlet private weak var textLabel: UILabel!
     @IBOutlet private weak var textBoxView: UIView!
+    @IBOutlet private weak var aboutButton: UIBarButtonItem!
     @IBOutlet private weak var helpButton: UIBarButtonItem!
     @IBOutlet private weak var choosePhotoButton: UIBarButtonItem!
     @IBOutlet private weak var plainColorButton: UIBarButtonItem!
@@ -253,6 +254,10 @@ class ImagePreviewController: UIViewController {
         case "showHelpSegue":
             self.prepareForShowHelpSegue(segue, sender: sender)
 
+        case "showAboutSegue":
+            // No special prep needed
+            break
+
         default:
             os_log("Unexpected segue: %@", segue.identifier ?? "<nil>")
         }
@@ -291,9 +296,6 @@ class ImagePreviewController: UIViewController {
         else {
             helpPageViewController.preparePages()
         }
-
-        let aboutVC = AboutViewController.create()
-        helpPageViewController.appendPage(aboutVC)
     }
 
     public func showHelp(startingAt page: HelpPage) {

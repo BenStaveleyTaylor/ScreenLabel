@@ -6,6 +6,8 @@
   Copyright © 2018 Ben Staveley-Taylor. All rights reserved.
 */
 
+"AboutTitle" = "About";
+
 "HelpButtonText" = "Help";
 
 "MessagePromptText" = "Tap this label to change it\nDrag it up or down\n\nMore help from the title bar";
