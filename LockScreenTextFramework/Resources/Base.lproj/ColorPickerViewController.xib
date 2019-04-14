@@ -35,10 +35,10 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="vDg-YK-Oiy">
-                    <rect key="frame" x="0.0" y="64.5" width="455" height="675"/>
+                    <rect key="frame" x="0.0" y="10" width="455" height="784"/>
                     <subviews>
                         <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="72T-RW-a92" userLabel="Color Wheel">
-                            <rect key="frame" x="20" y="20" width="415" height="351.5"/>
+                            <rect key="frame" x="20" y="30" width="415" height="351.5"/>
                             <subviews>
                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="ColorPickerWheel" translatesAutoresizingMaskIntoConstraints="NO" id="w7M-eM-Jy8" customClass="ColorPickerWheelView" customModule="LockScreenTextFramework" customModuleProvider="target">
                                     <rect key="frame" x="0.0" y="0.0" width="351.5" height="351.5"/>
@@ -89,11 +89,96 @@
                                 </stackView>
                             </subviews>
                         </stackView>
-                        <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="GMn-fm-Q8b" userLabel="Black and white swatches">
-                            <rect key="frame" x="20" y="391.5" width="415" height="44"/>
+                        <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="dxh-Bz-ePv" userLabel="Transparency Slider">
+                            <rect key="frame" x="20" y="401.5" width="415" height="108"/>
                             <subviews>
-                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vo0-CL-DFO" userLabel="Black" customClass="ColorSwatchView" customModule="LockScreenTextFramework" customModuleProvider="target">
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="&lt;clear&gt;" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cl4-Om-wZC">
+                                    <rect key="frame" x="0.0" y="0.0" width="59" height="108"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                    <nil key="textColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <slider opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="500" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="1" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="apa-ww-LVC">
+                                    <rect key="frame" x="65" y="0.0" width="223" height="109"/>
+                                    <connections>
+                                        <action selector="onTransparencyChanged:" destination="-1" eventType="valueChanged" id="jkv-Vi-NuX"/>
+                                    </connections>
+                                </slider>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="&lt;solid&gt;" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mdc-CS-ttv">
+                                    <rect key="frame" x="294" y="0.0" width="57.5" height="108"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                    <nil key="textColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="usQ-6I-yPL">
+                                    <rect key="frame" x="359.5" y="0.0" width="55.5" height="108"/>
+                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </view>
+                            </subviews>
+                        </stackView>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ELH-BI-3HL" userLabel="Separator">
+                            <rect key="frame" x="20" y="529.5" width="415" height="1"/>
+                            <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="1" id="sTS-se-S46"/>
+                            </constraints>
+                            <viewLayoutGuide key="safeArea" id="n81-AV-dfh"/>
+                        </view>
+                        <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="GMn-fm-Q8b" userLabel="Black and white swatches">
+                            <rect key="frame" x="20" y="550.5" width="415" height="44"/>
+                            <subviews>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CH0-5z-EUu" userLabel="Clear" customClass="ColorSwatchView" customModule="LockScreenTextFramework" customModuleProvider="target">
                                     <rect key="frame" x="0.0" y="0.0" width="44" height="44"/>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" secondItem="CH0-5z-EUu" secondAttribute="height" multiplier="1:1" id="IhQ-cS-pV9"/>
+                                    </constraints>
+                                    <connections>
+                                        <outletCollection property="gestureRecognizers" destination="KnU-X4-5bh" appends="YES" id="jZO-75-X6K"/>
+                                    </connections>
+                                </view>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8vT-2F-Jl3" userLabel="White" customClass="ColorSwatchView" customModule="LockScreenTextFramework" customModuleProvider="target">
+                                    <rect key="frame" x="74" y="0.0" width="44" height="44"/>
+                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" secondItem="8vT-2F-Jl3" secondAttribute="height" multiplier="1:1" id="p1H-79-cVF"/>
+                                    </constraints>
+                                    <connections>
+                                        <outletCollection property="gestureRecognizers" destination="5sV-OA-yyo" appends="YES" id="Ub0-vk-Sba"/>
+                                    </connections>
+                                </view>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RVS-FP-zd9" userLabel="Light Grey" customClass="ColorSwatchView" customModule="LockScreenTextFramework" customModuleProvider="target">
+                                    <rect key="frame" x="148.5" y="0.0" width="44" height="44"/>
+                                    <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" secondItem="RVS-FP-zd9" secondAttribute="height" multiplier="1:1" id="075-GU-CBq"/>
+                                    </constraints>
+                                    <connections>
+                                        <outletCollection property="gestureRecognizers" destination="YBV-Df-haV" appends="YES" id="haS-WX-Wqc"/>
+                                    </connections>
+                                </view>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="waG-Fi-Uns" userLabel="Mid Grey" customClass="ColorSwatchView" customModule="LockScreenTextFramework" customModuleProvider="target">
+                                    <rect key="frame" x="222.5" y="0.0" width="44" height="44"/>
+                                    <color key="backgroundColor" white="0.5" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" secondItem="waG-Fi-Uns" secondAttribute="height" multiplier="1:1" id="nzK-Jv-ggr"/>
+                                    </constraints>
+                                    <connections>
+                                        <outletCollection property="gestureRecognizers" destination="bT3-rM-mfU" appends="YES" id="oS2-U7-2df"/>
+                                    </connections>
+                                </view>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1tN-uM-vYV" userLabel="Dark Grey" customClass="ColorSwatchView" customModule="LockScreenTextFramework" customModuleProvider="target">
+                                    <rect key="frame" x="297" y="0.0" width="44" height="44"/>
+                                    <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" secondItem="1tN-uM-vYV" secondAttribute="height" multiplier="1:1" id="CZF-p6-hJE"/>
+                                    </constraints>
+                                    <connections>
+                                        <outletCollection property="gestureRecognizers" destination="wm3-wQ-eOM" appends="YES" id="C2E-fv-Ida"/>
+                                    </connections>
+                                </view>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vo0-CL-DFO" userLabel="Black" customClass="ColorSwatchView" customModule="LockScreenTextFramework" customModuleProvider="target">
+                                    <rect key="frame" x="371" y="0.0" width="44" height="44"/>
                                     <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="44" id="SKf-3T-sAA"/>
@@ -103,90 +188,17 @@
                                         <outletCollection property="gestureRecognizers" destination="2kU-Jt-fNS" appends="YES" id="PvJ-HA-KsU"/>
                                     </connections>
                                 </view>
-                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1tN-uM-vYV" userLabel="Dark Grey" customClass="ColorSwatchView" customModule="LockScreenTextFramework" customModuleProvider="target">
-                                    <rect key="frame" x="74" y="0.0" width="44" height="44"/>
-                                    <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                    <constraints>
-                                        <constraint firstAttribute="width" secondItem="1tN-uM-vYV" secondAttribute="height" multiplier="1:1" id="CZF-p6-hJE"/>
-                                    </constraints>
-                                    <connections>
-                                        <outletCollection property="gestureRecognizers" destination="wm3-wQ-eOM" appends="YES" id="C2E-fv-Ida"/>
-                                    </connections>
-                                </view>
-                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="waG-Fi-Uns" userLabel="Mid Grey" customClass="ColorSwatchView" customModule="LockScreenTextFramework" customModuleProvider="target">
-                                    <rect key="frame" x="148.5" y="0.0" width="44" height="44"/>
-                                    <color key="backgroundColor" white="0.5" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                    <constraints>
-                                        <constraint firstAttribute="width" secondItem="waG-Fi-Uns" secondAttribute="height" multiplier="1:1" id="nzK-Jv-ggr"/>
-                                    </constraints>
-                                    <connections>
-                                        <outletCollection property="gestureRecognizers" destination="bT3-rM-mfU" appends="YES" id="oS2-U7-2df"/>
-                                    </connections>
-                                </view>
-                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RVS-FP-zd9" userLabel="Light Grey" customClass="ColorSwatchView" customModule="LockScreenTextFramework" customModuleProvider="target">
-                                    <rect key="frame" x="222.5" y="0.0" width="44" height="44"/>
-                                    <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                    <constraints>
-                                        <constraint firstAttribute="width" secondItem="RVS-FP-zd9" secondAttribute="height" multiplier="1:1" id="075-GU-CBq"/>
-                                    </constraints>
-                                    <connections>
-                                        <outletCollection property="gestureRecognizers" destination="YBV-Df-haV" appends="YES" id="haS-WX-Wqc"/>
-                                    </connections>
-                                </view>
-                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8vT-2F-Jl3" userLabel="White" customClass="ColorSwatchView" customModule="LockScreenTextFramework" customModuleProvider="target">
-                                    <rect key="frame" x="297" y="0.0" width="44" height="44"/>
-                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                    <constraints>
-                                        <constraint firstAttribute="width" secondItem="8vT-2F-Jl3" secondAttribute="height" multiplier="1:1" id="p1H-79-cVF"/>
-                                    </constraints>
-                                    <connections>
-                                        <outletCollection property="gestureRecognizers" destination="5sV-OA-yyo" appends="YES" id="Ub0-vk-Sba"/>
-                                    </connections>
-                                </view>
-                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CH0-5z-EUu" userLabel="Clear" customClass="ColorSwatchView" customModule="LockScreenTextFramework" customModuleProvider="target">
-                                    <rect key="frame" x="371" y="0.0" width="44" height="44"/>
-                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                    <constraints>
-                                        <constraint firstAttribute="width" secondItem="CH0-5z-EUu" secondAttribute="height" multiplier="1:1" id="IhQ-cS-pV9"/>
-                                    </constraints>
-                                    <connections>
-                                        <outletCollection property="gestureRecognizers" destination="KnU-X4-5bh" appends="YES" id="jZO-75-X6K"/>
-                                    </connections>
-                                </view>
-                            </subviews>
-                        </stackView>
-                        <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="dxh-Bz-ePv" userLabel="Transparency Slider">
-                            <rect key="frame" x="20" y="455.5" width="415" height="30"/>
-                            <subviews>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="&lt;clear&gt;" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cl4-Om-wZC">
-                                    <rect key="frame" x="0.0" y="0.0" width="59" height="30"/>
-                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                    <nil key="textColor"/>
-                                    <nil key="highlightedColor"/>
-                                </label>
-                                <slider opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="500" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="1" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="apa-ww-LVC">
-                                    <rect key="frame" x="65" y="0.0" width="286.5" height="31"/>
-                                    <connections>
-                                        <action selector="onTransparencyChanged:" destination="-1" eventType="valueChanged" id="jkv-Vi-NuX"/>
-                                    </connections>
-                                </slider>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="&lt;solid&gt;" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mdc-CS-ttv">
-                                    <rect key="frame" x="357.5" y="0.0" width="57.5" height="30"/>
-                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                    <nil key="textColor"/>
-                                    <nil key="highlightedColor"/>
-                                </label>
                             </subviews>
                         </stackView>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="C9w-IO-vKV" userLabel="Separator">
-                            <rect key="frame" x="20" y="505.5" width="415" height="1"/>
+                            <rect key="frame" x="20" y="614.5" width="415" height="1"/>
                             <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="1" id="C2F-wy-WaK"/>
                             </constraints>
                         </view>
                         <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="ZRv-cS-AVs" userLabel="Before and After">
-                            <rect key="frame" x="20" y="526.5" width="415" height="128.5"/>
+                            <rect key="frame" x="20" y="635.5" width="415" height="128.5"/>
                             <subviews>
                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="3Do-FU-eVE" userLabel="Before">
                                     <rect key="frame" x="0.0" y="0.0" width="207.5" height="128.5"/>
@@ -232,6 +244,9 @@
                             </subviews>
                         </stackView>
                     </subviews>
+                    <constraints>
+                        <constraint firstItem="usQ-6I-yPL" firstAttribute="width" secondItem="VYk-OQ-Rdy" secondAttribute="width" id="Sbm-hn-bKC"/>
+                    </constraints>
                     <edgeInsets key="layoutMargins" top="20" left="20" bottom="20" right="20"/>
                 </stackView>
             </subviews>

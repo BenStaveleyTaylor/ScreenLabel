@@ -57,7 +57,8 @@ Public link:
 - [ ] Show 'safe area' when desiging on iPad (shows in both portrait and landscape)
 - [ ] line space control
 - [ ] US localization
-- [ ] Lighten icon greem slighltly
-- [ ] Improve dummy text on ap store icon
-- [ ] Change order of greyscale colour swatches so Clear is at the left
-- [ ] recheck  how images are resized for lock screen use -- people find the edges are cutting off
+- [ ] France localization
+- [ ] Lighten icon green slighltly
+- [ ] Improve dummy text on app store icon
+- [x] Change order of greyscale colour swatches so Clear is at the left
+- [x] recheck  how images are resized for lock screen use -- people find the edges are cutting off
