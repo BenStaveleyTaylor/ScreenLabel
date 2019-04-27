@@ -62,3 +62,4 @@ Public link:
 - [ ] Improve dummy text on app store icon
 - [x] Change order of greyscale colour swatches so Clear is at the left
 - [x] recheck  how images are resized for lock screen use -- people find the edges are cutting off
+- [ ] Show lock screen clock position etc
