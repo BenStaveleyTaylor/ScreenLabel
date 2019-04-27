@@ -71,7 +71,7 @@
 "VersionTemplate" = "Version %@";
 "CopyrightNotice" = "Copyright © Ben Staveley-Taylor, 2019. All rights reserved.";
 "EmailButtonFormat" = "email: %@";
-"EmailSubjectTemplate" = "%@ user email";
+"EmailSubjectTemplate" = "@AppName@ user email";
 "EmailBodyTemplate" = "App Version: %@\n(If possible, please write your email in English 🙂)\n\n* * * * *\n\n";
 "PrivacyButtonTitle" = "Privacy Policy";
 

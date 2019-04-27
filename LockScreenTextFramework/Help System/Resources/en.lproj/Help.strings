@@ -9,6 +9,7 @@
 /* Page numbers will be inserted, e.g. 'How To... (2/5)' */
 "HelpNavTitleTemplate" = "How To... (%@/%@)";
 
+/* Don't translate @AppName@"; it will be replaced by the application name. '\n' is a new line character (do not translate) */
 "HelpTitle1" = "Label your phone with @AppName@";
 "HelpText1"  = "@AppName@ helps you put a tag where it can be seen, even when your phone is locked.\n\nYou might show an alternative phone number to call, or your email address.\n\nIf you lose your phone, you stand a better chance of getting it back 🙏.";
 

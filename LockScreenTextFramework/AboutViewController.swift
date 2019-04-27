@@ -105,8 +105,7 @@ class AboutViewController: UIViewController {
         composeVC.setToRecipients([self.emailAddress])
 
         // Subject line
-        let emailSubjectTemplate = Resources.sharedInstance.localizedString("EmailSubjectTemplate")
-        let emailSubject = String(format: emailSubjectTemplate, self.productTitle)
+        let emailSubject = Resources.sharedInstance.localizedString("EmailSubjectTemplate")
         composeVC.setSubject(emailSubject)
 
         // Body is "Version: nnn"
