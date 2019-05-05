@@ -88,13 +88,82 @@
                                     <constraint firstAttribute="bottom" secondItem="4E3-co-55s" secondAttribute="bottom" id="xmh-U9-cLx"/>
                                 </constraints>
                             </view>
+                            <view userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ISk-0U-2Xz" customClass="LockScreenElementsView" customModule="LockScreenTextFramework" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="12:34" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eWR-Ul-z17">
+                                        <rect key="frame" x="69" y="48.5" width="237" height="115"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="96"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Day, Month Year" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GNC-QG-MRB">
+                                        <rect key="frame" x="103.5" y="153" width="168" height="29"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="&lt;press home button&gt;" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vfx-vq-cbX">
+                                        <rect key="frame" x="100" y="614" width="175" height="22"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="LockScreenTorch" translatesAutoresizingMaskIntoConstraints="NO" id="ggZ-uO-Az7">
+                                        <rect key="frame" x="50" y="567" width="50" height="50"/>
+                                    </imageView>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="LockScreenCamera" translatesAutoresizingMaskIntoConstraints="NO" id="uRY-WH-bRc">
+                                        <rect key="frame" x="275" y="567" width="50" height="50"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="uRY-WH-bRc" secondAttribute="height" multiplier="1:1" id="7ia-Dc-atC"/>
+                                            <constraint firstAttribute="width" constant="50" id="bDk-TJ-ZBT"/>
+                                        </constraints>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="uRY-WH-bRc" secondAttribute="centerX" constant="75" id="2E9-ER-r07"/>
+                                    <constraint firstItem="ggZ-uO-Az7" firstAttribute="width" secondItem="uRY-WH-bRc" secondAttribute="width" id="90m-ud-Unz"/>
+                                    <constraint firstItem="eWR-Ul-z17" firstAttribute="centerX" secondItem="ISk-0U-2Xz" secondAttribute="centerX" id="9wP-er-ulq"/>
+                                    <constraint firstItem="Vfx-vq-cbX" firstAttribute="centerX" secondItem="ISk-0U-2Xz" secondAttribute="centerX" id="Cc0-WJ-DXY"/>
+                                    <constraint firstItem="GNC-QG-MRB" firstAttribute="firstBaseline" secondItem="ISk-0U-2Xz" secondAttribute="top" constant="176" id="MY0-ch-R9O"/>
+                                    <constraint firstAttribute="bottom" secondItem="Vfx-vq-cbX" secondAttribute="firstBaseline" constant="36" id="Uhu-fX-Lrq"/>
+                                    <constraint firstItem="uRY-WH-bRc" firstAttribute="centerY" secondItem="ggZ-uO-Az7" secondAttribute="centerY" id="V5X-uC-FE8"/>
+                                    <constraint firstAttribute="bottom" secondItem="ggZ-uO-Az7" secondAttribute="centerY" constant="75" id="YZY-y4-h3Q"/>
+                                    <constraint firstItem="eWR-Ul-z17" firstAttribute="firstBaseline" secondItem="ISk-0U-2Xz" secondAttribute="top" constant="140" id="gVZ-cW-8uS"/>
+                                    <constraint firstItem="GNC-QG-MRB" firstAttribute="centerX" secondItem="ISk-0U-2Xz" secondAttribute="centerX" id="itv-Fn-rij"/>
+                                    <constraint firstItem="ggZ-uO-Az7" firstAttribute="centerX" secondItem="ISk-0U-2Xz" secondAttribute="leading" constant="75" id="uYu-KV-VV8"/>
+                                    <constraint firstItem="ggZ-uO-Az7" firstAttribute="height" secondItem="uRY-WH-bRc" secondAttribute="height" id="zTt-BF-RQR"/>
+                                </constraints>
+                                <connections>
+                                    <outlet property="dateLabel" destination="GNC-QG-MRB" id="H4U-qR-U04"/>
+                                    <outlet property="dateLabelBaselineConstraint" destination="MY0-ch-R9O" id="BqC-M1-2SH"/>
+                                    <outlet property="footerImageCentreXToTrailingConstraint" destination="2E9-ER-r07" id="W8P-U7-bwX"/>
+                                    <outlet property="footerImageCentreYToBottomOffsetConstraint" destination="YZY-y4-h3Q" id="ONV-hq-iJT"/>
+                                    <outlet property="footerImageLeadingToCentreXConstraint" destination="uYu-KV-VV8" id="YsQ-Em-CuP"/>
+                                    <outlet property="footerImageWidthConstraint" destination="bDk-TJ-ZBT" id="D4W-ze-epN"/>
+                                    <outlet property="footerLabel" destination="Vfx-vq-cbX" id="jwr-BU-0pc"/>
+                                    <outlet property="footerLabelBaselineConstraint" destination="Uhu-fX-Lrq" id="P0E-oo-0lM"/>
+                                    <outlet property="leftFooterImageView" destination="ggZ-uO-Az7" id="rEq-Ih-PGy"/>
+                                    <outlet property="rightFooterImageView" destination="uRY-WH-bRc" id="Txk-yE-UvF"/>
+                                    <outlet property="timeLabel" destination="eWR-Ul-z17" id="7P9-LP-rJK"/>
+                                    <outlet property="timeLabelBaselineConstraint" destination="gVZ-cW-8uS" id="feh-xb-YKB"/>
+                                </connections>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="mAn-8c-p3c" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="0zm-fv-Sxo"/>
                             <constraint firstAttribute="height" relation="greaterThanOrEqual" secondItem="Zco-QO-wj2" secondAttribute="height" constant="100" id="Ipd-9B-QNH"/>
+                            <constraint firstAttribute="bottom" secondItem="ISk-0U-2Xz" secondAttribute="bottom" id="M54-fU-K4W"/>
                             <constraint firstItem="mAn-8c-p3c" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" id="QQ0-RZ-MU7"/>
+                            <constraint firstItem="ISk-0U-2Xz" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="UTz-rO-caz"/>
                             <constraint firstItem="mAn-8c-p3c" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" id="eur-3N-dV4"/>
+                            <constraint firstAttribute="trailing" secondItem="ISk-0U-2Xz" secondAttribute="trailing" id="fa8-l3-vDG"/>
+                            <constraint firstItem="ISk-0U-2Xz" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="fc0-Hk-fhe"/>
                             <constraint firstAttribute="width" relation="greaterThanOrEqual" secondItem="Zco-QO-wj2" secondAttribute="width" constant="104" id="hT8-0h-sh8">
                                 <variation key="widthClass=compact" constant="104"/>
                                 <variation key="widthClass=regular" constant="204"/>
@@ -150,6 +219,7 @@
                         <outlet property="imageView" destination="wvr-oY-b6M" id="ege-Ee-gW2"/>
                         <outlet property="imageViewHeightConstraint" destination="soO-iL-bBQ" id="jMK-Yn-GBY"/>
                         <outlet property="imageViewWidthConstraint" destination="vdA-pe-i7x" id="IRF-4Q-y1Q"/>
+                        <outlet property="lockScreenElementsView" destination="ISk-0U-2Xz" id="KqV-So-pgM"/>
                         <outlet property="plainColorButton" destination="JN8-qB-fgU" id="gvr-QU-1yb"/>
                         <outlet property="renderableView" destination="mAn-8c-p3c" id="ofy-Mg-9sw"/>
                         <outlet property="renderableViewHeightConstraint" destination="QQ0-RZ-MU7" id="dvb-VR-fox"/>
@@ -724,6 +794,8 @@
         <image name="ClearTextButton" width="20" height="20"/>
         <image name="Colors" width="30" height="30"/>
         <image name="Info" width="30" height="30"/>
+        <image name="LockScreenCamera" width="50" height="50"/>
+        <image name="LockScreenTorch" width="50" height="50"/>
         <image name="NoImageWatermark" width="40" height="35"/>
         <image name="Pictures" width="30" height="30"/>
         <image name="RightChevron" width="30" height="30"/>

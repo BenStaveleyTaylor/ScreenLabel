@@ -43,6 +43,9 @@ class ImagePreviewController: UIViewController {
     // Background when no image is set
     @IBOutlet private weak var watermarkImageView: UIImageView!
 
+    // Lock Screen elements simulation
+    @IBOutlet private weak var lockScreenElementsView: LockScreenElementsView!
+    
     // Local properties
     private var settingsCoordinator: SettingsCoordinatorProtocol!
     private var colorDidChange: Bool = false

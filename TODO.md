@@ -53,7 +53,7 @@ Public link:
 
 ## Next version
 
-- [ ] Gradient backgrounds (in-app purchase)
+- [ ] Gradient backgrounds (in-app purchase?)
 - [ ] Show 'safe area' when desiging on iPad (shows in both portrait and landscape)
 - [ ] line space control
 - [x] US localization
@@ -62,4 +62,6 @@ Public link:
 - [ ] Improve dummy text on app store icon
 - [x] Change order of greyscale colour swatches so Clear is at the left
 - [x] recheck  how images are resized for lock screen use -- people find the edges are cutting off
-- [ ] Show lock screen clock position etc
+- [ ] Show lock screen clock position etc:
+        Allow overlay for be disabled in settings
+        Change 'T' icon for settings icon
