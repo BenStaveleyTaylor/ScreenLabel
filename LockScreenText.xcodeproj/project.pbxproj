@@ -31,6 +31,7 @@
 		6B2FAE7621E5554D0009B407 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6B29017821D972E8002FFF71 /* InfoPlist.strings */; };
 		6B324C0221B1457900EB236A /* TranslucentColorSwatchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B324C0121B1457900EB236A /* TranslucentColorSwatchView.swift */; };
 		6B324C0421B1458F00EB236A /* ColorSwatchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B324C0321B1458F00EB236A /* ColorSwatchView.swift */; };
+		6B39D6E7227F484300CC2B04 /* LockScreenElementsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B39D6E6227F484300CC2B04 /* LockScreenElementsTests.swift */; };
 		6B3EF8BC21D9847000CA61E9 /* HelpPageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B3EF8BB21D9847000CA61E9 /* HelpPageController.swift */; };
 		6B3EF8C121DA3E0A00CA61E9 /* Help.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6B3EF8C321DA3E0A00CA61E9 /* Help.strings */; };
 		6B3EF8C521DA3E5500CA61E9 /* Help.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6B3EF8C421DA3E5500CA61E9 /* Help.storyboard */; };
@@ -134,6 +135,7 @@
 		6B29017D21D97348002FFF71 /* en-US */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "en-US"; path = "en-US.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		6B324C0121B1457900EB236A /* TranslucentColorSwatchView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TranslucentColorSwatchView.swift; sourceTree = "<group>"; };
 		6B324C0321B1458F00EB236A /* ColorSwatchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorSwatchView.swift; sourceTree = "<group>"; };
+		6B39D6E6227F484300CC2B04 /* LockScreenElementsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LockScreenElementsTests.swift; sourceTree = "<group>"; };
 		6B3EF8BB21D9847000CA61E9 /* HelpPageController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpPageController.swift; sourceTree = "<group>"; };
 		6B3EF8C221DA3E0A00CA61E9 /* en-US */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "en-US"; path = "en-US.lproj/Help.strings"; sourceTree = "<group>"; };
 		6B3EF8C421DA3E5500CA61E9 /* Help.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Help.storyboard; sourceTree = "<group>"; };
@@ -237,6 +239,7 @@
 			isa = PBXGroup;
 			children = (
 				6B047A0B2198898800B79CFA /* Info.plist */,
+				6B39D6E6227F484300CC2B04 /* LockScreenElementsTests.swift */,
 				6B08E60B21B41F1800D9B47C /* QuantizedSliderTests.swift */,
 				6BE24A9E22347DE300079D27 /* RatingsManagerTests.swift */,
 				6B3EF8C821DA91BA00CA61E9 /* ResourcesTests.swift */,
@@ -620,6 +623,7 @@
 				6B08E60C21B41F1900D9B47C /* QuantizedSliderTests.swift in Sources */,
 				6B3EF8C921DA91BA00CA61E9 /* ResourcesTests.swift in Sources */,
 				6BE24A9F22347DE300079D27 /* RatingsManagerTests.swift in Sources */,
+				6B39D6E7227F484300CC2B04 /* LockScreenElementsTests.swift in Sources */,
 				6BA186E521988CCB00C9CE76 /* SettingsTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

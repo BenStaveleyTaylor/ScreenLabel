@@ -37,6 +37,9 @@ class TextAttributesViewController: UIViewController {
     @IBOutlet private weak var bleedStyleHelpLabel: UILabel!
 
     @IBOutlet private weak var factorySettingsButton: UIButton!
+
+    @IBOutlet private weak var showLockScreenUILabel: UILabel!
+    @IBOutlet private weak var showLockScreenUISwitch: UISwitch!
     
     @IBOutlet private var textColorTapGestureRecognizer: UITapGestureRecognizer!
     @IBOutlet private var boxColorTapGestureRecognizer: UITapGestureRecognizer!
@@ -222,6 +225,9 @@ class TextAttributesViewController: UIViewController {
         self.bleedStyleHelpLabel.text = Resources.sharedInstance.localizedString("BleedStyleHelpText")
         self.bleedStyleSwitch.isOn = (self.settingsCoordinator.imageBleedStyle == .perspective)
 
+        self.showLockScreenUILabel.text = Resources.sharedInstance.localizedString("ShowLockScreenUILabel")
+        self.showLockScreenUISwitch.isOn = self.settingsCoordinator.showLockScreenUI
+
         self.factorySettingsButton.setTitle(Resources.sharedInstance.localizedString("FactorySettings"), for: .normal)
 
         self.updatePlaceholderTextVisibility()
@@ -255,6 +261,8 @@ class TextAttributesViewController: UIViewController {
 
         let bleedStyle: BleedStyle = self.bleedStyleSwitch.isOn ? .perspective : .still
         self.settingsCoordinator.imageBleedStyle = bleedStyle
+
+        self.settingsCoordinator.showLockScreenUI = self.showLockScreenUISwitch.isOn
 
         self.settingsCoordinator.endBatchChanges()
     }

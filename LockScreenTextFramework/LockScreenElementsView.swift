@@ -36,6 +36,10 @@ class LockScreenElementsView: UIView {
     let footerImageForegroundAlpha: CGFloat = 1
     let footerImageBackgroundAlpha: CGFloat = 0.75
 
+    deinit {
+        self.timer?.invalidate()
+    }
+
     override func awakeFromNib() {
         super.awakeFromNib()
         self.commonInit()
@@ -68,25 +72,23 @@ class LockScreenElementsView: UIView {
             view?.tintColor = UIColor(white: footerImageForegroundGrey, alpha: footerImageForegroundAlpha)
         }
 
-        #warning("TODO")
         // Arrange for time to update as the clock changes
-        //        let timer = self.logic.observeSystemMinuteChanges { date in
-        //            DispatchQueue.main.async {
-        //                self.setDateAndTimeText(at: date)
-        //            }
-        //        }
-        //
-        //        RunLoop.current.add(timer, forMode: .RunLoop.Mode.common)
-        //        self.timer = timer
-
+        if let timer = self.observeSystemMinuteChanges(notify: { date in
+            DispatchQueue.main.async {
+                self.setDateAndTimeText(at: date)
+            }
+        }) {
+            RunLoop.current.add(timer, forMode: .common)
+            self.timer = timer
+        }
     }
 
     // Write values into the date and time fields
     // Defaults to current date/time
     func setDateAndTimeText(at date: Date = Date()) {
 
-        self.timeLabel.text = self.logic.timeText
-        self.dateLabel.text = self.logic.dateText
+        self.timeLabel.text = self.logic.timeText()
+        self.dateLabel.text = self.logic.dateText()
     }
 
     // Set constraints that don't change even with device rotation
@@ -114,5 +116,27 @@ class LockScreenElementsView: UIView {
         let logic = LockScreenElements()
 
         self.footerLabelBaselineConstraint.constant = logic.footerBaseline
+    }
+
+    // MARK: Private
+
+    // Update the time every time the minutes changes on the system clock
+    private func observeSystemMinuteChanges(notify: @escaping ((_ date: Date) -> Void)) -> Timer? {
+
+        let now = Date()
+
+        // Time without seconds
+        let components = Calendar.current.dateComponents([.year, .month, .day, .hour, .minute], from: now)
+        let previousMinute = Calendar.current.date(from: components)
+        if let nextMinute = previousMinute?.addingTimeInterval(60) {
+
+            return Timer(fire: nextMinute,
+                         interval: 60,
+                         repeats: true) { thisTimer in
+                            notify(thisTimer.fireDate)
+            }
+        }
+
+        return nil
     }
 }

@@ -64,23 +64,6 @@ public struct LockScreenElements {
                   hasPhysicalHomeButton: hasPhysicalHomeButton)
     }
 
-    // Update the time every time the minutes changes on the system clock
-    public func observeSystemMinuteChanges(notify: @escaping ((_ date: Date) -> Void)) -> Timer {
-
-        let now = Date()
-        let secondsNow = now.timeIntervalSinceReferenceDate
-        let secondsAtNextMinute = (floor(secondsNow/60)+1)*60
-        let nextMinuteChange = Date(timeIntervalSinceReferenceDate: secondsAtNextMinute)
-
-        let timer = Timer(fire: nextMinuteChange,
-                          interval: 60,
-                          repeats: true) { thisTimer in
-                            notify(thisTimer.fireDate)
-        }
-
-        return timer
-    }
-
     public var timeFontSize: CGFloat {
 
         let size: CGFloat
@@ -124,9 +107,14 @@ public struct LockScreenElements {
     }
 
     // HH:MM of real current time
-    public var timeText: String {
-        #warning("TODO")
-        return "12:34"
+    public func timeText(at date: Date = Date(), locale: Locale? = nil) -> String {
+
+        let locale = locale ?? Locale.current
+
+        let formatter = DateFormatter()
+        formatter.locale = locale
+        formatter.setLocalizedDateFormatFromTemplate("Jmm")
+        return formatter.string(from: date)
     }
 
     public var dateFontSize: CGFloat {
@@ -158,9 +146,14 @@ public struct LockScreenElements {
         return UIFont.systemFont(ofSize: self.dateFontSize, weight: .regular)
     }
 
-    public var dateText: String {
-        #warning("TODO")
-        return "Saturday 27 April"
+    public func dateText(at date: Date = Date(), locale: Locale? = nil) -> String {
+
+        let locale = locale ?? Locale.current
+
+        let formatter = DateFormatter()
+        formatter.locale = locale
+        formatter.setLocalizedDateFormatFromTemplate("EEEEMMMMd")
+        return formatter.string(from: date)
     }
 
     public var footerFontSize: CGFloat {

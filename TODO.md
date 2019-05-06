@@ -62,6 +62,7 @@ Public link:
 - [ ] Improve dummy text on app store icon
 - [x] Change order of greyscale colour swatches so Clear is at the left
 - [x] recheck  how images are resized for lock screen use -- people find the edges are cutting off
-- [ ] Show lock screen clock position etc:
-        Allow overlay for be disabled in settings
-        Change 'T' icon for settings icon
+- [x] Show lock screen clock position etc:
+- [x] Allow overlay for be disabled in settings
+- [x] Change 'T' icon for settings icon
+- [ ] Set lock screen clock text color to black for pale images

@@ -392,6 +392,8 @@ extension ImagePreviewController: SettingsCoordinatorViewDelegate {
         if changes.contains(.scrollOffset) {
             self.scrollView.contentOffset = coordinator.scrollOffset
         }
+
+        self.lockScreenElementsView.isHidden = !coordinator.showLockScreenUI
     }
 }
 

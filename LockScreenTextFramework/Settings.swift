@@ -23,8 +23,10 @@ struct Settings: Codable {
     // Default values
     static let defaults = Settings()
 
-    // Might be useful when upgrading in future
-    static let currentVersion: Int = 1
+    // Change history:
+    // v1: Initial release
+    // v2: Add showLockScreenUI
+    static let currentVersion: Int = 2
 
     // Immutable
     let version: Int
@@ -56,6 +58,9 @@ struct Settings: Codable {
     // (i.e. screen rect.) 0 is at the centre.
     var boxYCentreOffset: CGFloat
 
+    // Show the simulation of the lock screen UI
+    var showLockScreenUI: Bool
+
     // Currently everything
     private enum CodingKeys: String, CodingKey {
         case version
@@ -74,6 +79,7 @@ struct Settings: Codable {
         case boxCornerRadius
         case boxInsets
         case boxYCentreOffset
+        case showLockScreenUI
     }
 
     // Set up defaults
@@ -103,7 +109,8 @@ struct Settings: Codable {
                   boxBorderWidth: 0,
                   boxCornerRadius: 6,
                   boxInsets: UIEdgeInsets(top: 12, left: 12, bottom: 12, right: 12),
-                  boxYCentreOffset: 0)          // Default is vertically centered
+                  boxYCentreOffset: 0,
+                  showLockScreenUI: true)
     }
 
     // All-properties initialiser
@@ -122,7 +129,8 @@ struct Settings: Codable {
          boxBorderWidth: CGFloat,
          boxCornerRadius: CGFloat,
          boxInsets: UIEdgeInsets,
-         boxYCentreOffset: CGFloat) {
+         boxYCentreOffset: CGFloat,
+         showLockScreenUI: Bool) {
 
         self.version =                  version
         self.imageName =                imageName
@@ -140,6 +148,7 @@ struct Settings: Codable {
         self.boxCornerRadius =          boxCornerRadius
         self.boxInsets =                boxInsets
         self.boxYCentreOffset =         boxYCentreOffset
+        self.showLockScreenUI =         showLockScreenUI
     }
 
     // We have to implement encode and decode because we have some non-codable properties
@@ -174,6 +183,9 @@ struct Settings: Codable {
         let boxInsets =             try? container.decode(CodableEdgeInsets.self, forKey: .boxInsets).toUIEdgeInsets()
         let boxYCentreOffset =      try? container.decode(CGFloat.self, forKey: .boxYCentreOffset)
 
+        // Introduced in v2.0:
+        let showLockScreenUI =      try? container.decode(Bool.self, forKey: .showLockScreenUI)
+
         // If any individual setting was missing, use the default value
         self.init(version: version                              ?? Settings.defaults.version,
                   imageName: imageName,                         // nil is ok
@@ -190,7 +202,8 @@ struct Settings: Codable {
                   boxBorderWidth: boxBorderWidth                ?? Settings.defaults.boxBorderWidth,
                   boxCornerRadius: boxCornerRadius              ?? Settings.defaults.boxCornerRadius,
                   boxInsets: boxInsets                          ?? Settings.defaults.boxInsets,
-                  boxYCentreOffset: boxYCentreOffset            ?? Settings.defaults.boxYCentreOffset)
+                  boxYCentreOffset: boxYCentreOffset            ?? Settings.defaults.boxYCentreOffset,
+                  showLockScreenUI: showLockScreenUI            ?? Settings.defaults.showLockScreenUI)
     }
 
     func encode(to encoder: Encoder) throws {
@@ -212,6 +225,7 @@ struct Settings: Codable {
         try container.encode(self.boxCornerRadius, forKey: .boxCornerRadius)
         try container.encode(CodableEdgeInsets(uiEdgeInsets: self.boxInsets), forKey: .boxInsets)
         try container.encode(self.boxYCentreOffset, forKey: .boxYCentreOffset)
+        try container.encode(self.showLockScreenUI, forKey: .showLockScreenUI)
     }
 
     func writeToUserDefaults() throws {
