@@ -43,6 +43,9 @@ class ImagePreviewController: UIViewController {
     // Background when no image is set
     @IBOutlet private weak var watermarkImageView: UIImageView!
 
+    // Debug only. Removed in release builds.
+    @IBOutlet private weak var sizeDebugView: SizeDebugView?
+
     // Lock Screen elements simulation
     @IBOutlet private weak var lockScreenElementsView: LockScreenElementsView!
     
@@ -50,6 +53,10 @@ class ImagePreviewController: UIViewController {
     private var settingsCoordinator: SettingsCoordinatorProtocol!
     private var colorDidChange: Bool = false
     private var lastPanTouchPos: CGPoint = .zero
+
+    // Debugging. Draw a ruler scale over the view.
+    // This always becomes false in release builds
+    private var showSizeDebugView = true
 
     // true if the controls are all hidden to show the whole view
     var isInPreviewMode = false
@@ -69,6 +76,16 @@ class ImagePreviewController: UIViewController {
         self.imageDoubleTapRecognizer.delegate = self
 
         self.textLabel.layer.masksToBounds = false
+
+        // Remove debug view in release builds
+        #if !DEBUG
+        self.showSizeDebugView = false
+        #endif
+
+        if !self.showSizeDebugView {
+            self.sizeDebugView?.removeFromSuperview()
+            self.sizeDebugView = nil
+        }
     }
 
     override func viewWillAppear(_ animated: Bool) {

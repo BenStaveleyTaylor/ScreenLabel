@@ -52,6 +52,26 @@
                                             <outlet property="delegate" destination="BYZ-38-t0r" id="k4x-lh-A7Z"/>
                                         </connections>
                                     </scrollView>
+                                    <view userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FSN-8W-S7O" customClass="SizeDebugView" customModule="LockScreenTextFramework" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="&lt;view size&gt;" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Y95-SA-xI0">
+                                                <rect key="frame" x="142" y="323" width="91" height="21"/>
+                                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstItem="Y95-SA-xI0" firstAttribute="centerY" secondItem="FSN-8W-S7O" secondAttribute="centerY" id="eYK-VQ-CVO"/>
+                                            <constraint firstItem="Y95-SA-xI0" firstAttribute="centerX" secondItem="FSN-8W-S7O" secondAttribute="centerX" id="kCX-Bj-gtk"/>
+                                        </constraints>
+                                        <connections>
+                                            <outlet property="sizeLabel" destination="Y95-SA-xI0" id="A9p-kd-im1"/>
+                                        </connections>
+                                    </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GBZ-oQ-mnU">
                                         <rect key="frame" x="154.5" y="422.5" width="66" height="44.5"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -75,13 +95,17 @@
                                     <constraint firstItem="GBZ-oQ-mnU" firstAttribute="width" secondItem="Zco-QO-wj2" secondAttribute="width" constant="24" id="4Nb-XY-27y"/>
                                     <constraint firstItem="4E3-co-55s" firstAttribute="leading" secondItem="mAn-8c-p3c" secondAttribute="leading" id="5Ux-uI-vU3"/>
                                     <constraint firstItem="dgg-2K-58e" firstAttribute="top" secondItem="mAn-8c-p3c" secondAttribute="top" id="7BZ-3J-6vi"/>
+                                    <constraint firstItem="FSN-8W-S7O" firstAttribute="leading" secondItem="mAn-8c-p3c" secondAttribute="leading" id="Av2-Jl-b2o"/>
                                     <constraint firstItem="GBZ-oQ-mnU" firstAttribute="centerX" secondItem="Zco-QO-wj2" secondAttribute="centerX" id="Gof-BC-sTC"/>
                                     <constraint firstItem="4E3-co-55s" firstAttribute="top" secondItem="mAn-8c-p3c" secondAttribute="top" id="TMQ-Zm-b4v"/>
                                     <constraint firstItem="GBZ-oQ-mnU" firstAttribute="centerY" secondItem="Zco-QO-wj2" secondAttribute="centerY" id="Yap-P4-MRm"/>
+                                    <constraint firstAttribute="trailing" secondItem="FSN-8W-S7O" secondAttribute="trailing" id="asj-4d-0aj"/>
                                     <constraint firstItem="Zco-QO-wj2" firstAttribute="centerY" secondItem="mAn-8c-p3c" secondAttribute="bottom" multiplier="2:3" priority="750" id="btH-gj-ggi"/>
                                     <constraint firstItem="Zco-QO-wj2" firstAttribute="centerX" secondItem="mAn-8c-p3c" secondAttribute="centerX" id="eB9-N8-Wgw"/>
+                                    <constraint firstItem="FSN-8W-S7O" firstAttribute="top" secondItem="mAn-8c-p3c" secondAttribute="top" id="hnw-VP-70s"/>
                                     <constraint firstAttribute="trailing" secondItem="4E3-co-55s" secondAttribute="trailing" id="mOl-Ld-bcs"/>
                                     <constraint firstItem="dgg-2K-58e" firstAttribute="leading" secondItem="mAn-8c-p3c" secondAttribute="leading" id="mPw-4g-wLL"/>
+                                    <constraint firstAttribute="bottom" secondItem="FSN-8W-S7O" secondAttribute="bottom" id="nFR-7a-vfK"/>
                                     <constraint firstAttribute="bottom" secondItem="dgg-2K-58e" secondAttribute="bottom" id="tEV-2V-ffE"/>
                                     <constraint firstAttribute="trailing" secondItem="dgg-2K-58e" secondAttribute="trailing" id="tg9-gX-QGU"/>
                                     <constraint firstItem="GBZ-oQ-mnU" firstAttribute="height" secondItem="Zco-QO-wj2" secondAttribute="height" constant="24" id="vyz-Wz-11S"/>
@@ -226,6 +250,7 @@
                         <outlet property="renderableViewWidthConstraint" destination="eur-3N-dV4" id="1pN-88-h2f"/>
                         <outlet property="saveButton" destination="6lu-gD-SOE" id="Yqd-Gu-V5x"/>
                         <outlet property="scrollView" destination="4E3-co-55s" id="NST-wd-ly1"/>
+                        <outlet property="sizeDebugView" destination="FSN-8W-S7O" id="zr8-Ph-QVW"/>
                         <outlet property="textAttributesButton" destination="yLr-wX-wg6" id="QMB-q0-Yvv"/>
                         <outlet property="textBoxPanRecognizer" destination="qLW-OB-VlM" id="4My-Jc-Wfs"/>
                         <outlet property="textBoxTapRecognizer" destination="P1A-zI-KD9" id="JiL-7a-f7H"/>

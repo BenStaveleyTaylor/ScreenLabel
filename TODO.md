@@ -58,8 +58,8 @@ Public link:
 - [ ] line space control
 - [x] US localization
 - [ ] France localization
-- [ ] Lighten icon green slighltly
-- [ ] Improve dummy text on app store icon
+- [no] Lighten icon green slighltly
+- [x] Improve dummy text on app store icon
 - [x] Change order of greyscale colour swatches so Clear is at the left
 - [x] recheck  how images are resized for lock screen use -- people find the edges are cutting off
 - [x] Show lock screen clock position etc:
