@@ -34,9 +34,13 @@ class ImagePreviewController: UIViewController {
 
     // Render this view to get the lock screen image
     @IBOutlet private weak var renderableView: UIView!
-    @IBOutlet private weak var renderableViewHeightConstraint: NSLayoutConstraint!
-    @IBOutlet private weak var renderableViewWidthConstraint: NSLayoutConstraint!
-    
+
+    // Only one of these pairs can be active at any time
+    @IBOutlet private  var renderableViewStillHeightConstraint: NSLayoutConstraint!
+    @IBOutlet private  var renderableViewStillWidthConstraint: NSLayoutConstraint!
+    @IBOutlet private  var renderableViewPerspectiveHeightConstraint: NSLayoutConstraint!
+    @IBOutlet private  var renderableViewPerspectiveWidthConstraint: NSLayoutConstraint!
+
     @IBOutlet private weak var imageViewWidthConstraint: NSLayoutConstraint!
     @IBOutlet private weak var imageViewHeightConstraint: NSLayoutConstraint!
 
@@ -56,7 +60,7 @@ class ImagePreviewController: UIViewController {
 
     // Debugging. Draw a ruler scale over the view.
     // This always becomes false in release builds
-    private var showSizeDebugView = true
+    private var showSizeDebugView = false
 
     // true if the controls are all hidden to show the whole view
     var isInPreviewMode = false
@@ -69,7 +73,7 @@ class ImagePreviewController: UIViewController {
 
         self.settingsCoordinator = SettingsCoordinator(withDelegate: self)
         self.settingsDidChange(.all, coordinator: self.settingsCoordinator, animated: false)
-        
+
         // Necessary to allow both single and double-tap recognizers
         self.imageTapRecognizer.require(toFail: self.imageDoubleTapRecognizer)
         self.imageTapRecognizer.delegate = self
@@ -90,7 +94,7 @@ class ImagePreviewController: UIViewController {
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
+
         // Make sure our toolbar is visible
         self.navigationController?.setToolbarHidden(false, animated: false)
     }
@@ -98,7 +102,10 @@ class ImagePreviewController: UIViewController {
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
 
-        self.configureImageViewSize()
+        DispatchQueue.main.async {
+            self.setBleedStyle(self.settingsCoordinator.imageBleedStyle, animated: false)
+            self.configureImageViewSize()
+        }
     }
 
     @IBAction private func onChoosePhotoTapped(_ sender: Any) {
@@ -244,23 +251,38 @@ class ImagePreviewController: UIViewController {
     }
 
     private func setBleedStyle(_ bleedStyle: BleedStyle, animated: Bool) {
+
         // When in perspective mode the image needs to bleed off the visible
         // area by 25 points all round to have material to work with when tilting
 
-        let bleed: CGFloat
-        switch bleedStyle {
-        case .still:
-            bleed = 0
+        let doItBlock = {
+            // Bleed: We have two pairs of constraints and need to activate only one of them
+            // Turn both pairs off initially to avoid conflicts.
+            self.renderableViewStillHeightConstraint.isActive = false
+            self.renderableViewStillWidthConstraint.isActive = false
+            self.renderableViewPerspectiveHeightConstraint.isActive = false
+            self.renderableViewPerspectiveWidthConstraint.isActive = false
 
-        case .perspective:
-            bleed = 25
+            if bleedStyle == .perspective {
+                self.renderableViewPerspectiveHeightConstraint.isActive = true
+                self.renderableViewPerspectiveWidthConstraint.isActive = true
+            }
+            else {
+                self.renderableViewStillHeightConstraint.isActive = true
+                self.renderableViewStillWidthConstraint.isActive = true
+            }
         }
 
-        let duration: TimeInterval = animated ? Constants.defaultAnimationDuration : 0
-        UIView.animate(withDuration: duration) {
-            self.renderableViewHeightConstraint.constant = 2 * bleed
-            self.renderableViewWidthConstraint.constant = 2 * bleed
-            self.view.layoutIfNeeded()
+        if animated {
+            UIView.animate(withDuration: Constants.defaultAnimationDuration) {
+
+                doItBlock()
+                self.view.layoutIfNeeded()
+            }
+
+        }
+        else {
+            doItBlock()
         }
     }
 
@@ -374,7 +396,9 @@ extension ImagePreviewController: SettingsCoordinatorViewDelegate {
 
         self.imageView.backgroundColor = coordinator.imageBackgroundColor
 
-        self.setBleedStyle(coordinator.imageBleedStyle, animated: animated)
+        if changes.contains(.imageBleedStyle) {
+            self.setBleedStyle(coordinator.imageBleedStyle, animated: animated)
+        }
 
         // If the string is empty, show a helpful prompt
         var message = coordinator.message
@@ -479,6 +503,9 @@ extension ImagePreviewController: UIScrollViewDelegate {
     // Set up the constraints
     func configureImageViewSize() {
 
+        // Black magic or else the saved scroll settings go wrong on app restart.
+        self.scrollView.superview?.layoutIfNeeded()
+
         guard let image = self.imageView.image else {
             self.imageViewWidthConstraint.constant = self.renderableView.bounds.width
             self.imageViewHeightConstraint.constant = self.renderableView.bounds.height
@@ -490,9 +517,6 @@ extension ImagePreviewController: UIScrollViewDelegate {
 
         self.imageViewWidthConstraint.constant = image.size.width*aspectFillScale
         self.imageViewHeightConstraint.constant = image.size.height*aspectFillScale
-
-        self.scrollView.setNeedsUpdateConstraints()
-        self.scrollView.setNeedsLayout()
     }
     
     // Set the zoom to 1.0 and scroll to centre the image, as per initial state

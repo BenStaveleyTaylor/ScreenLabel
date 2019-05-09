@@ -58,7 +58,6 @@ Public link:
 - [ ] line space control
 - [x] US localization
 - [ ] France localization
-- [no] Lighten icon green slighltly
 - [x] Improve dummy text on app store icon
 - [x] Change order of greyscale colour swatches so Clear is at the left
 - [x] recheck  how images are resized for lock screen use -- people find the edges are cutting off
@@ -66,3 +65,4 @@ Public link:
 - [x] Allow overlay for be disabled in settings
 - [x] Change 'T' icon for settings icon
 - [ ] Set lock screen clock text color to black for pale images
+- [x] Change help text to recommend use of perspective view

@@ -74,4 +74,102 @@ class SettingsTests: XCTestCase {
         XCTAssertEqual(settings.boxYCentreOffset, checkSettings!.boxYCentreOffset)
         XCTAssertEqual(settings.showLockScreenUI, checkSettings!.showLockScreenUI)
     }
+
+    func testMigrateV1toV2() {
+
+        guard let testFont = UIFont(name: "Helvetica", size: 10) else {
+            XCTFail("Failed to create test font")
+            return
+        }
+
+        let settingsV1 = Settings(version: 1,
+                                imageName: "Total Perspective Vortex",
+                                imageBackgroundColor: .red,
+                                imageBleedStyle: .still,
+                                scrollScale: 2.0,
+                                scrollOffset: CGPoint(x: 123, y: 456),
+                                message: "Expect the unexpected",
+                                textFont: testFont,
+                                textStyle: .boldItalic,
+                                textAlignment: .right,
+                                textColor: .green,
+                                boxColor: .blue,
+                                boxBorderWidth: 0.5,
+                                boxCornerRadius: 10,
+                                boxInsets: UIEdgeInsets(top: 1, left: 2, bottom: 3, right: 4),
+                                boxYCentreOffset: 0.75,
+                                showLockScreenUI: true)
+
+        let settingsV2 = settingsV1.updatedToCurrentVersion()
+
+        // Verify intentional changes
+        XCTAssertEqual(settingsV2.version, 2)
+        XCTAssertEqual(settingsV2.imageBleedStyle, .perspective)
+
+        // Verify everything else is unchanges changes
+        XCTAssertEqual(settingsV2.imageName, settingsV1.imageName)
+        XCTAssertEqual(settingsV2.imageBackgroundColor, settingsV1.imageBackgroundColor)
+        XCTAssertEqual(settingsV2.scrollScale, settingsV1.scrollScale)
+        XCTAssertEqual(settingsV2.scrollOffset, settingsV1.scrollOffset)
+        XCTAssertEqual(settingsV2.message, settingsV1.message)
+        XCTAssertEqual(settingsV2.textFont, settingsV1.textFont)
+        XCTAssertEqual(settingsV2.textFont, settingsV1.textFont)
+        XCTAssertEqual(settingsV2.textStyle, settingsV1.textStyle)
+        XCTAssertEqual(settingsV2.textColor, settingsV1.textColor)
+        XCTAssertEqual(settingsV2.boxColor, settingsV1.boxColor)
+        XCTAssertEqual(settingsV2.boxBorderWidth, settingsV1.boxBorderWidth)
+        XCTAssertEqual(settingsV2.boxCornerRadius, settingsV1.boxCornerRadius)
+        XCTAssertEqual(settingsV2.boxInsets, settingsV1.boxInsets)
+        XCTAssertEqual(settingsV2.boxYCentreOffset, settingsV1.boxYCentreOffset)
+        XCTAssertEqual(settingsV2.showLockScreenUI, settingsV1.showLockScreenUI)
+   }
+
+    func testMigrateV2toV2IsNoOp() {
+
+        guard let testFont = UIFont(name: "Helvetica", size: 10) else {
+            XCTFail("Failed to create test font")
+            return
+        }
+
+        let settingsV1 = Settings(version: 2,
+                                  imageName: "Total Perspective Vortex",
+                                  imageBackgroundColor: .red,
+                                  imageBleedStyle: .still,
+                                  scrollScale: 2.0,
+                                  scrollOffset: CGPoint(x: 123, y: 456),
+                                  message: "Expect the unexpected",
+                                  textFont: testFont,
+                                  textStyle: .boldItalic,
+                                  textAlignment: .right,
+                                  textColor: .green,
+                                  boxColor: .blue,
+                                  boxBorderWidth: 0.5,
+                                  boxCornerRadius: 10,
+                                  boxInsets: UIEdgeInsets(top: 1, left: 2, bottom: 3, right: 4),
+                                  boxYCentreOffset: 0.75,
+                                  showLockScreenUI: true)
+
+        let settingsV2 = settingsV1.updatedToCurrentVersion()
+
+        // Verify migratable fields are unchanged
+        XCTAssertEqual(settingsV2.version, settingsV1.version)
+        XCTAssertEqual(settingsV2.imageBleedStyle, settingsV1.imageBleedStyle)
+
+        // Verify everything else is unchanges changes
+        XCTAssertEqual(settingsV2.imageName, settingsV1.imageName)
+        XCTAssertEqual(settingsV2.imageBackgroundColor, settingsV1.imageBackgroundColor)
+        XCTAssertEqual(settingsV2.scrollScale, settingsV1.scrollScale)
+        XCTAssertEqual(settingsV2.scrollOffset, settingsV1.scrollOffset)
+        XCTAssertEqual(settingsV2.message, settingsV1.message)
+        XCTAssertEqual(settingsV2.textFont, settingsV1.textFont)
+        XCTAssertEqual(settingsV2.textFont, settingsV1.textFont)
+        XCTAssertEqual(settingsV2.textStyle, settingsV1.textStyle)
+        XCTAssertEqual(settingsV2.textColor, settingsV1.textColor)
+        XCTAssertEqual(settingsV2.boxColor, settingsV1.boxColor)
+        XCTAssertEqual(settingsV2.boxBorderWidth, settingsV1.boxBorderWidth)
+        XCTAssertEqual(settingsV2.boxCornerRadius, settingsV1.boxCornerRadius)
+        XCTAssertEqual(settingsV2.boxInsets, settingsV1.boxInsets)
+        XCTAssertEqual(settingsV2.boxYCentreOffset, settingsV1.boxYCentreOffset)
+        XCTAssertEqual(settingsV2.showLockScreenUI, settingsV1.showLockScreenUI)
+    }
 }

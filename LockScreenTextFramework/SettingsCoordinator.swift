@@ -117,7 +117,14 @@ class SettingsCoordinator: NSObject {
         } else {
             // Default behaviour is to restore from saved storage
             // If any error occurs, use defaults
-            self.settings = Settings.readFromUserDefaults() ?? Settings.defaults
+
+            if let lastUsedSettings = Settings.readFromUserDefaults() {
+                // May be from an old version of the product
+                self.settings = lastUsedSettings.updatedToCurrentVersion()
+            }
+            else {
+                self.settings = Settings.defaults
+            }
         }
     }
 
@@ -128,7 +135,7 @@ class SettingsCoordinator: NSObject {
             self.batchedChanges = self.batchedChanges.union(changes)
         }
         else {
-            self.delegate?.settingsDidChange(changes, coordinator: self, animated: true)
+            self.delegate?.settingsDidChange(changes, coordinator: self, animated: false)
             try? self.settings.writeToUserDefaults()
         }
     }

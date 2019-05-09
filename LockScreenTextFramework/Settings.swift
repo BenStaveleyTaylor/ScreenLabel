@@ -14,6 +14,7 @@ enum TextStyle: Int, Codable {
     case plain, bold, italic, boldItalic
 }
 
+// Perspective BleedStyle is considered "normal" -- it's simplest for most use cases.
 enum BleedStyle: Int, Codable {
     case still, perspective
 }
@@ -28,8 +29,7 @@ struct Settings: Codable {
     // v2: Add showLockScreenUI
     static let currentVersion: Int = 2
 
-    // Immutable
-    let version: Int
+    var version: Int
 
     // Name of the image file in the KnownDirectory.images folder
     var imageName: String?
@@ -97,7 +97,7 @@ struct Settings: Codable {
         self.init(version: Settings.currentVersion,
                   imageName: nil,           // Nil imageName means it's a plain colour lock screen (background colour only)
                   imageBackgroundColor: UIColor(white: 1.0, alpha: 0),
-                  imageBleedStyle: .still,
+                  imageBleedStyle: .perspective,
                   scrollScale: 1.0,
                   scrollOffset: .zero,
                   message: "",
@@ -290,5 +290,33 @@ private struct CodableEdgeInsets: Codable {
 
     func toUIEdgeInsets() -> UIEdgeInsets {
         return UIEdgeInsets(top: self.top, left: self.left, bottom: self.bottom, right: self.right)
+    }
+}
+
+// Version migration
+extension Settings {
+
+    // Version history:
+    // 1: - Initial release
+    // 2: - Added showLockScreenUI;
+    //    - Renamed Perspective Mode as Automatic Margins and turn it on for all users when upgrading.
+
+    func updatedToCurrentVersion() -> Settings {
+        
+        guard self.version < Settings.currentVersion else {
+            // Nothing to do
+            return self
+        }
+
+        var updatedSettings = self
+
+        if updatedSettings.version == 1 {
+            // Ignore saved value for bleedStyle and turn it to auto/perspective when upgrading
+            updatedSettings.imageBleedStyle = .perspective
+        }
+
+        updatedSettings.version = Settings.currentVersion
+
+        return updatedSettings
     }
 }
