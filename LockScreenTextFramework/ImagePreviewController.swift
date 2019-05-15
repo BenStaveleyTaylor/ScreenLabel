@@ -60,7 +60,14 @@ class ImagePreviewController: UIViewController {
 
     // Debugging. Draw a ruler scale over the view.
     // This always becomes false in release builds
-    private var showSizeDebugView = false
+    private var showSizeDebugView: Bool {
+        #if DEBUG
+        return true
+        #else
+        // Always remove debug view in release builds. DO NOT CHANGE!!!
+        return false
+        #endif
+    }
 
     // true if the controls are all hidden to show the whole view
     var isInPreviewMode = false
@@ -80,11 +87,6 @@ class ImagePreviewController: UIViewController {
         self.imageDoubleTapRecognizer.delegate = self
 
         self.textLabel.layer.masksToBounds = false
-
-        // Remove debug view in release builds
-        #if !DEBUG
-        self.showSizeDebugView = false
-        #endif
 
         if !self.showSizeDebugView {
             self.sizeDebugView?.removeFromSuperview()
