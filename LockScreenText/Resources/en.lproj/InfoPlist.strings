@@ -6,6 +6,6 @@
   Copyright © 2018 Ben Staveley-Taylor. All rights reserved.
 */
 
-"To import photos and save new backgrounds you create" = "To import photos and save new backgrounds you create";
+"NSPhotoLibraryUsageDescription" = "To import photos and save new backgrounds you create";
 
-"To save new backgrounds you create" = "To save new backgrounds you create";
+"NSPhotoLibraryAddUsageDescription" = "To save new backgrounds you create";

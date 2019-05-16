@@ -20,7 +20,6 @@ class HelpManager: NSObject {
 
     // An index (e.g. "1") is added on to the base names
     private let helpTitleBase = "HelpTitle"
-    private let helpImagesFolder = "HelpImages"
     private let helpImageBase = "HelpImage"
     private let helpTextBase = "HelpText"
 
@@ -41,9 +40,9 @@ class HelpManager: NSObject {
             }
 
             // Try a .jpg image, then png
-            var image = Resources.sharedInstance.image(named: helpImagesFolder + "/" + imageKey + ".jpg")
+            var image = Resources.sharedInstance.image(named: imageKey + ".jpg")
             if image == nil {
-                image = Resources.sharedInstance.image(named: helpImagesFolder + "/" + imageKey + ".png")
+                image = Resources.sharedInstance.image(named: imageKey + ".png")
             }
             let text = Resources.sharedInstance.localizedString(textKey, tableName: HelpManager.helpStringsTable)
 

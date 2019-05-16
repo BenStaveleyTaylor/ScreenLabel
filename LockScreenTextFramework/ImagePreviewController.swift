@@ -62,7 +62,7 @@ class ImagePreviewController: UIViewController {
     // This always becomes false in release builds
     private var showSizeDebugView: Bool {
         #if DEBUG
-        return true
+        return false
         #else
         // Always remove debug view in release builds. DO NOT CHANGE!!!
         return false

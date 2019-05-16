@@ -66,3 +66,6 @@ Public link:
 - [x] Change 'T' icon for settings icon
 - [ ] Set lock screen clock text color to black for pale images
 - [x] Change help text to recommend use of perspective view
+- [ ] Bug: Changing the type size doesn't appear to work
+- [ ] Bug: The text doesn't seem to really be white
+- [ ] Bug: Choosing System Font displays as .SFUIFont

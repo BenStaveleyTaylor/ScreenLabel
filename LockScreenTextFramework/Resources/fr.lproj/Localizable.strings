@@ -1,0 +1,98 @@
+/* 
+  Localizable.strings
+  LockScreenText
+
+  Created by Ben Staveley-Taylor on 06/11/2018.
+  Copyright © 2018 Ben Staveley-Taylor. All rights reserved.
+*/
+
+"AboutTitle" = "A propos de";
+
+"HelpButtonText" = "Aide";
+
+/* \n indicates a line break */
+"MessagePromptText" = "Appuyez sur cette étiquette pour la changer\nFaites la glisser en haut ou en bas\n\nPlus d’aide dans la barre de titre";
+
+/* @DeviceName@ will be replaced by 'iPhone' or 'iPad' as appropriate. */
+"MessagePlaceholderText" = "Exemple: “Si trouvé veuillez contacter moi@email.com”\nLes sauts de lignes sont possibles (touche [retour])";
+
+"BleedStyleLabel" = "Automatic Margins";
+
+"BleedStyleHelpText" = "Auto is best for images used as iOS Lock Screens. Turn off to see more of the image.";
+
+"Done" = "Fini";
+
+"OpenSettings" = "Ouvrez Réglages";
+
+"TextAttributesEditorTitle" = "Réglages texte";
+
+"MoreWallpaperHelp" = "Plus d’Aide";
+
+"FailedAlertTitle" = "Échoué";
+
+"SavedAlertTitle" = "Enregistré dans vos images";
+
+"HowToSetWallpaperBody" = "Ouvrez Réglages > Fond d’écran et “Sélectionnez un nouveau fond d’écran” puis “Changer l’écran de verrouillage”.\n\nVous trouverez l’image dans la pellicule.\n\nThe “Perspective” option usually works best.";
+
+/* @AppName@" will be replaced by the application name */
+"PhotosAccessDenied" = "Cette application ne peut pas accéder à vos images. Pour le permettre, ouvrez réglages > @AppName@, sélectionnez images, et permettre un accès en lecture et en écriture.";
+
+"OK" = "OK";
+
+"MessageLabel" = "Message";
+
+"TextSizeLabel" = "Taille du Texte";
+
+"TextFontLabel" = "Police";
+
+/* %@ will be replaced by a number. Example: "12 pts" */
+"TextSizeValue" = "%@ pts";
+
+/* Short phrase used when showing how a font looks. Anything will do; this one contains every English letter. */
+"FontPickerSample" = "Lorem ipsum dolor sit amet, consectetuer adipiscing elit.";
+
+"SystemFontDisplayName" = "Police du système";
+
+"BoxColorLabel" = "Couleur de zone de Texte";
+
+"TextColorLabel" = "Couleur du Texte";
+
+"TextStyleLabel" = "Style de Texte";
+
+"FactorySettings" = "Réinitialiser";
+"ResetToDefaultsConfirmation" = "Etes-vous certain vous voulez restaurer les réglages par défaut ? Ceci va aussi déléter l’image de fond d’écran actuel.";
+"ResetToDefaultsResetAction" = " Réinitialiser";
+"Cancel" = "Annuler";
+
+/* Colour Picker */
+"PickBackgroundColorTitle" = " Régler la couleur de fond";
+"PickColorTitle" = "Selectionner la couleur";
+"ColourAfterTitle" = "Nouveau";
+"ColourBeforeTitle" = "Ancien";
+"ColourDarkerTitle" = "Foncée";
+"ColourLighterTitle" = "Claire";
+"ColourClearerTitle" = "Transparent";
+"ColourOpaquerTitle" = "Solide";
+
+/* About screen */
+
+/* Example after substitution: 'Version 1.0.1' */
+"VersionTemplate" = "Version %@";
+
+"CopyrightNotice" = "Copyright © Ben Staveley-Taylor, 2019. Tous droits réservés.";
+
+/* Example after substitution: 'email: bstiosdev@icloud.com' */
+"EmailButtonFormat" = "Email: %@";
+
+/* Example after substitution: 'Screen Label user email' */
+"EmailSubjectTemplate" = "@AppName@ adresse mail";
+
+/* %@ will be replaced by the version number. \n is a new line character. */
+"EmailBodyTemplate" = "App Version: %@\n(Si possible, pouvez-vous écrire votre message en anglais.) 🙂)\n\n---------\n\n";
+
+"PrivacyButtonTitle" = "Politique de confidentialité";
+
+/* Apple text at the bottom of the lock screen. Must match Apple's exact wording */
+"PressHomeToOpen" = "Appuyez pour ouvrir";
+
+"ShowLockScreenUILabel" = "Show time/date position";

@@ -10,8 +10,8 @@
 "HelpNavTitleTemplate" = "How To... (%@/%@)";
 
 /* Don't translate @AppName@"; it will be replaced by the application name. '\n' is a new line character (do not translate) */
-"HelpTitle1" = "Label your phone with @AppName@";
-"HelpText1"  = "@AppName@ helps you put a tag where it can be seen, even when your phone is locked.\n\nYou might show an alternative phone number to call, or your email address.\n\nIf you lose your phone, you stand a better chance of getting it back 🙏.";
+"HelpTitle1" = "Label your @DeviceName@ with @AppName@";
+"HelpText1"  = "@AppName@ helps you put a tag where it can be seen, even when your @DeviceName@ is locked.\n\nYou might show a phone number to call, or your email address.\n\nIf you lose your @DeviceName@, you stand a better chance of getting it back 🙏.";
 
 "HelpTitle2" = "Choose your background and text";
 "HelpText2"  = "① To start, import one of your photos. You can scroll and zoom the photo image to get just the part you want.\n\n② Or you can choose a simple background color instead of a photo.\n\n③ Then edit the text size and color to make it stand out, or to be unobtrusive.\n\n④ When you’re done, save it back as a new photo. Your original won’t be changed.";

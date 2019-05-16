@@ -94,4 +94,4 @@
 /* Apple text at the bottom of the lock screen. Must match Apple's exact wording */
 "PressHomeToOpen" = "Press Home to open";
 
-"ShowLockScreenUILabel" = "Show Lock Screen items";
+"ShowLockScreenUILabel" = "Show time/date position";
