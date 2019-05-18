@@ -245,9 +245,9 @@ class TextAttributesViewController: UIViewController {
         let selectedSegmentIndex = self.textStyleSegmentControl.selectedSegmentIndex
         self.settingsCoordinator.textStyle = TextAttributesHelper.textStyleFrom(styleSegmentIndex: selectedSegmentIndex)
 
-        if let newFontName = self.textFontName.text,
-            let newFont = UIFont(name: newFontName, size: CGFloat(size)) {
-            
+        let newFontDisplayName = self.textFontName.text ?? ""
+        let newFontInternalName = TextAttributesHelper.fontInternalNameFrom(displayName: newFontDisplayName)
+        if let newFont = UIFont(name: newFontInternalName, size: CGFloat(size)) {
             self.settingsCoordinator.textFont = newFont
         }
 

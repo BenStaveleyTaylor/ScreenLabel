@@ -41,7 +41,7 @@
 
 "MessageLabel" = "Message";
 
-"TextSizeLabel" = "Taille du Texte";
+"TextSizeLabel" = "Taille";
 
 "TextFontLabel" = "Police";
 
@@ -57,7 +57,7 @@
 
 "TextColorLabel" = "Couleur du Texte";
 
-"TextStyleLabel" = "Style de Texte";
+"TextStyleLabel" = "Style";
 
 "FactorySettings" = "Réinitialiser";
 "ResetToDefaultsConfirmation" = "Etes-vous certain vous voulez restaurer les réglages par défaut ? Ceci va aussi déléter l’image de fond d’écran actuel.";
@@ -87,12 +87,9 @@
 /* Example after substitution: 'Screen Label user email' */
 "EmailSubjectTemplate" = "@AppName@ adresse mail";
 
-/* %@ will be replaced by the version number. \n is a new line character. */
-"EmailBodyTemplate" = "App Version: %@\n(Si possible, pouvez-vous écrire votre message en anglais.) 🙂)\n\n---------\n\n";
-
 "PrivacyButtonTitle" = "Politique de confidentialité";
 
 /* Apple text at the bottom of the lock screen. Must match Apple's exact wording */
 "PressHomeToOpen" = "Appuyez pour ouvrir";
 
-"ShowLockScreenUILabel" = "Show time/date position";
+"ShowLockScreenUILabel" = "Show Time/Date Position";

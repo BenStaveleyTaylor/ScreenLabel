@@ -86,12 +86,9 @@
 /* Example after substitution: 'Screen Label user email' */
 "EmailSubjectTemplate" = "@AppName@ user email";
 
-/* %@ will be replaced by the version number. \n is a new line character. */
-"EmailBodyTemplate" = "App Version: %@\n(If possible, please write your email in English 🙂)\n\n---------\n\n";
-
 "PrivacyButtonTitle" = "Privacy Policy";
 
 /* Apple text at the bottom of the lock screen. Must match Apple's exact wording */
 "PressHomeToOpen" = "Press Home to open";
 
-"ShowLockScreenUILabel" = "Show time/date position";
+"ShowLockScreenUILabel" = "Show Time/Date Position";

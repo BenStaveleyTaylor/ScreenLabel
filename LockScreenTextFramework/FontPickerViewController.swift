@@ -42,7 +42,8 @@ class FontPickerViewController: UITableViewController {
 
     private func setCellCheckmarkState(cell: UITableViewCell) {
 
-        let fontInternalName = cell.detailTextLabel?.text
+        let fontDisplayName = cell.detailTextLabel?.text ?? ""
+        let fontInternalName = TextAttributesHelper.fontInternalNameFrom(displayName: fontDisplayName)
 
         if fontInternalName == self.selectedFontInternalName {
             cell.accessoryType = .checkmark
@@ -92,8 +93,8 @@ extension FontPickerViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 
         let selectedCell = tableView.cellForRow(at: indexPath)
-        if let fontName = selectedCell?.textLabel?.font.fontName {
-            self.delegate?.didChangeSelectedFont(internalName: fontName)
+        if let familyName = selectedCell?.textLabel?.font.familyName {
+            self.delegate?.didChangeSelectedFont(internalName: familyName)
         }
     }
 }

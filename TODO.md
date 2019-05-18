@@ -53,19 +53,19 @@ Public link:
 
 ## Next version
 
-- [ ] Gradient backgrounds (in-app purchase?)
-- [ ] Show 'safe area' when desiging on iPad (shows in both portrait and landscape)
-- [ ] line space control
 - [x] US localization
-- [ ] France localization
+- [x] France localization
 - [x] Improve dummy text on app store icon
 - [x] Change order of greyscale colour swatches so Clear is at the left
 - [x] recheck  how images are resized for lock screen use -- people find the edges are cutting off
 - [x] Show lock screen clock position etc:
 - [x] Allow overlay for be disabled in settings
 - [x] Change 'T' icon for settings icon
-- [ ] Set lock screen clock text color to black for pale images
 - [x] Change help text to recommend use of perspective view
-- [ ] Bug: Changing the type size doesn't appear to work
-- [ ] Bug: The text doesn't seem to really be white
-- [ ] Bug: Choosing System Font displays as .SFUIFont
+- [x] Bug: Changing the type size doesn't appear to work in French
+- [x] Bug: Choosing System Font displays as .SFUIFont
+- [x] Add local to support email info
+- [ ] Gradient backgrounds (in-app purchase?)
+- [ ] Show 'safe area' when desiging on iPad (shows in both portrait and landscape)
+- [ ] line space control
+- [ ] Set lock screen clock text color to black for pale images

@@ -72,10 +72,9 @@
 "CopyrightNotice" = "Copyright © Ben Staveley-Taylor, 2019. All rights reserved.";
 "EmailButtonFormat" = "email: %@";
 "EmailSubjectTemplate" = "@AppName@ user email";
-"EmailBodyTemplate" = "App Version: %@\n(If possible, please write your email in English 🙂)\n\n* * * * *\n\n";
 "PrivacyButtonTitle" = "Privacy Policy";
 
 /* Apple text at the bottom of the lock screen. Must match Apple's exact wording */
 "PressHomeToOpen" = "Press home to open";
 
-"ShowLockScreenUILabel" = "Show time/date position";
+"ShowLockScreenUILabel" = "Show Time/Date Position";
