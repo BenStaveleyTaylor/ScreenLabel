@@ -59,10 +59,6 @@ class ColorPickerWheelView: UIImageView {
 
     func colorWheel(brightness: CGFloat, radius: CGFloat) -> UIImage? {
 
-        os_log("Regenerating color wheel: radius %@; brightness %@",
-               NSNumber(value: Double(radius)),
-               NSNumber(value: Double(brightness)))
-
         let filter = CIFilter(name: "CIHueSaturationValueGradient", parameters: [
             "inputColorSpace": CGColorSpaceCreateDeviceRGB(),
             "inputDither": 0,

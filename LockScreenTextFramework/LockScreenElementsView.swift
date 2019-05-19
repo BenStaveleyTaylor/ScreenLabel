@@ -31,8 +31,9 @@ class LockScreenElementsView: UIView {
     let logic = LockScreenElements()
     var timer: Timer?
 
-    let footerImageForegroundGrey: CGFloat = 0.68
-    let footerImageBackgroundGrey: CGFloat = 0.75
+    // Tinting of the torch/camera icons
+    let footerImageForegroundGrey: CGFloat = 0.9 // nearly white
+    let footerImageBackgroundGrey: CGFloat = 0.25 // dark grey
     let footerImageForegroundAlpha: CGFloat = 1
     let footerImageBackgroundAlpha: CGFloat = 0.75
 

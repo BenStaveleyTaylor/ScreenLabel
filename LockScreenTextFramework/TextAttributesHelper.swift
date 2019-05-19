@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import os.log
 
 enum TextAttributesHelper {
 
@@ -43,6 +44,22 @@ enum TextAttributesHelper {
         }
 
         return displayName
+    }
+
+    // Return the font, or system font if an error occurs
+    static func fontFrom(displayName: String?, size: CGFloat) -> UIFont {
+
+        if let displayName = displayName {
+            let internalName = self.fontInternalNameFrom(displayName: displayName)
+            if let result = UIFont(name: internalName, size: size) {
+                return result
+            }
+        }
+
+        // We shouldn't really need to do this fallback
+        os_log("Failed to generate font of name %@", (displayName ?? "<nil>"))
+
+        return UIFont.systemFont(ofSize: size)
     }
 
     static func styleSegmentIndexFrom(textStyle: TextStyle) -> Int {

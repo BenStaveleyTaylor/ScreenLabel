@@ -181,19 +181,16 @@
                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="mAn-8c-p3c" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="0zm-fv-Sxo"/>
-                            <constraint firstAttribute="height" relation="greaterThanOrEqual" secondItem="Zco-QO-wj2" secondAttribute="height" constant="100" id="Ipd-9B-QNH"/>
                             <constraint firstAttribute="bottom" secondItem="ISk-0U-2Xz" secondAttribute="bottom" id="M54-fU-K4W"/>
                             <constraint firstItem="mAn-8c-p3c" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="1.15" id="QQ0-RZ-MU7"/>
                             <constraint firstItem="ISk-0U-2Xz" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="UTz-rO-caz"/>
                             <constraint firstItem="mAn-8c-p3c" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" id="VKN-9D-ovb"/>
+                            <constraint firstAttribute="width" relation="greaterThanOrEqual" secondItem="Zco-QO-wj2" secondAttribute="width" constant="64" id="YnR-XH-uTm"/>
                             <constraint firstItem="mAn-8c-p3c" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" id="cnz-Ql-pjw"/>
                             <constraint firstItem="mAn-8c-p3c" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="1.15" id="eur-3N-dV4"/>
                             <constraint firstAttribute="trailing" secondItem="ISk-0U-2Xz" secondAttribute="trailing" id="fa8-l3-vDG"/>
                             <constraint firstItem="ISk-0U-2Xz" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="fc0-Hk-fhe"/>
-                            <constraint firstAttribute="width" relation="greaterThanOrEqual" secondItem="Zco-QO-wj2" secondAttribute="width" constant="104" id="hT8-0h-sh8">
-                                <variation key="widthClass=compact" constant="104"/>
-                                <variation key="widthClass=regular" constant="204"/>
-                            </constraint>
+                            <constraint firstAttribute="height" relation="greaterThanOrEqual" secondItem="Zco-QO-wj2" secondAttribute="height" constant="64" id="hC3-sS-tf9"/>
                             <constraint firstItem="mAn-8c-p3c" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="vnU-TT-grm"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>

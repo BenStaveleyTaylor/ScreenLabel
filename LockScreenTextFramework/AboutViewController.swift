@@ -29,7 +29,6 @@ class AboutViewController: UIViewController {
     let emailButtonFormat: String
     let privacyButtonTitle: String
     let versionString: String
-    let localeString: String
     let webSiteLink: URL!
     let privacyPolicyLink: URL!
 
@@ -56,10 +55,6 @@ class AboutViewController: UIViewController {
         let appVersion: String? = appBundle.object(forInfoDictionaryKey: "CFBundleShortVersionString") as? String
         let versionTemplate = Resources.sharedInstance.localizedString("VersionTemplate")
         self.versionString = String(format: versionTemplate, appVersion ?? "–")
-
-        let language = Locale.current.languageCode ?? "??"
-        let region = Locale.current.regionCode ?? "??"
-        self.localeString = "\(language)_\(region)"
 
         let baseUrl = URL(string: self.webSiteAddress)
         self.webSiteLink = baseUrl
@@ -113,21 +108,31 @@ class AboutViewController: UIViewController {
         let emailSubject = Resources.sharedInstance.localizedString("EmailSubjectTemplate")
         composeVC.setSubject(emailSubject)
 
+        let emailBody = self.composeSupportEmailBody()
+        composeVC.setMessageBody(emailBody, isHTML: false)
+
+        // Present the view controller modally.
+        self.present(composeVC, animated: true, completion: nil)
+    }
+
+    internal func composeSupportEmailBody() -> String {
+
+        let language = Locale.current.languageCode ?? "??"
+        let region = Locale.current.regionCode ?? "??"
+
         // Body is "Version: nnn"
         // Not localised because I need to read it
-        let emailBody = """
+        let result = """
         App Version: \(self.versionString)
-        Language/Region: \(self.localeString)
+        Device: \(UIDevice.current.model), \(UIDevice.current.systemName) \(UIDevice.current.systemVersion)
+        Language/Region: \(language)_\(region)
         (If possible, please write your email in English 🙂)
 
         * * * * *
 
         """
 
-        composeVC.setMessageBody(emailBody, isHTML: false)
-
-        // Present the view controller modally.
-        self.present(composeVC, animated: true, completion: nil)
+        return result
     }
 
     @IBAction private func onWebSiteButtoTapped(_ sender: UIButton) {
