@@ -14,11 +14,11 @@
 "MessagePromptText" = "Appuyez sur cette étiquette pour la changer\nFaites la glisser en haut ou en bas\n\nPlus d’aide dans la barre de titre";
 
 /* @DeviceName@ will be replaced by 'iPhone' or 'iPad' as appropriate. */
-"MessagePlaceholderText" = "Exemple: “Si trouvé veuillez contacter moi@email.com”\nLes sauts de lignes sont possibles (touche [retour])";
+"MessagePlaceholderText" = "Exemple: «Si trouvé veuillez contacter moi@email.com»\nLes sauts de lignes sont possibles (touche [retour])";
 
-"BleedStyleLabel" = "Automatic Margins";
+"BleedStyleLabel" = "Marges automatiques";
 
-"BleedStyleHelpText" = "Auto is best for images used as iOS Lock Screens. Turn off to see more of the image.";
+"BleedStyleHelpText" = "Automatique est recommandé pour les images utilisées comme écran verrouillé.  Désactiver pour voir plus de l’image.";
 
 "Done" = "Fini";
 
@@ -32,7 +32,7 @@
 
 "SavedAlertTitle" = "Enregistré dans vos images";
 
-"HowToSetWallpaperBody" = "Ouvrez Réglages > Fond d’écran et “Sélectionnez un nouveau fond d’écran” puis “Changer l’écran de verrouillage”.\n\nVous trouverez l’image dans la pellicule.\n\nThe “Perspective” option usually works best.";
+"HowToSetWallpaperBody" = "Ouvrez Réglages > Fond d’écran et «Choisir un nouveau fond d’écran» puis définir l’écran verrouillé.\n\nVous trouverez l’image dans la pellicule.\n\nNormalement l’option perspective est le mieux.";
 
 /* @AppName@" will be replaced by the application name */
 "PhotosAccessDenied" = "Cette application ne peut pas accéder à vos images. Pour le permettre, ouvrez réglages > @AppName@, sélectionnez images, et permettre un accès en lecture et en écriture.";
@@ -67,10 +67,10 @@
 /* Colour Picker */
 "PickBackgroundColorTitle" = " Régler la couleur de fond";
 "PickColorTitle" = "Selectionner la couleur";
-"ColourAfterTitle" = "Nouveau";
-"ColourBeforeTitle" = "Ancien";
-"ColourDarkerTitle" = "Foncée";
-"ColourLighterTitle" = "Claire";
+"ColourAfterTitle" = "Nouvelle";
+"ColourBeforeTitle" = "Ancienne";
+"ColourDarkerTitle" = "Foncé";
+"ColourLighterTitle" = "Clair";
 "ColourClearerTitle" = "Transparent";
 "ColourOpaquerTitle" = "Solide";
 
@@ -92,4 +92,4 @@
 /* Apple text at the bottom of the lock screen. Must match Apple's exact wording */
 "PressHomeToOpen" = "Appuyez pour ouvrir";
 
-"ShowLockScreenUILabel" = "Show Time/Date Position";
+"ShowLockScreenUILabel" = "Affichage de l’heure";
