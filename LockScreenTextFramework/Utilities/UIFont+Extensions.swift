@@ -12,7 +12,7 @@ import Foundation
 public extension UIFont {
 
     /// Font as bold font
-    public var bold: UIFont {
+    var bold: UIFont {
         guard let modifiedDescriptor = self.fontDescriptor.withSymbolicTraits(.traitBold) else {
             return self
         }
@@ -20,7 +20,7 @@ public extension UIFont {
     }
 
     /// Font as italic font
-    public var italic: UIFont {
+    var italic: UIFont {
         guard let modifiedDescriptor = self.fontDescriptor.withSymbolicTraits(.traitItalic) else {
             return self
         }
@@ -28,7 +28,7 @@ public extension UIFont {
     }
 
     /// Font as boldItalic font
-    public var boldItalic: UIFont {
+    var boldItalic: UIFont {
         guard let modifiedDescriptor = self.fontDescriptor.withSymbolicTraits([.traitBold, .traitItalic]) else {
             return self
         }
