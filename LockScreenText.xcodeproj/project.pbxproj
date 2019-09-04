@@ -491,14 +491,16 @@
 				TargetAttributes = {
 					6B0479F92198898800B79CFA = {
 						CreatedOnToolsVersion = 10.1;
-						LastSwiftMigration = 1010;
+						LastSwiftMigration = 1100;
 					};
 					6B047A012198898800B79CFA = {
 						CreatedOnToolsVersion = 10.1;
+						LastSwiftMigration = 1100;
 						TestTargetID = 6BB2EBEE21920DBA00BCDA34;
 					};
 					6BB2EBEE21920DBA00BCDA34 = {
 						CreatedOnToolsVersion = 10.1;
+						LastSwiftMigration = 1100;
 					};
 				};
 			};
@@ -809,7 +811,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
@@ -838,7 +840,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.staveleytaylor.ben.LockScreenTextFramework;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
@@ -857,7 +859,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.staveleytaylor.ben.LockScreenTextFrameworkTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Screen Label.app/Screen Label";
 			};
@@ -875,7 +877,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.staveleytaylor.ben.LockScreenTextFrameworkTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Screen Label.app/Screen Label";
 			};
@@ -1015,7 +1017,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.staveleytaylor.ben.LockScreenText;
 				PRODUCT_NAME = "Screen Label";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -1034,7 +1036,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.staveleytaylor.ben.LockScreenText;
 				PRODUCT_NAME = "Screen Label";
 				PROVISIONING_PROFILE_SPECIFIER = "LockScreenText Production";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
