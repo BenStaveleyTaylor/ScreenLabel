@@ -76,6 +76,10 @@ class AboutViewController: UIViewController {
         }
         self.iconImage.image = icon
 
+        // Round the corners: for 1 60px wide box the radius should be 12
+        self.iconImage.layer.cornerRadius = self.iconImage.bounds.width/5
+        self.iconImage.clipsToBounds = true
+
         self.titleLabel.text = self.productTitle
         self.versionLabel.text = self.versionString
         self.copyrightLabel.text = self.copyrightNotice
