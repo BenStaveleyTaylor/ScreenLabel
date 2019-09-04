@@ -27,23 +27,26 @@ enum PrivacyUtilities {
         // Check we have access to the Photos data
         PHPhotoLibrary.requestAuthorization { status in
 
-            if status == .authorized {
-                // All is well; proceed
-                completion(true)
-            }
-            else {
-                completion(false)
+            DispatchQueue.main.async {
 
-                AlertUtilities.showMessage(title: Resources.sharedInstance.localizedString("FailedAlertTitle"),
-                                           body: Resources.sharedInstance.localizedString("PhotosAccessDenied"),
-                                           button1Text: Resources.sharedInstance.localizedString("OpenSettings"),
-                                           button2Text: Resources.sharedInstance.localizedString("OK"),
-                                           fromViewController: presentingVC) { choice in
+                if status == .authorized {
+                    // All is well; proceed
+                    completion(true)
+                }
+                else {
+                    completion(false)
 
-                                            if choice == 1 {
-                                                // Open Settings
-                                                SystemSettingsUtilities.openSettings()
-                                            }
+                    AlertUtilities.showMessage(title: Resources.sharedInstance.localizedString("FailedAlertTitle"),
+                                               body: Resources.sharedInstance.localizedString("PhotosAccessDenied"),
+                                               button1Text: Resources.sharedInstance.localizedString("OpenSettings"),
+                                               button2Text: Resources.sharedInstance.localizedString("OK"),
+                                               fromViewController: presentingVC) { choice in
+
+                                                if choice == 1 {
+                                                    // Open Settings
+                                                    SystemSettingsUtilities.openSettings()
+                                                }
+                    }
                 }
             }
         }

@@ -20,13 +20,13 @@ open class TranslucentColorSwatchView: UIView {
     }
 
     /// If true, when the colour swatch hits zero alpha a diagonal line
-    // is drawn to indicate that, rather than drawing nothing.
+    /// is drawn to indicate that, rather than drawing nothing.
     public var showZeroAlphaAsStripe: Bool {
         get {
             return self.swatchView.showZeroAlphaAsStripe
         }
         set {
-            self.swatchView.showZeroAlphaAsStripe = showZeroAlphaAsStripe
+            self.swatchView.showZeroAlphaAsStripe = newValue
         }
     }
 

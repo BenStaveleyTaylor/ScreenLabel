@@ -273,7 +273,17 @@ private struct CodableFont: Codable {
     }
 
     func toUIFont() -> UIFont? {
-        return UIFont(name: self.name, size: self.size)
+
+        // The System Font internal name seems to have changed in iOS 13.
+        // It used to be .SFUI-Regular; now it is .AppleSystemUIFont
+        // Treat any font that begins with a '.' as the system font
+
+        if self.name.hasPrefix(".") {
+            return UIFont.systemFont(ofSize: self.size)
+        }
+        else {
+            return UIFont(name: self.name, size: self.size)
+        }
     }
 }
 
