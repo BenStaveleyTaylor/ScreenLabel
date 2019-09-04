@@ -34,4 +34,16 @@ enum DeviceUtilities {
 
         return .zero
     }
+
+    // True if this app's window occupies the full device screen
+    // False if we are multitasking and in split screen
+    static var hasFullDeviceScreen: Bool {
+
+        let screenSize = UIScreen.main.bounds
+        guard let appSize = UIApplication.shared.windows.first?.bounds else {
+            return false
+        }
+
+        return screenSize == appSize
+    }
 }

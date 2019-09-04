@@ -24,7 +24,7 @@
 		6B08E60C21B41F1900D9B47C /* QuantizedSliderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B08E60B21B41F1800D9B47C /* QuantizedSliderTests.swift */; };
 		6B08E60F21B4307400D9B47C /* ColorPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B08E60D21B4307400D9B47C /* ColorPickerViewController.swift */; };
 		6B08E61121B430B600D9B47C /* ColorPickerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6B08E61321B430B600D9B47C /* ColorPickerViewController.xib */; };
-		6B184A9521EA63BB0065A394 /* UIAlertController+Promise.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B184A9421EA63BB0065A394 /* UIAlertController+Promise.swift */; };
+		6B184A9521EA63BB0065A394 /* UIAlertController+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B184A9421EA63BB0065A394 /* UIAlertController+Extensions.swift */; };
 		6B1E245021989F9B008A0CFC /* Resources.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B1E244F21989F9B008A0CFC /* Resources.swift */; };
 		6B29017921D972ED002FFF71 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6B29017B21D972ED002FFF71 /* Localizable.strings */; };
 		6B29017C21D97348002FFF71 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6B29017E21D97348002FFF71 /* Localizable.strings */; };
@@ -132,7 +132,7 @@
 		6B08E60D21B4307400D9B47C /* ColorPickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorPickerViewController.swift; sourceTree = "<group>"; };
 		6B08E61221B430B600D9B47C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/ColorPickerViewController.xib; sourceTree = "<group>"; };
 		6B11DA112194DF9F001FAD4C /* SettingsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTests.swift; sourceTree = "<group>"; };
-		6B184A9421EA63BB0065A394 /* UIAlertController+Promise.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIAlertController+Promise.swift"; sourceTree = "<group>"; };
+		6B184A9421EA63BB0065A394 /* UIAlertController+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIAlertController+Extensions.swift"; sourceTree = "<group>"; };
 		6B1E244F21989F9B008A0CFC /* Resources.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Resources.swift; sourceTree = "<group>"; };
 		6B29017721D972E8002FFF71 /* en-US */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "en-US"; path = "en-US.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
 		6B29017A21D972ED002FFF71 /* en-US */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "en-US"; path = "en-US.lproj/Localizable.strings"; sourceTree = "<group>"; };
@@ -308,7 +308,7 @@
 				6B047A1A21988B5F00B79CFA /* ImageUtilities.swift */,
 				6B7E228D225C9414007A0E94 /* PrivacyUtilities.swift */,
 				6BB753D521FE28A900407F87 /* SystemSettingsUtilities.swift */,
-				6B184A9421EA63BB0065A394 /* UIAlertController+Promise.swift */,
+				6B184A9421EA63BB0065A394 /* UIAlertController+Extensions.swift */,
 				6BC25A0422330D7F00D3CA8D /* UIFont+Extensions.swift */,
 				6B64167421B726D000F6365C /* UIImageView+Pixels.swift */,
 				6B7FDF6121ABFA12004BB497 /* UIView+Extensions.swift */,
@@ -635,7 +635,7 @@
 				6BB753D621FE28A900407F87 /* SystemSettingsUtilities.swift in Sources */,
 				6B324C0221B1457900EB236A /* TranslucentColorSwatchView.swift in Sources */,
 				6B324C0421B1458F00EB236A /* ColorSwatchView.swift in Sources */,
-				6B184A9521EA63BB0065A394 /* UIAlertController+Promise.swift in Sources */,
+				6B184A9521EA63BB0065A394 /* UIAlertController+Extensions.swift in Sources */,
 				6B047A2121988B5F00B79CFA /* SettingsCoordinator.swift in Sources */,
 				6BA320C12274EEFC000E8255 /* LockScreenElements.swift in Sources */,
 				6B047A2821988B5F00B79CFA /* Settings.swift in Sources */,

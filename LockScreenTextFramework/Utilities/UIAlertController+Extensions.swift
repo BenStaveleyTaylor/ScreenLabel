@@ -1,5 +1,5 @@
 //
-//  UIAlertController+Promise.swift
+//  UIAlertController+Extensions.swift
 //  LockScreenTextFramework
 //
 //  Created by Ben Staveley-Taylor on 12/01/2019.

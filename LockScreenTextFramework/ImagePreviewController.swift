@@ -172,6 +172,10 @@ class ImagePreviewController: UIViewController {
 
     @IBAction private func onSaveTapped(_ sender: Any) {
 
+        guard self.validateHasFullDeviceScreen() else {
+            return
+        }
+
         // Save the renderable view into the photo album
         let image = ImageUtilities.imageFromView(self.renderableView)
         self.settingsCoordinator.saveToPhotos(image: image, fromViewController: self)
@@ -240,6 +244,21 @@ class ImagePreviewController: UIViewController {
     }
 
     // MARK: Private methods
+
+    private func validateHasFullDeviceScreen() -> Bool {
+        if DeviceUtilities.hasFullDeviceScreen {
+            return true
+        }
+
+        // It doesn't make sense to save a potential Lock Screen if wr are not in full
+        // screen mode. It will be the wrong size. Save users from their own folly, but explain
+        // why (as opposed to just disabling the Save button)
+
+        AlertUtilities.showMessage(title: Resources.sharedInstance.localizedString("MustBeInFullScreenToSaveTitle"),
+                                   body: Resources.sharedInstance.localizedString("MustBeInFullScreenToSaveBody"))
+
+        return false
+    }
 
     private func togglePreviewMode() {
 

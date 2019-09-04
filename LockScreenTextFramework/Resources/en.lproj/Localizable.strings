@@ -92,3 +92,6 @@
 "PressHomeToOpen" = "Press Home to open";
 
 "ShowLockScreenUILabel" = "Show Time/Date Position";
+
+"MustBeInFullScreenToSaveTitle" = "Saving is disabled";
+"MustBeInFullScreenToSaveBody" = "@AppName@ must be in full screen mode, or the image won’t work as a Lock Screen.";
