@@ -95,6 +95,13 @@ class ColorPickerViewController: UIViewController {
         let bundle = Bundle(for: selfClass)
         super.init(nibName: className, bundle: bundle)
 
+        if #available(iOS 13.0, *) {
+            self.view.backgroundColor = UIColor.systemBackground
+        } else {
+            // Fallback on earlier versions
+            self.view.backgroundColor = UIColor.white
+        }
+
         self.title = title
     }
 

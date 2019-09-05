@@ -15,7 +15,12 @@ public class HelpPageViewController: UIPageViewController {
     public override func viewDidLoad() {
         super.viewDidLoad()
 
-        self.view.backgroundColor = UIColor.white
+        if #available(iOS 13.0, *) {
+            self.view.backgroundColor = UIColor.systemBackground
+        } else {
+            // Fallback on earlier versions
+            self.view.backgroundColor = UIColor.white
+        }
 
         // Do any additional setup after loading the view.
         self.dataSource = self.helpManager.pageViewDataSource
