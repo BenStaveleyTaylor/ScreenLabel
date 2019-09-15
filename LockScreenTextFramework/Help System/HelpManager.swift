@@ -39,11 +39,9 @@ class HelpManager: NSObject {
                 break
             }
 
-            // Try a .jpg image, then png
-            var image = Resources.sharedInstance.image(named: imageKey + ".jpg")
-            if image == nil {
-                image = Resources.sharedInstance.image(named: imageKey + ".png")
-            }
+            // Images are named .xcassets
+            let image = Resources.sharedInstance.image(named: imageKey)
+
             let text = Resources.sharedInstance.localizedString(textKey, tableName: HelpManager.helpStringsTable)
 
             let vc = HelpPageController.create(title: title, image: image, text: text)

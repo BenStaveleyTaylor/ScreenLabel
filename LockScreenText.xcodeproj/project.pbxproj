@@ -38,6 +38,7 @@
 		6B3EF8C921DA91BA00CA61E9 /* ResourcesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B3EF8C821DA91BA00CA61E9 /* ResourcesTests.swift */; };
 		6B3EF8CB21DAB78500CA61E9 /* HelpPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B3EF8CA21DAB78500CA61E9 /* HelpPageViewController.swift */; };
 		6B44B15E2281FDD000B6DDC4 /* SizeDebugView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B44B15D2281FDD000B6DDC4 /* SizeDebugView.swift */; };
+		6B4C23AE232ED816002E1250 /* HelpImages.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6B4C23AD232ED816002E1250 /* HelpImages.xcassets */; };
 		6B64167621B726D000F6365C /* UIImageView+Pixels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B64167421B726D000F6365C /* UIImageView+Pixels.swift */; };
 		6B6C4486223127970049CD88 /* DeviceUtilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B6C4485223127970049CD88 /* DeviceUtilities.swift */; };
 		6B6C448822312BE20049CD88 /* HelpNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B6C448722312BE20049CD88 /* HelpNavigationController.swift */; };
@@ -48,10 +49,6 @@
 		6B7FDF5E21A9F8AE004BB497 /* FontPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B7FDF5D21A9F8AE004BB497 /* FontPickerViewController.swift */; };
 		6B7FDF6221ABFA12004BB497 /* UIView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B7FDF6121ABFA12004BB497 /* UIView+Extensions.swift */; };
 		6B8A0C7022629D110006CD56 /* DialogNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B8A0C6F22629D110006CD56 /* DialogNavigationController.swift */; };
-		6B8E2A35229017FB00ED8C0E /* HelpImage4.png in Resources */ = {isa = PBXBuildFile; fileRef = 6B8E2A31229017FB00ED8C0E /* HelpImage4.png */; };
-		6B8E2A362290181800ED8C0E /* HelpImage1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 6B8E2A382290181800ED8C0E /* HelpImage1.jpg */; };
-		6B8E2A3A2290182700ED8C0E /* HelpImage3.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 6B8E2A3C2290182700ED8C0E /* HelpImage3.jpg */; };
-		6B8E2A3E2290183000ED8C0E /* HelpImage2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 6B8E2A402290183000ED8C0E /* HelpImage2.jpg */; };
 		6BA186E521988CCB00C9CE76 /* SettingsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B11DA112194DF9F001FAD4C /* SettingsTests.swift */; };
 		6BA320BF2274EE25000E8255 /* LockScreenElementsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BA320BE2274EE25000E8255 /* LockScreenElementsView.swift */; };
 		6BA320C12274EEFC000E8255 /* LockScreenElements.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BA320C02274EEFC000E8255 /* LockScreenElements.swift */; };
@@ -146,8 +143,8 @@
 		6B3EF8C821DA91BA00CA61E9 /* ResourcesTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResourcesTests.swift; sourceTree = "<group>"; };
 		6B3EF8CA21DAB78500CA61E9 /* HelpPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpPageViewController.swift; sourceTree = "<group>"; };
 		6B44B15D2281FDD000B6DDC4 /* SizeDebugView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SizeDebugView.swift; sourceTree = "<group>"; };
+		6B4C23AD232ED816002E1250 /* HelpImages.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = HelpImages.xcassets; path = "LockScreenTextFramework/Help System/Resources/HelpImages.xcassets"; sourceTree = SOURCE_ROOT; };
 		6B64167421B726D000F6365C /* UIImageView+Pixels.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImageView+Pixels.swift"; sourceTree = "<group>"; };
-		6B6765BD2291AD780012D347 /* en-US */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "en-US"; path = "en-US.lproj/HelpImage1.jpg"; sourceTree = "<group>"; };
 		6B6C4485223127970049CD88 /* DeviceUtilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceUtilities.swift; sourceTree = "<group>"; };
 		6B6C448722312BE20049CD88 /* HelpNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpNavigationController.swift; sourceTree = "<group>"; };
 		6B79DC4F219B693F00F10A2F /* TextAttributesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextAttributesViewController.swift; sourceTree = "<group>"; };
@@ -157,13 +154,6 @@
 		6B7FDF5D21A9F8AE004BB497 /* FontPickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontPickerViewController.swift; sourceTree = "<group>"; };
 		6B7FDF6121ABFA12004BB497 /* UIView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extensions.swift"; sourceTree = "<group>"; };
 		6B8A0C6F22629D110006CD56 /* DialogNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DialogNavigationController.swift; sourceTree = "<group>"; };
-		6B8E2A31229017FB00ED8C0E /* HelpImage4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = HelpImage4.png; sourceTree = "<group>"; };
-		6B8E2A372290181800ED8C0E /* Base */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = Base; path = Base.lproj/HelpImage1.jpg; sourceTree = "<group>"; };
-		6B8E2A392290182000ED8C0E /* fr */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = fr; path = fr.lproj/HelpImage1.jpg; sourceTree = "<group>"; };
-		6B8E2A3B2290182700ED8C0E /* Base */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = Base; path = Base.lproj/HelpImage3.jpg; sourceTree = "<group>"; };
-		6B8E2A3D2290182A00ED8C0E /* fr */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = fr; path = fr.lproj/HelpImage3.jpg; sourceTree = "<group>"; };
-		6B8E2A3F2290183000ED8C0E /* Base */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = Base; path = Base.lproj/HelpImage2.jpg; sourceTree = "<group>"; };
-		6B8E2A412290183300ED8C0E /* fr */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = fr; path = fr.lproj/HelpImage2.jpg; sourceTree = "<group>"; };
 		6BA186E421988BCC00C9CE76 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6BA320BE2274EE25000E8255 /* LockScreenElementsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LockScreenElementsView.swift; sourceTree = "<group>"; };
 		6BA320C02274EEFC000E8255 /* LockScreenElements.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LockScreenElements.swift; sourceTree = "<group>"; };
@@ -292,7 +282,7 @@
 		6B3EF8BE21DA3D7400CA61E9 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				6B8E2A2D229017FB00ED8C0E /* HelpImages */,
+				6B4C23AD232ED816002E1250 /* HelpImages.xcassets */,
 				6B3EF8C321DA3E0A00CA61E9 /* Help.strings */,
 				6B3EF8C421DA3E5500CA61E9 /* Help.storyboard */,
 			);
@@ -331,17 +321,6 @@
 			);
 			name = "Supporting Files";
 			path = "LockScreenText/Supporting Files";
-			sourceTree = "<group>";
-		};
-		6B8E2A2D229017FB00ED8C0E /* HelpImages */ = {
-			isa = PBXGroup;
-			children = (
-				6B8E2A382290181800ED8C0E /* HelpImage1.jpg */,
-				6B8E2A402290183000ED8C0E /* HelpImage2.jpg */,
-				6B8E2A3C2290182700ED8C0E /* HelpImage3.jpg */,
-				6B8E2A31229017FB00ED8C0E /* HelpImage4.png */,
-			);
-			path = HelpImages;
 			sourceTree = "<group>";
 		};
 		6BB2EBE621920DBA00BCDA34 = {
@@ -531,15 +510,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6B8E2A362290181800ED8C0E /* HelpImage1.jpg in Resources */,
-				6B8E2A35229017FB00ED8C0E /* HelpImage4.png in Resources */,
 				6B047A2E21988B7700B79CFA /* Assets.xcassets in Resources */,
 				6B29017921D972ED002FFF71 /* Localizable.strings in Resources */,
 				6B08E61121B430B600D9B47C /* ColorPickerViewController.xib in Resources */,
-				6B8E2A3A2290182700ED8C0E /* HelpImage3.jpg in Resources */,
+				6B4C23AE232ED816002E1250 /* HelpImages.xcassets in Resources */,
 				6B3EF8C521DA3E5500CA61E9 /* Help.storyboard in Resources */,
 				6B047A2F21988B7700B79CFA /* Main.storyboard in Resources */,
-				6B8E2A3E2290183000ED8C0E /* HelpImage2.jpg in Resources */,
 				6B3EF8C121DA3E0A00CA61E9 /* Help.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -747,34 +723,6 @@
 				6BB0FD35228C813100933922 /* fr */,
 			);
 			name = Help.strings;
-			sourceTree = "<group>";
-		};
-		6B8E2A382290181800ED8C0E /* HelpImage1.jpg */ = {
-			isa = PBXVariantGroup;
-			children = (
-				6B8E2A372290181800ED8C0E /* Base */,
-				6B8E2A392290182000ED8C0E /* fr */,
-				6B6765BD2291AD780012D347 /* en-US */,
-			);
-			name = HelpImage1.jpg;
-			sourceTree = "<group>";
-		};
-		6B8E2A3C2290182700ED8C0E /* HelpImage3.jpg */ = {
-			isa = PBXVariantGroup;
-			children = (
-				6B8E2A3B2290182700ED8C0E /* Base */,
-				6B8E2A3D2290182A00ED8C0E /* fr */,
-			);
-			name = HelpImage3.jpg;
-			sourceTree = "<group>";
-		};
-		6B8E2A402290183000ED8C0E /* HelpImage2.jpg */ = {
-			isa = PBXVariantGroup;
-			children = (
-				6B8E2A3F2290183000ED8C0E /* Base */,
-				6B8E2A412290183300ED8C0E /* fr */,
-			);
-			name = HelpImage2.jpg;
 			sourceTree = "<group>";
 		};
 		6BB2EBFB21920DBB00BCDA34 /* LaunchScreen.storyboard */ = {
