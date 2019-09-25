@@ -11,23 +11,23 @@
     },
     {
       "idiom" : "universal",
-      "filename" : "HelpImage3.png",
       "scale" : "2x"
+    },
+    {
+      "idiom" : "universal",
+      "scale" : "2x",
+      "locale" : "fr"
+    },
+    {
+      "idiom" : "universal",
+      "filename" : "HelpImage3.png",
+      "scale" : "3x"
     },
     {
       "locale" : "fr",
       "idiom" : "universal",
       "filename" : "HelpImage3-1.png",
-      "scale" : "2x"
-    },
-    {
-      "idiom" : "universal",
       "scale" : "3x"
-    },
-    {
-      "idiom" : "universal",
-      "scale" : "3x",
-      "locale" : "fr"
     }
   ],
   "info" : {
