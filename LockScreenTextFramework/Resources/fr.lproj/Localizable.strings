@@ -94,7 +94,6 @@
 
 "ShowLockScreenUILabel" = "Affichage de l’heure";
 
-/* NEW -- NEED TRANSLATION */
+"MustBeInFullScreenToSaveTitle" = "L'enregistrement est désactivé";
 
-"MustBeInFullScreenToSaveTitle" = "Saving is disabled";
-"MustBeInFullScreenToSaveBody" = "@AppName@ must be in full screen mode, or the image won’t work as a Lock Screen.";
+"MustBeInFullScreenToSaveBody" = "@AppName@ doit être en mode plein écran, pour que l’image fonctionne comme l’écran verrouillé";

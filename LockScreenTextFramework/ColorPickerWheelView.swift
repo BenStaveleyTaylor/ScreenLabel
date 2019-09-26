@@ -16,11 +16,16 @@ import os.log
 
 class ColorPickerWheelView: UIImageView {
 
+    var lastActionedBrightness: CGFloat = 0
+    var lastActionedRadius: CGFloat = 0
+
     var brightness: CGFloat = 1.0 {
         didSet {
             // Need to change the wheel image to match
-            // Only do if change is > 1%
-            if oldValue == 0 || abs((self.brightness-oldValue)/oldValue) > 0.01 {
+            // Only do if change is > 0.01 (of a value between 0 and 1)
+            // Optimisation since redrawing the wheel can be very slow
+            if lastActionedBrightness == 0 || abs(self.brightness-lastActionedBrightness) > 0.02 {
+                self.lastActionedBrightness = self.brightness
                 self.image = self.colorWheel(brightness: self.brightness, radius: self.radius)
             }
         }
@@ -29,8 +34,9 @@ class ColorPickerWheelView: UIImageView {
     var radius: CGFloat = 0 {
         didSet {
             // Need to change the wheel image to match
-            // Only do if change is > 1%
-            if oldValue == 0 || abs((self.radius-oldValue)/oldValue) > 0.01 {
+            // Only do if change is > 1px
+            if lastActionedRadius == 0 || abs(self.radius-lastActionedRadius) > 1 {
+                self.lastActionedRadius = self.radius
                 self.image = self.colorWheel(brightness: self.brightness, radius: self.radius)
             }
         }
@@ -59,6 +65,8 @@ class ColorPickerWheelView: UIImageView {
 
     func colorWheel(brightness: CGFloat, radius: CGFloat) -> UIImage? {
 
+        os_log("Regenerating colorWheel at brightness: %@, radius: %@", "\(brightness)", "\(radius)")
+
         let filter = CIFilter(name: "CIHueSaturationValueGradient", parameters: [
             "inputColorSpace": CGColorSpaceCreateDeviceRGB(),
             "inputDither": 0,
@@ -66,11 +74,11 @@ class ColorPickerWheelView: UIImageView {
             "inputSoftness": 0,
             "inputValue": brightness
         ])
-        
+
         if let filterOutput = filter?.outputImage {
             return UIImage(ciImage: filterOutput)
         }
-        
+
         return nil
     }
 }

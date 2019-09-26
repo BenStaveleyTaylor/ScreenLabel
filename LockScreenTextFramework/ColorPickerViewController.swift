@@ -174,6 +174,7 @@ class ColorPickerViewController: UIViewController {
             self.containingStackView.layoutIfNeeded()
             return self.containingStackView.bounds.size
         }
+        // swiftlint:disable:next unused_setter_value
         set {
             // Ignored
         }
