@@ -35,6 +35,18 @@ class FontPickerViewController: UITableViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
 
+        // Scroll the selected cell into view
+        if let indexPath = self.selectedRow() {
+            self.tableView.scrollToRow(at: indexPath,
+                                       at: .middle,
+                                       animated: false)
+        }
+    }
+
+    public func setInitialSelectedFont(internalName: String) {
+
+        self.selectedFontInternalName = internalName
+
         for cell in self.tableView.visibleCells {
             self.setCellCheckmarkState(cell: cell)
         }
@@ -50,6 +62,17 @@ class FontPickerViewController: UITableViewController {
         } else {
             cell.accessoryType = .none
         }
+    }
+
+    private func selectedRow() -> IndexPath? {
+
+        if let index = fontInternalNames.firstIndex(where: { name in
+            name == self.selectedFontInternalName
+        }) {
+            return IndexPath(row: index, section: 0)
+        }
+
+        return nil
     }
 }
 

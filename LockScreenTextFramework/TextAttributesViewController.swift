@@ -193,7 +193,7 @@ class TextAttributesViewController: UIViewController {
         // Push the current font in so it can be shown ticked
         pickerVC.delegate = self
         let fontName = self.textFontName.text ?? ""
-        pickerVC.selectedFontInternalName = TextAttributesHelper.fontInternalNameFrom(displayName: fontName)
+        pickerVC.setInitialSelectedFont(internalName: TextAttributesHelper.fontInternalNameFrom(displayName: fontName))
     }
 
     private func loadSettings() {
