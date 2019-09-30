@@ -40,7 +40,16 @@ class HelpManager: NSObject {
             }
 
             // Images are named .xcassets
-            let image = Resources.sharedInstance.image(named: imageKey)
+            // The UI changed in iOS13 so use the iOS12 set if on an old OS.
+            let image: UIImage?
+
+            if #available(iOS 13, *) {
+                image = Resources.sharedInstance.image(named: imageKey)
+            }
+            else {
+               // iOS 12 or earlier
+                image = Resources.sharedInstance.image(named: imageKey, suffix: "-iOS12")
+            }
 
             let text = Resources.sharedInstance.localizedString(textKey, tableName: HelpManager.helpStringsTable)
 

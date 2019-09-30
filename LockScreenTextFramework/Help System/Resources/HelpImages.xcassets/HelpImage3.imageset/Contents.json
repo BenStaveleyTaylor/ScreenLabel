@@ -20,13 +20,13 @@
     },
     {
       "idiom" : "universal",
-      "filename" : "HelpImage3.png",
+      "filename" : "Help3-iOS13.png",
       "scale" : "3x"
     },
     {
       "locale" : "fr",
       "idiom" : "universal",
-      "filename" : "HelpImage3-1.png",
+      "filename" : "Set Wallpaper-iOS13.png",
       "scale" : "3x"
     }
   ],

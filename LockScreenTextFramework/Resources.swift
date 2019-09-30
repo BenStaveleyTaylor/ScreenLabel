@@ -36,10 +36,24 @@ struct Resources {
     }
 
     /// Read an image from this bundle
+    /// - Parameter name: Name of image asset
+    /// - Parameter suffix: optional suffix to use, e.g. "-iOS12". This is not the extension but a way
+    /// to provide alternatives of the image with different suffixes
+    /// - Parameter bundle: bundle to search
+    /// - Parameter traitCollection: traits to match
     public func image(named name: String,
+                      suffix: String? = nil,
                       in bundle: Bundle = BundleLocator.thisBundle(),
                       compatibleWith traitCollection: UITraitCollection? = nil) -> UIImage? {
 
+        if let suffix = suffix {
+            // Try using it
+            if let image = UIImage(named: "\(name)\(suffix)", in: bundle, compatibleWith: traitCollection) {
+                return image
+            }
+        }
+
+        // Fall through to generic version
         return UIImage(named: name, in: bundle, compatibleWith: traitCollection)
     }
 
