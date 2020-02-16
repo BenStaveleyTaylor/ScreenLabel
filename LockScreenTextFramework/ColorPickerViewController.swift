@@ -149,11 +149,9 @@ class ColorPickerViewController: UIViewController {
         self.brightnessSlider.transform = CGAffineTransform(rotationAngle: .pi / -2)
 
         // Replace the standard Back button so we can tell when we are dismissed
-        if self.navigationController != nil {
-            self.navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .done,
-                                                                    target: self,
-                                                                    action: #selector(onDone(_:)))
-        }
+        self.navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .done,
+                                                                target: self,
+                                                                action: #selector(onDone(_:)))
 
         self.settingsInitialised = true
     }

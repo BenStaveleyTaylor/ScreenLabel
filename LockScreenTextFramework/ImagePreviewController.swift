@@ -481,7 +481,9 @@ extension ImagePreviewController: UIPopoverPresentationControllerDelegate {
     // Detect closure of the Colour Picker and save the final result
     @objc
     public func popoverPresentationControllerDidDismissPopover(_ popoverPresentationController: UIPopoverPresentationController) {
-        self.persistImageBackgroundColor()
+        if self.colorDidChange {
+            self.persistImageBackgroundColor()
+        }
     }
 }
 
