@@ -12,7 +12,7 @@ import UIKit
 protocol ColorPickerViewControllerDelegate: AnyObject {
 
     // User has selected a new color. This happens many times before a final "OK"
-    // For example as the user pans around the color wheel, this is issues repeatedly
+    // For example as the user pans around the color wheel, this is issued repeatedly
     func colorPicker(_ picker: ColorPickerViewController, didChangeTo color: UIColor)
 
     // Sent just before the color picker closes -- but only if it is a navigation

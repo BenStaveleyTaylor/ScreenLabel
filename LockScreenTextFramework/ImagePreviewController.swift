@@ -462,6 +462,8 @@ extension ImagePreviewController: SettingsCoordinatorViewDelegate {
 extension ImagePreviewController: ColorPickerViewControllerDelegate {
 
     func colorPicker(_ picker: ColorPickerViewController, didChangeTo color: UIColor) {
+        // Erase image so the color shows
+        self.imageView.image = nil
         self.imageView.backgroundColor = color
         self.colorDidChange = true
     }

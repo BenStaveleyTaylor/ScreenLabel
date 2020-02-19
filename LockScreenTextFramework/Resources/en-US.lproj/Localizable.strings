@@ -69,7 +69,7 @@
 "ColourOpaquerTitle" = "Solid";
 
 "VersionTemplate" = "Version %@";
-"CopyrightNotice" = "Copyright © Ben Staveley-Taylor, 2019. All rights reserved.";
+"CopyrightNotice" = "Copyright © Ben Staveley-Taylor, 2019-20. All rights reserved.";
 "EmailButtonFormat" = "email: %@";
 "EmailSubjectTemplate" = "@AppName@ user email";
 "PrivacyButtonTitle" = "Privacy Policy";
