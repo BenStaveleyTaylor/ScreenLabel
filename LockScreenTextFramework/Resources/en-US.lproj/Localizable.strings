@@ -30,9 +30,11 @@
 
 "SavedAlertTitle" = "Saved to your Photos";
 
-"HowToSetWallpaperBody" = "Open Settings > Wallpaper and do “Choose a New Wallpaper”.\n\nYou will find your image in the Camera Roll.\n\nThe “Perspective” option usually works best.";
+"HowToSetWallpaperBody" = "Open Settings > Wallpaper and do “Choose a New Wallpaper”.\n\nYou will find your image in All Photos.\n\nThe “Perspective” option usually works best.";
 
-"PhotosAccessDenied" = "This app is blocked from accessing your Photos library. To fix this, open Settings > @AppName@, choose Photos, and allow Read and Write access.";
+"PhotosReadWriteAccessDenied" = "@AppName@ is blocked from accessing your Photos library. To fix this, open Settings > @AppName@, choose Photos, and allow ‘Read and Write’ access.";
+
+"PhotosAddAccessDenied" = "@AppName@ is blocked from saving to your Photos library. To fix this, open Settings > @AppName@, choose Photos, and allow ‘Add Photos Only’ access.";
 
 "OK" = "OK";
 
@@ -81,3 +83,5 @@
 
 "MustBeInFullScreenToSaveTitle" = "Saving is disabled";
 "MustBeInFullScreenToSaveBody" = "@AppName@ must be in full screen mode, or the image won’t work as a Lock Screen.";
+
+"UnableToReadImage" = "Unable to load this photo. Try a different one.";

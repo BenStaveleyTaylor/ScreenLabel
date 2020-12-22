@@ -6,33 +6,33 @@
     },
     {
       "idiom" : "universal",
-      "scale" : "1x",
-      "locale" : "fr"
-    },
-    {
-      "idiom" : "universal",
       "scale" : "2x"
     },
     {
+      "filename" : "Help3-iOS14.png",
       "idiom" : "universal",
-      "scale" : "2x",
-      "locale" : "fr"
-    },
-    {
-      "idiom" : "universal",
-      "filename" : "Help3-iOS13.png",
       "scale" : "3x"
     },
     {
-      "locale" : "fr",
       "idiom" : "universal",
-      "filename" : "Set Wallpaper-iOS13.png",
+      "locale" : "fr",
+      "scale" : "1x"
+    },
+    {
+      "idiom" : "universal",
+      "locale" : "fr",
+      "scale" : "2x"
+    },
+    {
+      "filename" : "Set Wallpaper-iOS14.png",
+      "idiom" : "universal",
+      "locale" : "fr",
       "scale" : "3x"
     }
   ],
   "info" : {
-    "version" : 1,
-    "author" : "xcode"
+    "author" : "xcode",
+    "version" : 1
   },
   "properties" : {
     "localizable" : true

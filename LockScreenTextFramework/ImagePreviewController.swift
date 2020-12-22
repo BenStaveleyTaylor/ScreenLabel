@@ -8,6 +8,7 @@
 
 import UIKit
 import MobileCoreServices
+import PhotosUI
 
 import os.log
 
@@ -111,6 +112,26 @@ class ImagePreviewController: UIViewController {
     }
 
     @IBAction private func onChoosePhotoTapped(_ sender: Any) {
+        if #available(iOS 14.0, *) {
+
+            // New iOS 14 picker does not require any permissions
+            var configuration = PHPickerConfiguration()
+
+            // Single select; static images only
+            configuration.filter = .images
+            configuration.selectionLimit = 1
+
+            let picker = PHPickerViewController(configuration: configuration)
+            picker.delegate = self
+            present(picker, animated: true)
+        }
+        else {
+            onChoosePhotoTappedPreIos14()
+        }
+    }
+
+    @available(iOS, obsoleted: 14, message: "Use PHPhotoPicker")
+    private func onChoosePhotoTappedPreIos14() {
 
         // We need to explicitly check we have photos access. The
         // UIImagePickerController does not do it automatically.
@@ -381,6 +402,7 @@ class ImagePreviewController: UIViewController {
     }
 }
 
+@available(iOS, obsoleted: 14, message: "Use PHPhotoPicker")
 extension ImagePreviewController: UIImagePickerControllerDelegate {
 
     @objc
@@ -395,7 +417,6 @@ extension ImagePreviewController: UIImagePickerControllerDelegate {
         }
 
         self.settingsCoordinator.image = originalImage
-
         self.setImageToDefaultPosition()
 
         self.dismiss(animated: true)
@@ -403,7 +424,54 @@ extension ImagePreviewController: UIImagePickerControllerDelegate {
 }
 
 // Required by UIImagePickerController
+@available(iOS, obsoleted: 14, message: "Use PHPhotoPicker")
 extension ImagePreviewController: UINavigationControllerDelegate {}
+
+// Required by PHPickerViewController
+@available(iOS 14.0, *)
+extension ImagePreviewController: PHPickerViewControllerDelegate {
+
+    func picker(_ picker: PHPickerViewController, didFinishPicking results: [PHPickerResult]) {
+
+        // Always dismiss, even if error
+        dismiss(animated: true)
+
+        // If no results, user cancelled. Ignore
+        guard let itemProvider = results.first?.itemProvider else {
+            return
+        }
+
+        // Get the reference of itemProvider from results
+        if itemProvider.canLoadObject(ofClass: UIImage.self) {
+            itemProvider.loadObject(ofClass: UIImage.self) { [weak self] image, error in
+                if let error = error {
+                    os_log("PHPickerViewControllerDelegate: itemProvider.loadObject() error: %@", "\(error)")
+                }
+
+                DispatchQueue.main.async {
+                    guard let self = self else {
+                        return
+                    }
+
+                    if let selectedImage = image as? UIImage {
+                        self.settingsCoordinator.image = selectedImage
+                        self.setImageToDefaultPosition()
+                    }
+                    else {
+                        AlertUtilities.showMessage(title: nil,
+                                                   body: Resources.sharedInstance.localizedString("UnableToReadImage"),
+                                                   fromViewController: self)
+                    }
+                }
+            }
+        }
+        else {
+            AlertUtilities.showMessage(title: nil,
+                                       body: Resources.sharedInstance.localizedString("UnableToReadImage"),
+                                       fromViewController: self)
+        }
+    }
+}
 
 extension ImagePreviewController: SettingsCoordinatorViewDelegate {
 

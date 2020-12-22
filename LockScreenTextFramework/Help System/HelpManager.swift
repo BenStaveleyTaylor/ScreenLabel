@@ -29,28 +29,33 @@ class HelpManager: NSObject {
         var index: Int = 1
         repeat {
 
-            let suffix = String(index)
-            let titleKey = self.helpTitleBase + suffix
-            let imageKey = self.helpImageBase + suffix
-            let textKey = self.helpTextBase + suffix
+            let seq = String(index)
+            let titleKey = self.helpTitleBase + seq
+            let imageKey = self.helpImageBase + seq
+            let textKey = self.helpTextBase + seq
 
-            let title = Resources.sharedInstance.localizedString(titleKey, tableName: HelpManager.helpStringsTable)
+            // The UI is different in iOS 14, 13 and 12. Use variant resources.
+            let suffix: String?
+            if #available(iOS 14, *) {
+                // "Latest" has no suffix
+                suffix = nil
+            }
+            else if #available(iOS 13, *) {
+                suffix = "-iOS13"
+            } else {
+                // iOS 12 or earlier
+                suffix = "-iOS12"
+            }
+
+            let title = Resources.sharedInstance.localizedString(titleKey, suffix: suffix, tableName: HelpManager.helpStringsTable)
             if title == Resources.notFound {
                 break
             }
 
             // Images are named .xcassets
-            // The UI changed in iOS13 so use the iOS12 set if on an old OS.
-            let image: UIImage?
+            let image = Resources.sharedInstance.image(named: imageKey, suffix: suffix)
 
-            if #available(iOS 13, *) {
-                image = Resources.sharedInstance.image(named: imageKey)
-            } else {
-               // iOS 12 or earlier
-                image = Resources.sharedInstance.image(named: imageKey, suffix: "-iOS12")
-            }
-
-            let text = Resources.sharedInstance.localizedString(textKey, tableName: HelpManager.helpStringsTable)
+            let text = Resources.sharedInstance.localizedString(textKey, suffix: suffix, tableName: HelpManager.helpStringsTable)
 
             let vc = HelpPageController.create(title: title, image: image, text: text)
             self.pages.append(vc)

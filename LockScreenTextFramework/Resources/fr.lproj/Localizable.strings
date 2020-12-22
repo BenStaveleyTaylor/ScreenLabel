@@ -14,7 +14,7 @@
 "MessagePromptText" = "Appuyez sur cette étiquette pour la changer\nFaites la glisser en haut ou en bas\n\nPlus d’aide dans la barre de titre";
 
 /* @DeviceName@ will be replaced by 'iPhone' or 'iPad' as appropriate. */
-"MessagePlaceholderText" = "Exemple: «Si trouvé veuillez contacter moi@email.com»\nLes sauts de lignes sont possibles (touche [retour])";
+"MessagePlaceholderText" = "Exemple: «\U00A0Si trouvé veuillez contacter moi@email.com\U00A0»\nLes sauts de lignes sont possibles (touche [retour])";
 
 "BleedStyleLabel" = "Marges automatiques";
 
@@ -32,10 +32,12 @@
 
 "SavedAlertTitle" = "Enregistré dans vos images";
 
-"HowToSetWallpaperBody" = "Ouvrez Réglages > Fond d’écran et «Choisir un nouveau fond d’écran» puis définir l’écran verrouillé.\n\nVous trouverez l’image dans la pellicule.\n\nNormalement l’option perspective est le mieux.";
+"HowToSetWallpaperBody" = "Ouvrez Réglages > Fond d’écran et «\U00A0Choisir un nouveau fond d’écran\U00A0» puis définir l’écran verrouillé.\n\nVous trouverez l’image dans «\U00A0Toutes les photos\U00A0».\n\nNormalement l’option perspective est le mieux.";
 
 /* @AppName@" will be replaced by the application name */
-"PhotosAccessDenied" = "Cette application ne peut pas accéder à vos images. Pour le permettre, ouvrez réglages > @AppName@, sélectionnez images, et permettre un accès en lecture et en écriture.";
+"PhotosReadWriteAccessDenied" = "@AppName@ ne peut pas accéder à vos images. Pour le permettre, ouvrez réglages > @AppName@, sélectionnez «\U00A0Photos\U00A0», et permettre un accès en «\U00A0Lecture et écriture\U00A0».";
+
+"PhotosAddAccessDenied" = "@AppName@ ne peut pas accéder à la bibliothèque «\U00A0Photos\U00A0». Pour le permettre, ouvrez réglages > @AppName@, sélectionnez «\U00A0Photos\U00A0», et permettre un accès en «\U00A0Ajouter juste des photos\U00A0».";
 
 "OK" = "OK";
 
@@ -61,11 +63,11 @@
 
 "FactorySettings" = "Réinitialiser";
 "ResetToDefaultsConfirmation" = "Etes-vous certain vous voulez restaurer les réglages par défaut ? Ceci va aussi déléter l’image de fond d’écran actuel.";
-"ResetToDefaultsResetAction" = " Réinitialiser";
+"ResetToDefaultsResetAction" = "Réinitialiser";
 "Cancel" = "Annuler";
 
 /* Colour Picker */
-"PickBackgroundColorTitle" = " Régler la couleur de fond";
+"PickBackgroundColorTitle" = "Régler la couleur de fond";
 "PickColorTitle" = "Selectionner la couleur";
 "ColourAfterTitle" = "Nouvelle";
 "ColourBeforeTitle" = "Ancienne";
@@ -94,6 +96,7 @@
 
 "ShowLockScreenUILabel" = "Affichage de l’heure";
 
-"MustBeInFullScreenToSaveTitle" = "L'enregistrement est désactivé";
-
+"MustBeInFullScreenToSaveTitle" = "L’enregistrement est désactivé";
 "MustBeInFullScreenToSaveBody" = "@AppName@ doit être en mode plein écran, pour que l’image fonctionne comme l’écran verrouillé";
+
+"UnableToReadImage" = "Impossible de télécharger cette image. Essayer un autre fichier.";
