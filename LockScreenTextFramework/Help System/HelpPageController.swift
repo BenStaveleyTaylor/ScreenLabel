@@ -10,9 +10,9 @@ import UIKit
 
 class HelpPageController: UIViewController {
 
-    @IBOutlet private weak var helpTitle: UILabel!
-    @IBOutlet private weak var helpImage: UIImageView!
-    @IBOutlet private weak var helpText: UILabel!
+    @IBOutlet private var helpTitle: UILabel!
+    @IBOutlet private var helpImage: UIImageView!
+    @IBOutlet private var helpText: UILabel!
 
     private var helpTitleValue: String?
     private var helpImageValue: UIImage?

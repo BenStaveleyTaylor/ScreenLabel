@@ -33,7 +33,7 @@ enum AlertUtilities {
                             button2Text: String?,
                             fromViewController presentingVC: UIViewController? = nil,
                             completion: @escaping (Int) -> Void) {
-        
+
         let alertController = UIAlertController(title: title, message: body, preferredStyle: .alert)
 
         if let button1Text = button1Text {

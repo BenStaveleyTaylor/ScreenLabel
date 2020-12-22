@@ -13,7 +13,7 @@ import Foundation
 class PointSizeSlider: QuantizedSlider {
 
     override var steps: [Int] {
-        
+
         // List of allowed point sizes
         return [
             7, 8, 9, 10, 11, 12, 13, 14, 16, 17, 18, 20, 24,

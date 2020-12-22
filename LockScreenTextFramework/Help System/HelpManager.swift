@@ -45,8 +45,7 @@ class HelpManager: NSObject {
 
             if #available(iOS 13, *) {
                 image = Resources.sharedInstance.image(named: imageKey)
-            }
-            else {
+            } else {
                // iOS 12 or earlier
                 image = Resources.sharedInstance.image(named: imageKey, suffix: "-iOS12")
             }
@@ -74,7 +73,7 @@ class HelpManager: NSObject {
 
         return self.pages[self.initialPageIndex]
     }
-    
+
     func indexFor(viewController: UIViewController) -> Int? {
         let index = self.pages.firstIndex(of: viewController)
         return index
@@ -97,49 +96,49 @@ class HelpManager: NSObject {
 }
 
 extension HelpManager: UIPageViewControllerDataSource {
-    
+
     public var pageViewDataSource: UIPageViewControllerDataSource {
         return self
     }
 
     public func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
-        
+
         var result: UIViewController?
-        
+
         if let index = self.indexFor(viewController: viewController), index > 0 {
             result = self.pages[index-1]
         }
-        
+
         return result
     }
-    
+
     public func pageViewController(_ pageViewController: UIPageViewController, viewControllerAfter viewController: UIViewController) -> UIViewController? {
-        
+
         var result: UIViewController?
-        
+
         if let index = self.indexFor(viewController: viewController), index < (self.pages.count-1) {
             result = self.pages[index+1]
         }
-        
+
         return result
     }
-    
+
     // A page indicator will be visible if both methods are implemented, transition style
     // is 'UIPageViewControllerTransitionStyleScroll', and navigation orientation is
     // 'UIPageViewControllerNavigationOrientationHorizontal'.
     // Both methods are called in response to a 'setViewControllers:...' call, but the
     // presentation index is updated automatically in the case of gesture-driven navigation.
-    
+
     // The number of items reflected in the page indicator.
     public func presentationCount(for pageViewController: UIPageViewController) -> Int {
         return self.pages.count
     }
-    
+
     // The selected item reflected in the page indicator.
     public func presentationIndex(for pageViewController: UIPageViewController) -> Int {
 
         var result: Int = NSNotFound
-        
+
         if let page = pageViewController.viewControllers?.first,
             let index = self.indexFor(viewController: page) {
             result = index

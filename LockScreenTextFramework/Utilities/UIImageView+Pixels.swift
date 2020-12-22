@@ -31,7 +31,7 @@ extension UIImageView {
                             alpha: CGFloat(pixel[3]) / 255.0)
 
         pixel.deallocate()
-        
+
         return color
     }
 }

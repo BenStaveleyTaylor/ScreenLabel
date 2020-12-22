@@ -100,7 +100,7 @@ enum TextAttributesHelper {
 }
 
 extension TextStyle {
-    
+
     func applyToFont(_ baseFont: UIFont) -> UIFont {
 
         // Derive the right style

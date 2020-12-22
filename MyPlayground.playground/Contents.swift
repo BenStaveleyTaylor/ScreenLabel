@@ -1,9 +1,8 @@
-//: A UIKit based Playground for presenting user interface
-  
+// : A UIKit based Playground for presenting user interface
+
 import UIKit
 import PlaygroundSupport
 @testable import LockScreenTextFramework
-
 
 let dateFormatter = DateFormatter()
 let date = Date(timeIntervalSinceReferenceDate: 410219999)

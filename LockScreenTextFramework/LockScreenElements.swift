@@ -80,8 +80,7 @@ public struct LockScreenElements {
                 // iPad 12.9" or unknown future model
                 size = 116
             }
-        }
-        else {
+        } else {
             // iPhone sizes
             switch self.screenPortraitWidth {
             case 0...320:
@@ -124,8 +123,7 @@ public struct LockScreenElements {
         if isPad {
             // Same for all models
             size = 22
-        }
-        else {
+        } else {
             // iPhone sizes
             switch self.screenPortraitWidth {
             case 0...320:
@@ -254,8 +252,7 @@ public struct LockScreenElements {
                 timePos = 196
                 datePos = 242
             }
-        }
-        else {
+        } else {
             // iPhone sizes
             switch self.screenPortraitHeight {
             case 0...568:
@@ -298,8 +295,7 @@ public struct LockScreenElements {
         // iPads in portrait use 46; all other cases are 36
         if self.isPad && self.isPortrait {
             footerPos = 46
-        }
-        else {
+        } else {
             footerPos = 36
         }
 

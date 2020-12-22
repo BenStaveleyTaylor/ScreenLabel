@@ -16,24 +16,24 @@ class ImagePreviewController: UIViewController {
 
     // Nib properties
 
-    @IBOutlet private weak var scrollView: UIScrollView!
-    @IBOutlet private weak var imageView: UIImageView!
-    @IBOutlet private weak var textLabel: UILabel!
-    @IBOutlet private weak var textBoxView: UIView!
-    @IBOutlet private weak var aboutButton: UIBarButtonItem!
-    @IBOutlet private weak var helpButton: UIBarButtonItem!
-    @IBOutlet private weak var choosePhotoButton: UIBarButtonItem!
-    @IBOutlet private weak var plainColorButton: UIBarButtonItem!
-    @IBOutlet private weak var textAttributesButton: UIBarButtonItem!
-    @IBOutlet private weak var saveButton: UIBarButtonItem!
+    @IBOutlet private var scrollView: UIScrollView!
+    @IBOutlet private var imageView: UIImageView!
+    @IBOutlet private var textLabel: UILabel!
+    @IBOutlet private var textBoxView: UIView!
+    @IBOutlet private var aboutButton: UIBarButtonItem!
+    @IBOutlet private var helpButton: UIBarButtonItem!
+    @IBOutlet private var choosePhotoButton: UIBarButtonItem!
+    @IBOutlet private var plainColorButton: UIBarButtonItem!
+    @IBOutlet private var textAttributesButton: UIBarButtonItem!
+    @IBOutlet private var saveButton: UIBarButtonItem!
     @IBOutlet private var imageTapRecognizer: UITapGestureRecognizer!
     @IBOutlet private var imageDoubleTapRecognizer: UITapGestureRecognizer!
     @IBOutlet private var textBoxTapRecognizer: UITapGestureRecognizer!
     @IBOutlet private var textBoxPanRecognizer: UIPanGestureRecognizer!
-    @IBOutlet private weak var textLabelCentreYConstraint: NSLayoutConstraint!
+    @IBOutlet private var textLabelCentreYConstraint: NSLayoutConstraint!
 
     // Render this view to get the lock screen image
-    @IBOutlet private weak var renderableView: UIView!
+    @IBOutlet private var renderableView: UIView!
 
     // Only one of these pairs can be active at any time
     @IBOutlet private  var renderableViewStillHeightConstraint: NSLayoutConstraint!
@@ -41,18 +41,18 @@ class ImagePreviewController: UIViewController {
     @IBOutlet private  var renderableViewPerspectiveHeightConstraint: NSLayoutConstraint!
     @IBOutlet private  var renderableViewPerspectiveWidthConstraint: NSLayoutConstraint!
 
-    @IBOutlet private weak var imageViewWidthConstraint: NSLayoutConstraint!
-    @IBOutlet private weak var imageViewHeightConstraint: NSLayoutConstraint!
+    @IBOutlet private var imageViewWidthConstraint: NSLayoutConstraint!
+    @IBOutlet private var imageViewHeightConstraint: NSLayoutConstraint!
 
     // Background when no image is set
-    @IBOutlet private weak var watermarkImageView: UIImageView!
+    @IBOutlet private var watermarkImageView: UIImageView!
 
     // Debug only. Removed in release builds.
-    @IBOutlet private weak var sizeDebugView: SizeDebugView?
+    @IBOutlet private var sizeDebugView: SizeDebugView?
 
     // Lock Screen elements simulation
-    @IBOutlet private weak var lockScreenElementsView: LockScreenElementsView!
-    
+    @IBOutlet private var lockScreenElementsView: LockScreenElementsView!
+
     // Local properties
     private var settingsCoordinator: SettingsCoordinatorProtocol!
     private var colorDidChange: Bool = false
@@ -287,8 +287,7 @@ class ImagePreviewController: UIViewController {
             if bleedStyle == .perspective {
                 self.renderableViewPerspectiveHeightConstraint.isActive = true
                 self.renderableViewPerspectiveWidthConstraint.isActive = true
-            }
-            else {
+            } else {
                 self.renderableViewStillHeightConstraint.isActive = true
                 self.renderableViewStillWidthConstraint.isActive = true
             }
@@ -301,8 +300,7 @@ class ImagePreviewController: UIViewController {
                 self.view.layoutIfNeeded()
             }
 
-        }
-        else {
+        } else {
             doItBlock()
         }
     }
@@ -327,7 +325,7 @@ class ImagePreviewController: UIViewController {
     }
 
     private func prepareForEditTextAttributesSegue(_ segue: UIStoryboardSegue, sender: Any?) {
-        
+
         assert(segue.identifier == "editTextAttributesSegue")
 
         guard let destVC = segue.destination as? TextAttributesViewController else {
@@ -355,8 +353,7 @@ class ImagePreviewController: UIViewController {
         // sender may be specifed as a "HelpPage" type giving a page to open at
         if let initialPage = sender as? HelpPage {
             helpPageViewController.preparePages(startingAt: initialPage.rawValue)
-        }
-        else {
+        } else {
             helpPageViewController.preparePages()
         }
     }
@@ -371,7 +368,7 @@ class ImagePreviewController: UIViewController {
 
         if let backgroundColor = self.imageView.backgroundColor {
             self.settingsCoordinator.startBatchChanges()
-            
+
             self.settingsCoordinator.imageBackgroundColor = backgroundColor
 
             // Remove any image so the background colour shows
@@ -398,7 +395,7 @@ extension ImagePreviewController: UIImagePickerControllerDelegate {
         }
 
         self.settingsCoordinator.image = originalImage
-        
+
         self.setImageToDefaultPosition()
 
         self.dismiss(animated: true)
@@ -439,18 +436,18 @@ extension ImagePreviewController: SettingsCoordinatorViewDelegate {
         self.textBoxView.layer.cornerRadius = coordinator.boxCornerRadius
 
         self.textLabelCentreYConstraint.constant = coordinator.boxYCentreOffset
-        
+
         // image will be nil if this is a plain colour
         // if image has changed:
         if changes.contains(.image) {
             self.imageView.image = coordinator.image
             self.configureImageViewSize()
         }
-        
+
         if changes.contains(.scrollScale) {
            self.scrollView.zoomScale = coordinator.scrollScale
         }
-        
+
         if changes.contains(.scrollOffset) {
             self.scrollView.contentOffset = coordinator.scrollOffset
         }
@@ -543,16 +540,16 @@ extension ImagePreviewController: UIScrollViewDelegate {
         self.imageViewWidthConstraint.constant = image.size.width*aspectFillScale
         self.imageViewHeightConstraint.constant = image.size.height*aspectFillScale
     }
-    
+
     // Set the zoom to 1.0 and scroll to centre the image, as per initial state
     func setImageToDefaultPosition() {
         self.settingsCoordinator.startBatchChanges()
-        
+
         self.settingsCoordinator.scrollScale = 1.0
-        
+
         let overWidth = self.imageViewWidthConstraint.constant-self.scrollView.bounds.width
         let overHeight = self.imageViewHeightConstraint.constant-self.scrollView.bounds.height
-        
+
         let offset = CGPoint(x: overWidth/2, y: overHeight/2)
         self.settingsCoordinator.scrollOffset = offset
 
@@ -562,9 +559,9 @@ extension ImagePreviewController: UIScrollViewDelegate {
 }
 
 extension ImagePreviewController: UIGestureRecognizerDelegate {
-    
+
     func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWith otherGestureRecognizer: UIGestureRecognizer) -> Bool {
-        
+
         return true
     }
 }

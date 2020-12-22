@@ -30,7 +30,7 @@ class ColorPickerWheelView: UIImageView {
             }
         }
     }
-    
+
     var radius: CGFloat = 0 {
         didSet {
             // Need to change the wheel image to match

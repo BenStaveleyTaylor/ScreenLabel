@@ -19,6 +19,64 @@ enum BleedStyle: Int, Codable {
     case still, perspective
 }
 
+// Helper structs to handle coding of non-standard types
+
+// UIColor
+private struct CodableColor: Codable {
+    var red: CGFloat = 0
+    var green: CGFloat = 0
+    var blue: CGFloat = 0
+    var alpha: CGFloat = 0
+
+    init(uiColor: UIColor) {
+        uiColor.getRed(&self.red, green: &self.green, blue: &self.blue, alpha: &self.alpha)
+    }
+
+    func toUIColor() -> UIColor {
+        return UIColor(red: self.red, green: self.green, blue: self.blue, alpha: self.alpha)
+    }
+}
+
+// UIFont
+private struct CodableFont: Codable {
+    let name: String
+    let size: CGFloat
+
+    init(uiFont: UIFont) {
+        self.name = uiFont.fontName
+        self.size = uiFont.pointSize
+    }
+
+    func toUIFont() -> UIFont? {
+
+        // The System Font internal name seems to have changed in iOS 13.
+        // It used to be .SFUI-Regular; now it is .AppleSystemUIFont
+        // Treat any font that begins with a '.' as the system font
+
+        if self.name.hasPrefix(".") {
+            return UIFont.systemFont(ofSize: self.size)
+        } else {
+            return UIFont(name: self.name, size: self.size)
+        }
+    }
+}
+
+// UIEdgeInsets
+private struct CodableEdgeInsets: Codable {
+    let top, left, bottom, right: CGFloat
+
+    init(uiEdgeInsets: UIEdgeInsets) {
+        self.top = uiEdgeInsets.top
+        self.left = uiEdgeInsets.left
+        self.bottom = uiEdgeInsets.bottom
+        self.right = uiEdgeInsets.right
+    }
+
+    func toUIEdgeInsets() -> UIEdgeInsets {
+        return UIEdgeInsets(top: self.top, left: self.left, bottom: self.bottom, right: self.right)
+    }
+}
+
 struct Settings: Codable {
 
     // Default values
@@ -89,8 +147,7 @@ struct Settings: Codable {
         let defaultTextFont: UIFont
         if DeviceUtilities.isCompactDevice {
             defaultTextFont = .preferredFont(forTextStyle: .footnote)   // 13pt
-        }
-        else {
+        } else {
             defaultTextFont = .preferredFont(forTextStyle: .body)       // 17pt
         }
 
@@ -244,65 +301,6 @@ struct Settings: Codable {
     }
 }
 
-// Helper structs to handle coding of non-standard types
-
-// UIColor
-private struct CodableColor: Codable {
-    var red: CGFloat = 0
-    var green: CGFloat = 0
-    var blue: CGFloat = 0
-    var alpha: CGFloat = 0
-
-    init(uiColor: UIColor) {
-        uiColor.getRed(&self.red, green: &self.green, blue: &self.blue, alpha: &self.alpha)
-    }
-
-    func toUIColor() -> UIColor {
-        return UIColor(red: self.red, green: self.green, blue: self.blue, alpha: self.alpha)
-    }
-}
-
-// UIFont
-private struct CodableFont: Codable {
-    let name: String
-    let size: CGFloat
-
-    init(uiFont: UIFont) {
-        self.name = uiFont.fontName
-        self.size = uiFont.pointSize
-    }
-
-    func toUIFont() -> UIFont? {
-
-        // The System Font internal name seems to have changed in iOS 13.
-        // It used to be .SFUI-Regular; now it is .AppleSystemUIFont
-        // Treat any font that begins with a '.' as the system font
-
-        if self.name.hasPrefix(".") {
-            return UIFont.systemFont(ofSize: self.size)
-        }
-        else {
-            return UIFont(name: self.name, size: self.size)
-        }
-    }
-}
-
-// UIEdgeInsets
-private struct CodableEdgeInsets: Codable {
-    let top, left, bottom, right: CGFloat
-
-    init(uiEdgeInsets: UIEdgeInsets) {
-        self.top = uiEdgeInsets.top
-        self.left = uiEdgeInsets.left
-        self.bottom = uiEdgeInsets.bottom
-        self.right = uiEdgeInsets.right
-    }
-
-    func toUIEdgeInsets() -> UIEdgeInsets {
-        return UIEdgeInsets(top: self.top, left: self.left, bottom: self.bottom, right: self.right)
-    }
-}
-
 // Version migration
 extension Settings {
 
@@ -312,7 +310,7 @@ extension Settings {
     //    - Renamed Perspective Mode as Automatic Margins and turn it on for all users when upgrading.
 
     func updatedToCurrentVersion() -> Settings {
-        
+
         guard self.version < Settings.currentVersion else {
             // Nothing to do
             return self

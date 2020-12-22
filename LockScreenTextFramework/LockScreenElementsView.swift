@@ -14,19 +14,19 @@ import UIKit
 /// We assume this view fills the device screen
 class LockScreenElementsView: UIView {
 
-    @IBOutlet private weak var timeLabel: UILabel!
-    @IBOutlet private weak var dateLabel: UILabel!
-    @IBOutlet private weak var footerLabel: UILabel!
-    @IBOutlet private weak var leftFooterImageView: UIImageView!
-    @IBOutlet private weak var rightFooterImageView: UIImageView!
+    @IBOutlet private var timeLabel: UILabel!
+    @IBOutlet private var dateLabel: UILabel!
+    @IBOutlet private var footerLabel: UILabel!
+    @IBOutlet private var leftFooterImageView: UIImageView!
+    @IBOutlet private var rightFooterImageView: UIImageView!
 
-    @IBOutlet private weak var timeLabelBaselineConstraint: NSLayoutConstraint!
-    @IBOutlet private weak var dateLabelBaselineConstraint: NSLayoutConstraint!
-    @IBOutlet private weak var footerLabelBaselineConstraint: NSLayoutConstraint!
-    @IBOutlet private weak var footerImageWidthConstraint: NSLayoutConstraint!
-    @IBOutlet private weak var footerImageCentreYToBottomOffsetConstraint: NSLayoutConstraint!
-    @IBOutlet private weak var footerImageLeadingToCentreXConstraint: NSLayoutConstraint!
-    @IBOutlet private weak var footerImageCentreXToTrailingConstraint: NSLayoutConstraint!
+    @IBOutlet private var timeLabelBaselineConstraint: NSLayoutConstraint!
+    @IBOutlet private var dateLabelBaselineConstraint: NSLayoutConstraint!
+    @IBOutlet private var footerLabelBaselineConstraint: NSLayoutConstraint!
+    @IBOutlet private var footerImageWidthConstraint: NSLayoutConstraint!
+    @IBOutlet private var footerImageCentreYToBottomOffsetConstraint: NSLayoutConstraint!
+    @IBOutlet private var footerImageLeadingToCentreXConstraint: NSLayoutConstraint!
+    @IBOutlet private var footerImageCentreXToTrailingConstraint: NSLayoutConstraint!
 
     let logic = LockScreenElements()
     var timer: Timer?
@@ -94,17 +94,17 @@ class LockScreenElementsView: UIView {
 
     // Set constraints that don't change even with device rotation
     func setImmutableContraints() {
-        
+
         self.timeLabelBaselineConstraint.constant = self.logic.timeBaseline
         self.dateLabelBaselineConstraint.constant = self.logic.dateBaseline
 
         let imageWidth = self.logic.footerImageWidth
         self.footerImageWidthConstraint.constant = imageWidth
-        
+
         // Turn the images into into a circle
         self.leftFooterImageView.layer.cornerRadius = imageWidth/2
         self.rightFooterImageView.layer.cornerRadius = imageWidth/2
-        
+
         self.footerImageLeadingToCentreXConstraint.constant = self.logic.footerImageEdgeToCentreXInset
         self.footerImageCentreXToTrailingConstraint.constant = self.logic.footerImageEdgeToCentreXInset
         self.footerImageCentreYToBottomOffsetConstraint.constant = logic.footerCentreYToBottomEdge

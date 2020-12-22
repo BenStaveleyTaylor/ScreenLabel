@@ -11,7 +11,7 @@ import UIKit
 // Draw rules on the view so we can see what size gets used
 class SizeDebugView: UIView {
 
-    @IBOutlet private weak var sizeLabel: UILabel!
+    @IBOutlet private var sizeLabel: UILabel!
 
     let overlayColor: UIColor = .blue
 

@@ -32,8 +32,7 @@ enum PrivacyUtilities {
                 if status == .authorized {
                     // All is well; proceed
                     completion(true)
-                }
-                else {
+                } else {
                     completion(false)
 
                     AlertUtilities.showMessage(title: Resources.sharedInstance.localizedString("FailedAlertTitle"),

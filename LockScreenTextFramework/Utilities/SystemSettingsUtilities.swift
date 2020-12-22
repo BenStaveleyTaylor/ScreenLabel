@@ -9,7 +9,7 @@
 import Foundation
 
 enum SystemSettingsUtilities {
-    
+
     static func openSettings() {
         if let settingsURL = URL(string: UIApplication.openSettingsURLString) {
             UIApplication.shared.open(settingsURL, completionHandler: nil)

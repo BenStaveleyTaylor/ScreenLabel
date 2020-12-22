@@ -101,7 +101,7 @@ class SettingsCoordinator: NSObject {
     }
 
     private var cachedImage: UIImage?
-    
+
     private var inBatchMode = false
     private var batchedChanges: SettingItems = []
     private weak var photoSaveContext: UIViewController?
@@ -121,8 +121,7 @@ class SettingsCoordinator: NSObject {
             if let lastUsedSettings = Settings.readFromUserDefaults() {
                 // May be from an old version of the product
                 self.settings = lastUsedSettings.updatedToCurrentVersion()
-            }
-            else {
+            } else {
                 self.settings = Settings.defaults
             }
         }
@@ -133,8 +132,7 @@ class SettingsCoordinator: NSObject {
         // Ignore (but collect) when in batch mode
         if self.inBatchMode {
             self.batchedChanges = self.batchedChanges.union(changes)
-        }
-        else {
+        } else {
             self.delegate?.settingsDidChange(changes, coordinator: self, animated: false)
             try? self.settings.writeToUserDefaults()
         }

@@ -11,36 +11,36 @@ import os.log
 
 class TextAttributesViewController: UIViewController {
 
-    @IBOutlet private weak var textLabel: UILabel!
-    @IBOutlet private weak var messageTextView: UITextView!
-    @IBOutlet private weak var clearTextButton: UIButton!
-    @IBOutlet private weak var messagePlaceholder: UILabel!
+    @IBOutlet private var textLabel: UILabel!
+    @IBOutlet private var messageTextView: UITextView!
+    @IBOutlet private var clearTextButton: UIButton!
+    @IBOutlet private var messagePlaceholder: UILabel!
 
-    @IBOutlet private weak var textSizeSlider: PointSizeSlider!
-    @IBOutlet private weak var textSizeLabel: UILabel!
-    @IBOutlet private weak var textSizeValueLabel: UILabel!
+    @IBOutlet private var textSizeSlider: PointSizeSlider!
+    @IBOutlet private var textSizeLabel: UILabel!
+    @IBOutlet private var textSizeValueLabel: UILabel!
 
-    @IBOutlet private weak var textFontLabel: UILabel!
-    @IBOutlet private weak var textFontName: UILabel!
+    @IBOutlet private var textFontLabel: UILabel!
+    @IBOutlet private var textFontName: UILabel!
 
-    @IBOutlet private weak var textStyleLabel: UILabel!
-    @IBOutlet private weak var textStyleSegmentControl: UISegmentedControl!
+    @IBOutlet private var textStyleLabel: UILabel!
+    @IBOutlet private var textStyleSegmentControl: UISegmentedControl!
 
-    @IBOutlet private weak var textColorLabel: UILabel!
-    @IBOutlet private weak var textColorSwatchView: TranslucentColorSwatchView!
-    
-    @IBOutlet private weak var boxColorLabel: UILabel!
-    @IBOutlet private weak var boxColorSwatchView: TranslucentColorSwatchView!
+    @IBOutlet private var textColorLabel: UILabel!
+    @IBOutlet private var textColorSwatchView: TranslucentColorSwatchView!
 
-    @IBOutlet private weak var bleedStyleLabel: UILabel!
-    @IBOutlet private weak var bleedStyleSwitch: UISwitch!
-    @IBOutlet private weak var bleedStyleHelpLabel: UILabel!
+    @IBOutlet private var boxColorLabel: UILabel!
+    @IBOutlet private var boxColorSwatchView: TranslucentColorSwatchView!
 
-    @IBOutlet private weak var factorySettingsButton: UIButton!
+    @IBOutlet private var bleedStyleLabel: UILabel!
+    @IBOutlet private var bleedStyleSwitch: UISwitch!
+    @IBOutlet private var bleedStyleHelpLabel: UILabel!
 
-    @IBOutlet private weak var showLockScreenUILabel: UILabel!
-    @IBOutlet private weak var showLockScreenUISwitch: UISwitch!
-    
+    @IBOutlet private var factorySettingsButton: UIButton!
+
+    @IBOutlet private var showLockScreenUILabel: UILabel!
+    @IBOutlet private var showLockScreenUISwitch: UISwitch!
+
     @IBOutlet private var textColorTapGestureRecognizer: UITapGestureRecognizer!
     @IBOutlet private var boxColorTapGestureRecognizer: UITapGestureRecognizer!
     @IBOutlet private var hideKeyboardTapGestureRecognizer: UITapGestureRecognizer!
@@ -121,8 +121,7 @@ class TextAttributesViewController: UIViewController {
         // Same action sent for both Text and Box color changes
         if sender == self.textColorTapGestureRecognizer {
             self.colorSwatchBeingEdited = self.textColorSwatchView
-        }
-        else if sender == self.boxColorTapGestureRecognizer {
+        } else if sender == self.boxColorTapGestureRecognizer {
             self.colorSwatchBeingEdited = self.boxColorSwatchView
         }
 
@@ -295,8 +294,7 @@ extension TextAttributesViewController: ColorPickerViewControllerDelegate {
 
         if self.colorSwatchBeingEdited == self.boxColorSwatchView {
             self.boxColorSwatchView.swatchColor = color
-        }
-        else if self.colorSwatchBeingEdited == self.textColorSwatchView {
+        } else if self.colorSwatchBeingEdited == self.textColorSwatchView {
             self.textColorSwatchView.swatchColor = color
         }
     }

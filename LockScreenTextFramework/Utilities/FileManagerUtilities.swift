@@ -15,13 +15,13 @@ enum KnownDirectory: String {
 }
 
 enum FileManagerUtilities {
-    
+
     // Get the URL of one of our fixed directories
     static func urlForKnownDirectory(_ directory: KnownDirectory, alwaysCreate: Bool = true) -> URL {
-        
+
         let documents = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0]
         let url = URL(fileURLWithPath: documents).appendingPathComponent(directory.rawValue, isDirectory: true)
-        
+
         if alwaysCreate {
             let exists: Bool = (try? url.checkResourceIsReachable()) ?? false
 
@@ -34,7 +34,7 @@ enum FileManagerUtilities {
                 }
             }
         }
-        
+
         return url
     }
 }

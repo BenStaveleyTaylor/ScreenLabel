@@ -25,21 +25,21 @@ class ColorPickerViewController: UIViewController {
 
     // MARK: Nib properties
 
-    @IBOutlet private weak var containingStackView: UIStackView!
-    @IBOutlet private weak var colorWheelImageView: ColorPickerWheelView!
-    @IBOutlet private weak var swatchesStack: UIStackView!
-    @IBOutlet private weak var lighterLabel: UILabel!
-    @IBOutlet private weak var brightnessSlider: UISlider!
-    @IBOutlet private weak var darkerLabel: UILabel!
-    @IBOutlet private weak var clearerLabel: UILabel!
-    @IBOutlet private weak var transparencySlider: UISlider!
-    @IBOutlet private weak var opaquerLabel: UILabel!
-    @IBOutlet private weak var beforeSwatch: TranslucentColorSwatchView!
-    @IBOutlet private weak var beforeLabel: UILabel!
-    @IBOutlet private weak var afterSwatch: TranslucentColorSwatchView!
-    @IBOutlet private weak var afterLabel: UILabel!
-    @IBOutlet private weak var transparencyControlsStack: UIStackView!
-    
+    @IBOutlet private var containingStackView: UIStackView!
+    @IBOutlet private var colorWheelImageView: ColorPickerWheelView!
+    @IBOutlet private var swatchesStack: UIStackView!
+    @IBOutlet private var lighterLabel: UILabel!
+    @IBOutlet private var brightnessSlider: UISlider!
+    @IBOutlet private var darkerLabel: UILabel!
+    @IBOutlet private var clearerLabel: UILabel!
+    @IBOutlet private var transparencySlider: UISlider!
+    @IBOutlet private var opaquerLabel: UILabel!
+    @IBOutlet private var beforeSwatch: TranslucentColorSwatchView!
+    @IBOutlet private var beforeLabel: UILabel!
+    @IBOutlet private var afterSwatch: TranslucentColorSwatchView!
+    @IBOutlet private var afterLabel: UILabel!
+    @IBOutlet private var transparencyControlsStack: UIStackView!
+
     // MARK: Other properties
     var settingsInitialised: Bool = false
 
@@ -85,8 +85,7 @@ class ColorPickerViewController: UIViewController {
         // If transparency is not allowed, change the starting alpha to 1
         if allowTransparency {
             self.startingColor = startingColor
-        }
-        else {
+        } else {
             self.startingColor = startingColor.withAlphaComponent(1.0)
         }
 

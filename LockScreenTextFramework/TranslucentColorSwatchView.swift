@@ -51,12 +51,12 @@ open class TranslucentColorSwatchView: UIView {
         super.init(frame: frame)
         self.commonSetup()
     }
-    
+
     public required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         // Rest of the init is done in awakeFromNib
     }
-    
+
     open override func awakeFromNib() {
         super.awakeFromNib()
         self.commonSetup()
@@ -67,7 +67,7 @@ open class TranslucentColorSwatchView: UIView {
     // -------------------------------------------------------------------------
 
     private func commonSetup() {
-        
+
         self.backgroundColor = UIColor.white
 
         self.backgroundImageView.image = Resources.sharedInstance.image(named: "ColorSwatchBackground")
@@ -82,5 +82,5 @@ open class TranslucentColorSwatchView: UIView {
         self.addSubview(self.swatchView)
         self.swatchView.constrainToFillSuperview()
     }
-    
+
 }

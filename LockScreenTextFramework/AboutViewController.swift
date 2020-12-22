@@ -12,13 +12,13 @@ import os.log
 
 class AboutViewController: UIViewController {
 
-    @IBOutlet private weak var iconImage: UIImageView!
-    @IBOutlet private weak var titleLabel: UILabel!
-    @IBOutlet private weak var versionLabel: UILabel!
-    @IBOutlet private weak var copyrightLabel: UILabel!
-    @IBOutlet private weak var contactButton: UIButton!
-    @IBOutlet private weak var webSiteButton: UIButton!
-    @IBOutlet private weak var privacyButton: UIButton!
+    @IBOutlet private var iconImage: UIImageView!
+    @IBOutlet private var titleLabel: UILabel!
+    @IBOutlet private var versionLabel: UILabel!
+    @IBOutlet private var copyrightLabel: UILabel!
+    @IBOutlet private var contactButton: UIButton!
+    @IBOutlet private var webSiteButton: UIButton!
+    @IBOutlet private var privacyButton: UIButton!
 
     let emailAddress = "bstiosdev@icloud.com"
     let webSiteAddress = "https://www.staveleytaylor.com"
@@ -142,7 +142,7 @@ class AboutViewController: UIViewController {
     @IBAction private func onWebSiteButtoTapped(_ sender: UIButton) {
         UIApplication.shared.open(self.webSiteLink)
     }
-    
+
     @IBAction private func onPrivacyButtonTapped(_ sender: UIButton) {
         UIApplication.shared.open(self.privacyPolicyLink)
     }
