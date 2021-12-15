@@ -41,7 +41,7 @@ class ColorPickerViewController: UIViewController {
     @IBOutlet private var transparencyControlsStack: UIStackView!
 
     // MARK: Other properties
-    var settingsInitialised: Bool = false
+    var settingsInitialised = false
 
     var beforeColor = UIColor.white {
         didSet {

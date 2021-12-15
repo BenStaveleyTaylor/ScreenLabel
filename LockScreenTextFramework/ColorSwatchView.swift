@@ -23,7 +23,7 @@ class ColorSwatchView: UIView {
 
     /// If true, when the colour swatch hits zero alpha a diagonal line
     /// is drawn to indicate that, rather than drawing nothing.
-    var showZeroAlphaAsStripe: Bool = true
+    var showZeroAlphaAsStripe = true
     var zeroAlphaLineWidth: CGFloat = 2
     var zeroAlphaLineColor = UIColor.red
 

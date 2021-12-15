@@ -56,7 +56,7 @@ class ImagePreviewController: UIViewController {
 
     // Local properties
     private var settingsCoordinator: SettingsCoordinatorProtocol!
-    private var colorDidChange: Bool = false
+    private var colorDidChange = false
     private var lastPanTouchPos: CGPoint = .zero
 
     // Debugging. Draw a ruler scale over the view.

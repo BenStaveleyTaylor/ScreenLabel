@@ -13,19 +13,26 @@ enum UITheme {
 
     static func setAppearanceDefaults() {
 
+        // WTF? iOS 15 defaults nav bars and toolbars to transparent? No thanks.
+        if #available(iOS 15, *) {
+            let navBarAppearance = UINavigationBarAppearance()
+            navBarAppearance.configureWithOpaqueBackground()
+            navBarAppearance.titleTextAttributes = [.foregroundColor: UIColor.label]
+            navBarAppearance.backgroundColor = UIColor.systemGray6
+            UINavigationBar.appearance().standardAppearance = navBarAppearance
+            UINavigationBar.appearance().scrollEdgeAppearance = navBarAppearance
+
+            let toolbarAppearance = UIToolbarAppearance()
+            toolbarAppearance.configureWithOpaqueBackground()
+            toolbarAppearance.backgroundColor = UIColor.systemGray6
+            UIToolbar.appearance().standardAppearance = toolbarAppearance
+            UIToolbar.appearance().scrollEdgeAppearance = toolbarAppearance
+        }
+
         // Set the page control colors to use
         let pageControlAppearance = UIPageControl.appearance()
 
         pageControlAppearance.pageIndicatorTintColor = UIColor(named: "OtherPageBulletColor")
         pageControlAppearance.currentPageIndicatorTintColor = UIColor(named: "CurrentPageBulletColor")
-
-        // Dialogs are dark green bar with white text
-        let dialogNavBarAppearance = UINavigationBar.appearance(whenContainedInInstancesOf: [DialogNavigationController.self])
-        dialogNavBarAppearance.barTintColor = UIColor(named: "AppThemeDarkColor")
-        dialogNavBarAppearance.tintColor = .white
-
-        let whiteTextAttribute: [NSAttributedString.Key: Any] = [.foregroundColor: UIColor.white]
-        dialogNavBarAppearance.titleTextAttributes = whiteTextAttribute
     }
-
 }

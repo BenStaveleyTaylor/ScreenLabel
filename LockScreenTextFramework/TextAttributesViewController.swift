@@ -51,7 +51,7 @@ class TextAttributesViewController: UIViewController {
 
     private var colorSwatchBeingEdited: TranslucentColorSwatchView?
 
-    private var isEditingMessage: Bool = false
+    private var isEditingMessage = false
 
     override func viewDidLoad() {
         super.viewDidLoad()

@@ -13,7 +13,7 @@ open class TranslucentColorSwatchView: UIView {
 
     /// If true, the colour swatch has a background image which shows
     /// through as the alpha of the colour decreases.
-    public var showOpacity: Bool = true {
+    public var showOpacity = true {
         didSet {
             self.backgroundImageView.isHidden = !showOpacity
         }
