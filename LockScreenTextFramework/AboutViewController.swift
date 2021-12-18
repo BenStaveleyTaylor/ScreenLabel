@@ -96,27 +96,30 @@ class AboutViewController: UIViewController {
 
     @IBAction private func onContactButtonTapped(_ sender: UIButton) {
 
-        // Allow the user to send me an email
-        guard MFMailComposeViewController.canSendMail() else {
-            os_log("Mail services are not available")
+        // Using mailto: in preference to MFMailComposeViewController
+        // because it honors the user's preferred mail app setting
+
+        let emailSubject = Resources.sharedInstance.localizedString("EmailSubjectTemplate")
+        let emailBody = self.composeSupportEmailBody()
+
+        var components = URLComponents()
+        components.scheme = "mailto"
+        components.path = self.emailAddress
+        components.queryItems = [
+            URLQueryItem(name: "subject", value: emailSubject),
+            URLQueryItem(name: "body", value: emailBody)
+        ]
+
+        guard let mailtoUrl = components.url else {
+            os_log("Error building email URL from: %@", "\(components)")
             return
         }
 
-        let composeVC = MFMailComposeViewController()
-        composeVC.mailComposeDelegate = self
-
-        // Configure the fields of the interface.
-        composeVC.setToRecipients([self.emailAddress])
-
-        // Subject line
-        let emailSubject = Resources.sharedInstance.localizedString("EmailSubjectTemplate")
-        composeVC.setSubject(emailSubject)
-
-        let emailBody = self.composeSupportEmailBody()
-        composeVC.setMessageBody(emailBody, isHTML: false)
-
-        // Present the view controller modally.
-        self.present(composeVC, animated: true, completion: nil)
+        UIApplication.shared.open(mailtoUrl) { success in
+            if !success {
+                os_log("Unable to compose email to: %@", mailtoUrl.absoluteString)
+            }
+        }
     }
 
     internal func composeSupportEmailBody() -> String {
