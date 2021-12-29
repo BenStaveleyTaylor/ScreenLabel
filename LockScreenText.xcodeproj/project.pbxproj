@@ -107,7 +107,6 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		0C04CA558397C4DBA7A9C962 /* Pods_LockScreenTextFramework.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LockScreenTextFramework.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		503457CF7F58C2A068B606C6 /* Pods_LockScreenText.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LockScreenText.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		54D0023314460655A8376C26 /* Pods-LockScreenText.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LockScreenText.release.xcconfig"; path = "Pods/Target Support Files/Pods-LockScreenText/Pods-LockScreenText.release.xcconfig"; sourceTree = "<group>"; };
 		6B0479FA2198898800B79CFA /* LockScreenTextFramework.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = LockScreenTextFramework.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -381,7 +380,6 @@
 			isa = PBXGroup;
 			children = (
 				503457CF7F58C2A068B606C6 /* Pods_LockScreenText.framework */,
-				0C04CA558397C4DBA7A9C962 /* Pods_LockScreenTextFramework.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
