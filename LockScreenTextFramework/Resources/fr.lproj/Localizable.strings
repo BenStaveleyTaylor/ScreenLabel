@@ -62,7 +62,7 @@
 "TextStyleLabel" = "Style";
 
 "FactorySettings" = "Réinitialiser";
-"ResetToDefaultsConfirmation" = "Etes-vous certain vous voulez restaurer les réglages par défaut ? Ceci va aussi déléter l’image de fond d’écran actuel.";
+"ResetToDefaultsConfirmation" = "Etes-vous certain vous voulez restaurer les réglages par défaut ? Ceci va aussi effacer l’image de fond d’écran actuelle.";
 "ResetToDefaultsResetAction" = "Réinitialiser";
 "Cancel" = "Annuler";
 
