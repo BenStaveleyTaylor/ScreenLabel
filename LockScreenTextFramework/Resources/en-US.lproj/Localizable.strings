@@ -6,6 +6,8 @@
   Copyright © 2018 Ben Staveley-Taylor. All rights reserved.
 */
 
+"AppName" = "Screen Label";
+
 "AboutTitle" = "About";
 
 "HelpButtonText" = "Help";
@@ -85,3 +87,8 @@
 "MustBeInFullScreenToSaveBody" = "@AppName@ must be in full screen mode, or the image won’t work as a Lock Screen.";
 
 "UnableToReadImage" = "Unable to load this photo. Try a different one.";
+
+/* Widget */
+"Widget_DisplayName" = "@AppName@";
+"Widget_Description" = "Show the contact message set up in @AppName@";
+"Widget_NoLabelSet" = "Tap here to set a message using @AppName@";

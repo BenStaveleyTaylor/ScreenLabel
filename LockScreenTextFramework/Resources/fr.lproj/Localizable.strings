@@ -6,6 +6,8 @@
   Copyright © 2018 Ben Staveley-Taylor. All rights reserved.
 */
 
+"AppName" = "Screen Label";
+
 "AboutTitle" = "A propos de";
 
 "HelpButtonText" = "Aide";
@@ -100,3 +102,8 @@
 "MustBeInFullScreenToSaveBody" = "@AppName@ doit être en mode plein écran, pour que l’image fonctionne comme l’écran verrouillé";
 
 "UnableToReadImage" = "Impossible de télécharger cette image. Essayer un autre fichier.";
+
+/* Widget */
+"Widget_DisplayName" = "@AppName@";
+"Widget_Description" = "Show the contact message set up in @AppName@";
+"Widget_NoLabelSet" = "Tap here to set a message using @AppName@";

@@ -8,6 +8,7 @@
 
 import UIKit
 import os.log
+import WidgetKit
 
 class TextAttributesViewController: UIViewController {
 
@@ -261,6 +262,15 @@ class TextAttributesViewController: UIViewController {
         self.settingsCoordinator.showLockScreenUI = self.showLockScreenUISwitch.isOn
 
         self.settingsCoordinator.endBatchChanges()
+
+        if #available(iOS 16.0, *) {
+            updateLockScreenWidget()
+        }
+    }
+
+    @available(iOS 16.0, *)
+    private func updateLockScreenWidget() {
+        WidgetCenter.shared.reloadTimelines(ofKind: LSWidgetConstants.kind)
     }
 
     // Ensure the massage placeholder text shows when there is no message text

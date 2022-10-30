@@ -77,7 +77,7 @@ private struct CodableEdgeInsets: Codable {
     }
 }
 
-struct Settings: Codable {
+public struct Settings: Codable {
 
     // Default values
     static let defaults = Settings()
@@ -98,7 +98,7 @@ struct Settings: Codable {
     var scrollOffset: CGPoint
 
     // The text of the message
-    var message: String
+    public var message: String
 
     // The stored font is always the plain style
     // Selected style variations are computed from that
@@ -145,11 +145,17 @@ struct Settings: Codable {
 
         // Use a smaller text size on phone
         let defaultTextFont: UIFont
+
+#if TARGET_IS_EXTENSION
+        // Can't use DeviceUtilities. Don't realy care about font size anyway.
+        defaultTextFont = .preferredFont(forTextStyle: .footnote)   // 13pt
+#else
         if DeviceUtilities.isCompactDevice {
             defaultTextFont = .preferredFont(forTextStyle: .footnote)   // 13pt
         } else {
             defaultTextFont = .preferredFont(forTextStyle: .body)       // 17pt
         }
+#endif
 
         self.init(version: Settings.currentVersion,
                   imageName: nil,           // Nil imageName means it's a plain colour lock screen (background colour only)
@@ -210,7 +216,7 @@ struct Settings: Codable {
 
     // We have to implement encode and decode because we have some non-codable properties
 
-    init(from decoder: Decoder) throws {
+    public init(from decoder: Decoder) throws {
 
         let container = try decoder.container(keyedBy: CodingKeys.self)
 
@@ -263,7 +269,7 @@ struct Settings: Codable {
                   showLockScreenUI: showLockScreenUI            ?? Settings.defaults.showLockScreenUI)
     }
 
-    func encode(to encoder: Encoder) throws {
+    public func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self)
 
         try container.encode(self.version, forKey: .version)
@@ -285,14 +291,14 @@ struct Settings: Codable {
         try container.encode(self.showLockScreenUI, forKey: .showLockScreenUI)
     }
 
-    func writeToUserDefaults() throws {
+public func writeToUserDefaults(_ defaults: UserDefaults) throws {
         os_log("Writing settings")
-        UserDefaults.standard.set(try PropertyListEncoder().encode(self), forKey: "AppSettings")
+        defaults.set(try PropertyListEncoder().encode(self), forKey: "AppSettings")
     }
 
-    static func readFromUserDefaults() -> Settings? {
+    public static func readFromUserDefaults(_ defaults: UserDefaults) -> Settings? {
 
-        if let data = UserDefaults.standard.value(forKey: "AppSettings") as? Data {
+        if let data = defaults.value(forKey: "AppSettings") as? Data {
             let settings: Settings? = try? PropertyListDecoder().decode(Settings.self, from: data)
             return settings
         }

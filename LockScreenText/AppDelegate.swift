@@ -8,6 +8,7 @@
 
 import UIKit
 import LockScreenTextFramework
+import os.log
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -16,6 +17,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        os_log("application didFinishLaunchingWithOptions")
 
         // All logic is in the framework
         self.window = UIWindow(frame: UIScreen.main.bounds)
@@ -26,10 +28,29 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         self.window?.rootViewController = initialVC
         self.window?.makeKeyAndVisible()
 
+        Defaults.updateStorageLocation()
+
         // Appearance setup
         UITheme.setAppearanceDefaults()
 
         return true
+    }
+
+    func application(_ application: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey: Any] = [:]) -> Bool {
+        // Detect "open settings" taps from the widget
+        os_log("application open: %@", url.absoluteString)
+
+        if let components = URLComponents(url: url, resolvingAgainstBaseURL: false) {
+            if components.scheme == LSConstants.navigationScheme {
+                if let action = components.host {
+                    DeepLinkHandler.shared.handleLink(action)
+                }
+
+                // As far as the os is concerned we always handled it.
+                return true
+            }
+        }
+        return false
     }
 
     func applicationWillResignActive(_ application: UIApplication) {

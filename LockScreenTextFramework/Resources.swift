@@ -9,10 +9,10 @@
 import Foundation
 import UIKit
 
-struct Resources {
+public struct Resources {
     
     // Singleton
-    static let sharedInstance = Resources()
+    public static let sharedInstance = Resources()
     
     static let notFound = "???"
     
@@ -97,15 +97,13 @@ struct Resources {
     
     private init() {
         // Get the name of the host app
-        let appName = Bundle.main.object(forInfoDictionaryKey: "CFBundleName") as? String
-        
-        self.appName = appName ?? Resources.notFound
+        appName = NSLocalizedString("AppName", bundle: BundleLocator.thisBundle(), comment: "")
     }
     
     // Used to locate the bundle that contains this file
     // Can't use Bundle(for:) with structs
-    private class BundleLocator {
-        static func thisBundle() -> Bundle {
+    public class BundleLocator {
+        public static func thisBundle() -> Bundle {
             return Bundle(for: self)
         }
         private init() {}

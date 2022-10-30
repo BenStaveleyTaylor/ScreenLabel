@@ -102,6 +102,16 @@ class ImagePreviewController: UIViewController {
         self.navigationController?.setToolbarHidden(false, animated: false)
     }
 
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        DeepLinkHandler.shared.registerLink(LSConstants.editSettingsNavKey, handler: linkHandler)
+    }
+
+    override func viewWillDisappear(_ animated: Bool) {
+        DeepLinkHandler.shared.unregisterLink(LSConstants.editSettingsNavKey)
+        super.viewWillDisappear(animated)
+    }
+
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
 
@@ -315,7 +325,7 @@ class ImagePreviewController: UIViewController {
         }
 
         if animated {
-            UIView.animate(withDuration: Constants.defaultAnimationDuration) {
+            UIView.animate(withDuration: LSConstants.defaultAnimationDuration) {
 
                 doItBlock()
                 self.view.layoutIfNeeded()
@@ -398,6 +408,15 @@ class ImagePreviewController: UIViewController {
             self.settingsCoordinator.scrollScale = 1.0
 
             self.settingsCoordinator.endBatchChanges()
+        }
+    }
+
+    // Deep nav links, e.g. tapping the lock screen widget
+    private func linkHandler(action: String) {
+        os_log("Handling %@", action)
+
+        if action == LSConstants.editSettingsNavKey {
+            self.performSegue(withIdentifier: "editTextAttributesSegue", sender: self)
         }
     }
 }
