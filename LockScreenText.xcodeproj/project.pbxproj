@@ -49,6 +49,11 @@
 		6B7FDF5E21A9F8AE004BB497 /* FontPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B7FDF5D21A9F8AE004BB497 /* FontPickerViewController.swift */; };
 		6B7FDF6221ABFA12004BB497 /* UIView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B7FDF6121ABFA12004BB497 /* UIView+Extensions.swift */; };
 		6B8A0C7022629D110006CD56 /* DialogNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B8A0C6F22629D110006CD56 /* DialogNavigationController.swift */; };
+		6B8D6E20290EEA310049224A /* LockScreenTextFramework.h in Headers */ = {isa = PBXBuildFile; fileRef = 6B0479FC2198898800B79CFA /* LockScreenTextFramework.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		6B8D6E3E290EEA310049224A /* Resources.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B1E244F21989F9B008A0CFC /* Resources.swift */; };
+		6B8D6E48290EEA310049224A /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6B29017B21D972ED002FFF71 /* Localizable.strings */; };
+		6B8D6E58290EEC250049224A /* LockScreenTextExtensionFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6B8D6E51290EEA310049224A /* LockScreenTextExtensionFramework.framework */; };
+		6B8D6E59290EEC250049224A /* LockScreenTextExtensionFramework.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6B8D6E51290EEA310049224A /* LockScreenTextExtensionFramework.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		6BA186E521988CCB00C9CE76 /* SettingsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B11DA112194DF9F001FAD4C /* SettingsTests.swift */; };
 		6BA320BF2274EE25000E8255 /* LockScreenElementsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BA320BE2274EE25000E8255 /* LockScreenElementsView.swift */; };
 		6BA320C12274EEFC000E8255 /* LockScreenElements.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BA320C02274EEFC000E8255 /* LockScreenElements.swift */; };
@@ -95,6 +100,20 @@
 			remoteGlobalIDString = 6B0479F92198898800B79CFA;
 			remoteInfo = LockScreenTextFramework;
 		};
+		6B8D6E5A290EEC250049224A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 6BB2EBE721920DBA00BCDA34 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 6B8D6E1E290EEA310049224A;
+			remoteInfo = LockScreenTextExtensionFramework;
+		};
+		6B8D6E5E290EEE9B0049224A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 6BB2EBE721920DBA00BCDA34 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 6B8D6E1E290EEA310049224A;
+			remoteInfo = LockScreenTextExtensionFramework;
+		};
 		6BCDF062290558FD007E5889 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 6BB2EBE721920DBA00BCDA34 /* Project object */;
@@ -112,6 +131,7 @@
 			dstSubfolderSpec = 10;
 			files = (
 				6B047A102198898800B79CFA /* LockScreenTextFramework.framework in Embed Frameworks */,
+				6B8D6E59290EEC250049224A /* LockScreenTextExtensionFramework.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -176,6 +196,10 @@
 		6B7FDF5D21A9F8AE004BB497 /* FontPickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontPickerViewController.swift; sourceTree = "<group>"; };
 		6B7FDF6121ABFA12004BB497 /* UIView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extensions.swift"; sourceTree = "<group>"; };
 		6B8A0C6F22629D110006CD56 /* DialogNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DialogNavigationController.swift; sourceTree = "<group>"; };
+		6B8D6E19290EEA180049224A /* LockScreenTextExtensionFramework.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LockScreenTextExtensionFramework.h; sourceTree = "<group>"; };
+		6B8D6E51290EEA310049224A /* LockScreenTextExtensionFramework.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = LockScreenTextExtensionFramework.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		6B8D6E52290EEA320049224A /* LockScreenTextFramework copy-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "LockScreenTextFramework copy-Info.plist"; path = "/Users/bestave/Personal/Dev/LockScreenText/git/LockScreenTextFramework copy-Info.plist"; sourceTree = "<absolute>"; };
+		6B8D6E5D290EEDA50049224A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6BA186E421988BCC00C9CE76 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6BA320BE2274EE25000E8255 /* LockScreenElementsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LockScreenElementsView.swift; sourceTree = "<group>"; };
 		6BA320C02274EEFC000E8255 /* LockScreenElements.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LockScreenElements.swift; sourceTree = "<group>"; };
@@ -226,10 +250,18 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		6B8D6E45290EEA310049224A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		6BB2EBEC21920DBA00BCDA34 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6B8D6E58290EEC250049224A /* LockScreenTextExtensionFramework.framework in Frameworks */,
 				FC71560C74D8C50F0E91087E /* Pods_LockScreenText.framework in Frameworks */,
 				6B047A0F2198898800B79CFA /* LockScreenTextFramework.framework in Frameworks */,
 			);
@@ -360,10 +392,28 @@
 			path = "LockScreenText/Supporting Files";
 			sourceTree = "<group>";
 		};
+		6B8D6E18290EEA180049224A /* LockScreenTextExtensionFramework */ = {
+			isa = PBXGroup;
+			children = (
+				6B8D6E5C290EED7C0049224A /* Supporting Files */,
+				6B8D6E19290EEA180049224A /* LockScreenTextExtensionFramework.h */,
+			);
+			path = LockScreenTextExtensionFramework;
+			sourceTree = "<group>";
+		};
+		6B8D6E5C290EED7C0049224A /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				6B8D6E5D290EEDA50049224A /* Info.plist */,
+			);
+			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
 		6BB2EBE621920DBA00BCDA34 = {
 			isa = PBXGroup;
 			children = (
 				6BCDF05C290558FA007E5889 /* LockScreenTextWidget */,
+				6B8D6E18290EEA180049224A /* LockScreenTextExtensionFramework */,
 				F382AB663EAFCBC8E7AB212F /* Frameworks */,
 				6BB2EBF121920DBA00BCDA34 /* LockScreenText */,
 				6B0479FB2198898800B79CFA /* LockScreenTextFramework */,
@@ -371,6 +421,7 @@
 				6B4398F321A0D8750010D116 /* Supporting Files */,
 				BC21F30E59178E4577F91CF9 /* Pods */,
 				6BB2EBF021920DBA00BCDA34 /* Products */,
+				6B8D6E52290EEA320049224A /* LockScreenTextFramework copy-Info.plist */,
 			);
 			sourceTree = "<group>";
 		};
@@ -381,6 +432,7 @@
 				6B0479FA2198898800B79CFA /* LockScreenTextFramework.framework */,
 				6B047A022198898800B79CFA /* LockScreenTextFrameworkTests.xctest */,
 				6BCDF057290558F9007E5889 /* LockScreenTextWidgetExtension.appex */,
+				6B8D6E51290EEA310049224A /* LockScreenTextExtensionFramework.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -447,6 +499,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		6B8D6E1F290EEA310049224A /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6B8D6E20290EEA310049224A /* LockScreenTextFramework.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
@@ -487,6 +547,24 @@
 			productReference = 6B047A022198898800B79CFA /* LockScreenTextFrameworkTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
+		6B8D6E1E290EEA310049224A /* LockScreenTextExtensionFramework */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 6B8D6E4E290EEA310049224A /* Build configuration list for PBXNativeTarget "LockScreenTextExtensionFramework" */;
+			buildPhases = (
+				6B8D6E1F290EEA310049224A /* Headers */,
+				6B8D6E21290EEA310049224A /* Sources */,
+				6B8D6E45290EEA310049224A /* Frameworks */,
+				6B8D6E46290EEA310049224A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = LockScreenTextExtensionFramework;
+			productName = LockScreenTextFramework;
+			productReference = 6B8D6E51290EEA310049224A /* LockScreenTextExtensionFramework.framework */;
+			productType = "com.apple.product-type.framework";
+		};
 		6BB2EBEE21920DBA00BCDA34 /* LockScreenText */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 6BB2EC0C21920DBC00BCDA34 /* Build configuration list for PBXNativeTarget "LockScreenText" */;
@@ -504,6 +582,7 @@
 			dependencies = (
 				6B047A0E2198898800B79CFA /* PBXTargetDependency */,
 				6BCDF063290558FD007E5889 /* PBXTargetDependency */,
+				6B8D6E5B290EEC250049224A /* PBXTargetDependency */,
 			);
 			name = LockScreenText;
 			productName = LockScreenText;
@@ -521,6 +600,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				6B8D6E5F290EEE9B0049224A /* PBXTargetDependency */,
 			);
 			name = LockScreenTextWidgetExtension;
 			productName = LockScreenTextWidgetExtension;
@@ -572,6 +652,7 @@
 			targets = (
 				6BB2EBEE21920DBA00BCDA34 /* LockScreenText */,
 				6B0479F92198898800B79CFA /* LockScreenTextFramework */,
+				6B8D6E1E290EEA310049224A /* LockScreenTextExtensionFramework */,
 				6B047A012198898800B79CFA /* LockScreenTextFrameworkTests */,
 				6BCDF056290558F9007E5889 /* LockScreenTextWidgetExtension */,
 			);
@@ -597,6 +678,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6B8D6E46290EEA310049224A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6B8D6E48290EEA310049224A /* Localizable.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -721,6 +810,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		6B8D6E21290EEA310049224A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6B8D6E3E290EEA310049224A /* Resources.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		6BB2EBEB21920DBA00BCDA34 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -755,6 +852,16 @@
 			isa = PBXTargetDependency;
 			target = 6B0479F92198898800B79CFA /* LockScreenTextFramework */;
 			targetProxy = 6B047A0D2198898800B79CFA /* PBXContainerItemProxy */;
+		};
+		6B8D6E5B290EEC250049224A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 6B8D6E1E290EEA310049224A /* LockScreenTextExtensionFramework */;
+			targetProxy = 6B8D6E5A290EEC250049224A /* PBXContainerItemProxy */;
+		};
+		6B8D6E5F290EEE9B0049224A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 6B8D6E1E290EEA310049224A /* LockScreenTextExtensionFramework */;
+			targetProxy = 6B8D6E5E290EEE9B0049224A /* PBXContainerItemProxy */;
 		};
 		6BCDF063290558FD007E5889 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
@@ -853,6 +960,9 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.staveleytaylor.ben.LockScreenTextFramework;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -883,6 +993,9 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.staveleytaylor.ben.LockScreenTextFramework;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
@@ -902,6 +1015,9 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.staveleytaylor.ben.LockScreenTextFrameworkTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Screen Label.app/Screen Label";
@@ -920,9 +1036,79 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.staveleytaylor.ben.LockScreenTextFrameworkTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Screen Label.app/Screen Label";
+			};
+			name = Release;
+		};
+		6B8D6E4F290EEA310049224A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = "";
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "LockScreenTextExtensionFramework/Supporting Files/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.staveleytaylor.ben.LockScreenTextExtensionFramework;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		6B8D6E50290EEA310049224A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = "";
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "LockScreenTextExtensionFramework/Supporting Files/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.staveleytaylor.ben.LockScreenTextExtensionFramework;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
 			};
 			name = Release;
 		};
@@ -1179,6 +1365,15 @@
 			buildConfigurations = (
 				6B047A162198898800B79CFA /* Debug */,
 				6B047A172198898800B79CFA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		6B8D6E4E290EEA310049224A /* Build configuration list for PBXNativeTarget "LockScreenTextExtensionFramework" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6B8D6E4F290EEA310049224A /* Debug */,
+				6B8D6E50290EEA310049224A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

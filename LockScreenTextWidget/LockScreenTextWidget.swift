@@ -8,42 +8,47 @@
 
 import WidgetKit
 import SwiftUI
+import LockScreenTextExtensionFramework
 
 struct Provider: TimelineProvider {
     func placeholder(in context: Context) -> SimpleEntry {
-        SimpleEntry(date: Date())
+        SimpleEntry(
+            date: Date(),
+            message: "Your contact information is shown here"
+        )
     }
 
     func getSnapshot(in context: Context, completion: @escaping (SimpleEntry) -> Void) {
-        let entry = SimpleEntry(date: Date())
+        let entry = SimpleEntry(
+            date: Date(),
+            message: "If found, contact harry@potter.com (+44 1234 567890)"
+        )
         completion(entry)
     }
 
     func getTimeline(in context: Context, completion: @escaping (Timeline<Entry>) -> Void) {
-        var entries: [SimpleEntry] = []
+        let entry = SimpleEntry(
+            date: Date(),
+            message: "If found, contact harry@potter.com (+44 1234 567890)"
+        )
+        let entries: [SimpleEntry] = [entry]
 
-        // Generate a timeline consisting of five entries an hour apart, starting from the current date.
-        let currentDate = Date()
-        for hourOffset in 0 ..< 5 {
-            let entryDate = Calendar.current.date(byAdding: .hour, value: hourOffset, to: currentDate)!
-            let entry = SimpleEntry(date: entryDate)
-            entries.append(entry)
-        }
-
-        let timeline = Timeline(entries: entries, policy: .atEnd)
+        let timeline = Timeline(entries: entries, policy: .never)
         completion(timeline)
     }
 }
 
 struct SimpleEntry: TimelineEntry {
     let date: Date
+    let message: String
 }
 
 struct LockScreenTextWidgetEntryView: View {
     var entry: Provider.Entry
 
     var body: some View {
-        Text(entry.date, style: .time)
+        Text(entry.message)
+//        Text(entry.date, style: .time)
     }
 }
 
@@ -55,14 +60,18 @@ struct LockScreenTextWidget: Widget {
         StaticConfiguration(kind: kind, provider: Provider()) { entry in
             LockScreenTextWidgetEntryView(entry: entry)
         }
-        .configurationDisplayName("My Widget")
-        .description("This is an example widget.")
+        .configurationDisplayName("Screen Label")
+        .description("Display the contact information set in the Screen Label app")
+        .supportedFamilies([.accessoryRectangular])
     }
 }
 
 struct LockScreenTextWidget_Previews: PreviewProvider {
     static var previews: some View {
-        LockScreenTextWidgetEntryView(entry: SimpleEntry(date: Date()))
-            .previewContext(WidgetPreviewContext(family: .systemSmall))
+        LockScreenTextWidgetEntryView(entry: SimpleEntry(
+            date: Date(),
+            message: "If found, contact harry@potter.com (+44 1234 567890)")
+        )
+            .previewContext(WidgetPreviewContext(family: .accessoryRectangular))
     }
 }
