@@ -63,13 +63,15 @@ struct SimpleEntry: TimelineEntry {
 
 struct LockScreenTextWidgetEntryView: View {
     var entry: Provider.Entry
-
+    
     var body: some View {
-        Text(entry.message)
-            .font(.body)
-            .allowsTightening(true)
-            .minimumScaleFactor(2.0/3.0)
-            .widgetURL(LSConstants.editSettingsNavUrl)
+        (
+            Text(Image(decorative: "TextAppIcon")) + Text(" \(entry.message)")
+        )
+        .font(.body)
+        .allowsTightening(true)
+        .minimumScaleFactor(2.0/3.0)
+        .widgetURL(LSConstants.editSettingsNavUrl)
     }
 }
 
