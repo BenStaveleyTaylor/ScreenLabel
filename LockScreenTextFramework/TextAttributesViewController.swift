@@ -16,6 +16,7 @@ class TextAttributesViewController: UIViewController {
     @IBOutlet private var messageTextView: UITextView!
     @IBOutlet private var clearTextButton: UIButton!
     @IBOutlet private var messagePlaceholder: UILabel!
+    @IBOutlet private var widgetHelpLabel: UILabel!
 
     @IBOutlet private var textSizeSlider: PointSizeSlider!
     @IBOutlet private var textSizeLabel: UILabel!
@@ -202,6 +203,16 @@ class TextAttributesViewController: UIViewController {
 
         self.textLabel.text = Resources.sharedInstance.localizedString("MessageLabel")
         self.messageTextView.text = self.settingsCoordinator.message
+
+        // Widget is iOS 16+ feature
+        if FeatureFlags.widgetEnabled {
+            self.widgetHelpLabel.isHidden = false
+            self.widgetHelpLabel.text = Resources.sharedInstance.localizedString("WidgetHelpLabel")
+        } else {
+            self.widgetHelpLabel.isHidden = true
+        }
+
+        self.textLabel.text = Resources.sharedInstance.localizedString("MessageLabel")
 
         self.textSizeLabel.text = Resources.sharedInstance.localizedString("TextSizeLabel")
         self.textSizeValueLabel.text = TextAttributesHelper.displayTextForPointSize(self.settingsCoordinator.textFont.pointSize)

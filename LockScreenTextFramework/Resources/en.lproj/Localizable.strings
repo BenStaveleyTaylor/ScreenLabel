@@ -15,7 +15,9 @@
 "MessagePromptText" = "Tap this label to change it\nDrag it up or down\n\nMore help from the title bar";
 
 /* @DeviceName@ will be replaced by 'iPhone' or 'iPad' as appropriate. */
-"MessagePlaceholderText" = "Examples:\n“If found please email me@email.com”\n“Art Room @DeviceName@ 1”\nLine breaks are allowed ([return] key)";
+"MessagePlaceholderText" = "Contact message. Example: If found please contact me@example.com or 01234 567890";
+
+"WidgetHelpLabel" = "The Screen Label Lock Screen Widget will also show this message. Style settings are ignored.";
 
 "BleedStyleLabel" = "Automatic Margins";
 
@@ -103,7 +105,7 @@
 "UnableToReadImage" = "Unable to load this photo. Try a different one.";
 
 /* Widget */
-"Widget_DisplayName" = "Contact Message";
+"Widget_DisplayName" = "Lock Screen Message";
 "Widget_Description" = "Show the message that has been set up in @AppName@";
 "Widget_PlaceholderText" = "If found please contact me@example.com or 01234 567890";
 "Widget_NoLabelSet" = "Tap to set up a message using @AppName@";

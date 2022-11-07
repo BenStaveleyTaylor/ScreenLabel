@@ -82,6 +82,7 @@
 		6BF08AFC2916BAC50066D053 /* LSConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BF08AFA2916BAC50066D053 /* LSConstants.swift */; };
 		6BF08AFE2916BD780066D053 /* DeepLinkHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BF08AFD2916BD780066D053 /* DeepLinkHandler.swift */; };
 		6BF08AFF2916BD780066D053 /* DeepLinkHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BF08AFD2916BD780066D053 /* DeepLinkHandler.swift */; };
+		6BF08B01291827040066D053 /* FeatureFlags.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BF08B00291827040066D053 /* FeatureFlags.swift */; };
 		6BF343BC221F130F001A21CD /* HelpPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BF343BB221F130F001A21CD /* HelpPage.swift */; };
 		FC71560C74D8C50F0E91087E /* Pods_LockScreenText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 503457CF7F58C2A068B606C6 /* Pods_LockScreenText.framework */; };
 /* End PBXBuildFile section */
@@ -253,6 +254,7 @@
 		6BF08AF72916A3180066D053 /* LSWidgetConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LSWidgetConstants.swift; sourceTree = "<group>"; };
 		6BF08AFA2916BAC50066D053 /* LSConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LSConstants.swift; sourceTree = "<group>"; };
 		6BF08AFD2916BD780066D053 /* DeepLinkHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeepLinkHandler.swift; sourceTree = "<group>"; };
+		6BF08B00291827040066D053 /* FeatureFlags.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeatureFlags.swift; sourceTree = "<group>"; };
 		6BF343BB221F130F001A21CD /* HelpPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpPage.swift; sourceTree = "<group>"; };
 		6D1BFDFAB5DE9951D543D9C1 /* Pods-LockScreenText.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LockScreenText.debug.xcconfig"; path = "Pods/Target Support Files/Pods-LockScreenText/Pods-LockScreenText.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -312,6 +314,7 @@
 				6B324C0321B1458F00EB236A /* ColorSwatchView.swift */,
 				6BF08AFD2916BD780066D053 /* DeepLinkHandler.swift */,
 				6B8A0C6F22629D110006CD56 /* DialogNavigationController.swift */,
+				6BF08B00291827040066D053 /* FeatureFlags.swift */,
 				6B7FDF5D21A9F8AE004BB497 /* FontPickerViewController.swift */,
 				6B047A1E21988B5F00B79CFA /* ImagePreviewController.swift */,
 				6BA320C02274EEFC000E8255 /* LockScreenElements.swift */,
@@ -804,6 +807,7 @@
 				6B047A2221988B5F00B79CFA /* ImageUtilities.swift in Sources */,
 				6B047A2721988B5F00B79CFA /* FileManagerUtilities.swift in Sources */,
 				6B7FDF5E21A9F8AE004BB497 /* FontPickerViewController.swift in Sources */,
+				6BF08B01291827040066D053 /* FeatureFlags.swift in Sources */,
 				6B44B15E2281FDD000B6DDC4 /* SizeDebugView.swift in Sources */,
 				6B64167621B726D000F6365C /* UIImageView+Pixels.swift in Sources */,
 				6B3EF8BC21D9847000CA61E9 /* HelpPageController.swift in Sources */,
