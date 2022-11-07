@@ -19,6 +19,7 @@ class AboutViewController: UIViewController {
     @IBOutlet private var contactButton: UIButton!
     @IBOutlet private var webSiteButton: UIButton!
     @IBOutlet private var privacyButton: UIButton!
+    @IBOutlet private var translatorsLabel: UILabel!
 
     let emailAddress = "bstiosdev@icloud.com"
     let webSiteAddress = "https://www.staveleytaylor.com"
@@ -91,6 +92,8 @@ class AboutViewController: UIViewController {
 
         self.privacyButton.setTitle(self.privacyButtonTitle, for: .normal)
 
+        self.translatorsLabel.attributedText = translatorsText()
+
         self.title = Resources.sharedInstance.localizedString("AboutTitle")
     }
 
@@ -142,7 +145,30 @@ class AboutViewController: UIViewController {
         return result
     }
 
-    @IBAction private func onWebSiteButtoTapped(_ sender: UIButton) {
+    internal func translatorsText() -> NSMutableAttributedString {
+        let title = Resources.sharedInstance.localizedString("TranslatorsTitle")
+        let people = Resources.sharedInstance.localizedString("TranslatorsList")
+        let combined = NSMutableAttributedString(string: title + " " + people)
+
+        let size: CGFloat = 15.0
+        let plainFont = UIFont.systemFont(ofSize: size)
+        let boldFont = UIFont.boldSystemFont(ofSize: size)
+
+        combined.addAttribute(
+            NSAttributedString.Key.font,
+            value: boldFont,
+            range: NSRange(location: 0, length: title.count))
+
+        // Include the space separator
+        combined.addAttribute(
+            NSAttributedString.Key.font,
+            value: plainFont,
+            range: NSRange(location: title.count, length: people.count+1))
+
+        return combined
+    }
+
+    @IBAction private func onWebSiteButtonTapped(_ sender: UIButton) {
         UIApplication.shared.open(self.webSiteLink)
     }
 

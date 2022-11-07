@@ -12,6 +12,8 @@
 
 "HelpButtonText" = "Help";
 
+"DoneButtonText" = "Done";
+
 "MessagePromptText" = "Tap this label to change it\nDrag it up or down\n\nMore help from the title bar";
 
 /* @DeviceName@ will be replaced by 'iPhone' or 'iPad' as appropriate. */
@@ -103,6 +105,9 @@
 "MustBeInFullScreenToSaveBody" = "@AppName@ must be in full screen mode, or the image won’t work as a Lock Screen.";
 
 "UnableToReadImage" = "Unable to load this photo. Try a different one.";
+
+"TranslatorsTitle" = "With thanks for translations:";
+"TranslatorsList" = "Simon James, Bob Loblaw, Harry Potter";
 
 /* Widget */
 "Widget_DisplayName" = "Lock Screen Message";

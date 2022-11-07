@@ -55,7 +55,7 @@
                                         <rect key="frame" x="0.0" y="0.0" width="431" height="767"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="&lt;view size&gt;" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Y95-SA-xI0">
-                                                <rect key="frame" x="171" y="373" width="89.5" height="21"/>
+                                                <rect key="frame" x="171" y="373" width="89" height="21"/>
                                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
@@ -115,7 +115,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="12:34" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eWR-Ul-z17">
-                                        <rect key="frame" x="71.5" y="48.5" width="232.5" height="115"/>
+                                        <rect key="frame" x="71" y="48.5" width="233" height="115"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="96"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -741,7 +741,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="JFx-HW-Cyo">
-                                <rect key="frame" x="20" y="180" width="335" height="287.5"/>
+                                <rect key="frame" x="20" y="165" width="335" height="317.5"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="&lt;Title&gt;" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Oz-Md-RUD">
                                         <rect key="frame" x="127.5" y="0.0" width="80.5" height="29"/>
@@ -797,6 +797,12 @@
                                             </button>
                                         </subviews>
                                     </stackView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="&lt;Translators&gt;" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Eja-oo-mbP">
+                                        <rect key="frame" x="120" y="299.5" width="95" height="18"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
                             </stackView>
                         </subviews>
@@ -822,6 +828,7 @@
                         <outlet property="iconImage" destination="16a-s0-agO" id="ucT-j1-w34"/>
                         <outlet property="privacyButton" destination="6UC-do-0d5" id="6qK-Fr-hnw"/>
                         <outlet property="titleLabel" destination="1Oz-Md-RUD" id="3wv-uy-qg1"/>
+                        <outlet property="translatorsLabel" destination="Eja-oo-mbP" id="FoO-v7-0qX"/>
                         <outlet property="versionLabel" destination="kQH-V8-yVW" id="lRW-mZ-Xp6"/>
                         <outlet property="webSiteButton" destination="qcC-ea-JEM" id="VX4-Ck-8B0"/>
                     </connections>

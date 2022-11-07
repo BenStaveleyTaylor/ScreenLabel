@@ -71,7 +71,9 @@ class TextAttributesViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
 
-        // Hide teh toolbar for this one
+        self.navigationController?.navigationBar.topItem?.backButtonTitle = Resources.sharedInstance.localizedString("DoneButtonText")
+        
+        // Hide the toolbar for this one
         self.navigationController?.setToolbarHidden(true, animated: false)
     }
 
