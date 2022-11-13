@@ -120,8 +120,7 @@ static let notFound = "???"
         let searchSuffixes: [String]
 
         if #available(iOS 16, *) {
-            // Latest iOS has no suffix (it always uses the default)
-            searchSuffixes = []
+            searchSuffixes = ["-iOS16", "-iOS15", "-iOS14", "-iOS13", "-iOS12"]
         } else if #available(iOS 15, *) {
             searchSuffixes = ["-iOS15", "-iOS14", "-iOS13", "-iOS12"]
         } else if #available(iOS 14, *) {
