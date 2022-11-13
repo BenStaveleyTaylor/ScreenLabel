@@ -34,28 +34,15 @@ class HelpManager: NSObject {
             let imageKey = self.helpImageBase + seq
             let textKey = self.helpTextBase + seq
 
-            // The UI is different in iOS 14, 13 and 12. Use variant resources.
-            let suffix: String?
-            if #available(iOS 14, *) {
-                // "Latest" has no suffix
-                suffix = nil
-            }
-            else if #available(iOS 13, *) {
-                suffix = "-iOS13"
-            } else {
-                // iOS 12 or earlier
-                suffix = "-iOS12"
-            }
-
-            let title = Resources.sharedInstance.localizedString(titleKey, suffix: suffix, tableName: HelpManager.helpStringsTable)
+            let title = Resources.sharedInstance.localizedString(titleKey, searchForOSVariants: true, tableName: HelpManager.helpStringsTable)
             if title == Resources.notFound {
                 break
             }
 
             // Images are named .xcassets
-            let image = Resources.sharedInstance.image(named: imageKey, suffix: suffix)
+            let image = Resources.sharedInstance.image(named: imageKey, searchForOSVariants: true)
 
-            let text = Resources.sharedInstance.localizedString(textKey, suffix: suffix, tableName: HelpManager.helpStringsTable)
+            let text = Resources.sharedInstance.localizedString(textKey, searchForOSVariants: true, tableName: HelpManager.helpStringsTable)
 
             let vc = HelpPageController.create(title: title, image: image, text: text)
             self.pages.append(vc)

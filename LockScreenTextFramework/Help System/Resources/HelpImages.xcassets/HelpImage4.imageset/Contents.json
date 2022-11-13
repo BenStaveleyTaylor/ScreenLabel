@@ -2,21 +2,39 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "tips-lightmode.pdf"
+      "scale" : "1x"
     },
     {
       "idiom" : "universal",
-      "filename" : "tips-darkmode.pdf",
-      "appearances" : [
-        {
-          "appearance" : "luminosity",
-          "value" : "dark"
-        }
-      ]
+      "scale" : "2x"
+    },
+    {
+      "filename" : "Help3-iOS14.png",
+      "idiom" : "universal",
+      "scale" : "3x"
+    },
+    {
+      "idiom" : "universal",
+      "locale" : "fr",
+      "scale" : "1x"
+    },
+    {
+      "idiom" : "universal",
+      "locale" : "fr",
+      "scale" : "2x"
+    },
+    {
+      "filename" : "Set Wallpaper-iOS14.png",
+      "idiom" : "universal",
+      "locale" : "fr",
+      "scale" : "3x"
     }
   ],
   "info" : {
-    "version" : 1,
-    "author" : "xcode"
+    "author" : "xcode",
+    "version" : 1
+  },
+  "properties" : {
+    "localizable" : true
   }
 }
