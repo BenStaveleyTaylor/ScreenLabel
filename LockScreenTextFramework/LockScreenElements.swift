@@ -74,11 +74,11 @@ public struct LockScreenElements {
             switch self.screenPortraitWidth {
             case 0...834:
                 // iPad classic, 10.5", 11"
-                size = 106
+                size = 103
 
             default:
                 // iPad 12.9" or unknown future model
-                size = 116
+                size = 112
             }
         } else {
             // iPhone sizes
@@ -89,12 +89,16 @@ public struct LockScreenElements {
 
             case 321...375:
                 // iPhone 6/7/8; X/XS
-                size = 76
+                size = 82
+
+            case 376...390:
+                // iPhone 14
+                size = 96
 
             default:
-                // iPhone 6/7/8 Plus; XS-Max; XR
+                // iPhone 14 Pro/Plus/Pro Max
                 // or unknown future model
-                size = 90
+                size = 102
             }
         }
 
@@ -102,7 +106,7 @@ public struct LockScreenElements {
     }
 
     public var timeFont: UIFont {
-        return UIFont.systemFont(ofSize: self.timeFontSize, weight: .thin)
+        return UIFont.systemFont(ofSize: self.timeFontSize, weight: .semibold)
     }
 
     // HH:MM of real current time
@@ -141,7 +145,7 @@ public struct LockScreenElements {
     }
 
     public var dateFont: UIFont {
-        return UIFont.systemFont(ofSize: self.dateFontSize, weight: .regular)
+        return UIFont.systemFont(ofSize: self.dateFontSize, weight: .medium)
     }
 
     public func dateText(at date: Date = Date(), locale: Locale? = nil) -> String {
@@ -276,10 +280,10 @@ public struct LockScreenElements {
                 datePos = 212
 
             default:
-                // iPhone XS-Max, XR
+                // iPhone XS-Max, XR, 14
                 // or unknown future model
-                timePos = 182
-                datePos = 218
+                timePos = 201
+                datePos = 108
             }
         }
 

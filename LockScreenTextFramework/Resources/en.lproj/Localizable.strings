@@ -19,7 +19,7 @@
 /* @DeviceName@ will be replaced by 'iPhone' or 'iPad' as appropriate. */
 "MessagePlaceholderText" = "Contact message. Example: If found please contact me@example.com or 01234 567890";
 
-"WidgetHelpLabel" = "The Screen Label Lock Screen Widget will also show this message. Style settings are ignored.";
+"WidgetHelpLabel" = "The Screen Label Lock Screen widget will show this message. You don't need to save a Wallpaper image.";
 
 "BleedStyleLabel" = "Automatic Margins";
 

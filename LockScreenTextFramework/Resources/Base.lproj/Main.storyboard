@@ -4,6 +4,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21207"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -114,18 +115,18 @@
                             <view userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ISk-0U-2Xz" customClass="LockScreenElementsView" customModule="LockScreenTextFramework" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="12:34" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eWR-Ul-z17">
-                                        <rect key="frame" x="71" y="48.5" width="233" height="115"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="12:34" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eWR-Ul-z17">
+                                        <rect key="frame" x="0.0" y="109.5" width="375" height="115"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="96"/>
-                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="96"/>
+                                        <color key="textColor" name="DateTimeColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Day, Month Year" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GNC-QG-MRB">
-                                        <rect key="frame" x="104" y="153" width="167" height="29"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Day, Month Year" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GNC-QG-MRB">
+                                        <rect key="frame" x="0.0" y="85" width="375" height="29"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="24"/>
-                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="24"/>
+                                        <color key="textColor" name="DateTimeColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="&lt;press home button&gt;" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vfx-vq-cbX">
@@ -152,13 +153,17 @@
                                     <constraint firstItem="ggZ-uO-Az7" firstAttribute="width" secondItem="uRY-WH-bRc" secondAttribute="width" id="90m-ud-Unz"/>
                                     <constraint firstItem="eWR-Ul-z17" firstAttribute="centerX" secondItem="ISk-0U-2Xz" secondAttribute="centerX" id="9wP-er-ulq"/>
                                     <constraint firstItem="Vfx-vq-cbX" firstAttribute="centerX" secondItem="ISk-0U-2Xz" secondAttribute="centerX" id="Cc0-WJ-DXY"/>
-                                    <constraint firstItem="GNC-QG-MRB" firstAttribute="firstBaseline" secondItem="ISk-0U-2Xz" secondAttribute="top" constant="176" id="MY0-ch-R9O"/>
+                                    <constraint firstAttribute="trailing" secondItem="eWR-Ul-z17" secondAttribute="trailing" id="DLU-aa-eMt"/>
+                                    <constraint firstItem="GNC-QG-MRB" firstAttribute="firstBaseline" secondItem="ISk-0U-2Xz" secondAttribute="top" constant="108" id="MY0-ch-R9O"/>
+                                    <constraint firstItem="eWR-Ul-z17" firstAttribute="leading" secondItem="ISk-0U-2Xz" secondAttribute="leading" id="MrJ-hY-BYw"/>
                                     <constraint firstAttribute="bottom" secondItem="Vfx-vq-cbX" secondAttribute="firstBaseline" constant="36" id="Uhu-fX-Lrq"/>
                                     <constraint firstItem="uRY-WH-bRc" firstAttribute="centerY" secondItem="ggZ-uO-Az7" secondAttribute="centerY" id="V5X-uC-FE8"/>
                                     <constraint firstAttribute="bottom" secondItem="ggZ-uO-Az7" secondAttribute="centerY" constant="75" id="YZY-y4-h3Q"/>
-                                    <constraint firstItem="eWR-Ul-z17" firstAttribute="firstBaseline" secondItem="ISk-0U-2Xz" secondAttribute="top" constant="140" id="gVZ-cW-8uS"/>
+                                    <constraint firstAttribute="trailing" secondItem="GNC-QG-MRB" secondAttribute="trailing" id="ZJf-xe-f5i"/>
+                                    <constraint firstItem="eWR-Ul-z17" firstAttribute="firstBaseline" secondItem="ISk-0U-2Xz" secondAttribute="top" constant="201" id="gVZ-cW-8uS"/>
                                     <constraint firstItem="GNC-QG-MRB" firstAttribute="centerX" secondItem="ISk-0U-2Xz" secondAttribute="centerX" id="itv-Fn-rij"/>
                                     <constraint firstItem="ggZ-uO-Az7" firstAttribute="centerX" secondItem="ISk-0U-2Xz" secondAttribute="leading" constant="75" id="uYu-KV-VV8"/>
+                                    <constraint firstItem="GNC-QG-MRB" firstAttribute="leading" secondItem="ISk-0U-2Xz" secondAttribute="leading" id="wBh-r4-9lD"/>
                                     <constraint firstItem="ggZ-uO-Az7" firstAttribute="height" secondItem="uRY-WH-bRc" secondAttribute="height" id="zTt-BF-RQR"/>
                                 </constraints>
                                 <connections>
@@ -872,6 +877,9 @@
         <image name="Pictures" width="30" height="30"/>
         <image name="RightChevron" width="30" height="30"/>
         <image name="Settings" width="30" height="30"/>
+        <namedColor name="DateTimeColor">
+            <color red="1" green="1" blue="1" alpha="0.80000000000000004" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <systemColor name="groupTableViewBackgroundColor">
             <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
