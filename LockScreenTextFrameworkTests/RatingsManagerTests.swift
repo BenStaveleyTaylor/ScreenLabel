@@ -41,10 +41,10 @@ class RatingsManagerTests: XCTestCase {
 
         let ratingsManager = RatingsManager()
 
-        ratingsManager.didSaveImage()
+        ratingsManager.didSaveSettings()
         XCTAssertEqual(ratingsManager.getSavesSinceLastPrompt(), 1)
 
-        ratingsManager.didSaveImage()
+        ratingsManager.didSaveSettings()
         XCTAssertEqual(ratingsManager.getSavesSinceLastPrompt(), 2)
     }
 
@@ -54,11 +54,11 @@ class RatingsManagerTests: XCTestCase {
         let ratingsManager = RatingsManager(numSavesThreshold: 3,
                                             elapsedTimeMinThreshold: 0)
 
-        ratingsManager.didSaveImage()
-        ratingsManager.didSaveImage()
+        ratingsManager.didSaveSettings()
+        ratingsManager.didSaveSettings()
         XCTAssertEqual(ratingsManager.getSavesSinceLastPrompt(), 2)
 
-        ratingsManager.didSaveImage()
+        ratingsManager.didSaveSettings()
         // Count should have been reset
         XCTAssertEqual(ratingsManager.getSavesSinceLastPrompt(), 0)
     }
@@ -69,9 +69,9 @@ class RatingsManagerTests: XCTestCase {
         let ratingsManager = RatingsManager(numSavesThreshold: 3,
                                             elapsedTimeMinThreshold: 2)
 
-        ratingsManager.didSaveImage()
-        ratingsManager.didSaveImage()
-        ratingsManager.didSaveImage()
+        ratingsManager.didSaveSettings()
+        ratingsManager.didSaveSettings()
+        ratingsManager.didSaveSettings()
 
         // Even though 3 saved should trigger a prompt, nothing yet
         XCTAssertEqual(ratingsManager.getSavesSinceLastPrompt(), 3)
@@ -80,7 +80,7 @@ class RatingsManagerTests: XCTestCase {
         Thread.sleep(forTimeInterval: 2)
 
         // Next save should prompt and reset counters
-        ratingsManager.didSaveImage()
+        ratingsManager.didSaveSettings()
         XCTAssertEqual(ratingsManager.getSavesSinceLastPrompt(), 0)
 
         let now = Date()
@@ -97,15 +97,15 @@ class RatingsManagerTests: XCTestCase {
         // Expect a prompt if saving more than 1 second after the last save
         let ratingsManager = RatingsManager(elapsedTimeMaxThreshold: 1)
 
-        ratingsManager.didSaveImage()
-        ratingsManager.didSaveImage()
+        ratingsManager.didSaveSettings()
+        ratingsManager.didSaveSettings()
         XCTAssertEqual(ratingsManager.getSavesSinceLastPrompt(), 2)
 
         // Wait 2 seconds
         Thread.sleep(forTimeInterval: 2)
 
         // Next save should prompt and reset counters
-        ratingsManager.didSaveImage()
+        ratingsManager.didSaveSettings()
         XCTAssertEqual(ratingsManager.getSavesSinceLastPrompt(), 0)
 
         let now = Date()

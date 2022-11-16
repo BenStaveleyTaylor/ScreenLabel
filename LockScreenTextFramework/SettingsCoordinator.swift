@@ -105,7 +105,6 @@ class SettingsCoordinator: NSObject {
     private var inBatchMode = false
     private var batchedChanges: SettingItems = []
     private weak var photoSaveContext: UIViewController?
-    private let ratingsManager = RatingsManager()
 
     init(withDelegate delegate: SettingsCoordinatorViewDelegate, settings: Settings? = nil) {
 
@@ -158,9 +157,6 @@ class SettingsCoordinator: NSObject {
                                             let presentingVC = self.photoSaveContext
                                             presentingVC?.performSegue(withIdentifier: "showHelpSegue", sender: HelpPage.setWallpaper)
                                         }
-
-                                        // Trigger the ratings logic
-                                        self.ratingsManager.didSaveImage()
             }
         }
     }

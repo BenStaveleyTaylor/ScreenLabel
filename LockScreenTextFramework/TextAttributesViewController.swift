@@ -55,6 +55,8 @@ class TextAttributesViewController: UIViewController {
 
     private var isEditingMessage = false
 
+    private var ratingsManager = RatingsManager()
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -279,6 +281,9 @@ class TextAttributesViewController: UIViewController {
         if #available(iOS 16.0, *) {
             updateLockScreenWidget()
         }
+
+        // Trigger the ratings logic
+        self.ratingsManager.didSaveSettings()
     }
 
     @available(iOS 16.0, *)
