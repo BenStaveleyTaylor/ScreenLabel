@@ -16,7 +16,9 @@
 "MessagePromptText" = "Appuyez sur cette étiquette pour la changer\nFaites la glisser en haut ou en bas\n\nPlus d’aide dans la barre de titre";
 
 /* @DeviceName@ will be replaced by 'iPhone' or 'iPad' as appropriate. */
-"MessagePlaceholderText" = "Exemple: «\U00A0Si trouvé veuillez contacter moi@email.com\U00A0»\nLes sauts de lignes sont possibles (touche [retour])";
+"MessagePlaceholderText" = "Message de contact. Exemple: Si trouvé contactez 01 23 45 67 89 ou moi@courriel.fr";
+
+"WidgetHelpLabel" = "Le @AppName@ widget sur l’écran verrouillé affichera ce message. Vous n’avez pas besoin d’enregistrer un fond d’écran.";
 
 "BleedStyleLabel" = "Marges automatiques";
 
@@ -34,7 +36,8 @@
 
 "SavedAlertTitle" = "Enregistré dans vos images";
 
-"HowToSetWallpaperBody" = "Ouvrez Réglages > Fond d’écran et «\U00A0Choisir un nouveau fond d’écran\U00A0» puis définir l’écran verrouillé.\n\nVous trouverez l’image dans «\U00A0Toutes les photos\U00A0».\n\nNormalement l’option perspective est le mieux.";
+"HowToSetWallpaperBody-iOS12" = "Ouvrez Réglages > Fond d’écran et «\U00A0Choisir un nouveau fond d’écran\U00A0» puis définir l’écran verrouillé.\n\nVous trouverez l’image dans «\U00A0Toutes les photos\U00A0».\n\nNormalement l’option perspective est le mieux.";
+"HowToSetWallpaperBody-iOS16" = "L’image enregistrée sera la plus récente dans «\U00A0Toutes les photos\U00A0».\n\nOuvrez Réglages > Fond d’écran ou touchez et maintenez appuyé l’écran verrouillé pour sélectionner cette image.\n\nLe texte du message est toujours disponible dans le widget sur l’écran verrouillé – vous n’avez pas besoin de le sauver.";
 
 /* @AppName@" will be replaced by the application name */
 "PhotosReadWriteAccessDenied" = "@AppName@ ne peut pas accéder à vos images. Pour le permettre, ouvrez réglages > @AppName@, sélectionnez «\U00A0Photos\U00A0», et permettre un accès en «\U00A0Lecture et écriture\U00A0».";
@@ -53,7 +56,7 @@
 "TextSizeValue" = "%@ pts";
 
 /* Short phrase used when showing how a font looks. Anything will do; this one contains every English letter. */
-"FontPickerSample" = "Lorem ipsum dolor sit amet, consectetuer adipiscing elit.";
+"FontPickerSample" = "Abcdefgh ijklmnopqr stuvwxyz 1234567890";
 
 "SystemFontDisplayName" = "Police du système";
 
@@ -94,7 +97,7 @@
 "PrivacyButtonTitle" = "Politique de confidentialité";
 
 /* Apple text at the bottom of the lock screen. Must match Apple's exact wording */
-"PressHomeToOpen" = "Appuyez pour ouvrir";
+"PressHomeToOpen" = "Balayez vers le haut pour ouvrir";
 
 "ShowLockScreenUILabel" = "Affichage de l’heure";
 
@@ -103,7 +106,11 @@
 
 "UnableToReadImage" = "Impossible de télécharger cette image. Essayer un autre fichier.";
 
+"TranslatorsTitle" = "Traductions par:";
+"TranslatorsList" = "Simon James";
+
 /* Widget */
-"Widget_DisplayName" = "@AppName@";
-"Widget_Description" = "Show the contact message set up in @AppName@";
-"Widget_NoLabelSet" = "Tap here to set a message using @AppName@";
+"Widget_DisplayName" = "Message sur l’écran verrouillé";
+"Widget_Description" = "Affichez le message qui a été configuré dans @AppName@";
+"Widget_PlaceholderText" = "Si trouvé contactez 01 23 45 67 89 ou moi@courriel.fr";
+"Widget_NoLabelSet" = "Appuyez pour configurer un message à l’aide de @AppName@";

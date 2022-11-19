@@ -69,6 +69,7 @@ struct LockScreenTextWidgetEntryView: View {
             Text(Image(decorative: "TextAppIcon")) + Text(" \(entry.message)")
         )
         .font(.body)
+        .fontWeight(.medium)
         .allowsTightening(true)
         .minimumScaleFactor(2.0/3.0)
         .widgetURL(LSConstants.editSettingsNavUrl)
@@ -103,7 +104,7 @@ struct LockScreenTextWidget_Previews: PreviewProvider {
             // Short text
             LockScreenTextWidgetEntryView(
                 entry: SimpleEntry(
-                    message: "If found, contact harry@potter.com or 01234 567890"
+                    message: "If found, please call 01234 567890 or email harry@potter.com"
                 )
             )
             .previewContext(WidgetPreviewContext(family: .accessoryRectangular))

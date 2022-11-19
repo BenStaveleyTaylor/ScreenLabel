@@ -146,10 +146,14 @@ class SettingsCoordinator: NSObject {
             AlertUtilities.showMessage(title: Resources.sharedInstance.localizedString("FailedAlertTitle"),
                                        body: error.localizedDescription)
         } else {
-            AlertUtilities.showMessage(title: Resources.sharedInstance.localizedString("SavedAlertTitle"),
-                                       body: Resources.sharedInstance.localizedString("HowToSetWallpaperBody"),
-                                       button1Text: Resources.sharedInstance.localizedString("MoreWallpaperHelp"),
-                                       button2Text: Resources.sharedInstance.localizedString("OK")) { choice in
+            let title = Resources.sharedInstance.localizedString("SavedAlertTitle")
+            let body = Resources.sharedInstance.localizedString("HowToSetWallpaperBody", searchForOSVariants: true)
+            let moreHelp = Resources.sharedInstance.localizedString("MoreWallpaperHelp")
+            let ok = Resources.sharedInstance.localizedString("OK")
+            AlertUtilities.showMessage(title: title,
+                                       body: body,
+                                       button1Text: moreHelp,
+                                       button2Text: ok) { choice in
 
                                         if choice == 1 {
                                             // Show more help about setting the wallpaper

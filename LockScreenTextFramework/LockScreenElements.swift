@@ -84,19 +84,19 @@ public struct LockScreenElements {
             // iPhone sizes
             switch self.screenPortraitWidth {
             case 0...320:
-                // iPhone SE
+                // iPhone SE original
                 size = 70
 
             case 321...375:
-                // iPhone 6/7/8; X/XS
+                // iPhone 6/7/8; X/XS; SE 3rd Gen
                 size = 82
 
-            case 376...390:
-                // iPhone 14
+            case 376...393:
+                // iPhone 12/13/14; Phone 14 Pro
                 size = 96
 
             default:
-                // iPhone 14 Pro/Plus/Pro Max
+                // iPhone 11; XS Max; 8 Plus; 14 Plus/Pro Max
                 // or unknown future model
                 size = 102
             }
@@ -236,54 +236,44 @@ public struct LockScreenElements {
 
         if isPad {
             switch self.screenPortraitHeight {
-            case 0...1024:
-                // iPad classic
-                timePos = 166
-                datePos = 206
-
-            case 1025...1112:
-                // iPad 10.5"
-                timePos = 166
-                datePos = 206
-
-            case 1113...1194:
+            case 0...1194:
                 // iPad 11"
                 timePos = 170
                 datePos = 210
 
             default:
                 // iPad 12.9" or unknown future model
-                timePos = 196
-                datePos = 242
+                timePos = 129
+                datePos = 234
             }
         } else {
             // iPhone sizes
             switch self.screenPortraitHeight {
             case 0...568:
-                // iPhone SE
-                timePos = 140
-                datePos = 176
+                // iPhone SE (original; doesn't support iOS 16, so theoretical)
+                timePos = 135
+                datePos = 60
 
             case 569...667:
-                // iPhone 6/7/8
-                timePos = 140
-                datePos = 176
-
-            case 668...736:
-                // iPhone 6/7/8 Plus
+                // iPhone SE (new)
                 timePos = 154
-                datePos = 190
+                datePos = 71
 
-            case 737...812:
-                // iPhone X, XS
-                timePos = 176
-                datePos = 212
-
-            default:
-                // iPhone XS-Max, XR, 14
-                // or unknown future model
+            case 668...844:
+                // iPhone 14
                 timePos = 201
                 datePos = 108
+
+            case 845...852:
+                // iPhone 14 Pro
+                timePos = 215
+                datePos = 117
+
+            default:
+                // iPhone 14 Plus, Pro Max
+                // or unknown future model
+                timePos = 221
+                datePos = 122
             }
         }
 

@@ -9,7 +9,7 @@
       "scale" : "2x"
     },
     {
-      "filename" : "HelpImage1.png",
+      "filename" : "Help4-iOS16.png",
       "idiom" : "universal",
       "scale" : "3x"
     },
@@ -24,7 +24,7 @@
       "scale" : "2x"
     },
     {
-      "filename" : "HelpImage1-2.png",
+      "filename" : "Help4-iOS16 1.png",
       "idiom" : "universal",
       "locale" : "fr",
       "scale" : "3x"
@@ -40,7 +40,7 @@
       "scale" : "2x"
     },
     {
-      "filename" : "HelpImage1-1.png",
+      "filename" : "Help4-iOS16 2.png",
       "idiom" : "universal",
       "locale" : "en-US",
       "scale" : "3x"

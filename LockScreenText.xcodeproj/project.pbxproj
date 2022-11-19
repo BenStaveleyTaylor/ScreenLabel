@@ -1288,6 +1288,7 @@
 				CODE_SIGN_ENTITLEMENTS = "LockScreenText/Supporting Files/LockScreenText.entitlements";
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = GK635W8YY4;
+				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = GK635W8YY4;
 				INFOPLIST_FILE = "LockScreenText/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1297,6 +1298,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.staveleytaylor.ben.LockScreenText;
 				PRODUCT_NAME = "Screen Label";
 				PROVISIONING_PROFILE_SPECIFIER = "Screen Label Dev";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = "Screen Label Dev 2";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
@@ -1315,6 +1317,7 @@
 				CODE_SIGN_IDENTITY = "Apple Distribution: Ben Staveley-Taylor (GK635W8YY4)";
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = GK635W8YY4;
+				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = GK635W8YY4;
 				INFOPLIST_FILE = "LockScreenText/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1324,6 +1327,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.staveleytaylor.ben.LockScreenText;
 				PRODUCT_NAME = "Screen Label";
 				PROVISIONING_PROFILE_SPECIFIER = "Screen Label Production";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = "Screen Label Production 2";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;

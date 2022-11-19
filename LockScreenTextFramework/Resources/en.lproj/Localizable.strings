@@ -12,14 +12,12 @@
 
 "HelpButtonText" = "Help";
 
-"DoneButtonText" = "Done";
-
 "MessagePromptText" = "Tap this label to change it\nDrag it up or down\n\nMore help from the title bar";
 
 /* @DeviceName@ will be replaced by 'iPhone' or 'iPad' as appropriate. */
-"MessagePlaceholderText" = "Contact message. Example: If found please contact me@example.com or 01234 567890";
+"MessagePlaceholderText" = "Contact message. Example: If found contact 01234 567890 or me@example.com";
 
-"WidgetHelpLabel" = "The Screen Label Lock Screen widget will show this message. You don't need to save a Wallpaper image.";
+"WidgetHelpLabel" = "The @AppName@ Lock Screen widget will show this message. You don’t need to save a Wallpaper image.";
 
 "BleedStyleLabel" = "Automatic Margins";
 
@@ -37,12 +35,13 @@
 
 "SavedAlertTitle" = "Saved to your Photos";
 
-"HowToSetWallpaperBody" = "Open Settings > Wallpaper and do “Choose a New Wallpaper”.\n\nYou will find your image in All Photos.\n\nThe “Perspective” option usually works best.";
+"HowToSetWallpaperBody-iOS12" = "Open Settings > Wallpaper and do “Choose a New Wallpaper”.\n\nYou will find your image in All Photos.\n\nThe “Perspective” option usually works best.";
+"HowToSetWallpaperBody-iOS16" = "The saved image will be the most recent in All Photos.\n\nOpen Settings > Wallpaper or touch and hold on the Lock Screen itself to apply this image to your Lock Screen.\n\nThe message text is always available in the Lock Screen widget – you don’t need to do a Save.";
 
 /* @AppName@" will be replaced by the application name */
-"PhotosReadWriteAccessDenied" = "@AppName@ is blocked from accessing your Photos library. To fix this, open Settings > @AppName@, choose Photos, and ‘Read and Write’ access.";
+"PhotosReadWriteAccessDenied" = "@AppName@ is blocked from accessing your Photos library. To fix this, open Settings > @AppName@, choose Photos, and “Read and Write” access.";
 
-"PhotosAddAccessDenied" = "@AppName@ is blocked from saving to your Photos library. To fix this, open Settings > @AppName@, choose Photos, and allow ’Add Photos Only’ access.";
+"PhotosAddAccessDenied" = "@AppName@ is blocked from saving to your Photos library. To fix this, open Settings > @AppName@, choose Photos, and allow “Add Photos Only” access.";
 
 "OK" = "OK";
 
@@ -97,7 +96,7 @@
 "PrivacyButtonTitle" = "Privacy Policy";
 
 /* Apple text at the bottom of the lock screen. Must match Apple's exact wording */
-"PressHomeToOpen" = "Press Home to open";
+"PressHomeToOpen" = "Swipe up to open";
 
 "ShowLockScreenUILabel" = "Show Time/Date Position";
 
@@ -106,11 +105,11 @@
 
 "UnableToReadImage" = "Unable to load this photo. Try a different one.";
 
-"TranslatorsTitle" = "With thanks for translations:";
-"TranslatorsList" = "Simon James, Bob Loblaw, Harry Potter";
+"TranslatorsTitle" = "Translations by:";
+"TranslatorsList" = "Simon James";
 
 /* Widget */
 "Widget_DisplayName" = "Lock Screen Message";
 "Widget_Description" = "Show the message that has been set up in @AppName@";
-"Widget_PlaceholderText" = "If found please contact me@example.com or 01234 567890";
+"Widget_PlaceholderText" = "If found contact 01234 567890 or me@example.com";
 "Widget_NoLabelSet" = "Tap to set up a message using @AppName@";

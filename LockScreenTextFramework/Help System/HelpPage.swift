@@ -11,7 +11,8 @@ import Foundation
 // App-specific identifiers for help pages so we can open directly to the right one
 enum HelpPage: Int {
     case introduction = 0,
-    appUsage,
-    setWallpaper,
-    about
+         widgetFeatures,
+         appUsage,
+         setWallpaper,
+         about
 }
