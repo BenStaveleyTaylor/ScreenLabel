@@ -238,13 +238,13 @@ public struct LockScreenElements {
             switch self.screenPortraitHeight {
             case 0...1194:
                 // iPad 11"
-                timePos = 170
-                datePos = 210
+                timePos = 210
+                datePos = 170
 
             default:
                 // iPad 12.9" or unknown future model
-                timePos = 129
-                datePos = 234
+                timePos = 234
+                datePos = 129
             }
         } else {
             // iPhone sizes
