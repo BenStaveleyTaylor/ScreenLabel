@@ -8,18 +8,14 @@
 
 import Foundation
 
-struct FeatureFlags {
+enum FeatureFlags {
 
     // Widget is iOS 16+ feature
     static var widgetEnabled: Bool {
-        get {
-            if #available(iOS 16, *) {
-                return true
-            } else {
-                return false
-            }
+        if #available(iOS 16, *) {
+            return true
+        } else {
+            return false
         }
     }
 }
-
-

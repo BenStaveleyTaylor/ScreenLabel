@@ -28,7 +28,7 @@ class LockScreenElementsView: UIView {
     @IBOutlet private var footerImageLeadingToCentreXConstraint: NSLayoutConstraint!
     @IBOutlet private var footerImageCentreXToTrailingConstraint: NSLayoutConstraint!
 
-    let logic = LockScreenElements()
+    let logic = LockScreenElements.create()
     var timer: Timer?
 
     // Tinting of the torch/camera icons
@@ -114,7 +114,7 @@ class LockScreenElementsView: UIView {
     func setMutableConstraints() {
 
         // Get a transient logic object with layout for the current state
-        let logic = LockScreenElements()
+        let logic = LockScreenElements.create()
 
         self.footerLabelBaselineConstraint.constant = logic.footerBaseline
     }

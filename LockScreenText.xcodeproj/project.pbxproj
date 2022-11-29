@@ -39,6 +39,9 @@
 		6B44B15E2281FDD000B6DDC4 /* SizeDebugView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B44B15D2281FDD000B6DDC4 /* SizeDebugView.swift */; };
 		6B4C23AE232ED816002E1250 /* HelpImages.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6B4C23AD232ED816002E1250 /* HelpImages.xcassets */; };
 		6B64167621B726D000F6365C /* UIImageView+Pixels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B64167421B726D000F6365C /* UIImageView+Pixels.swift */; };
+		6B658D7129357707000E6A40 /* LockScreenElementsIos16.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B658D6F29357707000E6A40 /* LockScreenElementsIos16.swift */; };
+		6B658D7229357707000E6A40 /* LockScreenElementsPreIos16.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B658D7029357707000E6A40 /* LockScreenElementsPreIos16.swift */; };
+		6B658D762936081C000E6A40 /* LockScreenElements.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B658D752936081C000E6A40 /* LockScreenElements.swift */; };
 		6B6C4486223127970049CD88 /* DeviceUtilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B6C4485223127970049CD88 /* DeviceUtilities.swift */; };
 		6B6C448822312BE20049CD88 /* HelpNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B6C448722312BE20049CD88 /* HelpNavigationController.swift */; };
 		6B79DC50219B693F00F10A2F /* TextAttributesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B79DC4F219B693F00F10A2F /* TextAttributesViewController.swift */; };
@@ -58,7 +61,6 @@
 		6B9517EF29107E6600B7E8CD /* Defaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B9517ED29107E6600B7E8CD /* Defaults.swift */; };
 		6BA186E521988CCB00C9CE76 /* SettingsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B11DA112194DF9F001FAD4C /* SettingsTests.swift */; };
 		6BA320BF2274EE25000E8255 /* LockScreenElementsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BA320BE2274EE25000E8255 /* LockScreenElementsView.swift */; };
-		6BA320C12274EEFC000E8255 /* LockScreenElements.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BA320C02274EEFC000E8255 /* LockScreenElements.swift */; };
 		6BB2EBF321920DBA00BCDA34 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BB2EBF221920DBA00BCDA34 /* AppDelegate.swift */; };
 		6BB2EBFA21920DBB00BCDA34 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6BB2EBF921920DBB00BCDA34 /* Assets.xcassets */; };
 		6BB2EBFD21920DBB00BCDA34 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6BB2EBFB21920DBB00BCDA34 /* LaunchScreen.storyboard */; };
@@ -205,6 +207,9 @@
 		6B44B15D2281FDD000B6DDC4 /* SizeDebugView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SizeDebugView.swift; sourceTree = "<group>"; };
 		6B4C23AD232ED816002E1250 /* HelpImages.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = HelpImages.xcassets; path = "LockScreenTextFramework/Help System/Resources/HelpImages.xcassets"; sourceTree = SOURCE_ROOT; };
 		6B64167421B726D000F6365C /* UIImageView+Pixels.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImageView+Pixels.swift"; sourceTree = "<group>"; };
+		6B658D6F29357707000E6A40 /* LockScreenElementsIos16.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LockScreenElementsIos16.swift; sourceTree = "<group>"; };
+		6B658D7029357707000E6A40 /* LockScreenElementsPreIos16.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LockScreenElementsPreIos16.swift; sourceTree = "<group>"; };
+		6B658D752936081C000E6A40 /* LockScreenElements.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LockScreenElements.swift; sourceTree = "<group>"; };
 		6B6C4485223127970049CD88 /* DeviceUtilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceUtilities.swift; sourceTree = "<group>"; };
 		6B6C448722312BE20049CD88 /* HelpNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpNavigationController.swift; sourceTree = "<group>"; };
 		6B79DC4F219B693F00F10A2F /* TextAttributesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextAttributesViewController.swift; sourceTree = "<group>"; };
@@ -223,7 +228,6 @@
 		6B9517ED29107E6600B7E8CD /* Defaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Defaults.swift; sourceTree = "<group>"; };
 		6BA186E421988BCC00C9CE76 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6BA320BE2274EE25000E8255 /* LockScreenElementsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LockScreenElementsView.swift; sourceTree = "<group>"; };
-		6BA320C02274EEFC000E8255 /* LockScreenElements.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LockScreenElements.swift; sourceTree = "<group>"; };
 		6BB0FD33228C813100933922 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		6BB0FD34228C813100933922 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Localizable.strings; sourceTree = "<group>"; };
 		6BB0FD35228C813100933922 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Help.strings; sourceTree = "<group>"; };
@@ -313,11 +317,14 @@
 				6BD6878D21B5ABE000A0EC6D /* ColorPickerWheelView.swift */,
 				6B324C0321B1458F00EB236A /* ColorSwatchView.swift */,
 				6BF08AFD2916BD780066D053 /* DeepLinkHandler.swift */,
+				6B9517ED29107E6600B7E8CD /* Defaults.swift */,
 				6B8A0C6F22629D110006CD56 /* DialogNavigationController.swift */,
 				6BF08B00291827040066D053 /* FeatureFlags.swift */,
 				6B7FDF5D21A9F8AE004BB497 /* FontPickerViewController.swift */,
 				6B047A1E21988B5F00B79CFA /* ImagePreviewController.swift */,
-				6BA320C02274EEFC000E8255 /* LockScreenElements.swift */,
+				6B658D752936081C000E6A40 /* LockScreenElements.swift */,
+				6B658D6F29357707000E6A40 /* LockScreenElementsIos16.swift */,
+				6B658D7029357707000E6A40 /* LockScreenElementsPreIos16.swift */,
 				6BA320BE2274EE25000E8255 /* LockScreenElementsView.swift */,
 				6BF08AFA2916BAC50066D053 /* LSConstants.swift */,
 				6B7FDF5B21A9C7D8004BB497 /* PointSizeSlider.swift */,
@@ -325,7 +332,6 @@
 				6BE24A9C2233E58900079D27 /* RatingsManager.swift */,
 				6B1E244F21989F9B008A0CFC /* Resources.swift */,
 				6B047A2021988B5F00B79CFA /* Settings.swift */,
-				6B9517ED29107E6600B7E8CD /* Defaults.swift */,
 				6B047A1821988B5F00B79CFA /* SettingsCoordinator.swift */,
 				6B44B15D2281FDD000B6DDC4 /* SizeDebugView.swift */,
 				6B7FDF5921A9B1E3004BB497 /* TextAttributesHelper.swift */,
@@ -796,6 +802,7 @@
 				6BF08AF82916A3180066D053 /* LSWidgetConstants.swift in Sources */,
 				6BD6878E21B5ABE000A0EC6D /* ColorPickerWheelView.swift in Sources */,
 				6B6C4486223127970049CD88 /* DeviceUtilities.swift in Sources */,
+				6B658D762936081C000E6A40 /* LockScreenElements.swift in Sources */,
 				6BF08AFE2916BD780066D053 /* DeepLinkHandler.swift in Sources */,
 				6B047A2621988B5F00B79CFA /* ImagePreviewController.swift in Sources */,
 				6B8A0C7022629D110006CD56 /* DialogNavigationController.swift in Sources */,
@@ -812,6 +819,7 @@
 				6B64167621B726D000F6365C /* UIImageView+Pixels.swift in Sources */,
 				6B3EF8BC21D9847000CA61E9 /* HelpPageController.swift in Sources */,
 				6B3EF8CB21DAB78500CA61E9 /* HelpPageViewController.swift in Sources */,
+				6B658D7229357707000E6A40 /* LockScreenElementsPreIos16.swift in Sources */,
 				6B7FDF5C21A9C7D8004BB497 /* PointSizeSlider.swift in Sources */,
 				6B08E60A21B3421C00D9B47C /* QuantizedSlider.swift in Sources */,
 				6BC25A0522330D7F00D3CA8D /* UIFont+Extensions.swift in Sources */,
@@ -822,7 +830,6 @@
 				6B324C0421B1458F00EB236A /* ColorSwatchView.swift in Sources */,
 				6B184A9521EA63BB0065A394 /* UIAlertController+Extensions.swift in Sources */,
 				6B047A2121988B5F00B79CFA /* SettingsCoordinator.swift in Sources */,
-				6BA320C12274EEFC000E8255 /* LockScreenElements.swift in Sources */,
 				6B047A2821988B5F00B79CFA /* Settings.swift in Sources */,
 				6B1E245021989F9B008A0CFC /* Resources.swift in Sources */,
 				6B047A2421988B5F00B79CFA /* AlertUtilities.swift in Sources */,
@@ -830,6 +837,7 @@
 				6BA320BF2274EE25000E8255 /* LockScreenElementsView.swift in Sources */,
 				6B7E228E225C9414007A0E94 /* PrivacyUtilities.swift in Sources */,
 				6BF08AFB2916BAC50066D053 /* LSConstants.swift in Sources */,
+				6B658D7129357707000E6A40 /* LockScreenElementsIos16.swift in Sources */,
 				6B6C448822312BE20049CD88 /* HelpNavigationController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1286,7 +1294,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = "LockScreenText/Supporting Files/LockScreenText.entitlements";
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = GK635W8YY4;
 				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = GK635W8YY4;
 				INFOPLIST_FILE = "LockScreenText/Supporting Files/Info.plist";
@@ -1294,7 +1302,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.4;
+				MARKETING_VERSION = 1.4.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.staveleytaylor.ben.LockScreenText;
 				PRODUCT_NAME = "Screen Label";
 				PROVISIONING_PROFILE_SPECIFIER = "Screen Label Dev";
@@ -1316,14 +1324,14 @@
 				CODE_SIGN_ENTITLEMENTS = "LockScreenText/Supporting Files/LockScreenText.entitlements";
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = GK635W8YY4;
 				INFOPLIST_FILE = "LockScreenText/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.4;
+				MARKETING_VERSION = 1.4.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.staveleytaylor.ben.LockScreenText;
 				PRODUCT_NAME = "Screen Label";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -1356,7 +1364,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 1.4;
+				MARKETING_VERSION = 1.4.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.staveleytaylor.ben.LockScreenText.Widgets;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -1388,7 +1396,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 1.4;
+				MARKETING_VERSION = 1.4.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.staveleytaylor.ben.LockScreenText.LockScreenTextWidget;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
