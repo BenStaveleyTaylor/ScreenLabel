@@ -9,6 +9,7 @@
 import UIKit
 import MobileCoreServices
 import PhotosUI
+import SwiftUI
 
 import os.log
 
@@ -32,6 +33,7 @@ class ImagePreviewController: UIViewController {
     @IBOutlet private var textBoxTapRecognizer: UITapGestureRecognizer!
     @IBOutlet private var textBoxPanRecognizer: UIPanGestureRecognizer!
     @IBOutlet private var textLabelCentreYConstraint: NSLayoutConstraint!
+    @IBOutlet private var widgetTapRecognizer: UITapGestureRecognizer!
 
     // Render this view to get the lock screen image
     @IBOutlet private var renderableView: UIView!
@@ -54,10 +56,16 @@ class ImagePreviewController: UIViewController {
     // Lock Screen elements simulation
     @IBOutlet private var lockScreenElementsView: LockScreenElementsView!
 
+    @IBOutlet private var widgetClickableArea: UIView!
+
     // Local properties
     private var settingsCoordinator: SettingsCoordinatorProtocol!
     private var colorDidChange = false
     private var lastPanTouchPos: CGPoint = .zero
+
+    // Real type is UIHostingController<LockScreenWidgetPreview> but can't
+    // declare that without requiring iOS 16
+    private var uiHostingController: Any?
 
     // Debugging. Draw a ruler scale over the view.
     // This always becomes false in release builds
@@ -300,6 +308,7 @@ class ImagePreviewController: UIViewController {
 
         // Can't push new VCs when the Navigation Bar is hidden, so disallow text editing
         self.textBoxTapRecognizer.isEnabled = !self.isInPreviewMode
+        self.widgetTapRecognizer.isEnabled = !self.isInPreviewMode
     }
 
     private func setBleedStyle(_ bleedStyle: BleedStyle, animated: Bool) {
@@ -340,13 +349,15 @@ class ImagePreviewController: UIViewController {
 
         switch segue.identifier {
 
-        case "editTextAttributesSegue":
+        case "editTextAttributesSegue",
+            "editTextAttributesSegue2":
             self.prepareForEditTextAttributesSegue(segue, sender: sender)
 
         case "showHelpSegue":
             self.prepareForShowHelpSegue(segue, sender: sender)
 
-        case "showAboutSegue":
+        case "showAboutSegue",
+            "embedWidgetViewSegue":
             // No special prep needed
             break
 
@@ -357,7 +368,7 @@ class ImagePreviewController: UIViewController {
 
     private func prepareForEditTextAttributesSegue(_ segue: UIStoryboardSegue, sender: Any?) {
 
-        assert(segue.identifier == "editTextAttributesSegue")
+        assert(segue.identifier?.starts(with: "editTextAttributesSegue") == true)
 
         guard let destVC = segue.destination as? TextAttributesViewController else {
             assertionFailure("destination of editTextAttributesSegue was not a TextAttributesViewController")
@@ -389,6 +400,21 @@ class ImagePreviewController: UIViewController {
         }
     }
 
+    @IBSegueAction
+    func segueToWidgetHostController(_ coder: NSCoder) -> UIViewController? {
+        if #available(iOS 16, *) {
+            let uiHostingController = UIHostingController(
+                coder: coder,
+                rootView: LockScreenWidgetPreview(message: ""))
+            uiHostingController?.view.backgroundColor = .clear
+            self.uiHostingController = uiHostingController
+            return uiHostingController
+        } else {
+            // Expect the view to be hidden anyway
+            return UIViewController(coder: coder)
+        }
+    }
+
     public func showHelp(startingAt page: HelpPage) {
         self.performSegue(withIdentifier: "showHelpSegue", sender: page)
     }
@@ -417,6 +443,24 @@ class ImagePreviewController: UIViewController {
 
         if action == LSConstants.editSettingsNavKey {
             self.performSegue(withIdentifier: "editTextAttributesSegue", sender: self)
+        }
+    }
+
+    // Update the SwiftUI preview with the latest message
+    private func updateWidgetPreview(message: String) {
+        if #available(iOS 16, *) {
+
+            let nonBlankMessage: String
+            if message.isEmpty {
+                nonBlankMessage = Resources.sharedInstance.localizedString("Widget_PlaceholderText")
+            } else {
+                nonBlankMessage = message
+            }
+
+            guard let uiHostingController = self.uiHostingController as? UIHostingController<LockScreenWidgetPreview> else {
+                return
+            }
+            uiHostingController.rootView = LockScreenWidgetPreview(message: nonBlankMessage)
         }
     }
 }
@@ -506,11 +550,14 @@ extension ImagePreviewController: SettingsCoordinatorViewDelegate {
         }
 
         // If the string is empty, show a helpful prompt
-        var message = coordinator.message
+        let message = coordinator.message
         if message.isEmpty {
-            message = Resources.sharedInstance.localizedString("MessagePromptText")
+            // Prompt text is not used in the widget preview
+            self.textLabel.text = Resources.sharedInstance.localizedString("MessagePromptText")
+        } else {
+            self.textLabel.text = message
         }
-        self.textLabel.text = message
+        updateWidgetPreview(message: message)
 
         self.textLabel.textColor = coordinator.textColor
 
@@ -539,7 +586,11 @@ extension ImagePreviewController: SettingsCoordinatorViewDelegate {
             self.scrollView.contentOffset = coordinator.scrollOffset
         }
 
-        self.lockScreenElementsView.isHidden = !coordinator.showLockScreenUI
+        // self.lockScreenElementsView.isHidden = !coordinator.showLockScreenUI
+        self.widgetClickableArea.isHidden = !(FeatureFlags.widgetAvailable && coordinator.showWidgetPreview)
+
+        self.lockScreenElementsView.showWidgetPreview = coordinator.showWidgetPreview
+
     }
 }
 

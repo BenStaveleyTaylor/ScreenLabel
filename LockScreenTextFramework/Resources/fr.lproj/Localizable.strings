@@ -101,6 +101,8 @@
 
 "ShowLockScreenUILabel" = "Affichage de l’heure";
 
+"ShowWidgetPreviewLabel" = "Affichage du widget";
+
 "MustBeInFullScreenToSaveTitle" = "L’enregistrement est désactivé";
 "MustBeInFullScreenToSaveBody" = "@AppName@ doit être en mode plein écran, pour que l’image fonctionne comme l’écran verrouillé";
 

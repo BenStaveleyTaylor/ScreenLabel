@@ -40,8 +40,9 @@ class TextAttributesViewController: UIViewController {
 
     @IBOutlet private var factorySettingsButton: UIButton!
 
-    @IBOutlet private var showLockScreenUILabel: UILabel!
-    @IBOutlet private var showLockScreenUISwitch: UISwitch!
+    @IBOutlet private var showWidgetPreviewGroup: UIStackView!
+    @IBOutlet private var showWidgetPreviewLabel: UILabel!
+    @IBOutlet private var showWidgetPreviewSwitch: UISwitch!
 
     @IBOutlet private var textColorTapGestureRecognizer: UITapGestureRecognizer!
     @IBOutlet private var boxColorTapGestureRecognizer: UITapGestureRecognizer!
@@ -77,6 +78,9 @@ class TextAttributesViewController: UIViewController {
         
         // Hide the toolbar for this one
         self.navigationController?.setToolbarHidden(true, animated: false)
+
+        // Hide the Widget UI if not supported on the current device
+        self.showWidgetPreviewGroup.isHidden = !FeatureFlags.widgetAvailable
     }
 
     override func viewWillDisappear(_ animated: Bool) {
@@ -209,7 +213,7 @@ class TextAttributesViewController: UIViewController {
         self.messageTextView.text = self.settingsCoordinator.message
 
         // Widget is iOS 16+ feature
-        if FeatureFlags.widgetEnabled {
+        if FeatureFlags.widgetAvailable {
             self.widgetHelpLabel.isHidden = false
             self.widgetHelpLabel.text = Resources.sharedInstance.localizedString("WidgetHelpLabel")
         } else {
@@ -240,8 +244,8 @@ class TextAttributesViewController: UIViewController {
         self.bleedStyleHelpLabel.text = Resources.sharedInstance.localizedString("BleedStyleHelpText")
         self.bleedStyleSwitch.isOn = (self.settingsCoordinator.imageBleedStyle == .perspective)
 
-        self.showLockScreenUILabel.text = Resources.sharedInstance.localizedString("ShowLockScreenUILabel")
-        self.showLockScreenUISwitch.isOn = self.settingsCoordinator.showLockScreenUI
+        self.showWidgetPreviewLabel.text = Resources.sharedInstance.localizedString("ShowWidgetPreviewLabel")
+        self.showWidgetPreviewSwitch.isOn = self.settingsCoordinator.showWidgetPreview
 
         self.factorySettingsButton.setTitle(Resources.sharedInstance.localizedString("FactorySettings"), for: .normal)
 
@@ -274,7 +278,7 @@ class TextAttributesViewController: UIViewController {
         let bleedStyle: BleedStyle = self.bleedStyleSwitch.isOn ? .perspective : .still
         self.settingsCoordinator.imageBleedStyle = bleedStyle
 
-        self.settingsCoordinator.showLockScreenUI = self.showLockScreenUISwitch.isOn
+        self.settingsCoordinator.showWidgetPreview = self.showWidgetPreviewSwitch.isOn
 
         self.settingsCoordinator.endBatchChanges()
 
@@ -291,7 +295,7 @@ class TextAttributesViewController: UIViewController {
         WidgetCenter.shared.reloadTimelines(ofKind: LSWidgetConstants.kind)
     }
 
-    // Ensure the massage placeholder text shows when there is no message text
+    // Ensure the message placeholder text shows when there is no message text
     // and hides when there is some text
     // It is always hidden while editing
     private func updatePlaceholderTextVisibility() {

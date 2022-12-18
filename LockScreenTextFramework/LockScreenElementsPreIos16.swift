@@ -213,6 +213,13 @@ public struct LockScreenElementsPreIos16: LockScreenElementsProtocol {
         return offset
     }
 
+    // Does this UI show a lock screen widget?
+    var hasWidget: Bool = false
+
+    public var widgetRect: CGRect {
+        fatalError("This method is not implemented prior to iOS 16")
+    }
+
     // MARK: Private
 
     // Avoid portrait/landscape issues -- get the dimension for Portrait mode

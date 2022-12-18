@@ -146,6 +146,16 @@
                                             <constraint firstAttribute="width" constant="50" id="bDk-TJ-ZBT"/>
                                         </constraints>
                                     </imageView>
+                                    <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="V7F-Cf-69e">
+                                        <rect key="frame" x="8" y="231" width="160" height="72"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="160" id="EfT-VW-6cI"/>
+                                            <constraint firstAttribute="height" constant="72" id="bD8-TL-SIn"/>
+                                        </constraints>
+                                        <connections>
+                                            <segue destination="kIK-8z-uzF" kind="embed" identifier="embedWidgetViewSegue" destinationCreationSelector="segueToWidgetHostController:" id="ad1-ag-Qh1"/>
+                                        </connections>
+                                    </containerView>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
@@ -154,6 +164,7 @@
                                     <constraint firstItem="eWR-Ul-z17" firstAttribute="centerX" secondItem="ISk-0U-2Xz" secondAttribute="centerX" id="9wP-er-ulq"/>
                                     <constraint firstItem="Vfx-vq-cbX" firstAttribute="centerX" secondItem="ISk-0U-2Xz" secondAttribute="centerX" id="Cc0-WJ-DXY"/>
                                     <constraint firstAttribute="trailing" secondItem="eWR-Ul-z17" secondAttribute="trailing" id="DLU-aa-eMt"/>
+                                    <constraint firstItem="V7F-Cf-69e" firstAttribute="top" secondItem="ISk-0U-2Xz" secondAttribute="top" constant="231" id="Eq9-OQ-T4d"/>
                                     <constraint firstItem="GNC-QG-MRB" firstAttribute="firstBaseline" secondItem="ISk-0U-2Xz" secondAttribute="top" constant="108" id="MY0-ch-R9O"/>
                                     <constraint firstItem="eWR-Ul-z17" firstAttribute="leading" secondItem="ISk-0U-2Xz" secondAttribute="leading" id="MrJ-hY-BYw"/>
                                     <constraint firstAttribute="bottom" secondItem="Vfx-vq-cbX" secondAttribute="firstBaseline" constant="36" id="Uhu-fX-Lrq"/>
@@ -162,6 +173,7 @@
                                     <constraint firstAttribute="trailing" secondItem="GNC-QG-MRB" secondAttribute="trailing" id="ZJf-xe-f5i"/>
                                     <constraint firstItem="eWR-Ul-z17" firstAttribute="firstBaseline" secondItem="ISk-0U-2Xz" secondAttribute="top" constant="201" id="gVZ-cW-8uS"/>
                                     <constraint firstItem="GNC-QG-MRB" firstAttribute="centerX" secondItem="ISk-0U-2Xz" secondAttribute="centerX" id="itv-Fn-rij"/>
+                                    <constraint firstItem="V7F-Cf-69e" firstAttribute="leading" secondItem="ISk-0U-2Xz" secondAttribute="leading" constant="8" id="mAg-oB-xMQ"/>
                                     <constraint firstItem="ggZ-uO-Az7" firstAttribute="centerX" secondItem="ISk-0U-2Xz" secondAttribute="leading" constant="75" id="uYu-KV-VV8"/>
                                     <constraint firstItem="GNC-QG-MRB" firstAttribute="leading" secondItem="ISk-0U-2Xz" secondAttribute="leading" id="wBh-r4-9lD"/>
                                     <constraint firstItem="ggZ-uO-Az7" firstAttribute="height" secondItem="uRY-WH-bRc" secondAttribute="height" id="zTt-BF-RQR"/>
@@ -179,6 +191,18 @@
                                     <outlet property="rightFooterImageView" destination="uRY-WH-bRc" id="Txk-yE-UvF"/>
                                     <outlet property="timeLabel" destination="eWR-Ul-z17" id="7P9-LP-rJK"/>
                                     <outlet property="timeLabelBaselineConstraint" destination="gVZ-cW-8uS" id="feh-xb-YKB"/>
+                                    <outlet property="widgetContainerView" destination="V7F-Cf-69e" id="PI8-da-0oJ"/>
+                                    <outlet property="widgetHeightConstraint" destination="bD8-TL-SIn" id="xE1-VL-T8e"/>
+                                    <outlet property="widgetViewLeftConstraint" destination="mAg-oB-xMQ" id="FM5-WU-ZMi"/>
+                                    <outlet property="widgetViewTopConstraint" destination="Eq9-OQ-T4d" id="jba-o8-0UW"/>
+                                    <outlet property="widgetWidthConstraint" destination="EfT-VW-6cI" id="Q6z-LQ-4wx"/>
+                                </connections>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uSt-Xz-o4m" userLabel="Widget Clickable Area">
+                                <rect key="frame" x="8" y="231" width="160" height="72"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="eoi-pY-qUL" appends="YES" id="6lS-6H-FLX"/>
                                 </connections>
                             </view>
                         </subviews>
@@ -186,16 +210,20 @@
                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="mAn-8c-p3c" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="0zm-fv-Sxo"/>
+                            <constraint firstItem="uSt-Xz-o4m" firstAttribute="top" secondItem="V7F-Cf-69e" secondAttribute="top" id="5dq-HX-weZ"/>
                             <constraint firstAttribute="bottom" secondItem="ISk-0U-2Xz" secondAttribute="bottom" id="M54-fU-K4W"/>
                             <constraint firstItem="mAn-8c-p3c" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="1.15" id="QQ0-RZ-MU7"/>
                             <constraint firstItem="ISk-0U-2Xz" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="UTz-rO-caz"/>
                             <constraint firstItem="mAn-8c-p3c" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" id="VKN-9D-ovb"/>
                             <constraint firstAttribute="width" relation="greaterThanOrEqual" secondItem="Zco-QO-wj2" secondAttribute="width" constant="64" id="YnR-XH-uTm"/>
+                            <constraint firstItem="uSt-Xz-o4m" firstAttribute="leading" secondItem="V7F-Cf-69e" secondAttribute="leading" id="bja-Rl-iVt"/>
                             <constraint firstItem="mAn-8c-p3c" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" id="cnz-Ql-pjw"/>
                             <constraint firstItem="mAn-8c-p3c" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="1.15" id="eur-3N-dV4"/>
                             <constraint firstAttribute="trailing" secondItem="ISk-0U-2Xz" secondAttribute="trailing" id="fa8-l3-vDG"/>
                             <constraint firstItem="ISk-0U-2Xz" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="fc0-Hk-fhe"/>
                             <constraint firstAttribute="height" relation="greaterThanOrEqual" secondItem="Zco-QO-wj2" secondAttribute="height" constant="64" id="hC3-sS-tf9"/>
+                            <constraint firstItem="uSt-Xz-o4m" firstAttribute="bottom" secondItem="V7F-Cf-69e" secondAttribute="bottom" id="pHt-VG-beC"/>
+                            <constraint firstItem="uSt-Xz-o4m" firstAttribute="trailing" secondItem="V7F-Cf-69e" secondAttribute="trailing" id="syh-Q8-esd"/>
                             <constraint firstItem="mAn-8c-p3c" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="vnU-TT-grm"/>
                         </constraints>
                         <variation key="default">
@@ -269,15 +297,22 @@
                         <outlet property="textLabel" destination="Zco-QO-wj2" id="TBk-gk-T5I"/>
                         <outlet property="textLabelCentreYConstraint" destination="btH-gj-ggi" id="bi6-fu-iyg"/>
                         <outlet property="watermarkImageView" destination="dgg-2K-58e" id="CGC-zB-jI7"/>
+                        <outlet property="widgetClickableArea" destination="uSt-Xz-o4m" id="RM4-zb-Hqx"/>
+                        <outlet property="widgetTapRecognizer" destination="eoi-pY-qUL" id="kjx-NJ-kVi"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
-                <tapGestureRecognizer id="P1A-zI-KD9">
+                <tapGestureRecognizer id="P1A-zI-KD9" userLabel="Label Tap Gesture Recognizer">
                     <connections>
                         <segue destination="70U-AU-X1A" kind="show" identifier="editTextAttributesSegue" id="bE7-Z2-A7a"/>
                     </connections>
                 </tapGestureRecognizer>
-                <tapGestureRecognizer id="kIP-8p-Bz2">
+                <tapGestureRecognizer id="eoi-pY-qUL" userLabel="Widget Tap Gesture Recognizer">
+                    <connections>
+                        <segue destination="70U-AU-X1A" kind="show" identifier="editTextAttributesSegue2" id="UuO-bT-icS"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer id="kIP-8p-Bz2" userLabel="Image Tap Gesture Recognizer">
                     <connections>
                         <action selector="onImageTapped:" destination="BYZ-38-t0r" id="4ZO-KS-qMv"/>
                     </connections>
@@ -294,6 +329,14 @@
                 </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="888.79999999999995" y="-564.46776611694156"/>
+        </scene>
+        <!--Hosting Controller-->
+        <scene sceneID="oap-Yo-gak">
+            <objects>
+                <hostingController id="kIK-8z-uzF" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="XuE-sA-cd4" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1625" y="-828"/>
         </scene>
         <!--Help-->
         <scene sceneID="UcP-zQ-x0K">
@@ -527,10 +570,10 @@
                                                             <outletCollection property="gestureRecognizers" destination="bLJ-eN-5Mj" appends="YES" id="4HT-FB-rQJ"/>
                                                         </connections>
                                                     </stackView>
-                                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="Vfe-kh-mxe" userLabel="Lock Screen UI">
+                                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="Vfe-kh-mxe" userLabel="Widget Preview">
                                                         <rect key="frame" x="20" y="479" width="335" height="31"/>
                                                         <subviews>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="250" text="&lt;lock screen ui&gt;" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="jNe-lN-oaK">
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="250" text="&lt;widget preview&gt;" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="jNe-lN-oaK">
                                                                 <rect key="frame" x="0.0" y="0.0" width="274" height="31"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                 <nil key="textColor"/>
@@ -619,6 +662,7 @@
                             <outletCollection property="gestureRecognizers" destination="sBX-Qh-Z8I" appends="YES" id="Fag-qW-vMO"/>
                         </connections>
                     </view>
+                    <navigationItem key="navigationItem" id="anS-Oc-ldG"/>
                     <connections>
                         <outlet property="bleedStyleHelpLabel" destination="e8b-hs-VK3" id="1Di-Ki-i5n"/>
                         <outlet property="bleedStyleLabel" destination="7yc-Tp-CQq" id="ncY-KI-zms"/>
@@ -631,8 +675,9 @@
                         <outlet property="hideKeyboardTapGestureRecognizer" destination="sBX-Qh-Z8I" id="Tjx-oo-4yT"/>
                         <outlet property="messagePlaceholder" destination="TME-xV-Hyt" id="kUH-I5-L9s"/>
                         <outlet property="messageTextView" destination="BD7-Ro-e7a" id="a7l-1E-obh"/>
-                        <outlet property="showLockScreenUILabel" destination="jNe-lN-oaK" id="X6p-Er-acg"/>
-                        <outlet property="showLockScreenUISwitch" destination="EUu-Ve-rzD" id="O45-Vw-v1Z"/>
+                        <outlet property="showWidgetPreviewGroup" destination="Vfe-kh-mxe" id="gcY-79-VxV"/>
+                        <outlet property="showWidgetPreviewLabel" destination="jNe-lN-oaK" id="elW-7u-Jlu"/>
+                        <outlet property="showWidgetPreviewSwitch" destination="EUu-Ve-rzD" id="cSE-x3-T9t"/>
                         <outlet property="textColorLabel" destination="TcI-Pa-OYs" id="gcm-9O-4pn"/>
                         <outlet property="textColorSwatchView" destination="9j0-pa-deP" id="tmk-ug-cfZ"/>
                         <outlet property="textColorTapGestureRecognizer" destination="HH3-hc-2hx" id="4Nv-dI-loQ"/>
@@ -710,6 +755,7 @@
                             <outlet property="delegate" destination="F4h-7y-sTj" id="qvg-HF-EuV"/>
                         </connections>
                     </tableView>
+                    <navigationItem key="navigationItem" id="iQk-fh-Qho"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3ah-EI-0FC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -860,7 +906,25 @@
             </objects>
             <point key="canvasLocation" x="2321" y="-543"/>
         </scene>
+        <!--View Controller-->
+        <scene sceneID="o7h-jg-oeC">
+            <objects>
+                <viewController id="o2a-E1-ecO" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="uyi-zN-6Gd">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="3cT-jj-t9k"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="jRu-PE-aOA" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="970" y="-1019"/>
+        </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="UuO-bT-icS"/>
+    </inferredMetricsTieBreakers>
     <resources>
         <image name="A-Bold" width="24" height="24"/>
         <image name="A-BoldItalic" width="24" height="24"/>

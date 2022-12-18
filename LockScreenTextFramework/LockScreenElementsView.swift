@@ -28,6 +28,12 @@ class LockScreenElementsView: UIView {
     @IBOutlet private var footerImageLeadingToCentreXConstraint: NSLayoutConstraint!
     @IBOutlet private var footerImageCentreXToTrailingConstraint: NSLayoutConstraint!
 
+    @IBOutlet private var widgetContainerView: UIView!
+    @IBOutlet private var widgetViewLeftConstraint: NSLayoutConstraint!
+    @IBOutlet private var widgetViewTopConstraint: NSLayoutConstraint!
+    @IBOutlet private var widgetWidthConstraint: NSLayoutConstraint!
+    @IBOutlet private var widgetHeightConstraint: NSLayoutConstraint!
+
     let logic = LockScreenElements.create()
     var timer: Timer?
 
@@ -36,6 +42,13 @@ class LockScreenElementsView: UIView {
     let footerImageBackgroundGrey: CGFloat = 0.25 // dark grey
     let footerImageForegroundAlpha: CGFloat = 1
     let footerImageBackgroundAlpha: CGFloat = 0.75
+
+    // Special case: this subview can show/hide by user setting
+    var showWidgetPreview: Bool = true {
+        didSet {
+            configureWidgetPreview()
+        }
+    }
 
     deinit {
         self.timer?.invalidate()
@@ -82,6 +95,8 @@ class LockScreenElementsView: UIView {
             RunLoop.current.add(timer, forMode: .common)
             self.timer = timer
         }
+
+        configureWidgetPreview()
     }
 
     // Write values into the date and time fields
@@ -117,6 +132,22 @@ class LockScreenElementsView: UIView {
         let logic = LockScreenElements.create()
 
         self.footerLabelBaselineConstraint.constant = logic.footerBaseline
+    }
+
+    func configureWidgetPreview() {
+        // Widget view only shows on iOS 16+ phones
+        if self.logic.hasWidget && showWidgetPreview {
+            self.widgetContainerView.isHidden = false
+
+            let widgetRect = self.logic.widgetRect
+
+            self.widgetWidthConstraint.constant = widgetRect.width
+            self.widgetHeightConstraint.constant = widgetRect.height
+            self.widgetViewLeftConstraint.constant = widgetRect.minX
+            self.widgetViewTopConstraint.constant = widgetRect.minY
+        } else {
+            self.widgetContainerView.isHidden = true
+        }
     }
 
     // MARK: Private

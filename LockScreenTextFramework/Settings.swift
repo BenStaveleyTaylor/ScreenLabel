@@ -85,7 +85,8 @@ public struct Settings: Codable {
     // Change history:
     // v1: Initial release
     // v2: Add showLockScreenUI
-    static let currentVersion: Int = 2
+    // v3: Add showWidgetPreview
+    static let currentVersion: Int = 3
 
     var version: Int
 
@@ -119,6 +120,9 @@ public struct Settings: Codable {
     // Show the simulation of the lock screen UI
     var showLockScreenUI: Bool
 
+    // Show lock screen widget preview
+    var showWidgetPreview: Bool
+
     // Currently everything
     private enum CodingKeys: String, CodingKey {
         case version
@@ -138,6 +142,7 @@ public struct Settings: Codable {
         case boxInsets
         case boxYCentreOffset
         case showLockScreenUI
+        case showWidgetPreview
     }
 
     // Set up defaults
@@ -173,7 +178,8 @@ public struct Settings: Codable {
                   boxCornerRadius: 6,
                   boxInsets: UIEdgeInsets(top: 12, left: 12, bottom: 12, right: 12),
                   boxYCentreOffset: 0,
-                  showLockScreenUI: true)
+                  showLockScreenUI: true,
+                  showWidgetPreview: true)
     }
 
     // All-properties initialiser
@@ -193,7 +199,8 @@ public struct Settings: Codable {
          boxCornerRadius: CGFloat,
          boxInsets: UIEdgeInsets,
          boxYCentreOffset: CGFloat,
-         showLockScreenUI: Bool) {
+         showLockScreenUI: Bool,
+         showWidgetPreview: Bool) {
 
         self.version =                  version
         self.imageName =                imageName
@@ -212,6 +219,7 @@ public struct Settings: Codable {
         self.boxInsets =                boxInsets
         self.boxYCentreOffset =         boxYCentreOffset
         self.showLockScreenUI =         showLockScreenUI
+        self.showWidgetPreview =        showWidgetPreview
     }
 
     // We have to implement encode and decode because we have some non-codable properties
@@ -249,6 +257,10 @@ public struct Settings: Codable {
         // Introduced in v2.0:
         let showLockScreenUI =      try? container.decode(Bool.self, forKey: .showLockScreenUI)
 
+        // Introduced in v3.0:
+        let showWidgetPreview =     try? container.decode(Bool.self, forKey: .showWidgetPreview)
+
+
         // If any individual setting was missing, use the default value
         self.init(version: version                              ?? Settings.defaults.version,
                   imageName: imageName,                         // nil is ok
@@ -266,7 +278,8 @@ public struct Settings: Codable {
                   boxCornerRadius: boxCornerRadius              ?? Settings.defaults.boxCornerRadius,
                   boxInsets: boxInsets                          ?? Settings.defaults.boxInsets,
                   boxYCentreOffset: boxYCentreOffset            ?? Settings.defaults.boxYCentreOffset,
-                  showLockScreenUI: showLockScreenUI            ?? Settings.defaults.showLockScreenUI)
+                  showLockScreenUI: showLockScreenUI            ?? Settings.defaults.showLockScreenUI,
+                  showWidgetPreview: showWidgetPreview          ?? Settings.defaults.showWidgetPreview)
     }
 
     public func encode(to encoder: Encoder) throws {
@@ -289,6 +302,7 @@ public struct Settings: Codable {
         try container.encode(CodableEdgeInsets(uiEdgeInsets: self.boxInsets), forKey: .boxInsets)
         try container.encode(self.boxYCentreOffset, forKey: .boxYCentreOffset)
         try container.encode(self.showLockScreenUI, forKey: .showLockScreenUI)
+        try container.encode(self.showWidgetPreview, forKey: .showWidgetPreview)
     }
 
 public func writeToUserDefaults(_ defaults: UserDefaults) throws {
@@ -312,7 +326,8 @@ extension Settings {
 
     // Version history:
     // 1: - Initial release
-    // 2: - Added showLockScreenUI;
+    // 2: - Added showLockScreenUI
+    // 3: - Added showWidgetPreview
     //    - Renamed Perspective Mode as Automatic Margins and turn it on for all users when upgrading.
 
     func updatedToCurrentVersion() -> Settings {
@@ -327,6 +342,11 @@ extension Settings {
         if updatedSettings.version == 1 {
             // Ignore saved value for bleedStyle and turn it to auto/perspective when upgrading
             updatedSettings.imageBleedStyle = .perspective
+        }
+
+        if updatedSettings.version == 2 {
+            // showLockScreenUI is ignored and is always on now.
+            updatedSettings.showLockScreenUI = true
         }
 
         updatedSettings.version = Settings.currentVersion

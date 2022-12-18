@@ -217,6 +217,84 @@ public struct LockScreenElementsIos16: LockScreenElementsProtocol {
         return offset
     }
 
+    // Does this UI show a lock screen widget? Not on iPads
+    public var hasWidget: Bool {
+       return !isPad
+    }
+
+    // The lock screen widget rectangle
+    // Actual measured size available for text. The figures at:
+    // https://developer.apple.com/design/human-interface-guidelines/components/system-experiences/widgets/
+    // include an unspecified border
+    public var widgetRect: CGRect {
+
+        precondition(!isPad, "iPad does not support lock screen widgets")
+
+        let size: CGSize
+        let relPos: CGPoint
+
+        switch self.screenPortraitWidth {
+        case 0...359:
+            // Very old: SE 1st gen, should never happen but a guess just in case
+            size = CGSize(width: 135, height: 50)
+            relPos = CGPoint(x: 25, y: 25)
+
+        case 360...374:
+            // iPhone 13 Mini
+            size = CGSize(width: 143, height: 58)
+            relPos = CGPoint(x: 30, y: 28)
+
+        case 375...389:
+            if self.screenPortraitHeight > 667 {
+                // iPhone Xs
+                size = CGSize(width: 143, height: 58)
+                relPos = CGPoint(x: 31, y: 29)
+            } else {
+                // iPhone SE 3rd gen
+                size = CGSize(width: 141, height: 56)
+                relPos = CGPoint(x: 32, y: 24)
+            }
+
+        case 390...392:
+            // iPhone 14
+            size = CGSize(width: 146, height: 58)
+            relPos = CGPoint(x: 34, y: 29)
+
+        case 393...413:
+            // iPhone 14 Pro
+            size = CGSize(width: 146, height: 58)
+            relPos = CGPoint(x: 36, y: 29)
+
+        case 414...427:
+            if self.screenPortraitHeight > 736 {
+                // iPhone 11 Pro Max
+                size = CGSize(width: 156.5, height: 63.75)
+                relPos = CGPoint(x: 36, y: 29)
+            } else {
+                // iPhone 8 Plus
+                size = CGSize(width: 154, height: 60)
+                relPos = CGPoint(x: 36, y: 29)
+            }
+
+        case 428...429:
+            // iPhone 14 Plus
+            size = CGSize(width: 156, height: 60)
+            relPos = CGPoint(x: 40, y: 29)
+
+        default:
+            // iPhone 14 Pro Max
+            // Anything bigger...
+            size = CGSize(width: 157, height: 60.5)
+            relPos = CGPoint(x: 40, y: 29)
+        }
+
+        // relPos has a vertical offset from the time baseline
+        let absPos = CGPoint(x: relPos.x, y: self.timeBaseline+relPos.y)
+        let rect = CGRect(origin: absPos, size: size)
+
+        return rect
+    }
+
     // MARK: Private
 
     // Avoid portrait/landscape issues -- get the dimension for Portrait mode

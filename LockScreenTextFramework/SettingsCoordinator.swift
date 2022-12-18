@@ -36,6 +36,7 @@ struct SettingItems: OptionSet {
     static let boxYCentreOffset     = SettingItems(rawValue: 1 << 11)   // 2048
     static let image                = SettingItems(rawValue: 1 << 12)   // 4096
     static let showLockScreenUI     = SettingItems(rawValue: 1 << 13)   // 8192
+    static let showWidgetPreview    = SettingItems(rawValue: 1 << 14)   // 16384
 
     // Cop-out with all bits set if we can't be sure what specifically changed
     static let all: SettingItems = [
@@ -52,7 +53,8 @@ struct SettingItems: OptionSet {
         .boxCornerRadius,
         .boxYCentreOffset,
         .image,
-        .showLockScreenUI
+        .showLockScreenUI,
+        .showWidgetPreview
     ]
 }
 
@@ -72,6 +74,7 @@ protocol SettingsCoordinatorProtocol {
     var boxCornerRadius: CGFloat { get set }
     var boxYCentreOffset: CGFloat { get set }
     var showLockScreenUI: Bool { get set }
+    var showWidgetPreview: Bool { get set }
 
     // Store an image as the current working selection
     // This will be nil if a plain background colour is selected
@@ -325,6 +328,16 @@ extension SettingsCoordinator: SettingsCoordinatorProtocol {
         set {
             self.settings.showLockScreenUI = newValue
             self.settingsDidChange([.showLockScreenUI])
+        }
+    }
+
+    var showWidgetPreview: Bool {
+        get {
+            return self.settings.showWidgetPreview
+        }
+        set {
+            self.settings.showWidgetPreview = newValue
+            self.settingsDidChange([.showWidgetPreview])
         }
     }
 

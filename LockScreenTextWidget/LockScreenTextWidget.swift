@@ -8,6 +8,7 @@
 
 import WidgetKit
 import SwiftUI
+import os.log
 import LockScreenTextExtensionFramework
 
 struct Provider: TimelineProvider {
@@ -65,14 +66,16 @@ struct LockScreenTextWidgetEntryView: View {
     var entry: Provider.Entry
     
     var body: some View {
-        (
-            Text(Image(decorative: "TextAppIcon")) + Text(" \(entry.message)")
-        )
-        .font(.body)
-        .fontWeight(.medium)
-        .allowsTightening(true)
-        .minimumScaleFactor(2.0/3.0)
-        .widgetURL(LSConstants.editSettingsNavUrl)
+
+        // Useful for debugging what the size the OS really gives us:
+//        GeometryReader { geo in
+//            Text("width=\(geo.size.width); height=\(geo.size.height)")
+//                .frame(maxWidth: .infinity, maxHeight: .infinity)
+//                .border(.black, width: 1.0)
+//        }
+
+        LockScreenWidgetContent(message: entry.message)
+            .widgetURL(LSConstants.editSettingsNavUrl)
     }
 }
 

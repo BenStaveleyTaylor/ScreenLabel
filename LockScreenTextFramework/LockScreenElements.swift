@@ -34,6 +34,10 @@ protocol LockScreenElementsProtocol {
     var footerImageWidth: CGFloat { get }
     var footerCentreYToBottomEdge: CGFloat { get }
     var footerImageEdgeToCentreXInset: CGFloat { get }
+
+    // iOS 16+ only; phone only
+    var hasWidget: Bool { get }
+    var widgetRect: CGRect { get }
 }
 
 enum LockScreenElements {

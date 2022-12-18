@@ -11,9 +11,11 @@ import Foundation
 enum FeatureFlags {
 
     // Widget is iOS 16+ feature
-    static var widgetEnabled: Bool {
+    static var widgetAvailable: Bool {
         if #available(iOS 16, *) {
-            return true
+            // Only on iPhone, not iPad
+            let device = UIDevice.current
+            return device.userInterfaceIdiom == .phone
         } else {
             return false
         }
