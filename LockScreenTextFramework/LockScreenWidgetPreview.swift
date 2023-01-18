@@ -14,13 +14,11 @@ struct LockScreenWidgetPreview: View {
     var message: String
 
     // In the real LockScreen widget rendition, text is always
-    // white on a transparent background. The font size is not
-    // clear. 15 is my best guess.
+    // white on a transparent background. 
     var body: some View {
         LockScreenWidgetContent(message: message)
             .foregroundColor(.white)
             .background(.clear)
-            .font(.system(size: 15))
             .onTapGesture {
                 os_log("widget tapped")
             }

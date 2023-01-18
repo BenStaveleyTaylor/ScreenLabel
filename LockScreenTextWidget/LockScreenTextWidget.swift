@@ -66,14 +66,6 @@ struct LockScreenTextWidgetEntryView: View {
     var entry: Provider.Entry
     
     var body: some View {
-
-        // Useful for debugging what the size the OS really gives us:
-//        GeometryReader { geo in
-//            Text("width=\(geo.size.width); height=\(geo.size.height)")
-//                .frame(maxWidth: .infinity, maxHeight: .infinity)
-//                .border(.black, width: 1.0)
-//        }
-
         LockScreenWidgetContent(message: entry.message)
             .widgetURL(LSConstants.editSettingsNavUrl)
     }

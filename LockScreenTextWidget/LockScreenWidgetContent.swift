@@ -11,13 +11,22 @@ import SwiftUI
 @available(iOS 16, *)
 struct LockScreenWidgetContent: View {
     var message: String
-    
+
     var body: some View {
+
+        // Useful for debugging what the size the OS really gives us:
+//        GeometryReader { geo in
+//            Text("width=\(geo.size.width); height=\(geo.size.height)")
+//                .frame(maxWidth: .infinity, maxHeight: .infinity)
+//                .border(.black, width: 1.0)
+//        }
+
+        // The font size is not clear. 15 is my best guess.
         (
             Text(Image(decorative: "TextAppIcon")) + Text(message)
         )
         .frame(maxWidth: .infinity, maxHeight: .infinity)
-        .fontWeight(.medium)
+        .font(.system(size: 15, weight: .medium))
         .allowsTightening(true)
         .minimumScaleFactor(2.0/3.0)
     }
