@@ -228,7 +228,6 @@
 		6B8A0C6F22629D110006CD56 /* DialogNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DialogNavigationController.swift; sourceTree = "<group>"; };
 		6B8D6E19290EEA180049224A /* LockScreenTextExtensionFramework.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LockScreenTextExtensionFramework.h; sourceTree = "<group>"; };
 		6B8D6E51290EEA310049224A /* LockScreenTextExtensionFramework.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = LockScreenTextExtensionFramework.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		6B8D6E52290EEA320049224A /* LockScreenTextFramework copy-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "LockScreenTextFramework copy-Info.plist"; path = "/Users/bestave/Personal/Dev/LockScreenText/git/LockScreenTextFramework copy-Info.plist"; sourceTree = "<absolute>"; };
 		6B8D6E5D290EEDA50049224A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6B9517ED29107E6600B7E8CD /* Defaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Defaults.swift; sourceTree = "<group>"; };
 		6BA186E421988BCC00C9CE76 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -463,7 +462,6 @@
 				6B4398F321A0D8750010D116 /* Supporting Files */,
 				BC21F30E59178E4577F91CF9 /* Pods */,
 				6BB2EBF021920DBA00BCDA34 /* Products */,
-				6B8D6E52290EEA320049224A /* LockScreenTextFramework copy-Info.plist */,
 			);
 			sourceTree = "<group>";
 		};
@@ -1306,7 +1304,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = "LockScreenText/Supporting Files/LockScreenText.entitlements";
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = GK635W8YY4;
 				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = GK635W8YY4;
 				INFOPLIST_FILE = "LockScreenText/Supporting Files/Info.plist";
@@ -1336,7 +1334,7 @@
 				CODE_SIGN_ENTITLEMENTS = "LockScreenText/Supporting Files/LockScreenText.entitlements";
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = GK635W8YY4;
 				INFOPLIST_FILE = "LockScreenText/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1364,19 +1362,19 @@
 				CODE_SIGN_ENTITLEMENTS = LockScreenTextWidget/LockScreenTextWidgetExtension.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = GK635W8YY4;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = LockScreenTextWidget/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = LockScreenTextWidget;
-				INFOPLIST_KEY_NSHumanReadableCopyright = "Copyright © 2022 Ben Staveley-Taylor. All rights reserved.";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "Copyright © 2022-23 Ben Staveley-Taylor. All rights reserved.";
 				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 1.4.1;
+				MARKETING_VERSION = 1.5;
 				PRODUCT_BUNDLE_IDENTIFIER = com.staveleytaylor.ben.LockScreenText.Widgets;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -1396,19 +1394,19 @@
 				CODE_SIGN_ENTITLEMENTS = LockScreenTextWidget/LockScreenTextWidgetExtension.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = GK635W8YY4;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = LockScreenTextWidget/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = LockScreenTextWidget;
-				INFOPLIST_KEY_NSHumanReadableCopyright = "Copyright © 2022 Ben Staveley-Taylor. All rights reserved.";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "Copyright © 2022-23 Ben Staveley-Taylor. All rights reserved.";
 				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 1.4.1;
+				MARKETING_VERSION = 1.5;
 				PRODUCT_BUNDLE_IDENTIFIER = com.staveleytaylor.ben.LockScreenText.LockScreenTextWidget;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
