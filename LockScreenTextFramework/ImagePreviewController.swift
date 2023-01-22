@@ -116,7 +116,7 @@ class ImagePreviewController: UIViewController {
     }
 
     override func viewWillDisappear(_ animated: Bool) {
-        DeepLinkHandler.shared.unregisterLink(LSConstants.editSettingsNavKey)
+        DeepLinkHandler.shared.setLinkEnabled(LSConstants.editSettingsNavKey, enabled: false)
         super.viewWillDisappear(animated)
     }
 
@@ -440,6 +440,15 @@ class ImagePreviewController: UIViewController {
     // Deep nav links, e.g. tapping the lock screen widget
     private func linkHandler(action: String) {
         os_log("Handling %@", action)
+
+        // Only navigate if we are the top controller
+        // i.e not if Info dialog or Settings is active
+        let isDialogOpen = self.presentedViewController != nil
+        let isTopmost = self.navigationController?.topViewController == self
+        if isDialogOpen || !isTopmost {
+            os_log("ViewController not active; ignoring")
+            return
+        }
 
         if action == LSConstants.editSettingsNavKey {
             self.performSegue(withIdentifier: "editTextAttributesSegue", sender: self)
