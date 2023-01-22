@@ -6,25 +6,34 @@
   Copyright © 2018 Ben Staveley-Taylor. All rights reserved.
 */
 
-/* Page numbers will be inserted, e.g. 'How To... (2/5)' */
+/* Page numbers will be inserted automatically, e.g. 'How To... (2/5)' */
 "HelpNavTitleTemplate" = "How To... (%@/%@)";
 
 /* Don't translate @AppName@"; it will be replaced by the application name. '\n' is a new line character (do not translate) */
 "HelpTitle1" = "Label your @DeviceName@ with @AppName@";
+
 "HelpText1"  = "@AppName@ helps you put a tag where it can be seen, even when your @DeviceName@ is locked.\n\nYou might show a phone number to call, or your email address.\n\nIf you lose your @DeviceName@, you stand a better chance of getting it back 🙏.";
 
 "HelpTitle2" = "Use the Lock Screen widget";
+
 "HelpText2"  = "On iOS 16 and later, you can see your contact message in the @AppName@ Lock Screen widget.\n\nTo use the Lock Screen widget, you only need to set the message text – you don’t need to choose a photo and save it.\n\nTo add widgets to your Lock Screen, touch and hold on the Lock Screen background and tap “Customise”.";
 
 "HelpTitle3" = "Choose your background and text";
+
 "HelpText3-iOS12"  = "① To start, import one of your photos. You can scroll and zoom the photo image to get just the part you want.\n\n② Or you can choose a simple background colour instead of a photo.\n\n③ Then edit the text size and colour to make it stand out, or to be unobtrusive.\n\n④ When you’re done, save it back as a new photo. Your original won’t be changed.";
+
 "HelpText3-iOS16"  = "As well as using the Lock Screen widget, you can also create a beautiful custom wallpaper.\n\n① To start, import one of your photos. You can scroll and zoom the photo image to get just the part you want.\n\n② Or you can choose a simple background colour instead of a photo.\n\n③ Then edit the text size and colour to make it stand out, or to be unobtrusive.\n\n④ When you’re done, save it back as a new photo. Your original won’t be changed.";
 
 "HelpTitle4" = "Set your Wallpaper";
+
 "HelpText4-iOS12"  = "① Open the system Settings and choose Wallpaper\n\n② Tap “Choose a New Wallpaper”.\n\n③ Your Photos are shown. Choose “Camera Roll” and the @AppName@ photo should be the most recent photo, at the end of the list.\n\n④ Usually the “Perspective” option looks best, then tap “Set”";
+
 "HelpText4-iOS14"  = "① Open the system Settings and choose Wallpaper\n\n② Tap “Choose a New Wallpaper”.\n\n③ Your Photos are shown. Choose “All Photos” and the @AppName@ photo should be the most recent photo, at the end of the list.\n\n④ Usually the “Perspective” option looks best, then tap “Set”";
+
 "HelpText4-iOS16"  = "① Lock your phone, then touch and hold on the Lock Screen for options\n\n② If you want to use the Lock Screen widget, tap Customise, then ADD WIDGETS\n\n③ Select @AppName@ from the list of available widgets\n\n④ If you want to use a @AppName@ custom wallpaper you saved, tap “+”, choose Photos wallpaper then select your @AppName@ image";
 
 "HelpTitle5" = "Tips";
+
 "HelpText5-iOS12"  = "• Tap the image area to get a full-screen preview.\n\n• Once you have set the Lock Screen, you can delete the saved @AppName@ image from your Camera Roll if you want.\n\n• If you don’t want any background to the label, make the Box Colour clear.\n\n• When placing the image using the iOS Wallpaper Settings, the edges of the image are sometimes trimmed off. You can pinch-zoom the image to see more of it.";
+
 "HelpText5-iOS16"  = "• You don’t need to import and save a photo to use the Lock Screen widget – just set the message text.\n\n• Tap the image area to get a full-screen preview.\n\n• Once you have set the Lock Screen, you can delete the saved @AppName@ image from your Camera Roll if you want.\n\n• If you don’t want any background to the label, make the Box Colour clear.\n\n• When placing the image using the iOS Wallpaper Settings, the edges of the image are sometimes trimmed off. You can pinch-zoom the image to see more of it.";
