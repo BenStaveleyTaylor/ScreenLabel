@@ -44,7 +44,7 @@ class LockScreenElementsView: UIView {
     let footerImageBackgroundAlpha: CGFloat = 0.75
 
     // Special case: this subview can show/hide by user setting
-    var showWidgetPreview: Bool = true {
+    var showWidgetPreview = true {
         didSet {
             configureWidgetPreview()
         }

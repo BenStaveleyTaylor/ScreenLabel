@@ -214,7 +214,7 @@ public struct LockScreenElementsPreIos16: LockScreenElementsProtocol {
     }
 
     // Does this UI show a lock screen widget?
-    var hasWidget: Bool = false
+    var hasWidget = false
 
     public var widgetRect: CGRect {
         fatalError("This method is not implemented prior to iOS 16")

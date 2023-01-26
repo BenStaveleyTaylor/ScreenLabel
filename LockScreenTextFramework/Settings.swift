@@ -260,7 +260,6 @@ public struct Settings: Codable {
         // Introduced in v3.0:
         let showWidgetPreview =     try? container.decode(Bool.self, forKey: .showWidgetPreview)
 
-
         // If any individual setting was missing, use the default value
         self.init(version: version                              ?? Settings.defaults.version,
                   imageName: imageName,                         // nil is ok
