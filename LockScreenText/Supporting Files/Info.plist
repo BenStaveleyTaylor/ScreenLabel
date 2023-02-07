@@ -22,6 +22,8 @@
 	<false/>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
+	<key>LSHasLocalizedDisplayName</key>
+	<true/>
 	<key>NSPhotoLibraryAddUsageDescription</key>
 	<string>To save new backgrounds you create</string>
 	<key>NSPhotoLibraryUsageDescription</key>

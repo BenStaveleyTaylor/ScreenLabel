@@ -1,0 +1,39 @@
+/* 
+  Help.strings
+  LockScreenText
+
+  Created by Ben Staveley-Taylor on 31/12/2018.
+  Copyright © 2018 Ben Staveley-Taylor. All rights reserved.
+*/
+
+/* Page numbers will be inserted automatically, e.g. 'How To... (2/5)' */
+"HelpNavTitleTemplate" = "Como... (%@/%@)";
+
+/* Don't translate @AppName@"; it will be replaced by the application name. '\n' is a new line character (do not translate) */
+"HelpTitle1" = "Etiqueta tu @DeviceName@";
+
+"HelpText1"  = "@AppName@ ayuda a poner una etiqueta donde pueda ser visto, incluso cuando tu @DeviceName@ está bloqueado.\n\nYTu puedes mostrar un numero de teléfono para llamar o tu correo electrónico.\n\nSi tu pierdes tu @DeviceName@, tienes mayores oportunidades de que lo recuperes 🙏.";
+
+"HelpTitle2" = "Usa la widget de bloqueo de pantalla";
+
+"HelpText2"  = "En los iOS 16 y versiones posteriores, puedes ver tu mensaje de contacto en la @AppName@ widget bloqueo de pantalla.\n\nPara usar la widget bloqueo de pantalla, solo necesitas configurar el mensaje de texto – no necesitas escoger una foto y guardarlo.\n\nPara añadir widgets a tu pantalla bloqueada, tocar y mantener presionado el fondo de la pantalla de bloqueo y toque “Personalizar”.";
+
+"HelpTitle3" = "Elegir tu fondo y texto";
+
+"HelpText3-iOS12"  = "① Para empezar, a importar una de tus fotos. Puedes desplazarte y hacer zoom a la imagen de la foto para conseguir solo la parte que quieres.\n\n② O puedes escoger un fondo de color simple, en lugar de una foto.\n\n③ Luego editar el tamaño de texto y color para que se destaque, o hacerlo discreto.\n\n④ Cuando hayas terminado, guardarlo como una fotografía nueva. Tu foto original no será cambiada.";
+
+"HelpText3-iOS16"  = "Así como se usa la widget de bloqueo de pantalla, también puedes crear un bello fondo de pantalla personalizado.\n\n① Para empezar importa una de sus fotos. Puedes desplazar y agrandar solo una parte de la imagen que quieres.\n\n② OO puedes escoger un fondo de color simple en lugar de una foto.\n\n③ Luego editar el tamaño de texto y color para que se destaque, o hacerlo discreto.\n\n④ Cuando hayas terminado, guardarlo como una fotografía nueva. Tu foto original no será cambiada.";
+
+"HelpTitle4" = "Establece tu fondo de pantalla";
+
+"HelpText4-iOS12"  = "① Abrir la configuración del sistema y elegir fondo de pantalla.\n\n② oque “Elegir un nuevo fondo de pantalla”.\n\n③ Se muestran tus fotos. Elegir “Rollo de la cámara” y la @AppName@ la foto debe ser la más reciente de la lista.\n\n④ Usually the “Perspective” option looks best, then tap “Set”";
+
+"HelpText4-iOS14"  = "① Abrir la configuración del sistema y elegir fondo de pantalla\n\n② Toque “Elegir un nuevo fondo de pantalla”.\n\n③ Se muestran tus fotos. Elegir “Todas las Fotos” y la @AppName@ la foto debe ser la más reciente de la lista.\n\n④ Usualmente la opción “Perspectiva” es la mejor, luego toque “Establecer”";
+
+"HelpText4-iOS16"  = "① Bloquea t u teléfono, luego tocar y presionar en la pantalla bloqueada para ver las opciones.\n\n② Si quieres usar la microaplicación de Pantalla Bloqueada, tocar personalizar, luego AÑADIR WIDGETS\n\n③ Seleccionar @AppName@  de la lista de widgets disponibles\n\n④ Si quieres usar un @AppName@ cfondo de pantalla personalizado que has guardado, tocar “+”, elige el fondo de Pantalla de tus fotos y luego selecciona tu @AppName@ imagen";
+
+"HelpTitle5" = "Consejos";
+
+"HelpText5-iOS12"  = "• Toca el área de la imagen para obtener una vista previa de la pantalla completa.\n\n• Una vez que hayas configurado la pantalla de bloqueo, puedes eliminar la imagen guardada @AppName@ de tu galería de imágenes si lo deseas.\n\n• Si no quieres ningún fondo para la etiqueta, aclarar el color del cuadro.\n\n• Al colocar la imagen dando la configuración de fondo de pantalla de iOS los bordes de la imagen a veces se recortan. Puedes agrandar la imagen para ver más de ella.";
+
+"HelpText5-iOS16"  = "• No es necesario que importes y guardes una foto para usar la microaplicacion de bloqueo de pantalla, solo configura el texto del mensaje.\n\n• Toca el área de la imagen para obtener una vista previa de la pantalla completa.\n\n• Una vez que hayas configurado en la pantalla de bloqueo, puedes eliminar la imagen @AppName@ guardada de Galería de fotos si lo deseas.\n\n• Si no desea ningún fondo para la etiqueta, aclare el Color del cuadro.\n\n• Cuando colocas la imagen usando la configuración de fondo de pantalla de iOS, los bordes de la imagen a veces se recortan. Puedes agrandar la imagen para ver más de ella.";

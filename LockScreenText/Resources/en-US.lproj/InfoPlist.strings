@@ -9,3 +9,6 @@
 "NSPhotoLibraryUsageDescription" = "To import photos and save new backgrounds you create";
 
 "NSPhotoLibraryAddUsageDescription" = "To save new backgrounds you create";
+
+"CFBundleName" = "Screen Label";
+"CFBundleDisplayName" = "Screen Label";

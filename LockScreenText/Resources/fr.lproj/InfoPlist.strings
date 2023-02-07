@@ -9,3 +9,6 @@
 "NSPhotoLibraryUsageDescription" = "Pour télécharger des images et sauvegarder les fonds d’écran que vous avez crées";
 
 "NSPhotoLibraryAddUsageDescription" = "Pour sauvegarder des nouveaux fonds d’écran crées";
+
+"CFBundleName" = "Screen Label";
+"CFBundleDisplayName" = "Screen Label";

@@ -1,0 +1,136 @@
+/* 
+  Localizable.strings
+  LockScreenText
+
+  Created by Ben Staveley-Taylor on 06/11/2018.
+  Copyright © 2018 Ben Staveley-Taylor. All rights reserved.
+*/
+
+/* The main name of the app. This is inserted into other strings later when you see '@AppName@' */
+"AppName" = "Etiqueta de Pantalla";
+
+"AboutTitle" = "Acerca de";
+
+"HelpButtonText" = "Ayuda";
+
+/* '\n' is a end-of-line character. Leave it in place in the translation. */
+"MessagePromptText" = "Presione esta etiqueta para cambiarlo\nLlévelo hacia arriba o hacia abajo\n\nMás ayuda en la barra de titulo";
+
+"MessagePlaceholderText" = "Mensaje de contacto. Por ejemplo: Si lo encuentra contactar al 987 654 321 o me@example.com";
+
+/* "@AppName@" will be replaced by the application name. Leave it like that in the translation. */
+"WidgetHelpLabel" = "La @AppName@ la micro aplicación Bloqueo de pantalla mostrara este mensaje. No necesitas guardar una imagen de fondo.";
+
+"BleedStyleLabel" = "Márgenes Automáticos";
+
+"BleedStyleHelpText" = "Auto es mejor para las imágenes usadas como iOS bloqueo de pantalla. Apagar para ver mas de la imagen.";
+
+"Done" = "Hecho";
+
+"OpenSettings" = "Abrir configuracion";
+
+"TextAttributesEditorTitle" = "Configuracion de texto";
+
+"MoreWallpaperHelp" = "Mas ayuda";
+
+"FailedAlertTitle" = "Error";
+
+"SavedAlertTitle" = "Guardar en tus fotos";
+
+"HowToSetWallpaperBody-iOS12" = " Abrir configuración>Fondo de pantalla y hacer “Escoger un Nuevo fondo de pantalla”.\n\nTu vas a encontrar tu imagen en todas las fotos.\n\nLa opción “Perspectiva” usualmente trabaja mejor.";
+
+"HowToSetWallpaperBody-iOS16" = "Las imágenes guardadas van a ser las más recientes en Todas las fotos.\n\nAbrir configuración > Fondo de pantalla o presionar y sostener en la pantalla bloqueada para aplicar esta imagen en tu pantalla bloqueada.\n\nEl mensaje de texto que siempre está disponible en la micro aplicación de pantalla bloqueada – Tu no necesitas guardarlo.";
+
+"PhotosReadWriteAccessDenied" = "@AppName@ está bloqueado para acceder a tu galería de fotos. Para arreglar esto Abrir configuración > @AppName@, escoger Fotos y “Leer y escribir” acceder.";
+
+"PhotosAddAccessDenied" = "@AppName@ está bloqueado para guardar en tu galería de fotos. Para arreglar esto abrir Configuración > @AppName@, escoger Fotos, y permite “Solamente agregar fotos” Acceder.";
+
+"OK" = "OK";
+
+"MessageLabel" = "Mensaje";
+
+"TextSizeLabel" = "Tamaño";
+
+"TextFontLabel" = "Fuente";
+
+/* A font size. %@ will be replaced by a number. Example: "12 pts" */
+"TextSizeValue" = "%@ pts";
+
+/* Short phrase used when showing how a font looks. Anything will do; this one contains every English letter. */
+"FontPickerSample" = "Abcdefgh ijklmnopqr stuvwxyz 1234567890";
+
+"SystemFontDisplayName" = "Fuente del sistema";
+
+"BoxColorLabel" = "Color de caja";
+
+"TextColorLabel" = "Color de texto";
+
+"TextStyleLabel" = "Estilo de texto";
+
+"FactorySettings" = "Reiniciar al prederteminado";
+
+"ResetToDefaultsConfirmation" = "Estas seguro que quieres reiniciar la configuración? Esto también eliminara la actual imagen de fond.";
+
+"ResetToDefaultsResetAction" = "Reiniciar";
+
+"Cancel" = "Cancelar";
+
+/* Colour Picker */
+"PickBackgroundColorTitle" = "Establecer el color de la imagen de fondo";
+
+"PickColorTitle" = "Elegir color";
+
+"ColourAfterTitle" = "Nuevo";
+
+"ColourBeforeTitle" = "Antiguo";
+
+"ColourDarkerTitle" = "Oscuro";
+
+"ColourLighterTitle" = "Claro";
+
+"ColourClearerTitle" = "Claro";
+
+"ColourOpaquerTitle" = "Solido";
+
+/* About screen */
+
+/* Example after substitution: 'Version 1.0.1' */
+"VersionTemplate" = "Version %@";
+
+"CopyrightNotice" = "Derechos de autor © Ben Staveley-Taylor, 2019-23. Todos los derechos reservados.";
+
+/* Example after substitution: 'email: bstiosdev@icloud.com' */
+"EmailButtonFormat" = "Correo electronico: %@";
+
+/* Example after substitution: 'Screen Label user email' */
+"EmailSubjectTemplate" = "@AppName@ correo de usuario";
+
+"PrivacyButtonTitle" = "Politicas de privacidad";
+
+/* Apple text at the bottom of the Lock Screen. Translation needs to use Apple's exact wording. */
+"PressHomeToOpen" = "Desliza hacia arriba para abrir";
+
+"ShowLockScreenUILabel" = "Mostrar la hora / posición de la fecha";
+
+/* 'Widget' is Apple's term -- translation needs to use Apple's wording. */
+"ShowWidgetPreviewLabel" = "Mostrar la widget previa";
+
+"MustBeInFullScreenToSaveTitle" = "Guardar esta deshabilitado";
+
+"MustBeInFullScreenToSaveBody" = "@AppName@ debe de estar en modo pantalla completo o la imagen no va a funcionar como una pantalla bloqueada.";
+
+"UnableToReadImage" = "No se puede cargar esta foto. Intente subir otra foto.";
+
+"TranslatorsTitle" = "Traducido por:";
+
+/* Add your name to this list! */
+"TranslatorsList" = "Simon James, Jacqueline Trujillo";
+
+/* Widget */
+"Widget_DisplayName" = "Mensaje de bloqueo de pantalla";
+
+"Widget_Description" = "Mostrar el mensaje que ha sido creado en @AppName@";
+
+"Widget_PlaceholderText" = "Si lo encuentra contactar al 987 654 321 o me@example.com";
+
+"Widget_NoLabelSet" = "Toca para configurar un mensaje usando @AppName@";
