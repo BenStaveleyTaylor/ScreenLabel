@@ -210,6 +210,10 @@
 		6B3EF8CA21DAB78500CA61E9 /* HelpPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpPageViewController.swift; sourceTree = "<group>"; };
 		6B44B15D2281FDD000B6DDC4 /* SizeDebugView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SizeDebugView.swift; sourceTree = "<group>"; };
 		6B4C23AD232ED816002E1250 /* HelpImages.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = HelpImages.xcassets; path = "LockScreenTextFramework/Help System/Resources/HelpImages.xcassets"; sourceTree = SOURCE_ROOT; };
+		6B5FB3D629AFD11300B52A3E /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
+		6B5FB3D729AFD11300B52A3E /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
+		6B5FB3D829AFD11300B52A3E /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Help.strings"; sourceTree = "<group>"; };
+		6B5FB3D929AFD11300B52A3E /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		6B64167421B726D000F6365C /* UIImageView+Pixels.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImageView+Pixels.swift"; sourceTree = "<group>"; };
 		6B658D6F29357707000E6A40 /* LockScreenElementsIos16.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LockScreenElementsIos16.swift; sourceTree = "<group>"; };
 		6B658D7029357707000E6A40 /* LockScreenElementsPreIos16.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LockScreenElementsPreIos16.swift; sourceTree = "<group>"; };
@@ -693,6 +697,7 @@
 				en,
 				fr,
 				es,
+				"zh-Hans",
 			);
 			mainGroup = 6BB2EBE621920DBA00BCDA34;
 			productRefGroup = 6BB2EBF021920DBA00BCDA34 /* Products */;
@@ -958,6 +963,7 @@
 				6BD0FC172263A86700B4EAD4 /* en */,
 				6BB0FD33228C813100933922 /* fr */,
 				6BE7A66C29919B23002B0D0E /* es */,
+				6B5FB3D629AFD11300B52A3E /* zh-Hans */,
 			);
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
@@ -969,6 +975,7 @@
 				6BD0FC1A2263A86700B4EAD4 /* en */,
 				6BB0FD36228C813100933922 /* fr */,
 				6BE7A66F29919B24002B0D0E /* es */,
+				6B5FB3D929AFD11300B52A3E /* zh-Hans */,
 			);
 			name = Localizable.strings;
 			sourceTree = "<group>";
@@ -980,6 +987,7 @@
 				6BD0FC182263A86700B4EAD4 /* en */,
 				6BB0FD34228C813100933922 /* fr */,
 				6BE7A66D29919B24002B0D0E /* es */,
+				6B5FB3D729AFD11300B52A3E /* zh-Hans */,
 			);
 			name = Localizable.strings;
 			sourceTree = "<group>";
@@ -991,6 +999,7 @@
 				6BD0FC192263A86700B4EAD4 /* en */,
 				6BB0FD35228C813100933922 /* fr */,
 				6BE7A66E29919B24002B0D0E /* es */,
+				6B5FB3D829AFD11300B52A3E /* zh-Hans */,
 			);
 			name = Help.strings;
 			sourceTree = "<group>";
@@ -1321,7 +1330,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.5.1;
+				MARKETING_VERSION = 1.5.2;
 				PRODUCT_BUNDLE_IDENTIFIER = com.staveleytaylor.ben.LockScreenText;
 				PRODUCT_NAME = "Screen Label";
 				PROVISIONING_PROFILE_SPECIFIER = "Screen Label Dev";
@@ -1350,7 +1359,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.5.1;
+				MARKETING_VERSION = 1.5.2;
 				PRODUCT_BUNDLE_IDENTIFIER = com.staveleytaylor.ben.LockScreenText;
 				PRODUCT_NAME = "Screen Label";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -1383,7 +1392,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 1.5.1;
+				MARKETING_VERSION = 1.5.2;
 				PRODUCT_BUNDLE_IDENTIFIER = com.staveleytaylor.ben.LockScreenText.Widgets;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -1415,7 +1424,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 1.5.1;
+				MARKETING_VERSION = 1.5.2;
 				PRODUCT_BUNDLE_IDENTIFIER = com.staveleytaylor.ben.LockScreenText.LockScreenTextWidget;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";

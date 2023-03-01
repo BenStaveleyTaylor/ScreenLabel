@@ -1,0 +1,136 @@
+/* 
+  Localizable.strings
+  LockScreenText
+
+  Created by Ben Staveley-Taylor on 06/11/2018.
+  Copyright © 2018 Ben Staveley-Taylor. All rights reserved.
+*/
+
+/* The main name of the app. This is inserted into other strings later when you see '@AppName@' */
+"AppName" = "Screen Label";
+
+"AboutTitle" = "About";
+
+"HelpButtonText" = "Help";
+
+/* '\n' is a end-of-line character. Leave it in place in the translation. */
+"MessagePromptText" = "Tap this label to change it\nDrag it up or down\n\nMore help from the title bar";
+
+"MessagePlaceholderText" = "Contact message. Example: If found contact 01234 567890 or me@example.com";
+
+/* "@AppName@" will be replaced by the application name. Leave it like that in the translation. */
+"WidgetHelpLabel" = "The @AppName@ Lock Screen widget will show this message. You don’t need to save a Wallpaper image.";
+
+"BleedStyleLabel" = "Automatic Margins";
+
+"BleedStyleHelpText" = "Auto is best for images used as iOS Lock Screens. Turn off to see more of the image.";
+
+"Done" = "Done";
+
+"OpenSettings" = "Open Settings";
+
+"TextAttributesEditorTitle" = "Text Settings";
+
+"MoreWallpaperHelp" = "More Help";
+
+"FailedAlertTitle" = "Failed";
+
+"SavedAlertTitle" = "Saved to your Photos";
+
+"HowToSetWallpaperBody-iOS12" = "Open Settings > Wallpaper and do “Choose a New Wallpaper”.\n\nYou will find your image in All Photos.\n\nThe “Perspective” option usually works best.";
+
+"HowToSetWallpaperBody-iOS16" = "The saved image will be the most recent in All Photos.\n\nOpen Settings > Wallpaper or touch and hold on the Lock Screen itself to apply this image to your Lock Screen.\n\nThe message text is always available in the Lock Screen widget – you don’t need to do a Save.";
+
+"PhotosReadWriteAccessDenied" = "@AppName@ is blocked from accessing your Photos library. To fix this, open Settings > @AppName@, choose Photos, and “Read and Write” access.";
+
+"PhotosAddAccessDenied" = "@AppName@ is blocked from saving to your Photos library. To fix this, open Settings > @AppName@, choose Photos, and allow “Add Photos Only” access.";
+
+"OK" = "OK";
+
+"MessageLabel" = "Message";
+
+"TextSizeLabel" = "Text Size";
+
+"TextFontLabel" = "Font";
+
+/* A font size. %@ will be replaced by a number. Example: "12 pts" */
+"TextSizeValue" = "%@ pts";
+
+/* Short phrase used when showing how a font looks. Anything will do; this one contains every English letter. */
+"FontPickerSample" = "Jackdaws love my big sphinx of quartz 1234567890";
+
+"SystemFontDisplayName" = "System Font";
+
+"BoxColorLabel" = "Box Colour";
+
+"TextColorLabel" = "Text Colour";
+
+"TextStyleLabel" = "Text Style";
+
+"FactorySettings" = "Reset to Defaults";
+
+"ResetToDefaultsConfirmation" = "Are you sure you want to reset the settings? This will clear the current background image too.";
+
+"ResetToDefaultsResetAction" = "Reset";
+
+"Cancel" = "Cancel";
+
+/* Colour Picker */
+"PickBackgroundColorTitle" = "Set Background Colour";
+
+"PickColorTitle" = "Choose Colour";
+
+"ColourAfterTitle" = "New";
+
+"ColourBeforeTitle" = "Old";
+
+"ColourDarkerTitle" = "Dark";
+
+"ColourLighterTitle" = "Light";
+
+"ColourClearerTitle" = "Clear";
+
+"ColourOpaquerTitle" = "Solid";
+
+/* About screen */
+
+/* Example after substitution: 'Version 1.0.1' */
+"VersionTemplate" = "Version %@";
+
+"CopyrightNotice" = "Copyright © Ben Staveley-Taylor, 2019-23. All rights reserved.";
+
+/* Example after substitution: 'email: bstiosdev@icloud.com' */
+"EmailButtonFormat" = "email: %@";
+
+/* Example after substitution: 'Screen Label user email' */
+"EmailSubjectTemplate" = "@AppName@ user email";
+
+"PrivacyButtonTitle" = "Privacy Policy";
+
+/* Apple text at the bottom of the Lock Screen. Translation needs to use Apple's exact wording. */
+"PressHomeToOpen" = "Swipe up to open";
+
+"ShowLockScreenUILabel" = "Show Time/Date Position";
+
+/* 'Widget' is Apple's term -- translation needs to use Apple's wording. */
+"ShowWidgetPreviewLabel" = "Show Widget Preview";
+
+"MustBeInFullScreenToSaveTitle" = "Saving is disabled";
+
+"MustBeInFullScreenToSaveBody" = "@AppName@ must be in full screen mode, or the image won’t work as a Lock Screen.";
+
+"UnableToReadImage" = "Unable to load this photo. Try a different one.";
+
+"TranslatorsTitle" = "Translations by:";
+
+/* Add your name to this list! */
+"TranslatorsList" = "Simon James, Jacqueline Trujillo";
+
+/* Widget */
+"Widget_DisplayName" = "Lock Screen Message";
+
+"Widget_Description" = "Show the message that has been set up in @AppName@";
+
+"Widget_PlaceholderText" = "If found contact 01234 567890 or me@example.com";
+
+"Widget_NoLabelSet" = "Tap to set up a message using @AppName@";
