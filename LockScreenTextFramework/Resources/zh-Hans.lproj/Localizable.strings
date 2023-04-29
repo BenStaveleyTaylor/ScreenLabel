@@ -7,37 +7,37 @@
 */
 
 /* The main name of the app. This is inserted into other strings later when you see '@AppName@' */
-"AppName" = "Screen Label";
+"AppName" = "锁屏标签";
 
-"AboutTitle" = "About";
+"AboutTitle" = "关于";
 
-"HelpButtonText" = "Help";
+"HelpButtonText" = "帮助";
 
 /* '\n' is a end-of-line character. Leave it in place in the translation. */
-"MessagePromptText" = "Tap this label to change it\nDrag it up or down\n\nMore help from the title bar";
+"MessagePromptText" = "点击进行编辑\n拖动位置\n\n从标题栏获取更多帮助";
 
-"MessagePlaceholderText" = "Contact message. Example: If found contact 01234 567890 or me@example.com";
+"MessagePlaceholderText" = "联系信息。样例：如果捡到，请打给xxx 或者发邮件给xxx@yyy.com";
 
 /* "@AppName@" will be replaced by the application name. Leave it like that in the translation. */
-"WidgetHelpLabel" = "The @AppName@ Lock Screen widget will show this message. You don’t need to save a Wallpaper image.";
+"WidgetHelpLabel" = "@AppName@ 锁屏后的标注部件将会自动显示这个信息，您不需要把它保存为墙纸。";
 
-"BleedStyleLabel" = "Automatic Margins";
+"BleedStyleLabel" = "自动化边距";
 
-"BleedStyleHelpText" = "Auto is best for images used as iOS Lock Screens. Turn off to see more of the image.";
+"BleedStyleHelpText" = "自动化边距对于iOS锁屏显示是最佳的，您也可以选择不自动化边距来看到更多的图片。";
 
-"Done" = "Done";
+"Done" = "完成";
 
-"OpenSettings" = "Open Settings";
+"OpenSettings" = "打开设置";
 
-"TextAttributesEditorTitle" = "Text Settings";
+"TextAttributesEditorTitle" = "文本设置";
 
-"MoreWallpaperHelp" = "More Help";
+"MoreWallpaperHelp" = "更多帮助";
 
-"FailedAlertTitle" = "Failed";
+"FailedAlertTitle" = "设置失败";
 
-"SavedAlertTitle" = "Saved to your Photos";
+"SavedAlertTitle" = "保存到相";
 
-"HowToSetWallpaperBody-iOS12" = "Open Settings > Wallpaper and do “Choose a New Wallpaper”.\n\nYou will find your image in All Photos.\n\nThe “Perspective” option usually works best.";
+"HowToSetWallpaperBody-iOS12" = "打开设置>墙纸>选择一个新的墙纸\n\n您可以在您的相册找到您保存的图片\n\n您可以通过浏览选项更快的找到您保存的图片";
 
 "HowToSetWallpaperBody-iOS16" = "The saved image will be the most recent in All Photos.\n\nOpen Settings > Wallpaper or touch and hold on the Lock Screen itself to apply this image to your Lock Screen.\n\nThe message text is always available in the Lock Screen widget – you don’t need to do a Save.";
 
@@ -131,6 +131,6 @@
 
 "Widget_Description" = "Show the message that has been set up in @AppName@";
 
-"Widget_PlaceholderText" = "If found contact 01234 567890 or me@example.com";
+"Widget_PlaceholderText" = "如果捡到，请打给xxx 或者发邮件给xxx@yyy.com";
 
 "Widget_NoLabelSet" = "Tap to set up a message using @AppName@";

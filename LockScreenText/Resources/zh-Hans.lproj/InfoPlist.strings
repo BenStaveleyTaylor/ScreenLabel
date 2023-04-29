@@ -12,5 +12,5 @@
 
 "NSPhotoLibraryAddUsageDescription" = "To save new backgrounds you create";
 
-"CFBundleName" = "Screen Label";
-"CFBundleDisplayName" = "Screen Label";
+"CFBundleName" = "锁屏标签";
+"CFBundleDisplayName" = "锁屏标签";
