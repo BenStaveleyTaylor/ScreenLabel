@@ -24,6 +24,7 @@ h1
     font-size: 32px;
     font-weight: bold;
     color: #00AAAA;
+	line-height: 100%;
 }
 
 h2
@@ -31,6 +32,7 @@ h2
     font-size: 22px;
     font-weight: bold;
     color: #00AAAA;
+    line-height: 100%;
 }
 
 h3
@@ -38,6 +40,7 @@ h3
     font-size: 18px;
     font-weight: bold;
     color: #00AAAA;
+    line-height: 100%;
 }
 
 .callout
@@ -45,6 +48,7 @@ h3
     color: #00AAAA;
     font-size: 18px;
     font-weight: bold;
+    line-height: 100%;
 }
 
 .appicon {
