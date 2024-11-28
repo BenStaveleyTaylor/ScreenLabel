@@ -22,7 +22,7 @@ class AboutViewController: UIViewController {
     @IBOutlet private var translatorsLabel: UILabel!
 
     let emailAddress = "bstiosdev@icloud.com"
-    let webSiteAddress = "https://www.staveleytaylor.com"
+    let webSiteAddress = "https://benstaveleytaylor.github.io/ScreenLabel"
     let privacyPolicyPath = "privacy.html"
 
     let productTitle: String
