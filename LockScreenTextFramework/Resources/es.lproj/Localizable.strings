@@ -97,7 +97,7 @@
 /* Example after substitution: 'Version 1.0.1' */
 "VersionTemplate" = "Version %@";
 
-"CopyrightNotice" = "Derechos de autor © Ben Staveley-Taylor, 2019-24. Todos los derechos reservados.";
+"CopyrightNotice" = "Derechos de autor © Ben Staveley-Taylor, 2019-25. Todos los derechos reservados.";
 
 /* Example after substitution: 'email: bstiosdev@icloud.com' */
 "EmailButtonFormat" = "Correo electronico: %@";
