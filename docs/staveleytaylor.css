@@ -1,0 +1,75 @@
+body 
+{
+    font-family: Calibri, Arial, Sans-Serif;
+    font-size: 15px;
+    color: #DDDDDD;
+    line-height: 140%;
+    background-color: #222222;
+    margin-left: 10px;
+}
+
+a
+{
+    text-decoration: none;
+    color: #00AACC;
+}
+
+a:hover
+{
+    text-decoration: underline;
+}
+
+h1
+{
+    font-size: 32px;
+    font-weight: bold;
+    color: #00AAAA;
+	line-height: 100%;
+}
+
+h2
+{
+    font-size: 22px;
+    font-weight: bold;
+    color: #00AAAA;
+    line-height: 100%;
+}
+
+h3
+{
+    font-size: 18px;
+    font-weight: bold;
+    color: #00AAAA;
+    line-height: 100%;
+}
+
+.callout
+{
+    color: #00AAAA;
+    font-size: 18px;
+    font-weight: bold;
+    line-height: 100%;
+}
+
+.appicon {
+	float: left;
+	height:60px; 
+	width: 60px;
+	margin-right:15px
+}
+
+.footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: #000000;
+  color: white;
+}
+
+.privacylink { 
+  margin-right: 20px;
+  margin-bottom: 10px;
+  float: right;
+}
+
